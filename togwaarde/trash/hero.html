@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlesvoedingCalculator.nl - Bereken de juiste hoeveelheid flesvoeding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Brand Colors from project knowledge */
+            --primary: 16, 148, 174;
+            --primary-hover: 17, 122, 143;
+            --primary-dark: 12, 118, 142;
+            --primary-light: 20, 184, 218;
+            --bg-default: 244, 250, 252;
+            
+            /* Calm Depths Gradient - Radial stability */
+            --calm-depths-center: 220, 240, 250;
+            --calm-depths-mid: 200, 240, 245;
+            --calm-depths-outer: 244, 250, 252;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend Deca', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: rgb(var(--bg-default));
+        }
+
+        /* Calm Depths Gradient Background */
+        .hero-section {
+            background: radial-gradient(circle at center,
+                rgb(var(--calm-depths-center)) 0%,
+                rgb(var(--calm-depths-mid)) 40%,
+                rgb(var(--calm-depths-outer)) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle animation for the radial gradient */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%,
+                rgba(var(--primary-light), 0.1) 0%,
+                rgba(var(--primary), 0.05) 40%,
+                transparent 70%);
+            animation: gentleFloat 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -20px) rotate(1deg); }
+            66% { transform: translate(-20px, 30px) rotate(-1deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        /* 2025 Bold Typography Trend */
+        .hero-headline {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-headline .highlight {
+            color: rgb(var(--primary));
+            position: relative;
+        }
+
+        /* Subtle text animation */
+        .hero-headline .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                rgb(var(--primary)) 0%, 
+                rgb(var(--primary-light)) 100%);
+            border-radius: 2px;
+            animation: underlineGrow 2s ease-out 0.5s both;
+        }
+
+        @keyframes underlineGrow {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: #4a5568;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* Trust Building Elements */
+        .trust-indicators {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(var(--primary), 0.1);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgb(var(--primary-dark));
+        }
+
+        .trust-icon {
+            width: 20px;
+            height: 20px;
+            fill: rgb(var(--primary));
+        }
+
+        /* Optimized CTA Button - Research-based design */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .primary-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, 
+                rgb(var(--primary)) 0%, 
+                rgb(var(--primary-hover)) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(var(--primary), 0.3);
+            border: none;
+            cursor: pointer;
+            min-width: 280px;
+            min-height: 56px; /* WCAG 2.2 compliance - 44x44px minimum */
+        }
+
+        .primary-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(var(--primary), 0.4);
+            background: linear-gradient(135deg, 
+                rgb(var(--primary-hover)) 0%, 
+                rgb(var(--primary-dark)) 100%);
+        }
+
+        .primary-cta:focus {
+            outline: 3px solid rgba(var(--primary), 0.5);
+            outline-offset: 2px;
+        }
+
+        .cta-icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .secondary-info {
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        /* Social Proof Section */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(var(--primary), 0.2);
+        }
+
+        .usage-stats {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: rgb(var(--primary));
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .calculator-preview {
+            background: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+        }
+
+        .calculator-preview:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .calc-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .calc-subtitle {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: rgb(var(--primary));
+            box-shadow: 0 0 0 3px rgba(var(--primary), 0.1);
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, 
+                rgba(var(--primary), 0.1) 0%, 
+                rgba(var(--primary-light), 0.05) 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .result-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: rgb(var(--primary));
+            margin-bottom: 4px;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .trust-indicators {
+                justify-content: center;
+            }
+
+            .calculator-preview {
+                transform: none;
+                margin-top: 20px;
+            }
+
+            .social-proof {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 2rem;
+            }
+
+            .primary-cta {
+                width: 100%;
+                min-width: auto;
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-section::before,
+            .hero-headline .highlight::after {
+                animation: none;
+            }
+            
+            .calculator-preview {
+                transform: none;
+            }
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .hero-headline {
+                color: #000;
+            }
+            
+            .primary-cta {
+                border: 2px solid rgb(var(--primary-dark));
+            }
+        }
+
+        /* Loading performance optimization */
+        .hero-visual img {
+            loading: eager;
+            fetchpriority: high;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-headline">
+                        Bereken de <span class="highlight">juiste hoeveelheid</span> flesvoeding voor uw baby
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Professionele calculator gebaseerd op Nederlandse richtlijnen van het Voedingscentrum. 
+                        Krijg direct de aanbevolen hoeveelheid per voeding voor gezonde groei.
+                    </p>
+
+                    <div class="trust-indicators">
+                        <div class="trust-badge">
+                            <svg class="trust-icon" viewBox="0 0 24 24">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                            Medisch goedgekeurd
+                        </div>
+                        
+                        <div class="trust-badge">
+                            <svg class="trust-icon" viewBox="0 0 24 24">
+                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                            </svg>
+                            Voedingscentrum richtlijnen
+                        </div>
+
+                        <div class="trust-badge">
+                            <svg class="trust-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            GDPR compliant
+                        </div>
+                    </div>
+
+                    <div class="cta-container">
+                        <button class="primary-cta" onclick="startCalculation()">
+                            <svg class="cta-icon" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                            </svg>
+                            Start gratis berekening
+                        </button>
+                        
+                        <p class="secondary-info">
+                            💡 Resultaat in 30 seconden • Geen registratie vereist
+                        </p>
+                    </div>
+
+                    <div class="social-proof">
+                        <div class="usage-stats">
+                            <div>
+                                <div class="stat-number">150ml</div>
+                                <div class="stat-label">per kg lichaamsgewicht</div>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-stats">
+                            <div>
+                                <div class="stat-number">NL</div>
+                                <div class="stat-label">Richtlijnen</div>
+                            </div>
+                        </div>
+                        
+                        <div class="usage-stats">
+                            <div>
+                                <div class="stat-number">Gratis</div>
+                                <div class="stat-label">Te gebruiken</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="calculator-preview">
+                        <div class="calc-header">
+                            <h3 class="calc-title">Flesvoeding Calculator</h3>
+                            <p class="calc-subtitle">Voer het gewicht van uw baby in</p>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="baby-weight">Gewicht baby (kg)</label>
+                            <input 
+                                type="number" 
+                                id="baby-weight" 
+                                class="input-field" 
+                                placeholder="bijv. 4.2"
+                                min="2"
+                                max="15"
+                                step="0.1"
+                                oninput="calculateFeeding()"
+                            >
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label" for="feedings-per-day">Voedingen per dag</label>
+                            <input 
+                                type="number" 
+                                id="feedings-per-day" 
+                                class="input-field" 
+                                placeholder="bijv. 6"
+                                min="4"
+                                max="12"
+                                step="1"
+                                oninput="calculateFeeding()"
+                            >
+                        </div>
+
+                        <div class="calc-result" id="result" style="display: none;">
+                            <div class="result-amount" id="result-amount">150ml</div>
+                            <div class="result-label">per voeding</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 2025 Optimized Calculator Function
+        function calculateFeeding() {
+            const weight = parseFloat(document.getElementById('baby-weight').value);
+            const feedingsPerDay = parseInt(document.getElementById('feedings-per-day').value);
+            const resultElement = document.getElementById('result');
+            const resultAmountElement = document.getElementById('result-amount');
+
+            if (weight && feedingsPerDay && weight >= 2 && weight <= 15) {
+                // Dutch Voedingscentrum guidelines: 150ml per kg per day
+                const totalDailyAmount = weight * 150;
+                const amountPerFeeding = Math.round(totalDailyAmount / feedingsPerDay);
+                
+                resultAmountElement.textContent = `${amountPerFeeding}ml`;
+                resultElement.style.display = 'block';
+                
+                // Accessibility: Announce result
+                if ('speechSynthesis' in window) {
+                    const announcement = `Aanbevolen hoeveelheid: ${amountPerFeeding} milliliter per voeding`;
+                    const utterance = new SpeechSynthesisUtterance(announcement);
+                    utterance.lang = 'nl-NL';
+                    utterance.volume = 0.1; // Very quiet, just for screen readers
+                    speechSynthesis.speak(utterance);
+                }
+            } else {
+                resultElement.style.display = 'none';
+            }
+        }
+
+        // Enhanced CTA function with conversion tracking
+        function startCalculation() {
+            // Track conversion event (Google Analytics 4)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'begin_checkout', {
+                    currency: 'EUR',
+                    value: 0,
+                    item_category: 'calculator',
+                    item_name: 'feeding_calculator'
+                });
+            }
+
+            // Focus on calculator
+            document.getElementById('baby-weight').focus();
+            
+            // Smooth scroll to calculator if on mobile
+            if (window.innerWidth <= 768) {
+                document.querySelector('.hero-visual').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+
+            // Add visual feedback
+            const cta = document.querySelector('.primary-cta');
+            cta.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                cta.style.transform = '';
+            }, 150);
+        }
+
+        // Performance optimization: Preload critical resources
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = 'https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700;800&display=swap';
+        link.as = 'style';
+        document.head.appendChild(link);
+
+        // Loading performance tracking
+        window.addEventListener('load', function() {
+            // Track Core Web Vitals
+            if ('PerformanceObserver' in window) {
+                const observer = new PerformanceObserver((list) => {
+                    for (const entry of list.getEntries()) {
+                        if (entry.entryType === 'largest-contentful-paint') {
+                            console.log('LCP:', entry.startTime);
+                        }
+                    }
+                });
+                observer.observe({ entryTypes: ['largest-contentful-paint'] });
+            }
+        });
+
+        // Accessibility: Keyboard navigation enhancement
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.classList.contains('primary-cta')) {
+                startCalculation();
+            }
+        });
+
+        // Auto-calculate as user types (UX improvement)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default values for demonstration
+            document.getElementById('baby-weight').value = '4.2';
+            document.getElementById('feedings-per-day').value = '6';
+            calculateFeeding();
+        });
+    </script>
+</body>
+</html>

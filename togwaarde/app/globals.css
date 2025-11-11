@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 51, 51, 51;
+  --background-start-rgb: 255, 249, 240;
+  --background-end-rgb: 255, 249, 240;
+
+  /* TOG Waarde color variables */
+  --color-primary: #E85D42;
+  --color-primary-hover: #D14A2F;
+  --color-primary-active: #B93D24;
+  --color-background: #FFF9F0;
+  --color-secondary: #B4C4AE;
+  --color-secondary-dark: #8A9D84;
+  --color-accent: #FF6B4A;
+  --color-border: #E8D9C5;
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+
+  /* RGB values for compatibility */
+  --primary: 232, 93, 66;
+  --primary-hover: 209, 74, 47;
+  --primary-dark: 185, 61, 36;
+  --primary-light: 255, 107, 74;
+  --bg-default: 255, 249, 240;
+  --bg-primary: 232, 93, 66;
+  --bg-primary-hover: 209, 74, 47;
+  --text-primary: 232, 93, 66;
+  --border-primary: 232, 216, 197;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  font-family: 'Lexend Deca', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  color: rgb(var(--foreground-rgb));
+  background: white;
+  overflow-x: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Funnel Sans', sans-serif;
+}
+
+/* Custom color utilities */
+.bg-primary {
+  background-color: rgb(var(--primary));
+}
+
+.bg-primary-hover:hover {
+  background-color: rgb(var(--primary-hover));
+}
+
+.bg-primary-dark {
+  background-color: rgb(var(--primary-dark));
+}
+
+.bg-primary-light {
+  background-color: rgb(var(--primary-light));
+}
+
+.bg-default {
+  background-color: rgb(var(--bg-default));
+}
+
+.text-primary {
+  color: rgb(var(--primary));
+}
+
+.text-primary-dark {
+  color: rgb(var(--primary-dark));
+}
+
+.text-primary-light {
+  color: rgb(var(--primary-light));
+}
+
+.border-primary {
+  border-color: rgb(var(--primary));
+}
+
+.border-primary-light {
+  border-color: rgb(var(--primary-light));
+}
+
+.hover\:text-primary:hover {
+  color: rgb(var(--primary));
+}
+
+.hover\:bg-primary:hover {
+  background-color: rgb(var(--primary));
+}
+
+.hover\:bg-primary-hover:hover {
+  background-color: rgb(var(--primary-hover));
+}
+
+.hover\:border-primary:hover {
+  border-color: rgb(var(--primary));
+}
+
+.focus\:ring-primary:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(16 148 174 / 0.2);
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+}
+
+.focus\:border-primary:focus {
+  border-color: rgb(16, 148, 174);
+}
+
+/* Custom border radius - Tailwind default rounded-3xl is 1.5rem, this ensures it's available */
+
+/* Removed conflicting animations that were causing content to disappear */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bg-primary-gradient {
+  background: linear-gradient(135deg, rgb(var(--primary)), rgb(var(--primary-dark)));
+}
+
+
+/* Enhanced mobile input support */
+input, select, textarea {
+  color: rgb(31, 41, 55); /* text-gray-800 */
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgb(107, 114, 128); /* text-gray-500 */
+  opacity: 1; /* Firefox placeholder opacity fix */
+}
+
+/* Android webkit input styling */
+input[type="text"], input[type="number"], input[type="email"], select, textarea {
+  -webkit-appearance: none;
+  -webkit-text-fill-color: rgb(31, 41, 55);
+}
+
+/* Fix webkit placeholder color override */
+input[type="text"]::-webkit-input-placeholder, 
+input[type="number"]::-webkit-input-placeholder, 
+input[type="email"]::-webkit-input-placeholder, 
+textarea::-webkit-input-placeholder {
+  -webkit-text-fill-color: rgb(107, 114, 128); /* text-gray-500 */
+}
+
+/* Select option styling for better mobile support */
+select option {
+  color: rgb(31, 41, 55);
+  background-color: white;
+}
+
+/* Ensure consistent dropdown styling on mobile */
+select {
+  background-image: none;
+}
+
+/* Hero section animations */
+@keyframes gentleFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -20px) rotate(1deg); }
+  66% { transform: translate(-20px, 30px) rotate(-1deg); }
+}
+
+@keyframes subtleFloat1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(100px, -72px); }
+}
+
+@keyframes subtleFloat2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-80px, 100px); }
+}
+
+@keyframes subtleFloat3 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(88px, 60px); }
+}
+
+@keyframes underlineGrow {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero-section .gentle-float,
+  .hero-section .underline-grow {
+    animation: none;
+  }
+
+  /* Disable blur circle animations for reduced motion */
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Override shadow-sm to have no shadow */
+.shadow-sm {
+  box-shadow: none !important;
+}
+
+/* Override border classes to have no border except for inputs */
+.border:not(input):not(select):not(textarea),
+.border-b:not(input):not(select):not(textarea),
+.border-t:not(input):not(select):not(textarea) {
+  border: none !important;
+}
+
+/* Override rounded-2xl to have more radius (equivalent to rounded-3xl) */
+.rounded-2xl {
+  border-radius: 1.5rem !important; /* 24px instead of default 16px */
+}
+
+/* Custom rounded-3xl for even larger radius */
+.rounded-3xl {
+  border-radius: 3rem !important; /* 48px */
+}
+
+/* Custom nav border radius - fully rounded */
+.rounded-nav {
+  border-radius: 9999px;
+}
+
+/* Range slider thumb styling - only change the draggable circle color */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-secondary-dark) !important;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-secondary-dark) !important;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-secondary-dark) !important;
+  cursor: pointer;
+}
+
+/* Custom background for active states - more pastel */
+.bg-gradient-active {
+  background: rgba(200, 240, 245, 0.3);
+}
+
+/* Warning alert border - matches icon color */
+.before\:bg-primary\/80::before {
+  background: rgba(232, 93, 66, 0.8) !important;
+}
+
+/* Main element styling with warm TOG gradient background */
+main {
+  background: radial-gradient(circle at center, rgb(255, 249, 240) 0%, rgb(255, 245, 230) 40%, rgb(254, 243, 230) 100%);
+  width: calc(100% - 48px);
+  max-width: calc(100vw - 48px);
+  margin: 0;
+  position: relative;
+  border-radius: 2rem;
+  overflow: visible;
+  min-height: auto;
+}
+
+main::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle at 30% 30%, rgba(232, 93, 66, 0.08) 0%, rgba(255, 107, 74, 0.04) 40%, transparent 70%);
+  animation: gentleFloat 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* Custom xl:text-5xl styling for large screens */
+@media (min-width: 1280px) {
+  .xl\:text-5xl {
+    font-size: 3rem !important;
+    line-height: 1.15 !important;
+  }
+}

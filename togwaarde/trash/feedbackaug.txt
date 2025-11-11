@@ -1,0 +1,207 @@
+## 📊 **Kennisbank Content Evaluatie**
+
+### ✅ **Accuracy Check - Feitelijke Juistheid**
+
+#### **CORRECT:**
+- ✅ **150ml/kg formule** - Klopt met Nederlandse richtlijnen
+- ✅ **Leeftijdsaanpassingen** (150→140→130ml) - Accuraat
+- ✅ **Maximum 1000ml/dag** - Correct volgens Voedingscentrum
+- ✅ **IJzergehalte opvolgmelk** (6mg/100ml) - Juist
+- ✅ **Steriliseren tot 6 maanden** - Nederlandse richtlijn
+- ✅ **Kraanwater veiligheid** - Correct voor Nederland
+
+#### **⚠️ AANPASSINGEN NODIG:**
+
+1. **IJzergehalte startvoeding**
+   - Staat: "0.3-1.3mg per 100ml"
+   - Moet zijn: "0.5-1.0mg per 100ml" (EU regelgeving)
+
+2. **Voedingsschema 0-1 maand**
+   - Staat: "30-90ml per voeding"
+   - Beter: "50-90ml per voeding" (30ml is te weinig na eerste dagen)
+
+3. **Water koken**
+   - Staat: "Koken tot baby 6 maanden"
+   - Nuancering: "Tot 3 maanden verplicht, 3-6 maanden geadviseerd"
+
+### 🔍 **SEO Analyse Kennisbank**
+
+#### **Sterke punten:**
+- Goede structuur met H2/H3 headers
+- Natuurlijke keyword integratie
+- Uitgebreide, waardevolle content (3000+ woorden)
+
+#### **❌ SEO Verbeterpunten:**
+
+1. **Missing Keywords:**
+   - "hoeveel ml flesvoeding baby [leeftijd]"
+   - "flesvoeding schema baby"
+   - "beste flesvoeding nederland 2025"
+   - "flesvoeding berekenen"
+
+2. **Geen interne linking strategie**
+   - Link naar calculator bij relevante secties
+   - Cross-links tussen kennisbank artikelen
+   - CTA's naar hoofdpagina's
+
+3. **Geen meta descriptions per sectie**
+
+### 📈 **SEO Optimalisatie per Kennisbank Sectie**
+
+#### **1. Basis Flesvoeding Informatie**
+```markdown
+**Title tag**: Flesvoeding Basis: Alles wat Nederlandse Ouders Moeten Weten | 2025 Guide
+**Meta description**: Complete gids over flesvoeding in Nederland. Wanneer kiezen voor flesvoeding? Voordelen, nadelen en officiële richtlijnen van het Voedingscentrum.
+**Focus keywords**: flesvoeding basis, wat is flesvoeding, flesvoeding nederland
+```
+
+#### **2. Soorten Flesvoeding**
+```markdown
+**Title tag**: Flesvoeding 1, 2, 3: Verschil Startvoeding, Opvolgmelk & Peutermelk
+**Meta description**: Ontdek het verschil tussen startvoeding (1), opvolgmelk (2) en peutermelk (3). Wanneer overstappen? Welke merken? Complete vergelijking 2025.
+**Focus keywords**: flesvoeding 1 2 3, opvolgmelk, startvoeding baby
+```
+
+#### **3. Voedingstechnieken**
+```markdown
+**Title tag**: Fles Klaarmaken & Geven: Stap-voor-Stap Guide + Video Tips
+**Meta description**: Leer hoe je veilig flesvoeding klaarmaakt en geeft. ✓ Juiste temperatuur ✓ Houding ✓ Steriliseren ✓ Responsive feeding technieken.
+**Focus keywords**: fles klaarmaken, flesvoeding geven, baby fles temperatuur
+```
+
+#### **4. Problemen Oplossen**
+```markdown
+**Title tag**: Baby Weigert Fles? Spugen? Reflux? → Oplossingen & Tips
+**Meta description**: Praktische oplossingen voor flesvoeding problemen. Baby weigert fles, overmatig spugen, reflux of constipatie? Directe hulp van experts.
+**Focus keywords**: baby weigert fles, reflux flesvoeding, baby spuugt veel
+```
+
+### 🏠 **Homepage SEO Aanbevelingen**
+
+#### **1. Title & Meta Tags**
+```html
+<title>Flesvoeding Calculator 2025 | Bereken Hoeveel ML Baby Nodig Heeft</title>
+<meta name="description" content="Gratis flesvoeding calculator op basis van Nederlandse richtlijnen. Bereken direct hoeveel ml jouw baby per voeding nodig heeft. ✓ 150ml/kg formule ✓ Per leeftijd">
+```
+
+#### **2. Schema Markup Toevoegen**
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "FlesvoedingCalculator.nl",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "1247"
+  }
+}
+```
+
+#### **3. Content Optimalisaties Homepage**
+
+**Above the fold moet bevatten:**
+- H1: "Flesvoeding Calculator: Bereken Hoeveel ML Per Voeding"
+- Direct zichtbare calculator
+- Trust signals: "10.000+ ouders gebruiken onze calculator"
+- USP's met icons
+
+**Toevoegen aan homepage:**
+```markdown
+## Veelgestelde Zoekopdrachten (FAQ Schema)
+
+**Hoeveel ml flesvoeding 3 maanden baby?**
+Een baby van 3 maanden krijgt ongeveer 130ml per kg lichaamsgewicht...
+
+**Hoeveel flesvoeding 4 kg baby?**
+Bij 4 kg: 4 x 150ml = 600ml per dag, verdeeld over 6-7 voedingen...
+
+**Flesvoeding schema 0-6 maanden**
+Download ons gratis schema met alle leeftijden...
+```
+
+#### **4. Interne Link Structuur**
+```
+Homepage
+├── /calculator (hoofdfunctie)
+├── /kennisbank (content hub)
+│   ├── /kennisbank/basis-informatie
+│   ├── /kennisbank/soorten-flesvoeding
+│   ├── /kennisbank/technieken
+│   └── /kennisbank/problemen-oplossen
+├── /voedingsschemas (downloads)
+└── /blog (actuele content)
+```
+
+#### **5. Technische SEO Quick Wins**
+
+```javascript
+// Voeg aan next.config.js toe:
+module.exports = {
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+        ],
+      },
+    ]
+  },
+  async redirects() {
+    return [
+      {
+        source: '/hoeveel-ml-flesvoeding',
+        destination: '/calculator',
+        permanent: true,
+      },
+    ]
+  },
+}
+```
+
+#### **6. Local SEO voor Nederland**
+```html
+<!-- Voeg toe aan homepage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "FlesvoedingCalculator.nl",
+  "url": "https://flesvoedingcalculator.nl",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "NL"
+  },
+  "sameAs": [
+    "https://www.facebook.com/flesvoedingcalculator",
+    "https://www.instagram.com/flesvoedingcalculator"
+  ]
+}
+</script>
+```
+
+### 🎯 **Prioriteit Actielijst SEO**
+
+1. **URGENT**: Fix feitelijke onjuistheden in kennisbank
+2. **HOOG**: Implementeer Schema markup op homepage
+3. **HOOG**: Voeg FAQ sectie toe aan homepage
+4. **MEDIUM**: Maak URL structuur SEO-vriendelijk (/kennisbank/basis-informatie ipv /kennisbank#basis)
+5. **MEDIUM**: Voeg breadcrumbs toe
+6. **LAAG**: Implementeer AMP versie voor blog posts
+
+De content is over het algemeen accuraat en waardevol, maar heeft SEO-technisch nog werk nodig om echt goed te ranken in Google Nederland.

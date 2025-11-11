@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailJS Template - FlesvoedingCalculator.nl</title>
+    <style>
+        /* Email-safe fonts */
+        body { font-family: Arial, Helvetica, sans-serif; }
+    </style>
+</head>
+<body style="margin: 0; padding: 20px; background-color: #f4fafc; font-family: Arial, Helvetica, sans-serif;">
+    
+    <!-- Email Container -->
+    <div style="max-width: 600px; margin: 0 auto; background-color: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        
+        <!-- Header -->
+        <div style="background: linear-gradient(135deg, #109cb0, #0c768e); color: white; padding: 25px; text-align: center;">
+            <h1 style="margin: 0; font-size: 22px; font-weight: 600; margin-bottom: 10px;">FlesvoedingCalculator.nl</h1>
+            <h2 style="margin: 0; font-size: 18px; font-weight: 500;">Nieuw {{message_type}} ontvangen</h2>
+            <p style="margin: 8px 0 0 0; opacity: 0.9; font-size: 14px;">Verzonden op {{timestamp}}</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div style="padding: 25px;">
+            
+            <!-- User Information -->
+            <div style="background-color: #f4fafc; padding: 20px; border-radius: 12px; border-left: 4px solid #109cb0; margin-bottom: 20px;">
+                <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                    <tr>
+                        <td style="vertical-align: top; padding-right: 15px; width: 20px;">
+                            <div style="
+                                width: 4px;
+                                height: 60px;
+                                background-color: #109cb0;
+                                border-radius: 2px;
+                            ">
+                            </div>
+                        </td>
+                        <td style="vertical-align: top;">
+                            <!-- Contact Details -->
+                            <div style="margin-bottom: 15px;">
+                                <div style="color: #109cb0; font-size: 18px; font-weight: 600; margin-bottom: 8px;">
+                                    {{from_name}}
+                                </div>
+                                <div style="color: #6b7280; font-size: 14px; margin-bottom: 4px;">
+                                    Email: {{from_email}}
+                                </div>
+                                <div style="color: #6b7280; font-size: 14px; margin-bottom: 4px;">
+                                    Type: {{message_type}}
+                                </div>
+                                <div style="color: #6b7280; font-size: 14px;">
+                                    Tijdstip: {{timestamp}}
+                                </div>
+                            </div>
+                            
+                            <!-- Subject (if provided) -->
+                            <div style="margin-bottom: 15px;">
+                                <div style="color: #374151; font-weight: 600; font-size: 16px; margin-bottom: 5px;">
+                                    Onderwerp:
+                                </div>
+                                <div style="color: #1f2937; font-size: 15px; background-color: white; padding: 8px 12px; border-radius: 6px; border: 1px solid #e5e7eb;">
+                                    {{subject}}
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- Message Content -->
+            <div style="background-color: white; padding: 20px; border-radius: 12px; border: 2px solid #f4fafc; margin-bottom: 20px;">
+                <div style="color: #374151; font-weight: 600; font-size: 16px; margin-bottom: 12px;">
+                    Bericht:
+                </div>
+                <div style="
+                    font-size: 16px; 
+                    line-height: 1.6; 
+                    color: #1f2937; 
+                    white-space: pre-wrap; 
+                    background-color: #f9fafb; 
+                    padding: 15px; 
+                    border-radius: 8px; 
+                    border-left: 3px solid #109cb0;
+                ">{{message}}</div>
+            </div>
+            
+            <!-- Action Required Section -->
+            <div style="background-color: #fef3c7; padding: 18px; border-radius: 12px; border-left: 4px solid #f59e0b; margin-bottom: 20px;">
+                <div style="color: #92400e; font-size: 14px; font-weight: 500;">
+                    <div style="margin-bottom: 8px;">
+                        <strong>Actie vereist</strong>
+                    </div>
+                    <div>
+                        Reageer zo spoedig mogelijk op deze {{message_type}} van {{from_name}}.
+                        <br>
+                        <strong>Tip:</strong> Antwoord direct op dit e-mailadres: {{from_email}}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="mailto:{{from_email}}?subject=Re: {{subject}}" style="
+                    background-color: #109cb0;
+                    color: white;
+                    padding: 12px 24px;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 14px;
+                    display: inline-block;
+                    margin-right: 10px;
+                ">
+                    Direct Antwoorden
+                </a>
+                <a href="https://flesvoedingcalculator.nl" style="
+                    background-color: #f4fafc;
+                    color: #109cb0;
+                    padding: 12px 24px;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 14px;
+                    display: inline-block;
+                    border: 1px solid #109cb0;
+                ">
+                    Website Bezoeken
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background-color: #f9fafb; padding: 20px; border-top: 1px solid #e5e7eb;">
+            <div style="text-align: center; color: #6b7280; font-size: 12px; line-height: 1.5;">
+                <div style="margin-bottom: 8px;">
+                    <strong style="color: #374151;">Email Details</strong>
+                </div>
+                <div>Verzonden via FlesvoedingCalculator.nl contactformulier</div>
+                <div>Automatisch doorgestuurd naar: {{to_email}}</div>
+                <div>Antwoordadres: {{reply_to}}</div>
+                
+                <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #d1d5db;">
+                    <div style="color: #374151; font-weight: 500; margin-bottom: 5px;">
+                        © 2025 FlesvoedingCalculator.nl
+                    </div>
+                    <div>
+                        Betrouwbare flesvoeding calculator voor Nederlandse ouders
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Email Client Support -->
+    <div style="max-width: 600px; margin: 20px auto 0; text-align: center; color: #9ca3af; font-size: 11px;">
+        Als deze email niet correct wordt weergegeven, bekijk dan de online versie.
+    </div>
+    
+</body>
+</html>

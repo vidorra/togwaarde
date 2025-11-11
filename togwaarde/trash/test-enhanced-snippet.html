@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Enhanced Snippet Creation</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        textarea, input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        textarea { height: 100px; }
+        button { background: #007cba; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #005a8b; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        .result { margin-top: 20px; padding: 15px; border-radius: 4px; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; color: #155724; }
+        .error { background: #f8d7da; border: 1px solid #f5c6cb; color: #721c24; }
+        .code { background: #f8f9fa; padding: 10px; border-radius: 4px; font-family: monospace; white-space: pre-wrap; }
+        .field-info { background: #e2e3e5; padding: 10px; margin: 10px 0; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Test Enhanced Snippet Creation</h1>
+    <p>This tests the new backend that properly separates Bol.com snippet fields according to the AFFILIATE_SYSTEM_FIX_GUIDE.md requirements.</p>
+
+    <form id="snippetForm">
+        <div class="form-group">
+            <label for="input">Bol.com Script (paste the Dr. Brown's example):</label>
+            <textarea id="input" placeholder="<script type='text/javascript'>var bol_sitebar_v2={..."></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Product Name (optional - will auto-extract):</label>
+            <input type="text" id="name" placeholder="Auto-extracted from script">
+        </div>
+        
+        <div class="form-group">
+            <label for="tag">Tag (optional):</label>
+            <input type="text" id="tag" placeholder="e.g., Aanbevolen, Premium">
+        </div>
+        
+        <button type="submit" id="submitBtn">Create Enhanced Snippet</button>
+    </form>
+
+    <div id="result"></div>
+
+    <h2>📋 Dr. Brown's Test Example</h2>
+    <p>Copy this script to test with:</p>
+    <div class="code">&lt;script type="text/javascript"&gt;var bol_sitebar_v2={"id":"bol_1761052302805", "baseUrl":"partner.bol.com","productId":"9300000042840603","familyId":"","siteId":"1472968","target":true,"rating":true,"price":true,"deliveryDescription":true,"button":false,"linkName":"Dr.%20Brown%27s%20stoomsterilisator%20met%20droogfunctie","linkSubId":""};&lt;/script&gt;&lt;script type="text/javascript" src="https://partner.bol.com/promotion/static/js/partnerProductlinkV2.js" id="bol_1761052302805"&gt;&lt;/script&gt;</div>
+
+    <script>
+        document.getElementById('snippetForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const resultDiv = document.getElementById('result');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+            resultDiv.innerHTML = '';
+            
+            try {
+                const formData = {
+                    input: document.getElementById('input').value,
+                    name: document.getElementById('name').value,
+                    tag: document.getElementById('tag').value,
+                    type: 'bol'
+                };
+                
+                console.log('Sending request:', formData);
+                
+                const response = await fetch('/api/admin/create-snippet-enhanced/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                console.log('Response:', data);
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="result success">
+                            <h3>✅ Success!</h3>
+                            <p>${data.message}</p>
+                            
+                            <div class="field-info">
+                                <h4>🔍 Extracted Data:</h4>
+                                <p><strong>Product ID:</strong> ${data.extractedData.productId}</p>
+                                <p><strong>Product Name:</strong> ${data.extractedData.productName}</p>
+                                <p><strong>Image URL:</strong> ${data.extractedData.imageUrl}</p>
+                                <p><strong>Click URL:</strong> ${data.extractedData.clickUrl}</p>
+                            </div>
+                            
+                            <div class="field-info">
+                                <h4>📋 Fields Populated:</h4>
+                                <p><strong>imageHtml:</strong> ${data.extractedData.fieldsPopulated.imageHtml}</p>
+                                <p><strong>bolScript:</strong> ${data.extractedData.fieldsPopulated.bolScript}</p>
+                                <p><strong>fallbackUrl:</strong> ${data.extractedData.fieldsPopulated.fallbackUrl}</p>
+                            </div>
+                            
+                            <div class="field-info">
+                                <h4>💾 Created Snippet:</h4>
+                                <div class="code">${JSON.stringify(data.snippet, null, 2)}</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="result error">
+                            <h3>❌ Error</h3>
+                            <p>${data.message}</p>
+                        </div>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Request failed:', error);
+                resultDiv.innerHTML = `
+                    <div class="result error">
+                        <h3>❌ Request Failed</h3>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Create Enhanced Snippet';
+            }
+        });
+    </script>
+</body>
+</html>

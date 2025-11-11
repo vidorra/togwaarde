@@ -1,0 +1,42 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Force HTTPS for all requests
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Ensure robots.txt is served with correct content type
+<Files "robots.txt">
+    Header set Content-Type "text/plain"
+    Header set Cache-Control "public, max-age=86400"
+</Files>
+
+# Ensure sitemap.xml is served with correct content type
+<Files "sitemap.xml">
+    Header set Content-Type "application/xml"
+    Header set Cache-Control "public, max-age=3600"
+</Files>
+
+# Ensure ads.txt is served with correct content type
+<Files "ads.txt">
+    Header set Content-Type "text/plain"
+    Header set Cache-Control "public, max-age=86400"
+</Files>
+
+# Redirect non-www to www (but preserve static files and Next.js routes)
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteCond %{REQUEST_URI} !\.(txt|xml|ico|png|jpg|jpeg|gif|css|js|woff|woff2|ttf|eot|svg)$ [NC]
+RewriteCond %{REQUEST_URI} !^/admin [NC]
+RewriteCond %{REQUEST_URI} !^/api [NC]
+RewriteCond %{REQUEST_URI} !^/_next [NC]
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Serve static files directly without redirect
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(robots\.txt|sitemap\.xml|ads\.txt|favicon\.ico|bol-test\.html)$ - [L]
+
+# Ensure HTML files are served with correct content type
+<Files "*.html">
+    Header set Content-Type "text/html; charset=UTF-8"
+    Header set Cache-Control "public, max-age=3600"
+</Files>

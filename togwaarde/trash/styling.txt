@@ -1,0 +1,19 @@
+Font 
+let's implement font: Lexend Deca
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+</style>
+
+Colors: 
+Change blue to primary (#1094AE) and hover needs to be (#117A8F) (let's make them also variables) 
+bg-blue-500 hover:bg-blue-600 (change these to our new values) 
+bg-blue-50 should be #F4FAFC (bg-default)
+
+Title of each page should niet have a card container:
+home: Bereken de juiste hoeveelheid flesvoeding
+Gebruik deze calculator om te bepalen hoeveel flesvoeding uw baby nodig heeft. Gebaseerd op de officiële Nederlandse richtlijnen van het Voedingscentrum (150ml per kg lichaamsgewicht).
+Kennisbank: Kennisbank
+Vind alle informatie over flesvoeding op één plek. Van basis kennis tot het oplossen van specifieke problemen.
+and so on for each page.
+

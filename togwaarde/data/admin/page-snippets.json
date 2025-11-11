@@ -1,0 +1,44 @@
+{
+  "hygiene-bereiding_flessen-steriliseren": [
+    {
+      "id": "ps_1759151278392_0",
+      "pageId": "hygiene-bereiding_flessen-steriliseren",
+      "snippetId": "philips-avent-sterilisator",
+      "order": 0,
+      "active": true,
+      "createdAt": "2025-09-29T13:07:58.392Z"
+    },
+    {
+      "id": "ps_1759151278392_1",
+      "pageId": "hygiene-bereiding_flessen-steriliseren",
+      "snippetId": "mam-sterilisator",
+      "order": 1,
+      "active": true,
+      "createdAt": "2025-09-29T13:07:58.392Z"
+    },
+    {
+      "id": "ps_1759151278392_2",
+      "pageId": "hygiene-bereiding_flessen-steriliseren",
+      "snippetId": "chicco-sterilisator",
+      "order": 2,
+      "active": true,
+      "createdAt": "2025-09-29T13:07:58.392Z"
+    },
+    {
+      "id": "ps_1759151278392_3",
+      "pageId": "hygiene-bereiding_flessen-steriliseren",
+      "snippetId": "lifejxwen-sterilizer",
+      "order": 3,
+      "active": true,
+      "createdAt": "2025-09-29T13:07:58.392Z"
+    },
+    {
+      "id": "ps_1759151278392_4",
+      "pageId": "hygiene-bereiding_flessen-steriliseren",
+      "snippetId": "sterilizing-tablets",
+      "order": 4,
+      "active": true,
+      "createdAt": "2025-09-30T13:11:58.392Z"
+    }
+  ]
+}

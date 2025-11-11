@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOG Waarde Calculator - Veilig Slapen voor Nederlandse Baby's</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #f9fafb;
+            min-height: 100vh;
+            color: #111827;
+        }
+        
+        .container {
+            max-width: 896px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        header {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 16px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .badges {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .badge-safe {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .badge-ce {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        main {
+            padding: 24px 0 80px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f3f4f6;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        h1 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+        }
+        
+        .subtitle {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .weather-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            text-align: center;
+        }
+        
+        .weather-item {
+            padding: 0 16px;
+        }
+        
+        .weather-item:nth-child(2) {
+            border-left: 1px solid #e5e7eb;
+            border-right: 1px solid #e5e7eb;
+        }
+        
+        .weather-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .weather-label {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .tip-box {
+            background: #eff6ff;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        
+        .tip-text {
+            font-size: 12px;
+            color: #1e40af;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #10b981;
+            cursor: pointer;
+        }
+        
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #10b981;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .temp-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .current-temp {
+            color: #10b981;
+            font-weight: 700;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            min-height: 48px;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #10b981;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+        
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        
+        .checkbox-label:hover {
+            background: #f9fafb;
+        }
+        
+        input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        
+        .recommendation-card {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .tog-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+        
+        .clothing-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+        
+        .clothing-list {
+            list-style: none;
+            margin-top: 8px;
+        }
+        
+        .clothing-list li {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        
+        .warning-box {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .warning-icon {
+            color: #d97706;
+            flex-shrink: 0;
+        }
+        
+        .warning-title {
+            font-weight: 600;
+            color: #92400e;
+            margin-bottom: 4px;
+        }
+        
+        .warning-text {
+            font-size: 14px;
+            color: #b45309;
+            line-height: 1.5;
+        }
+        
+        .visual-layers {
+            height: 256px;
+            background: #f9fafb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .baby-figure {
+            position: relative;
+            width: 128px;
+            height: 192px;
+        }
+        
+        .layer {
+            position: absolute;
+            border-radius: 50% 50% 30% 30%;
+        }
+        
+        .layer-1 {
+            inset: 0;
+            background: rgba(147, 197, 253, 0.4);
+        }
+        
+        .layer-2 {
+            inset: 16px;
+            background: rgba(96, 165, 250, 0.5);
+        }
+        
+        .layer-3 {
+            inset: 32px;
+            background: rgba(59, 130, 246, 0.6);
+        }
+        
+        .layer-baby {
+            inset: 48px;
+            background: #fecaca;
+            border-radius: 50%;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        
+        @media (min-width: 768px) {
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .product-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        
+        .product-card:hover {
+            border-color: #10b981;
+        }
+        
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+        
+        .product-name {
+            font-weight: 500;
+            color: #111827;
+        }
+        
+        .product-badge {
+            background: #dcfce7;
+            color: #166534;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .product-info {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 12px 16px;
+        }
+        
+        .nav-container {
+            max-width: 896px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px 12px;
+            color: #9ca3af;
+            transition: color 0.2s;
+        }
+        
+        .nav-item:hover {
+            color: #6b7280;
+        }
+        
+        .nav-item.active {
+            color: #10b981;
+        }
+        
+        .nav-label {
+            font-size: 12px;
+        }
+        
+        .temp-warning {
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .warning-cold {
+            background: #dbeafe;
+            border: 1px solid #93c5fd;
+            color: #1e40af;
+        }
+        
+        .warning-hot {
+            background: #fee2e2;
+            border: 1px solid #fca5a5;
+            color: #991b1b;
+        }
+        
+        .warning-ideal {
+            background: #dcfce7;
+            border: 1px solid #86efac;
+            color: #166534;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1>TOG Waarde Calculator</h1>
+                        <p class="subtitle">Gevalideerd door Nederlandse kinderartsen</p>
+                    </div>
+                </div>
+                <div class="badges">
+                    <span class="badge badge-safe">Veilig</span>
+                    <span class="badge badge-ce">CE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Weather Card -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Huidige Omstandigheden</h2>
+                <button style="background: none; border: none; color: #10b981; cursor: pointer; font-size: 14px;">
+                    📍 Groningen
+                </button>
+            </div>
+            <div class="weather-grid">
+                <div class="weather-item">
+                    <div class="weather-value" id="outdoor-temp">8°C</div>
+                    <div class="weather-label">Buiten</div>
+                </div>
+                <div class="weather-item">
+                    <div class="weather-value" style="color: #10b981;" id="room-temp">18°C</div>
+                    <div class="weather-label">Slaapkamer</div>
+                </div>
+                <div class="weather-item">
+                    <div class="weather-value">73%</div>
+                    <div class="weather-label">Vochtigheid</div>
+                </div>
+            </div>
+            <div class="tip-box">
+                <p class="tip-text">💡 Tip: Nederlandse huizen met HR++ glas houden warmte goed vast</p>
+            </div>
+        </div>
+
+        <!-- Temperature Adjustment -->
+        <div class="card">
+            <h2>Pas Kamertemperatuur Aan</h2>
+            <div style="margin-top: 16px;">
+                <input type="range" id="temp-slider" min="14" max="24" value="18" step="0.5">
+                <div class="temp-labels">
+                    <span>14°C</span>
+                    <span class="current-temp" id="current-temp-display">18°C</span>
+                    <span>24°C</span>
+                </div>
+            </div>
+            <div id="temp-warning" class="temp-warning" style="display: none;"></div>
+        </div>
+
+        <!-- Baby Info -->
+        <div class="card">
+            <h2>Baby Informatie</h2>
+            <div class="grid-2" style="margin-top: 16px;">
+                <div>
+                    <label>Leeftijd</label>
+                    <select id="age-select">
+                        <option value="0-3">0-3 maanden</option>
+                        <option value="3-6">3-6 maanden</option>
+                        <option value="6-12">6-12 maanden</option>
+                        <option value="12+">12+ maanden</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Seizoen</label>
+                    <select>
+                        <option value="winter">Winter</option>
+                        <option value="spring">Lente</option>
+                        <option value="summer">Zomer</option>
+                        <option value="autumn">Herfst</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top: 16px;">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="premature">
+                    <span style="font-size: 14px;">Prematuur geboren</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- TOG Recommendation -->
+        <div class="recommendation-card">
+            <h2 style="color: white; font-size: 18px;">Aanbevolen TOG Waarde</h2>
+            <div class="tog-value" id="tog-value">2.5 TOG</div>
+            <p style="font-size: 14px; opacity: 0.9;" id="tog-description">Perfect voor Nederlandse wintertemperaturen</p>
+            
+            <div class="clothing-box">
+                <p style="font-weight: 600; font-size: 14px;">Aanbevolen Kleding:</p>
+                <ul class="clothing-list" id="clothing-recommendations">
+                    <li>• Lange mouw romper</li>
+                    <li>• Katoenen slaappakje</li>
+                    <li>• 2.5 TOG slaapzak</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Brand Warning -->
+        <div class="warning-box">
+            <svg class="warning-icon" width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"/>
+            </svg>
+            <div>
+                <h3 class="warning-title">Let Op: Merkverschillen</h3>
+                <p class="warning-text">
+                    TOG waardes verschillen per merk. Een Jollein 3.0 TOG voelt dunner aan dan een HEMA 2.5 TOG. 
+                    Test altijd zelf de warmte van je baby.
+                </p>
+            </div>
+        </div>
+
+        <!-- Visual Layers -->
+        <div class="card">
+            <h2>Laagjes Visualisatie</h2>
+            <div class="visual-layers">
+                <div style="text-align: center;">
+                    <div class="baby-figure">
+                        <div class="layer layer-1"></div>
+                        <div class="layer layer-2"></div>
+                        <div class="layer layer-3"></div>
+                        <div class="layer layer-baby"></div>
+                    </div>
+                    <p style="font-size: 12px; color: #6b7280; margin-top: 16px;">
+                        Totale TOG: <span style="font-weight: 700; color: #10b981;">2.5</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Checks -->
+        <div class="card">
+            <h2>Veiligheidscontrole</h2>
+            <div style="margin-top: 16px;">
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span style="font-size: 14px; color: #374151;">Nek voelt warm maar niet zweterig</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span style="font-size: 14px; color: #374151;">Geen vochtig haar of rode wangen</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span style="font-size: 14px; color: #374151;">Borst voelt aangenaam warm</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox">
+                    <span style="font-size: 14px; color: #374151;">Baby slaapt rustig zonder rillen</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Product Recommendations -->
+        <div class="card">
+            <h2>Aanbevolen Producten</h2>
+            <div class="product-grid" style="margin-top: 16px;">
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-name">HEMA Slaapzak</h3>
+                        <span class="product-badge">Getest</span>
+                    </div>
+                    <p class="product-info">2.5 TOG - Katoen</p>
+                    <p class="product-price">€24,99</p>
+                </div>
+                <div class="product-card">
+                    <div class="product-header">
+                        <h3 class="product-name">Puckababy Bag</h3>
+                        <span class="product-badge">Getest</span>
+                    </div>
+                    <p class="product-info">2.5 TOG - Bamboe</p>
+                    <p class="product-price">€69,95</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="nav-container">
+            <button class="nav-item active">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                <span class="nav-label">Calculator</span>
+            </button>
+            <button class="nav-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                </svg>
+                <span class="nav-label">Gids</span>
+            </button>
+            <button class="nav-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="nav-label">Logboek</span>
+            </button>
+            <button class="nav-item">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="nav-label">Instellingen</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // TOG calculation logic
+        const togRecommendations = {
+            '14-16': { 
+                tog: 3.5, 
+                clothing: ['Lange mouw romper', 'Warm slaappakje', '3.5 TOG slaapzak'], 
+                description: 'Voor koude Nederlandse winternachten' 
+            },
+            '16-18': { 
+                tog: 2.5, 
+                clothing: ['Lange mouw romper', 'Katoenen slaappakje', '2.5 TOG slaapzak'], 
+                description: 'Perfect voor Nederlandse wintertemperaturen' 
+            },
+            '18-20': { 
+                tog: 1.5, 
+                clothing: ['Korte mouw romper', 'Licht slaappakje', '1.5 TOG slaapzak'], 
+                description: 'Ideaal voor tussenseizoenen' 
+            },
+            '20-22': { 
+                tog: 1.0, 
+                clothing: ['Korte mouw romper', '1.0 TOG slaapzak'], 
+                description: 'Comfortabel voor milde nachten' 
+            },
+            '22-24': { 
+                tog: 0.5, 
+                clothing: ['Alleen romper', '0.5 TOG slaapzak of lakentje'], 
+                description: 'Licht en luchtig voor warme zomernachten' 
+            }
+        };
+
+        const tempSlider = document.getElementById('temp-slider');
+        const tempDisplay = document.getElementById('current-temp-display');
+        const togValue = document.getElementById('tog-value');
+        const togDescription = document.getElementById('tog-description');
+        const clothingList = document.getElementById('clothing-recommendations');
+        const tempWarning = document.getElementById('temp-warning');
+        const roomTempDisplay = document.getElementById('room-temp');
+
+        function updateRecommendation() {
+            const temp = parseFloat(tempSlider.value);
+            tempDisplay.textContent = temp + '°C';
+            roomTempDisplay.textContent = temp + '°C';
+            
+            let recommendation;
+            if (temp < 16) {
+                recommendation = togRecommendations['14-16'];
+            } else if (temp < 18) {
+                recommendation = togRecommendations['16-18'];
+            } else if (temp < 20) {
+                recommendation = togRecommendations['18-20'];
+            } else if (temp < 22) {
+                recommendation = togRecommendations['20-22'];
+            } else {
+                recommendation = togRecommendations['22-24'];
+            }
+            
+            togValue.textContent = recommendation.tog + ' TOG';
+            togDescription.textContent = recommendation.description;
+            clothingList.innerHTML = recommendation.clothing.map(item => `<li>• ${item}</li>`).join('');
+            
+            tempWarning.style.display = 'block';
+            if (temp < 16) {
+                tempWarning.className = 'temp-warning warning-cold';
+                tempWarning.innerHTML = '⚠️ Kamertemperatuur is lager dan aanbevolen. Overweeg extra laagjes of verwarming.';
+            } else if (temp > 22) {
+                tempWarning.className = 'temp-warning warning-hot';
+                tempWarning.innerHTML = '⚠️ Kamertemperatuur is hoog. Let extra op tekenen van oververhitting.';
+            } else {
+                tempWarning.className = 'temp-warning warning-ideal';
+                tempWarning.innerHTML = '✓ Ideale temperatuur voor veilige babyslaap (16-20°C)';
+            }
+        }
+
+        tempSlider.addEventListener('input', updateRecommendation);
+        
+        document.getElementById('age-select').addEventListener('change', (e) => {
+            if (e.target.value === '0-3') {
+                tempSlider.value = Math.min(parseFloat(tempSlider.value) + 0.5, 24);
+                updateRecommendation();
+            }
+        });
+        
+        document.getElementById('premature').addEventListener('change', (e) => {
+            if (e.target.checked) {
+                alert('Voor premature baby\'s wordt geadviseerd om contact op te nemen met uw consultatiebureau voor persoonlijk advies.');
+            }
+        });
+        
+        // Initialize
+        updateRecommendation();
+        
+        // Simulate weather updates
+        function updateWeatherData() {
+            const outdoorTemp = Math.round(5 + Math.random() * 10);
+            document.getElementById('outdoor-temp').textContent = outdoorTemp + '°C';
+        }
+        
+        setInterval(updateWeatherData, 60000);
