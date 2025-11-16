@@ -416,37 +416,37 @@ export default function TOGWaardePerSeizoen() {
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-primary/10">
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Maand</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Typische Temp</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Aanbevolen TOG</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Kleding</th>
+                  <tr className="bg-secondary/10 border border-secondary/20">
+                    <th className="border border-gray-200 px-4 py-2 text-left">Maand</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Typische Temp</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Aanbevolen TOG</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Kleding</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white">
-                    <td className="border border-gray-300 px-4 py-3 font-medium">December - Februari</td>
-                    <td className="border border-gray-300 px-4 py-3">16-19°C</td>
-                    <td className="border border-gray-300 px-4 py-3 text-accent font-semibold">2.5</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Romper + warme pyjama</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">December - Februari</td>
+                    <td className="border border-gray-200 px-4 py-2">16-19°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">2.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Romper + warme pyjama</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="border border-gray-300 px-4 py-3 font-medium">Maart - Mei</td>
-                    <td className="border border-gray-300 px-4 py-3">15-22°C</td>
-                    <td className="border border-gray-300 px-4 py-3 text-secondary-dark font-semibold">2.0 / 2.5</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Wisselend, pas aan</td>
+                    <td className="border border-gray-200 px-4 py-2">Maart - Mei</td>
+                    <td className="border border-gray-200 px-4 py-2">15-22°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">2.0 / 2.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Wisselend, pas aan</td>
                   </tr>
-                  <tr className="bg-white">
-                    <td className="border border-gray-300 px-4 py-3 font-medium">Juni - Augustus</td>
-                    <td className="border border-gray-300 px-4 py-3">20-26°C</td>
-                    <td className="border border-gray-300 px-4 py-3 text-accent font-semibold">0.5 / 1.0</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Licht rompertje of luier</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">Juni - Augustus</td>
+                    <td className="border border-gray-200 px-4 py-2">20-26°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">0.5 / 1.0</td>
+                    <td className="border border-gray-200 px-4 py-2">Licht rompertje of luier</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="border border-gray-300 px-4 py-3 font-medium">September - November</td>
-                    <td className="border border-gray-300 px-4 py-3">15-22°C</td>
-                    <td className="border border-gray-300 px-4 py-3 text-accent font-semibold">2.0 / 2.5</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Geleidelijk warmere lagen</td>
+                    <td className="border border-gray-200 px-4 py-2">September - November</td>
+                    <td className="border border-gray-200 px-4 py-2">15-22°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">2.0 / 2.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Geleidelijk warmere lagen</td>
                   </tr>
                 </tbody>
               </table>

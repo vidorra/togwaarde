@@ -394,43 +394,43 @@ export default function NederlandseMerkenVergelijking() {
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-primary/10">
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Merk</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Prijs</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">TOG-bereik</th>
-                    <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900">Beste voor</th>
+                  <tr className="bg-secondary/10 border border-secondary/20">
+                    <th className="border border-gray-200 px-4 py-2 text-left">Merk</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Prijs</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">TOG-bereik</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Beste voor</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr className="bg-white">
-                    <td className="border border-gray-300 px-4 py-3 font-semibold text-accent">Puckababy</td>
-                    <td className="border border-gray-300 px-4 py-3">€60-90+</td>
-                    <td className="border border-gray-300 px-4 py-3">0.5-2.5</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Lange termijn investering</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">Puckababy</td>
+                    <td className="border border-gray-200 px-4 py-2">€60-90+</td>
+                    <td className="border border-gray-200 px-4 py-2">0.5-2.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Lange termijn investering</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="border border-gray-300 px-4 py-3 font-semibold text-accent">Jollein</td>
-                    <td className="border border-gray-300 px-4 py-3">€20-42</td>
-                    <td className="border border-gray-300 px-4 py-3">0.5-3.5</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Stijl & diversiteit</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">Jollein</td>
+                    <td className="border border-gray-200 px-4 py-2">€20-42</td>
+                    <td className="border border-gray-200 px-4 py-2">0.5-3.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Stijl & diversiteit</td>
                   </tr>
-                  <tr className="bg-white">
-                    <td className="border border-gray-300 px-4 py-3 font-semibold text-secondary-dark">HEMA</td>
-                    <td className="border border-gray-300 px-4 py-3">€7.50-30</td>
-                    <td className="border border-gray-300 px-4 py-3">1.0-3.5</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Budget zonder compromis</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">HEMA</td>
+                    <td className="border border-gray-200 px-4 py-2">€7.50-30</td>
+                    <td className="border border-gray-200 px-4 py-2">1.0-3.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Budget zonder compromis</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="border border-gray-300 px-4 py-3 font-semibold text-primary">Meyco</td>
-                    <td className="border border-gray-300 px-4 py-3">€25-40</td>
-                    <td className="border border-gray-300 px-4 py-3">0.3-3.0</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Stijlvolle middensegment</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">Meyco</td>
+                    <td className="border border-gray-200 px-4 py-2">€25-40</td>
+                    <td className="border border-gray-200 px-4 py-2">0.3-3.0</td>
+                    <td className="border border-gray-200 px-4 py-2">Stijlvolle middensegment</td>
                   </tr>
-                  <tr className="bg-white">
-                    <td className="border border-gray-300 px-4 py-3 font-semibold text-accent">Lodger</td>
-                    <td className="border border-gray-300 px-4 py-3">€35-55</td>
-                    <td className="border border-gray-300 px-4 py-3">0.5-3.3</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">Extra warme winter</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">Lodger</td>
+                    <td className="border border-gray-200 px-4 py-2">€35-55</td>
+                    <td className="border border-gray-200 px-4 py-2">0.5-3.3</td>
+                    <td className="border border-gray-200 px-4 py-2">Extra warme winter</td>
                   </tr>
                 </tbody>
               </table>

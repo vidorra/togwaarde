@@ -108,8 +108,11 @@ export default function TOGWaardeGidsPillarPage() {
                 <ul className="space-y-2 text-gray-700">
                   <li><strong>2.5 TOG:</strong> Warm, voor koelere nachten (16-18°C)</li>
                   <li><strong>3.0 TOG:</strong> Winter (15-17°C)</li>
-                  <li><strong>3.5 TOG:</strong> Zeer warm winter (&lt;16°C)</li>
+                  <li><strong>3.5 TOG:</strong> Zeer koude winter (&lt;16°C)</li>
                 </ul>
+                <p className="text-sm text-gray-600 italic mt-3">
+                  In Nederland komen temperaturen onder de 16°C in de babykamer zelden voor, waardoor 3.5 TOG slaapzakken hier meestal niet nodig zijn.
+                </p>
               </div>
             </div>
 
@@ -269,21 +272,27 @@ export default function TOGWaardeGidsPillarPage() {
               </table>
             </div>
 
-            <div className="relative bg-accent/5 p-6 rounded-lg mt-6 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent">
-              <p className="text-gray-800 font-medium mb-3">
-                <Info className="w-5 h-5 inline mr-2 text-primary" />
-                <strong>Praktische tip:</strong>
-              </p>
-              <p className="text-gray-700 mb-2">
-                Omdat 2.0 TOG slaapzakken niet bij alle merken verkrijgbaar zijn, kun je voor 18-20°C kiezen tussen:
-              </p>
-              <ul className="text-gray-700 space-y-1 ml-4">
-                <li><strong>Optie A:</strong> Slaapzak 1.5 TOG + dunne pyjama (0.5 TOG) = 2.0 TOG totaal</li>
-                <li><strong>Optie B:</strong> Slaapzak 2.5 TOG + alleen rompertje (0.2 TOG) = 2.7 TOG totaal</li>
-              </ul>
-              <p className="text-gray-700 mt-2">
-                Beide opties zijn geschikt. Controleer altijd het nekje om te zien of je baby het prettig heeft.
-              </p>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mt-6">
+              <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Praktische tip:</p>
+                <p className="text-base text-gray-700 mb-2">
+                  Omdat 2.0 TOG slaapzakken niet bij alle merken verkrijgbaar zijn, kun je voor 18-20°C kiezen tussen:
+                </p>
+                <ul className="text-base text-gray-700 space-y-3">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-secondary-dark mt-0.5 flex-shrink-0" />
+                    <span><strong>Optie A:</strong> Slaapzak 1.5 TOG + dunne pyjama (0.5 TOG) = 2.0 TOG totaal</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="w-5 h-5 text-secondary-dark mt-0.5 flex-shrink-0" />
+                    <span><strong>Optie B:</strong> Slaapzak 2.5 TOG + alleen rompertje (0.2 TOG) = 2.7 TOG totaal</span>
+                  </li>
+                </ul>
+                <p className="text-base text-gray-700 mt-4">
+                  Beide opties zijn geschikt. Controleer altijd het nekje om te zien of je baby het prettig heeft.
+                </p>
+              </div>
             </div>
 
             <div className="relative bg-primary/5 p-6 rounded-lg mt-6 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">

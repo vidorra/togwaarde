@@ -33,11 +33,14 @@ export default function WatIsTOGPage() {
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               <strong>TOG staat voor Thermal Overall Grade</strong> en is een internationale maatstaf die aangeeft hoe warm een babyslaapzak is. Hoe hoger de TOG waarde, hoe warmer de slaapzak. Een slaapzak met TOG 2.5 houdt je baby dus warmer dan een slaapzak met TOG 0.5.
             </p>
-            <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100 mb-6 flex items-start gap-3">
-              <Lightbulb className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <p className="text-gray-800 font-medium">
-                <strong>Kort gezegd:</strong> De TOG waarde helpt je om de juiste slaapzak te kiezen, zodat je baby het niet te warm of te koud heeft tijdens de slaap.
-              </p>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mb-6">
+              <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Kort gezegd:</p>
+                <div className="text-base text-gray-700">
+                  De TOG waarde helpt je om de juiste slaapzak te kiezen, zodat je baby het niet te warm of te koud heeft tijdens de slaap.
+                </div>
+              </div>
             </div>
           </section>
 
@@ -212,11 +215,14 @@ export default function WatIsTOGPage() {
               </ol>
             </div>
 
-            <div className="relative bg-accent/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent/100 flex items-start gap-3">
-              <Lightbulb className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-              <p className="text-gray-900">
-                <strong>Tip:</strong> Gebruik onze TOG Calculator om automatisch de perfecte TOG waarde te berekenen op basis van jouw specifieke situatie.
-              </p>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mb-6">
+              <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Tip:</p>
+                <div className="text-base text-gray-700">
+                  Gebruik onze TOG Calculator om automatisch de perfecte TOG waarde te berekenen op basis van jouw specifieke situatie.
+                </div>
+              </div>
             </div>
           </section>
 
@@ -226,32 +232,44 @@ export default function WatIsTOGPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Veelgemaakte Fouten</h2>
 
             <div className="space-y-4">
-              <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100 flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-gray-900">
-                  <strong>Te veel lagen:</strong> Veel ouders combineren een dikke slaapzak met warme pyjama's. Dit leidt vaak tot oververhitting.
-                </p>
+              <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-primary/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+                <Info className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-base font-semibold text-gray-900 mb-4">Te veel lagen:</p>
+                  <div className="text-base text-gray-700">
+                    Veel ouders combineren een dikke slaapzak met warme pyjama's. Dit leidt vaak tot oververhitting.
+                  </div>
+                </div>
               </div>
 
-              <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100 flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-gray-900">
-                  <strong>Verkeerde inschatting temperatuur:</strong> De kamer voelt voor volwassenen koud aan, maar is perfect voor baby's (16-20°C).
-                </p>
+              <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-primary/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+                <Info className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-base font-semibold text-gray-900 mb-4">Verkeerde inschatting temperatuur:</p>
+                  <div className="text-base text-gray-700">
+                    De kamer voelt voor volwassenen koud aan, maar is perfect voor baby's (16-20°C).
+                  </div>
+                </div>
               </div>
 
-              <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100 flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-gray-900">
-                  <strong>Geen thermometer gebruiken:</strong> Gissen naar de temperatuur leidt vaak tot een verkeerde TOG keuze.
-                </p>
+              <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-primary/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+                <Info className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-base font-semibold text-gray-900 mb-4">Geen thermometer gebruiken:</p>
+                  <div className="text-base text-gray-700">
+                    Gissen naar de temperatuur leidt vaak tot een verkeerde TOG keuze.
+                  </div>
+                </div>
               </div>
 
-              <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100 flex items-start gap-3">
-                <XCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <p className="text-gray-900">
-                  <strong>Extra dekentjes toevoegen:</strong> Een slaapzak is bedoeld om dekens te vervangen, niet om er bovenop te gebruiken.
-                </p>
+              <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-primary/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+                <Info className="w-6 h-6 text-primary mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-base font-semibold text-gray-900 mb-4">Extra dekentjes toevoegen:</p>
+                  <div className="text-base text-gray-700">
+                    Een slaapzak is bedoeld om dekens te vervangen, niet om er bovenop te gebruiken.
+                  </div>
+                </div>
               </div>
             </div>
           </section>
@@ -262,39 +280,39 @@ export default function WatIsTOGPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Snelle Referentietabel</h2>
 
             <div className="overflow-x-auto">
-              <table className="w-full border-collapse bg-white rounded-lg overflow-hidden">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th className="px-6 py-4 text-left font-semibold text-gray-900">Kamertemperatuur</th>
-                    <th className="px-6 py-4 text-left font-semibold text-gray-900">Aanbevolen TOG</th>
-                    <th className="px-6 py-4 text-left font-semibold text-gray-900">Kleding</th>
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-secondary/10 border border-secondary/20">
+                    <th className="border border-gray-200 px-4 py-2 text-left">Kamertemperatuur</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Aanbevolen TOG</th>
+                    <th className="border border-gray-200 px-4 py-2 text-left">Kleding</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
-                  <tr className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-gray-700">Boven 24°C</td>
-                    <td className="px-6 py-4 font-semibold text-primary">TOG 0.5</td>
-                    <td className="px-6 py-4 text-gray-600">Alleen romper of body</td>
+                <tbody>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">Boven 24°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 0.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Alleen romper of body</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-gray-700">21-23°C</td>
-                    <td className="px-6 py-4 font-semibold text-primary">TOG 1.0</td>
-                    <td className="px-6 py-4 text-gray-600">Korte mouw romper</td>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-2">21-23°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 1.0</td>
+                    <td className="border border-gray-200 px-4 py-2">Korte mouw romper</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-gray-700">18-20°C</td>
-                    <td className="px-6 py-4 font-semibold text-primary">TOG 1.5-2.0</td>
-                    <td className="px-6 py-4 text-gray-600">Lange mouw romper</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">18-20°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 1.5-2.0</td>
+                    <td className="border border-gray-200 px-4 py-2">Lange mouw romper</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-gray-700">16-18°C</td>
-                    <td className="px-6 py-4 font-semibold text-primary">TOG 2.5</td>
-                    <td className="px-6 py-4 text-gray-600">Lange mouw romper + sokjes</td>
+                  <tr className="bg-gray-50">
+                    <td className="border border-gray-200 px-4 py-2">16-18°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 2.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Lange mouw romper + sokjes</td>
                   </tr>
-                  <tr className="hover:bg-gray-50">
-                    <td className="px-6 py-4 text-gray-700">Onder 16°C</td>
-                    <td className="px-6 py-4 font-semibold text-primary">TOG 3.5</td>
-                    <td className="px-6 py-4 text-gray-600">Lange mouw romper + slaappakje</td>
+                  <tr>
+                    <td className="border border-gray-200 px-4 py-2">Onder 16°C</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 3.5</td>
+                    <td className="border border-gray-200 px-4 py-2">Lange mouw romper + slaappakje</td>
                   </tr>
                 </tbody>
               </table>

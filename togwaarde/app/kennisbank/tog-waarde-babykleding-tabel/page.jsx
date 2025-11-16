@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Table, ArrowRight, ChevronRight, Activity, Info } from 'lucide-react'
+import { Table, ArrowRight, ChevronRight, Activity, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function TOGWaardeBabykledingTabelPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function TOGWaardeBabykledingTabelPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-              Shopping
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">12 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Table className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             TOG-waarde Babykleding Tabel
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Complete referentie tabel met TOG-waardes van alle babykledingstukken voor het samenstellen van de perfecte outfit.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Hoe gebruik je deze tabel?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -44,10 +40,7 @@ export default function TOGWaardeBabykledingTabelPage() {
             </p>
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <Info className="w-5 h-5 text-primary" />
-                Rekenvoorbeeld
-              </h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Rekenvoorbeeld</h3>
               <p className="text-gray-700 leading-relaxed mb-2">
                 <strong>Situatie:</strong> Babykamer is 18°C
               </p>
@@ -67,7 +60,7 @@ export default function TOGWaardeBabykledingTabelPage() {
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr className="bg-secondary/10">
+                    <tr className="bg-secondary/10 border border-secondary/20">
                       <th className="border border-gray-200 px-4 py-2 text-left">Kledingstuk</th>
                       <th className="border border-gray-200 px-4 py-2 text-left">TOG-waarde</th>
                       <th className="border border-gray-200 px-4 py-2 text-left">Materiaal</th>
@@ -105,7 +98,7 @@ export default function TOGWaardeBabykledingTabelPage() {
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr className="bg-primary/10">
+                    <tr className="bg-secondary/10 border border-secondary/20">
                       <th className="border border-gray-200 px-4 py-2 text-left">Kledingstuk</th>
                       <th className="border border-gray-200 px-4 py-2 text-left">TOG-waarde</th>
                       <th className="border border-gray-200 px-4 py-2 text-left">Materiaal</th>
@@ -143,7 +136,7 @@ export default function TOGWaardeBabykledingTabelPage() {
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
                   <thead>
-                    <tr className="bg-accent/10">
+                    <tr className="bg-secondary/10 border border-secondary/20">
                       <th className="border border-gray-200 px-4 py-2 text-left">Kledingstuk</th>
                       <th className="border border-gray-200 px-4 py-2 text-left">TOG-waarde</th>
                       <th className="border border-gray-200 px-4 py-2 text-left">Opmerking</th>
@@ -168,9 +161,14 @@ export default function TOGWaardeBabykledingTabelPage() {
                   </tbody>
                 </table>
               </div>
+              <p className="text-xs text-gray-600 mt-2 italic">
+                * Mutsjes: De eerste week (kraamweek) mag een dun mutsje gebruikt worden, ook tijdens slapen, omdat pasgeboren baby's
+                hun temperatuur nog niet kunnen reguleren. Na de eerste week is een mutsje niet meer nodig - baby's reguleren dan hun
+                temperatuur via het hoofdje. Bij premature baby's kan een mutsje langer nodig zijn (bespreek met arts/kraamzorg).
+              </p>
             </div>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
+            <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6 my-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Belangrijke Tips</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li>TOG-waardes zijn geschatte gemiddelden en kunnen per merk verschillen</li>
@@ -186,7 +184,7 @@ export default function TOGWaardeBabykledingTabelPage() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="font-semibold text-gray-900 mb-2">Zomer (24°C+)</div>
                 <div className="text-sm text-gray-700">
                   • Body korte mouw (0.1)<br/>
@@ -194,7 +192,7 @@ export default function TOGWaardeBabykledingTabelPage() {
                   • = Totaal 0.6 TOG
                 </div>
               </div>
-              <div className="bg-primary/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="font-semibold text-gray-900 mb-2">Tussenseizoen (20°C)</div>
                 <div className="text-sm text-gray-700">
                   • Romper lange mouw (0.3)<br/>
@@ -202,7 +200,7 @@ export default function TOGWaardeBabykledingTabelPage() {
                   • = Totaal 1.3 TOG
                 </div>
               </div>
-              <div className="bg-accent/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="font-semibold text-gray-900 mb-2">Winter (18°C)</div>
                 <div className="text-sm text-gray-700">
                   • Romper korte mouw (0.2)<br/>
@@ -211,7 +209,7 @@ export default function TOGWaardeBabykledingTabelPage() {
                   • = Totaal 3.2 TOG
                 </div>
               </div>
-              <div className="bg-primary/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="font-semibold text-gray-900 mb-2">Zeer Koud (15°C)</div>
                 <div className="text-sm text-gray-700">
                   • Body lange mouw (0.2)<br/>

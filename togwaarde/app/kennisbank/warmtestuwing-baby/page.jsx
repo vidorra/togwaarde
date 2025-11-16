@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Thermometer, ArrowRight, ChevronRight, Activity, AlertCircle } from 'lucide-react'
+import { Thermometer, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function WarmtestuwingBabyPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function WarmtestuwingBabyPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-              Veiligheid
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">16 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Thermometer className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Warmtestuwing bij Baby's
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Complete gids om warmtestuwing te herkennen, voorkomen en behandelen. Inclusief de rol van TOG-waarde.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Wat is warmtestuwing?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -44,12 +40,9 @@ export default function WarmtestuwingBabyPage() {
               dat ze het te warm hebben.
             </p>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Waarom Baby's Extra Kwetsbaar Zijn
-              </h3>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+            <div className="bg-background rounded-xl p-6 mb-6">
+              <h4 className="font-semibold text-gray-900 mb-3">Waarom Baby's Extra Kwetsbaar Zijn</h4>
+              <ul className="text-sm text-gray-700 list-disc pl-6 space-y-2">
                 <li>Kleinere lichaamsoppervlak ten opzichte van massa</li>
                 <li>Minder ontwikkelde zweetklieren</li>
                 <li>Kunnen zich niet zelf ontkleden of aangeven dat het te warm is</li>
@@ -92,7 +85,7 @@ export default function WarmtestuwingBabyPage() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">1. Juiste TOG-waarde</h4>
                 <p className="text-sm text-gray-700">
                   Gebruik onze calculator om de juiste TOG-waarde te bepalen. Te dikke slaapzakken
@@ -100,7 +93,7 @@ export default function WarmtestuwingBabyPage() {
                 </p>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">2. Kamertemperatuur</h4>
                 <p className="text-sm text-gray-700">
                   Houd de babykamer tussen 16-20°C. Meet de temperatuur op bedrand-hoogte met een
@@ -108,7 +101,7 @@ export default function WarmtestuwingBabyPage() {
                 </p>
               </div>
 
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">3. Kleding aanpassen</h4>
                 <p className="text-sm text-gray-700">
                   Kleed je baby in lagen die je makkelijk kunt aanpassen. Bij warm weer: alleen een
@@ -116,7 +109,7 @@ export default function WarmtestuwingBabyPage() {
                 </p>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">4. Regelmatig controleren</h4>
                 <p className="text-sm text-gray-700">
                   Voer de nektest uit: voel in de nek van je baby. Deze moet warm aanvoelen maar
@@ -142,32 +135,37 @@ export default function WarmtestuwingBabyPage() {
               Als je baby tekenen van warmtestuwing vertoont:
             </p>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Actieplan</h3>
-              <ol className="list-decimal pl-6 space-y-3 text-gray-700">
-                <li>
-                  <strong>Verplaats naar koelere plek:</strong> Breng baby naar een koele,
-                  geventileerde ruimte
-                </li>
-                <li>
-                  <strong>Verwijder kleding:</strong> Kleed baby uit tot alleen een luier of
-                  dunne romper
-                </li>
-                <li>
-                  <strong>Koel geleidelijk af:</strong> Gebruik lauwe (niet ijskoude) doekjes
-                  op voorhoofd, nek en polsen
-                </li>
-                <li>
-                  <strong>Geef te drinken:</strong> Borst- of flesvoeding in kleine hoeveelheden
-                </li>
-                <li>
-                  <strong>Monitor temperatuur:</strong> Meet rectale temperatuur en blijf
-                  controleren
-                </li>
-                <li>
-                  <strong>Bel bij twijfel:</strong> Huisartsenpost of 112 bij ernstige symptomen
-                </li>
-              </ol>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Actieplan</p>
+                <div className="text-base text-gray-700">
+                  <ol className="list-decimal pl-6 space-y-3">
+                    <li>
+                      <strong>Verplaats naar koelere plek:</strong> Breng baby naar een koele,
+                      geventileerde ruimte
+                    </li>
+                    <li>
+                      <strong>Verwijder kleding:</strong> Kleed baby uit tot alleen een luier of
+                      dunne romper
+                    </li>
+                    <li>
+                      <strong>Koel geleidelijk af:</strong> Gebruik lauwe (niet ijskoude) doekjes
+                      op voorhoofd, nek en polsen
+                    </li>
+                    <li>
+                      <strong>Geef te drinken:</strong> Borst- of flesvoeding in kleine hoeveelheden
+                    </li>
+                    <li>
+                      <strong>Monitor temperatuur:</strong> Meet rectale temperatuur en blijf
+                      controleren
+                    </li>
+                    <li>
+                      <strong>Bel bij twijfel:</strong> Huisartsenpost of 112 bij ernstige symptomen
+                    </li>
+                  </ol>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Risicosituaties</h2>
@@ -182,16 +180,16 @@ export default function WarmtestuwingBabyPage() {
               <li><strong>Premature baby's:</strong> Nog kwetsbaarder voor temperatuurschommelingen</li>
             </ul>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Let Op: Auto's
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Laat een baby NOOIT alleen in een auto, zelfs niet voor "even". Een auto kan binnen
-                10 minuten levensgevaarlijk warm worden, zelfs met een raampje open. Dit is één van
-                de meest voorkomende oorzaken van ernstige warmtestuwing bij baby's.
-              </p>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Let Op: Auto's</p>
+                <div className="text-base text-gray-700">
+                  Laat een baby NOOIT alleen in een auto, zelfs niet voor "even". Een auto kan binnen
+                  10 minuten levensgevaarlijk warm worden, zelfs met een raampje open. Dit is één van
+                  de meest voorkomende oorzaken van ernstige warmtestuwing bij baby's.
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Lange termijn gevolgen</h2>

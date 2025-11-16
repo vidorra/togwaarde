@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Calculator, ArrowRight, ChevronRight, Activity, AlertCircle } from 'lucide-react'
+import { Calculator, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function TOGWaardeBerekenenPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function TOGWaardeBerekenenPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-secondary/20 text-secondary-dark rounded-full text-sm font-medium">
-              Foundation
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">10 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Calculator className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             TOG-waarde Berekenen
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Stap-voor-stap handleiding om de juiste TOG-waarde voor je baby te berekenen, plus gratis rekentool voor direct resultaat.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Hoe bereken je de TOG-waarde?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -67,28 +63,25 @@ export default function TOGWaardeBerekenenPage() {
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Stap 3: Gebruik de TOG-tabel</h2>
             <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="text-2xl font-bold text-secondary-dark mb-2">24°C+</div>
                 <div className="text-sm text-gray-700 mb-2">TOG 0.5</div>
                 <div className="text-xs text-gray-600">Alleen romper of dunne pyjama</div>
               </div>
-              <div className="bg-primary/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="text-2xl font-bold text-primary mb-2">18-24°C</div>
                 <div className="text-sm text-gray-700 mb-2">TOG 1.0-2.5</div>
                 <div className="text-xs text-gray-600">Romper + slaapzak</div>
               </div>
-              <div className="bg-accent/10 rounded-xl p-4">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="text-2xl font-bold text-accent mb-2">15-18°C</div>
                 <div className="text-sm text-gray-700 mb-2">TOG 2.5-3.5</div>
                 <div className="text-xs text-gray-600">Pyjama + warme slaapzak</div>
               </div>
             </div>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Pro Tip
-              </h3>
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Pro Tip</h3>
               <p className="text-gray-700 leading-relaxed">
                 Controleer altijd de nektemperatuur van je baby. De nek moet warm aanvoelen, maar niet
                 klam of bezweet. Dit is de beste indicator of de TOG-waarde correct is.

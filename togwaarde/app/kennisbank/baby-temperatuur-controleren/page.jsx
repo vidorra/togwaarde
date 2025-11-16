@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Hand, ArrowRight, ChevronRight, Activity, Info } from 'lucide-react'
+import { Hand, ArrowRight, ChevronRight, Activity, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function BabyTemperatuurControlerenPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function BabyTemperatuurControlerenPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-              Veiligheid
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">10 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Hand className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Baby Temperatuur Controleren
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Nektest en andere methodes uitgelegd: zo weet je zeker of je baby de juiste temperatuur heeft.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Waarom temperatuur controleren belangrijk is</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -88,7 +84,7 @@ export default function BabyTemperatuurControlerenPage() {
                 <p className="text-sm text-gray-700 mb-3">Nek voelt koel of koud aan</p>
                 <p className="text-xs text-gray-600">Actie: Voeg een laag kleding toe of gebruik een dikkere slaapzak</p>
               </div>
-              <div className="bg-primary/10 rounded-xl p-6 border-2 border-primary">
+              <div className="bg-background rounded-xl p-6 border-2 border-primary/10">
                 <div className="text-lg font-bold text-primary mb-2">Perfect</div>
                 <p className="text-sm text-gray-700 mb-3">Nek voelt warm en droog aan</p>
                 <p className="text-xs text-gray-600">Actie: Geen - je baby heeft de ideale temperatuur</p>
@@ -107,11 +103,8 @@ export default function BabyTemperatuurControlerenPage() {
               geen reden voor bezorgdheid.
             </p>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <Info className="w-5 h-5 text-accent" />
-                Waarom Zijn Handjes en Voetjes Koel?
-              </h3>
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Waarom Zijn Handjes en Voetjes Koel?</h3>
               <p className="text-gray-700 leading-relaxed">
                 Baby's hebben een minder efficiënte bloedsomloop naar de uiteinden van hun lichaam.
                 Koele handjes en voetjes zijn normaal en betekenen niet dat je baby het koud heeft.
@@ -136,7 +129,7 @@ export default function BabyTemperatuurControlerenPage() {
                 </p>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Oorthermometer</h4>
                 <p className="text-sm text-gray-700 mb-2">
                   Snel en comfortabel, maar minder nauwkeurig bij baby's onder 6 maanden
@@ -181,7 +174,7 @@ export default function BabyTemperatuurControlerenPage() {
               </div>
             </div>
 
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 mb-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Pro Tips</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li>Controleer temperatuur VOOR je zelf naar bed gaat</li>

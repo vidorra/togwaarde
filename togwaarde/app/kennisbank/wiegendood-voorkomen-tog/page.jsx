@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Shield, ArrowRight, ChevronRight, Activity, AlertCircle } from 'lucide-react'
+import { Shield, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function WiegendoodVoorkomenTOGPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function WiegendoodVoorkomenTOGPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-              Veiligheid
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">20 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Shield className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Wiegendood Voorkomen met TOG-waarde
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Complete SIDS preventie gids: wetenschappelijke inzichten en de cruciale rol van de juiste TOG-waarde.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Wat is wiegendood (SIDS)?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -44,16 +40,12 @@ export default function WiegendoodVoorkomenTOGPage() {
               die je kunt beïnvloeden.
             </p>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Belangrijke Statistiek
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                In Nederland overlijden jaarlijks ongeveer 50-100 baby's aan wiegendood. Door het
-                naleven van de veiligheidsrichtlijnen, inclusief het gebruik van de juiste TOG-waarde,
-                is dit aantal de afgelopen decennia significant gedaald met meer dan 70%.
-              </p>
+            <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80 mb-6">
+              <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
+              <div className="flex-1">
+                <div className="font-semibold text-sm mb-1 text-text-primary">Belangrijke Statistiek</div>
+                <div className="text-sm text-text-secondary-dark">In Nederland overlijden jaarlijks ongeveer 50-100 baby's aan wiegendood. Door het naleven van de veiligheidsrichtlijnen, inclusief het gebruik van de juiste TOG-waarde, is dit aantal de afgelopen decennia significant gedaald met meer dan 70%.</div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">De rol van oververhitting</h2>
@@ -63,9 +55,9 @@ export default function WiegendoodVoorkomenTOGPage() {
               hebben op SIDS. Hier speelt de TOG-waarde een cruciale rol.
             </p>
 
-            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Waarom TOG-waarde Belangrijk is</h3>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
+            <div className="bg-background rounded-xl p-6 my-8">
+              <h4 className="font-semibold text-gray-900 mb-3">Waarom TOG-waarde Belangrijk is</h4>
+              <ul className="text-sm text-gray-700 list-disc pl-6 space-y-1">
                 <li>Voorkomt oververhitting door juiste isolatie</li>
                 <li>Vervangt gevaarlijke losse dekens</li>
                 <li>Biedt voorspelbare, constante warmte</li>
@@ -79,7 +71,7 @@ export default function WiegendoodVoorkomenTOGPage() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/20 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-secondary-dark" />
                   1. Slaappositie
@@ -89,9 +81,9 @@ export default function WiegendoodVoorkomenTOGPage() {
                 </p>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/20 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-primary" />
+                  <Shield className="w-5 h-5 text-secondary-dark" />
                   2. Slaapomgeving
                 </h4>
                 <ul className="text-sm text-gray-700 list-disc pl-6 space-y-1">
@@ -102,9 +94,9 @@ export default function WiegendoodVoorkomenTOGPage() {
                 </ul>
               </div>
 
-              <div className="bg-accent/10 rounded-xl p-6">
+              <div className="bg-secondary/20 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-accent" />
+                  <Shield className="w-5 h-5 text-secondary-dark" />
                   3. TOG-waarde en Kleding
                 </h4>
                 <ul className="text-sm text-gray-700 list-disc pl-6 space-y-1">
@@ -115,7 +107,7 @@ export default function WiegendoodVoorkomenTOGPage() {
                 </ul>
               </div>
 
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/20 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-secondary-dark" />
                   4. Algemene Gezondheid
@@ -141,21 +133,23 @@ export default function WiegendoodVoorkomenTOGPage() {
               <li><strong>Koorts:</strong> Verhoogde lichaamstemperatuur zonder ziekte</li>
             </ul>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Actie bij Oververhitting
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Als je tekenen van oververhitting ziet:
-              </p>
-              <ol className="list-decimal pl-6 space-y-1 text-gray-700">
-                <li>Verwijder direct een laag kleding</li>
-                <li>Verlaag de kamertemperatuur</li>
-                <li>Laat baby even afkoelen voor je weer aankleden</li>
-                <li>Gebruik een lagere TOG-waarde slaapzak</li>
-                <li>Bij aanhoudende problemen: raadpleeg je huisarts</li>
-              </ol>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Actie bij Oververhitting</p>
+                <div className="text-base text-gray-700">
+                  <p className="mb-3">
+                    Als je tekenen van oververhitting ziet:
+                  </p>
+                  <ol className="list-decimal pl-6 space-y-1">
+                    <li>Verwijder direct een laag kleding</li>
+                    <li>Verlaag de kamertemperatuur</li>
+                    <li>Laat baby even afkoelen voor je weer aankleden</li>
+                    <li>Gebruik een lagere TOG-waarde slaapzak</li>
+                    <li>Bij aanhoudende problemen: raadpleeg je huisarts</li>
+                  </ol>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Veelgestelde vragen</h2>

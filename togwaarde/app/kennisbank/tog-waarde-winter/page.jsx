@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Snowflake, ArrowRight, ChevronRight, Activity, AlertCircle } from 'lucide-react'
+import { Snowflake, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function TOGWaardeWinterPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function TOGWaardeWinterPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium">
-              Seizoenen
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">15 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Snowflake className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             TOG-waarde Winter
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Baby warm én veilig aankleden in de winter. Complete gids voor koude nachten zonder risico op oververhitting.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Welke TOG-waarde in de winter?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -59,15 +55,15 @@ export default function TOGWaardeWinterPage() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">18°C - Milde Winter</h4>
                 <p className="text-sm text-gray-700">TOG 2.5 slaapzak + lange pyjama (lange mouwen en broekspijpen)</p>
               </div>
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">15-16°C - Koude Winter</h4>
                 <p className="text-sm text-gray-700">TOG 2.5-3.5 slaapzak + lange pyjama + rompertje</p>
               </div>
-              <div className="bg-accent/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Onder 15°C - Zeer Koud</h4>
                 <p className="text-sm text-gray-700">TOG 3.5 slaapzak + dikke pyjama + rompertje (of verhoog eerst de kamertemperatuur)</p>
               </div>
@@ -81,16 +77,16 @@ export default function TOGWaardeWinterPage() {
               <li><strong>Dikke sokken:</strong> Voetjes zijn de thermostaat van je baby</li>
             </ul>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Let Op: Oververhitting in de Winter
-              </h3>
-              <p className="text-gray-700 leading-relaxed">
-                Veel ouders hebben de neiging om hun baby extra warm aan te kleden in de winter.
-                Dit kan echter gevaarlijk zijn. Controleer regelmatig de nektemperatuur: deze moet
-                warm aanvoelen maar niet bezweet zijn.
-              </p>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Let Op: Oververhitting in de Winter</p>
+                <div className="text-base text-gray-700">
+                  Veel ouders hebben de neiging om hun baby extra warm aan te kleden in de winter.
+                  Dit kan echter gevaarlijk zijn. Controleer regelmatig de nektemperatuur: deze moet
+                  warm aanvoelen maar niet bezweet zijn.
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Transitie tussen seizoenen</h2>

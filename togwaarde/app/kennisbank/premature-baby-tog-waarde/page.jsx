@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Heart, ArrowRight, ChevronRight, Activity, AlertCircle } from 'lucide-react'
+import { Heart, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function PrematureBabyTOGWaardePage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function PrematureBabyTOGWaardePage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-              Veiligheid
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">18 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Heart className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Premature Baby TOG-waarde
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Speciale aandachtspunten voor te vroeg geboren baby's: aangepaste TOG-waardes en extra veiligheidsmaatregelen.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Waarom premature baby's extra aandacht nodig hebben</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -44,11 +40,8 @@ export default function PrematureBabyTOGWaardePage() {
               de juiste TOG-waarde.
             </p>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Specifieke Kwetsbaarheden
-              </h3>
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 mb-6">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Specifieke Kwetsbaarheden</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li>Minder bruin vetweefsel voor warmteproductie</li>
                 <li>Dunnere huid met minder isolatie</li>
@@ -65,7 +58,7 @@ export default function PrematureBabyTOGWaardePage() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Week 1-2 Thuis</h4>
                 <p className="text-sm text-gray-700 mb-3">
                   <strong>Kamertemperatuur:</strong> 20-22°C (warmer dan voor voldragen baby's)
@@ -75,7 +68,7 @@ export default function PrematureBabyTOGWaardePage() {
                 </p>
               </div>
 
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Week 3-8</h4>
                 <p className="text-sm text-gray-700 mb-3">
                   <strong>Kamertemperatuur:</strong> Geleidelijk verlagen naar 18-20°C
@@ -85,7 +78,7 @@ export default function PrematureBabyTOGWaardePage() {
                 </p>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Na 2-3 Maanden</h4>
                 <p className="text-sm text-gray-700 mb-3">
                   <strong>Kamertemperatuur:</strong> 16-20°C (standaard richtlijn)
@@ -119,7 +112,7 @@ export default function PrematureBabyTOGWaardePage() {
             <div className="overflow-x-auto mb-8">
               <table className="w-full border-collapse">
                 <thead>
-                  <tr className="bg-secondary/10">
+                  <tr className="bg-secondary/10 border border-secondary/20">
                     <th className="border border-gray-200 px-4 py-2 text-left">Kamertemp</th>
                     <th className="border border-gray-200 px-4 py-2 text-left">Eerste 2 Maanden</th>
                     <th className="border border-gray-200 px-4 py-2 text-left">Na 2 Maanden</th>
@@ -151,7 +144,7 @@ export default function PrematureBabyTOGWaardePage() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-8">
-              <div className="bg-accent/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-3">Eerste 2 Weken Thuis</h4>
                 <ul className="text-sm text-gray-700 space-y-2">
                   <li>• Elk 2-3 uur nektest</li>
@@ -161,7 +154,7 @@ export default function PrematureBabyTOGWaardePage() {
                 </ul>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-3">Na 2 Weken</h4>
                 <ul className="text-sm text-gray-700 space-y-2">
                   <li>• Elk 4-5 uur nektest</li>
@@ -172,22 +165,24 @@ export default function PrematureBabyTOGWaardePage() {
               </div>
             </div>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Waarschuwingssignalen
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Neem direct contact op met je huisarts of ziekenhuis bij:
-              </p>
-              <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                <li>Lichaamstemperatuur onder 36°C of boven 38°C</li>
-                <li>Koude huid over het hele lichaam</li>
-                <li>Blauwige verkleuring rond mond of nagels</li>
-                <li>Ongewoon slapheid of prikkelbaarheid</li>
-                <li>Moeite met ademen of snelle ademhaling</li>
-                <li>Weigeren van voeding</li>
-              </ul>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Waarschuwingssignalen</p>
+                <div className="text-base text-gray-700">
+                  <p className="mb-3">
+                    Neem direct contact op met je huisarts of ziekenhuis bij:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li>Lichaamstemperatuur onder 36°C of boven 38°C</li>
+                    <li>Koude huid over het hele lichaam</li>
+                    <li>Blauwige verkleuring rond mond of nagels</li>
+                    <li>Ongewoon slapheid of prikkelbaarheid</li>
+                    <li>Moeite met ademen of snelle ademhaling</li>
+                    <li>Weigeren van voeding</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Speciale slaapzakken voor premature baby's</h2>
@@ -196,7 +191,7 @@ export default function PrematureBabyTOGWaardePage() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Maat 44-50 cm (1-3 kg)</h4>
                 <p className="text-sm text-gray-700">
                   Speciale prematuur maat, vaak met extra voorzieningen zoals armsgaten die
@@ -204,7 +199,7 @@ export default function PrematureBabyTOGWaardePage() {
                 </p>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Maat 50-56 cm (2.5-4 kg)</h4>
                 <p className="text-sm text-gray-700">
                   Eerste reguliere maat, maar let op: niet alle merken passen goed bij kleine baby's.

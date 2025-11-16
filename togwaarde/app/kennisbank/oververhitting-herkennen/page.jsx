@@ -28,14 +28,12 @@ export default function OververhittingHerkennen() {
         {/* Main Content - FRAMED */}
         <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           {/* Critical Info Box */}
-          <div className="relative bg-primary/5 border-l-4 border-primary p-6 rounded-lg mb-8 overflow-hidden">
-            <div className="flex items-start gap-3">
-              <AlertTriangle className="w-7 h-7 text-primary flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="font-bold text-gray-900 mb-2 text-lg">Waarom Oververhitting Gevaarlijk Is</h3>
-                <p className="text-gray-700 leading-relaxed">
-                  Warmtestress is een onafhankelijke risicofactor voor wiegendood (SIDS). Wanneer een baby te warm wordt, verhoogt de arousal threshold – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Baby's in diepe slaap reageren mogelijk niet op zuurstoftekort.
-                </p>
+          <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-8">
+            <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+            <div className="flex-1">
+              <p className="text-base font-semibold text-gray-900 mb-4">Waarom Oververhitting Gevaarlijk Is</p>
+              <div className="text-base text-gray-700">
+                Warmtestress is een onafhankelijke risicofactor voor wiegendood (SIDS). Wanneer een baby te warm wordt, verhoogt de arousal threshold – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Baby's in diepe slaap reageren mogelijk niet op zuurstoftekort.
               </div>
             </div>
           </div>
@@ -91,28 +89,18 @@ export default function OververhittingHerkennen() {
               </div>
             </div>
 
-            <div className="relative bg-primary/5 border-2 border-primary/20 rounded-xl p-6 overflow-hidden">
-              <div className="flex items-center gap-3 mb-4">
-                <XCircle className="w-6 h-6 text-primary" />
-                <h3 className="font-semibold text-gray-900">Onbetrouwbare Indicatoren</h3>
+            <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80">
+              <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
+              <div className="flex-1">
+                <div className="font-semibold text-sm mb-1 text-text-primary">Onbetrouwbare Indicatoren</div>
+                <div className="text-sm text-text-secondary-dark">
+                  <ul className="list-disc pl-4 space-y-1 mt-2">
+                    <li><strong>Handjes en voetjes</strong> - Deze zijn normaal koeler door immature circulatie</li>
+                    <li><strong>Gezichtstemperatuur</strong> - Kan misleidend zijn door externe factoren</li>
+                  </ul>
+                  <p className="mt-3 font-medium">RIVM: "Zolang de voeten warm aanvoelen heeft een baby het niet te koud, terwijl een zwetende baby het in de regel te warm heeft."</p>
+                </div>
               </div>
-              <ul className="space-y-2 text-gray-700 text-sm">
-                <li className="flex items-start gap-2">
-                  <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>Handjes en voetjes</strong> - Deze zijn normaal koeler door immature circulatie
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <strong>Gezichtstemperatuur</strong> - Kan misleidend zijn door externe factoren
-                  </div>
-                </li>
-              </ul>
-              <p className="text-gray-700 text-sm mt-4 font-medium">
-                RIVM: "Zolang de voeten warm aanvoelen heeft een baby het niet te koud, terwijl een zwetende baby het in de regel te warm heeft."
-              </p>
             </div>
           </section>
 
@@ -201,7 +189,7 @@ export default function OververhittingHerkennen() {
                   </li>
                 </ul>
 
-                <div className="mt-4 p-3 bg-primary/10 rounded-lg flex items-start gap-2">
+                <div className="mt-4 p-3 bg-secondary/10 border border-secondary/20 rounded-lg flex items-start gap-2">
                   <AlertTriangle className="w-5 h-5 text-gray-900 flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-gray-900 font-semibold">
                     Een baby die heel stil en slap is kan ernstig oververhit zijn. Bel direct 112 als je je zorgen maakt.
@@ -215,91 +203,44 @@ export default function OververhittingHerkennen() {
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Direct Handelen bij Oververhitting</h2>
 
-            <div className="bg-primary/10 border-2 border-primary/20 rounded-xl p-6 mb-6">
-              <h3 className="font-semibold text-gray-900 mb-4 text-lg">Stapsgewijze Actie</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Verwijder Kledinglagen</h4>
-                    <p className="text-sm text-gray-700">
-                      Verwijder de slaapzak en overtollige kleding. Begin met de buitenste laag. Laat baby in een romper of luier afkoelen.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Verplaats naar Koelere Ruimte</h4>
-                    <p className="text-sm text-gray-700">
-                      Ga naar een koelere kamer of open ramen voor ventilatie (let op tocht). Ideale temperatuur is 16-20°C.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Dep met Lauw Water</h4>
-                    <p className="text-sm text-gray-700">
-                      Dep gezicht, nek en armpjes voorzichtig met een lauw (niet koud!) washandje. Geen koud water - dit kan shock veroorzaken.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Blijf Controleren</h4>
-                    <p className="text-sm text-gray-700">
-                      Voel elk 5-10 minuten het nekje tot het droog en warm (niet heet) aanvoelt. Monitor gedrag en ademhaling.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center flex-shrink-0 font-bold">5</div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-1">Aanpassen voor Volgende Keer</h4>
-                    <p className="text-sm text-gray-700">
-                      Gebruik lichtere TOG-waarde of minder kleding. Controleer kamertemperatuur met thermometer.
-                    </p>
+            <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80 mb-6">
+              <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
+              <div className="flex-1">
+                <div className="font-semibold text-sm mb-1 text-text-primary">Stapsgewijze Actie</div>
+                <div className="text-sm text-text-secondary-dark">
+                  <div className="space-y-3 mt-2">
+                    <div>
+                      <strong>1. Verwijder Kledinglagen:</strong> Verwijder de slaapzak en overtollige kleding. Begin met de buitenste laag. Laat baby in een romper of luier afkoelen.
+                    </div>
+                    <div>
+                      <strong>2. Verplaats naar Koelere Ruimte:</strong> Ga naar een koelere kamer of open ramen voor ventilatie (let op tocht). Ideale temperatuur is 16-20°C.
+                    </div>
+                    <div>
+                      <strong>3. Dep met Lauw Water:</strong> Dep gezicht, nek en armpjes voorzichtig met een lauw (niet koud!) washandje. Geen koud water - dit kan shock veroorzaken.
+                    </div>
+                    <div>
+                      <strong>4. Blijf Controleren:</strong> Voel elk 5-10 minuten het nekje tot het droog en warm (niet heet) aanvoelt. Monitor gedrag en ademhaling.
+                    </div>
+                    <div>
+                      <strong>5. Aanpassen voor Volgende Keer:</strong> Gebruik lichtere TOG-waarde of minder kleding. Controleer kamertemperatuur met thermometer.
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="relative bg-primary/5 border-2 border-primary/20 rounded-xl p-6 overflow-hidden">
-              <div className="flex items-start gap-3">
-                <AlertTriangle className="w-8 h-8 text-primary flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">Bel 112 Direct Bij:</h3>
-                  <ul className="space-y-2 text-gray-700 text-sm">
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Baby reageert niet of is slap en lusteloos</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Ademhaling stopt of zeer onregelmatig is</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Blauwe verkleuring van lippen, gezicht of romp</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Baby niet wakker te krijgen is</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Extreme temperatuur (rectaal boven 40°C)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Stuiptrekkingen of krampen</span>
-                    </li>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Bel 112 Direct Bij:</p>
+                <div className="text-base text-gray-700">
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li>Baby reageert niet of is slap en lusteloos</li>
+                    <li>Ademhaling stopt of zeer onregelmatig is</li>
+                    <li>Blauwe verkleuring van lippen, gezicht of romp</li>
+                    <li>Baby niet wakker te krijgen is</li>
+                    <li>Extreme temperatuur (rectaal boven 40°C)</li>
+                    <li>Stuiptrekkingen of krampen</li>
                   </ul>
                 </div>
               </div>
@@ -348,45 +289,23 @@ export default function OververhittingHerkennen() {
                 </ul>
               </div>
 
-              <div className="bg-primary/5 border border-primary/20 rounded-xl p-6">
-                <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                  <XCircle className="w-5 h-5 text-primary" />
-                  Niet Doen
-                </h3>
-                <ul className="space-y-2 text-gray-700 text-sm">
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Mutsje binnenshuis tijdens slaap</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Slaapzak + dekbed combineren</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Verwarming boven 20°C zetten "voor baby"</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Alleen op handjes/voetjes afgaan</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Te grote slaapzak (glijdgevaar)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Synthetische stoffen die niet ademen</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Baby in directe zon of bij radiator</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Bed voorverwarmen met kruik</span>
-                  </li>
-                </ul>
+              <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent">
+                <XCircle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+                <div className="flex-1">
+                  <p className="text-base font-semibold text-gray-900 mb-4">Niet Doen</p>
+                  <div className="text-base text-gray-700">
+                    <ul className="list-disc pl-6 space-y-1">
+                      <li>Mutsje binnenshuis tijdens slaap</li>
+                      <li>Slaapzak + dekbed combineren</li>
+                      <li>Verwarming boven 20°C zetten "voor baby"</li>
+                      <li>Alleen op handjes/voetjes afgaan</li>
+                      <li>Te grote slaapzak (glijdgevaar)</li>
+                      <li>Synthetische stoffen die niet ademen</li>
+                      <li>Baby in directe zon of bij radiator</li>
+                      <li>Bed voorverwarmen met kruik</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </section>

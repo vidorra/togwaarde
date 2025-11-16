@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { ShoppingCart, ArrowRight, ChevronRight, Activity, Star } from 'lucide-react'
+import { ShoppingCart, ArrowRight, ChevronRight, Activity, Star, Info, CheckCircle } from 'lucide-react'
 
 export default function BabySlaapzakKoopgidsPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function BabySlaapzakKoopgidsPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium">
-              Shopping
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">18 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <ShoppingCart className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Baby Slaapzak Koopgids
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             Complete gids per TOG-waarde met merkvergelijking, prijsoverzicht en praktische aankooptips.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Waar moet je op letten bij het kopen?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -57,7 +53,7 @@ export default function BabySlaapzakKoopgidsPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Slaapzakken per TOG-waarde</h2>
 
             <div className="space-y-6 mb-8">
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 0.5 - Zomerslaapzakken</h4>
                   <span className="text-sm text-gray-600">€20-€45</span>
@@ -73,7 +69,7 @@ export default function BabySlaapzakKoopgidsPage() {
                 </div>
               </div>
 
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 1.0 - Lichte Slaapzakken</h4>
                   <span className="text-sm text-gray-600">€25-€55</span>
@@ -89,7 +85,7 @@ export default function BabySlaapzakKoopgidsPage() {
                 </div>
               </div>
 
-              <div className="bg-accent/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 2.5 - Winterslaapzakken</h4>
                   <span className="text-sm text-gray-600">€35-€75</span>
@@ -105,7 +101,7 @@ export default function BabySlaapzakKoopgidsPage() {
                 </div>
               </div>
 
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 3.5 - Extra Warme Winterslaapzakken</h4>
                   <span className="text-sm text-gray-600">€45-€85</span>
@@ -133,19 +129,19 @@ export default function BabySlaapzakKoopgidsPage() {
               <li><strong>18-36 maanden:</strong> 110 cm (tot ongeveer 15 kg)</li>
             </ul>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <Star className="w-5 h-5 text-accent" />
-                Pro Tip: Basis Garderobe
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Aanbevolen basis set voor het hele jaar:
-              </p>
-              <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                <li>1x TOG 0.5 (zomer)</li>
-                <li>2x TOG 1.0 of 2.5 (tussenseizoen/winter - extra voor in de was)</li>
-                <li>Optioneel: 1x TOG 3.5 (alleen bij zeer koude winters)</li>
-              </ul>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mt-6">
+              <CheckCircle className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Pro Tip: Basis Garderobe</p>
+                <p className="text-base text-gray-700 mb-2">
+                  Aanbevolen basis set voor het hele jaar:
+                </p>
+                <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
+                  <li>1x TOG 0.5 (zomer)</li>
+                  <li>2x TOG 1.0 of 2.5 (tussenseizoen/winter - extra voor in de was)</li>
+                  <li>Optioneel: 1x TOG 3.5 (alleen bij zeer koude winters)</li>
+                </ul>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Kwaliteitskenmerken</h2>

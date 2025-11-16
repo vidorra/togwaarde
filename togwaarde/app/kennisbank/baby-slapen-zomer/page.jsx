@@ -1,14 +1,14 @@
 'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Sun, ArrowRight, ChevronRight, Activity, AlertCircle } from 'lucide-react'
+import { Sun, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 
 export default function BabySlapenZomerPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
           <ChevronRight className="w-4 h-4" />
           <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
@@ -17,24 +17,20 @@ export default function BabySlapenZomerPage() {
         </nav>
 
         {/* Article Header */}
-        <div className="mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <span className="inline-block px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-medium">
-              Seizoenen
-            </span>
-            <span className="text-gray-500">•</span>
-            <span className="text-gray-600">14 minuten leestijd</span>
+        <header className="max-w-4xl mx-auto text-center mb-12">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+            <Sun className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Baby Slapen in de Zomer
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-lg text-gray-600">
             TOG-waarde bij warm weer en complete hitteplan voor veilig slapen tijdens tropische nachten.
           </p>
-        </div>
+        </header>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl p-8 border border-gray-100 mb-8">
+        <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Welke TOG-waarde bij warm weer?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -59,7 +55,7 @@ export default function BabySlapenZomerPage() {
             </p>
 
             <div className="space-y-4 mb-8">
-              <div className="bg-accent/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Stap 1: Verlaag de kamertemperatuur</h4>
                 <p className="text-sm text-gray-700 mb-2">Probeer de babykamer zo koel mogelijk te krijgen:</p>
                 <ul className="list-disc pl-6 space-y-1 text-sm text-gray-600">
@@ -69,7 +65,7 @@ export default function BabySlapenZomerPage() {
                   <li>Overweeg airconditioning (18-20°C)</li>
                 </ul>
               </div>
-              <div className="bg-primary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Stap 2: Minimaliseer kleding</h4>
                 <p className="text-sm text-gray-700 mb-2">Bij extreme hitte:</p>
                 <ul className="list-disc pl-6 space-y-1 text-sm text-gray-600">
@@ -78,7 +74,7 @@ export default function BabySlapenZomerPage() {
                   <li>Gebruik lichte, ademende katoenen materialen</li>
                 </ul>
               </div>
-              <div className="bg-secondary/10 rounded-xl p-6">
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Stap 3: Monitor extra alert</h4>
                 <p className="text-sm text-gray-700 mb-2">Controleer vaker:</p>
                 <ul className="list-disc pl-6 space-y-1 text-sm text-gray-600">
@@ -89,21 +85,23 @@ export default function BabySlapenZomerPage() {
               </div>
             </div>
 
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                <AlertCircle className="w-5 h-5 text-accent" />
-                Waarschuwingstekenen Oververhitting
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-3">
-                Let op deze tekenen en handel direct:
-              </p>
-              <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                <li>Klam of bezweet hoofd en nek</li>
-                <li>Rood of verhit gezicht</li>
-                <li>Snelle ademhaling</li>
-                <li>Rusteloosheid of prikkelbaarheid</li>
-                <li>Huiduitslag (warmte-uitslag)</li>
-              </ul>
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent my-8">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Waarschuwingstekenen Oververhitting</p>
+                <div className="text-base text-gray-700">
+                  <p className="mb-3">
+                    Let op deze tekenen en handel direct:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li>Klam of bezweet hoofd en nek</li>
+                    <li>Rood of verhit gezicht</li>
+                    <li>Snelle ademhaling</li>
+                    <li>Rusteloosheid of prikkelbaarheid</li>
+                    <li>Huiduitslag (warmte-uitslag)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Veelgemaakte zomerfouten</h2>
