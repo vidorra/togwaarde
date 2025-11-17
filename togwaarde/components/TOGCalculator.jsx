@@ -16,10 +16,11 @@ import {
 } from 'lucide-react'
 
 // TOG waarden voor kledinglagen - GESCHATTE WAARDEN (geen industrie-standaard)
+// Gebaseerd op: Het Groene Kruis, HEMA, VeiligheidNL, EN 16781:2018
 const kledingWaarden = {
   'luier': { TOG: 0.1, naam: 'Alleen luier', info: 'Geschatte waarde' },
   'korte_romper': { TOG: 0.2, naam: 'Korte mouw romper', info: 'Geschatte waarde' },
-  'lange_romper': { TOG: 0.4, naam: 'Lange mouw romper', info: 'Geschatte waarde' },
+  'lange_romper': { TOG: 0.8, naam: 'Lange mouw romper', info: 'Standaard katoen (0.8-1.0 TOG)' },
   'dun_slaappak': { TOG: 0.6, naam: 'Dun slaappakje', info: 'Geschatte waarde' },
   'dik_slaappak': { TOG: 0.9, naam: 'Dik slaappakje', info: 'Geschatte waarde' },
   'vestje': { TOG: 0.3, naam: 'Vestje', info: 'Geschatte waarde' },
@@ -28,8 +29,8 @@ const kledingWaarden = {
 
 // Deken waarden - Met onderscheid tussen ingestopt en los
 const dekenWaarden = {
-  'ingestopt_laken': { TOG: 0.3, naam: 'Ingestopt lakentje', info: 'Veilig indien goed ingestopt' },
-  'ingestopt_katoen': { TOG: 0.5, naam: 'Ingestopte katoenen deken', info: 'Stevig onder armen instoppen' },
+  'ingestopt_laken': { TOG: 0.2, naam: 'Ingestopt lakentje', info: 'Veilig indien goed ingestopt' },
+  'ingestopt_katoen': { TOG: 1.2, naam: 'Ingestopte katoenen deken', info: 'Stevig onder armen instoppen - vouw NIET dubbel!' },
   'ingestopt_muslin': { TOG: 0.8, naam: 'Ingestopte hydrofiele deken', info: 'Lichtgewicht, ademend' },
   'los_deken': { TOG: 1.5, naam: 'Losse deken (12+ mnd)', info: 'ALLEEN voor 12+ maanden!' }
 }
@@ -579,6 +580,18 @@ export default function UltimateTOGCalculator() {
                             )
                           })}
                         </div>
+
+                        {/* Dubbelvouw waarschuwing */}
+                        {gekozenDekens.length > 0 && (
+                          <div className="mt-3 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                            <div className="flex items-start gap-2">
+                              <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5 flex-shrink-0" />
+                              <p className="text-xs text-yellow-800">
+                                <strong>Let op:</strong> Vouw dekens NOOIT dubbel - dit verdubbelt de TOG-waarde en verhoogt het risico op oververhitting!
+                              </p>
+                            </div>
+                          </div>
+                        )}
                       </>
                     ) : (
                       <>
@@ -611,6 +624,18 @@ export default function UltimateTOGCalculator() {
                             )
                           })}
                         </div>
+
+                        {/* Dubbelvouw waarschuwing */}
+                        {gekozenDekens.length > 0 && (
+                          <div className="mt-3 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                            <div className="flex items-start gap-2">
+                              <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5 flex-shrink-0" />
+                              <p className="text-xs text-yellow-800">
+                                <strong>Let op:</strong> Vouw dekens NOOIT dubbel - dit verdubbelt de TOG-waarde en verhoogt het risico op oververhitting!
+                              </p>
+                            </div>
+                          </div>
+                        )}
                       </>
                     )}
                   </>
@@ -781,6 +806,41 @@ export default function UltimateTOGCalculator() {
                     {gekozenDekens.length > 0 && ` + ${gekozenDekens.length} deken${gekozenDekens.length === 1 ? '' : 's'}`}
                     {!gebruikDekens && ` + ${slaapzakTOG} TOG slaapzak`}
                   </p>
+
+                  {/* Maximum TOG waarschuwing */}
+                  {totaleTOG > 4.0 && (
+                    <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 rounded">
+                      <div className="flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm font-semibold text-red-800">
+                            Totale TOG boven veilige limiet!
+                          </p>
+                          <p className="text-xs text-red-700 mt-1">
+                            Maximum veilig: 4.0 TOG. Verwijder een laag om oververhitting en wiegendood risico te verminderen.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Hoge TOG waarschuwing (3.5-4.0) */}
+                  {totaleTOG >= 3.5 && totaleTOG <= 4.0 && (
+                    <div className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 rounded">
+                      <div className="flex items-start gap-2">
+                        <AlertTriangle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <p className="text-sm font-semibold text-red-800">
+                            Zeer hoge TOG-waarde!
+                          </p>
+                          <p className="text-xs text-red-700 mt-1">
+                            Dit is te warm voor Nederlandse omstandigheden (ideaal: 2.5-3.0 TOG bij 18-20°C).
+                            Verwijder een laag om oververhitting te voorkomen.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
