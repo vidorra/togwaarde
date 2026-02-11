@@ -1,0 +1,59 @@
+{
+  "name": "tog-waarde-calculator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "TOG Waarde Calculator Nederland - Optimale babyslaap temperatuur tool",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build && next export",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node scripts/migrate.js",
+    "db:migrate-data": "node scripts/data-migration.js",
+    "db:setup": "npm run db:generate && npm run db:migrate && npm run db:migrate-data"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@microsoft/clarity": "^1.0.0",
+    "@types/pg": "^8.15.5",
+    "csv-parser": "^3.2.0",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.5",
+    "drizzle-orm": "^0.44.5",
+    "ioredis": "^5.9.1",
+    "isomorphic-dompurify": "^2.35.0",
+    "jsdom": "^27.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^3.0.3",
+    "lucide-react": "^0.309.0",
+    "next": "^14.0.0",
+    "pg": "^8.16.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "web-vitals": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "^14.0.0",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.0.0"
+  },
+  "keywords": [
+    "tog",
+    "tog-waarde",
+    "calculator",
+    "baby",
+    "slaapzak",
+    "temperatuur",
+    "nederland"
+  ],
+  "author": "TOGWaarde.nl",
+  "license": "MIT"
+}

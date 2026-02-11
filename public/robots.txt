@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://flesvoedingcalculator.nl/sitemap.xml
+
+# Disallow old knowledge base sections (duplicate content)
+Disallow: /kennisbank/old/
+
+# Allow all main pages
+Allow: /
+Allow: /voedingsschemas
+Allow: /infographics
+Allow: /kennisbank
+Allow: /faq
+Allow: /contact
+Allow: /over-ons
+Allow: /partners
+Allow: /disclaimer
+Allow: /privacy-beleid
+Allow: /gebruiksvoorwaarden
+
+# Crawl delay (be respectful)
+Crawl-delay: 1

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#109cb0"/>
+
+  <!-- Baby face (scaled up from 24x24 to 100x100) -->
+  <g stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left eye -->
+    <circle cx="37.5" cy="50" r="2" fill="white"/>
+
+    <!-- Right eye -->
+    <circle cx="62.5" cy="50" r="2" fill="white"/>
+
+    <!-- Smile -->
+    <path d="M 41.5 66.5 C 43.5 68 46 69 50 69 C 54 69 56.5 68 58.5 66.5" stroke="white" stroke-width="3"/>
+
+    <!-- Baby head outline -->
+    <path d="M 79 26 Q 87.5 35 87.5 50 C 87.5 72 71.5 87.5 50 87.5 C 28.5 87.5 12.5 72 12.5 50 C 12.5 35 21 26 50 12.5 C 58.5 12.5 64.5 16 64.5 22.5 C 64.5 29 60 35 54 35 C 50.5 35 47.5 33 47.5 30.5" stroke="white" stroke-width="4"/>
+  </g>
+</svg>

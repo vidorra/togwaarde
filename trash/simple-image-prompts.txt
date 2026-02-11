@@ -1,0 +1,104 @@
+SIMPLE DAILY LIFE IMAGE PROMPTS FOR FLESVOEDINGCALCULATOR.NL
+
+================================
+MAIN KENNISBANK PAGE
+================================
+Mother reading on phone while baby sleeps in bouncer, afternoon living room, natural light --v 7.0 --ar 16:9
+
+================================
+BASIS FLESVOEDING
+================================
+Dad feeding newborn baby on couch, first week at home, morning light --v 7.0 --ar 3:2
+
+Mom giving bottle to 2-month-old in nursery chair, evening routine --v 7.0 --ar 4:3
+
+Baby's first bottle feeding, tiny hands holding bottle, close-up --v 7.0 --ar 1:1
+
+================================
+SOORTEN FLESVOEDING
+================================
+Three baby formula boxes on kitchen counter, different stages visible --v 7.0 --ar 3:2
+
+Mom comparing baby formula at grocery store, reading labels --v 7.0 --ar 16:9
+
+Baby formula preparation ingredients on clean counter --v 7.0 --ar 4:3
+
+================================
+VOEDINGSTECHNIEKEN
+================================
+Mom holding baby at correct feeding angle, living room couch --v 7.0 --ar 3:2
+
+Dad burping baby over shoulder, kitchen background --v 7.0 --ar 4:3
+
+Baby drinking from bottle, content expression, close-up --v 7.0 --ar 1:1
+
+Proper bottle feeding position demonstration, home setting --v 7.0 --ar 16:9
+
+================================
+PROBLEMEN OPLOSSEN
+================================
+Mom comforting crying baby who won't take bottle, patient expression --v 7.0 --ar 3:2
+
+Fussy baby during feeding time, realistic parenting moment --v 7.0 --ar 4:3
+
+Dad trying different bottle with reluctant baby, kitchen table --v 7.0 --ar 16:9
+
+================================
+HYGIENE & BEREIDING
+================================
+Clean bottles drying on kitchen counter, organized setup --v 7.0 --ar 16:9
+
+Mom washing baby bottles in sink, daily routine --v 7.0 --ar 3:2
+
+Bottle sterilizer on counter with steam, kitchen setting --v 7.0 --ar 4:3
+
+Measuring formula powder carefully, clean preparation --v 7.0 --ar 1:1
+
+================================
+VEILIGHEID
+================================
+Mom testing milk temperature on wrist, safety check --v 7.0 --ar 3:2
+
+Checking bottle temperature before feeding, kitchen setting --v 7.0 --ar 4:3
+
+Safe bottle preparation, timer visible, organized counter --v 7.0 --ar 16:9
+
+================================
+PRAKTISCHE TIPS
+================================
+Multiple prepared bottles in refrigerator, meal prep style --v 7.0 --ar 3:2
+
+Mom feeding baby while checking phone, multitasking parent --v 7.0 --ar 4:3
+
+Dad preparing bottle at 3am, tired but caring, dim lighting --v 7.0 --ar 16:9
+
+Diaper bag with organized bottles for day out --v 7.0 --ar 1:1
+
+Parents taking turns feeding baby, teamwork --v 7.0 --ar 16:9
+
+Baby bottles on changing table, daily routine setup --v 7.0 --ar 3:2
+
+================================
+COMMON SCENARIOS
+================================
+Baby finishing bottle happily, satisfied expression --v 7.0 --ar 1:1
+
+Hungry baby eagerly drinking, fast milk flow --v 7.0 --ar 3:2
+
+Sleepy baby during night feeding, dim room --v 7.0 --ar 4:3
+
+Twin babies both drinking bottles, double feeding --v 7.0 --ar 16:9
+
+Baby learning to hold own bottle, independence --v 7.0 --ar 1:1
+
+Mom feeding baby in high chair, kitchen setting --v 7.0 --ar 3:2
+
+Premature baby with special small bottle, gentle care --v 7.0 --ar 4:3
+
+Working mom preparing bottles before work, morning rush --v 7.0 --ar 16:9
+
+Baby refusing bottle, turning head away --v 7.0 --ar 3:2
+
+Grandparent feeding grandchild, bonding moment --v 7.0 --ar 4:3
+
+Note: Keep all images simple, natural, and focused on everyday parenting moments. Use soft natural lighting and authentic home settings.

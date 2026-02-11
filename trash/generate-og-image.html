@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>Generate OG Image</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #109cb0;
+        }
+        #preview {
+            margin: 20px 0;
+            border: 2px solid #109cb0;
+        }
+        button {
+            background: #109cb0;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #0d7a8a;
+        }
+        .info {
+            background: #e8f4f8;
+            padding: 15px;
+            border-left: 4px solid #109cb0;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate OG Image for FlesvoedingCalculator.nl</h1>
+
+        <div class="info">
+            <p><strong>Instructions:</strong></p>
+            <ol>
+                <li>Click "Generate PNG Image" button below</li>
+                <li>The image will automatically download as "og-image.png"</li>
+                <li>Save it to the <code>/public</code> folder</li>
+                <li>Also save a copy as "twitter-image.png"</li>
+            </ol>
+        </div>
+
+        <canvas id="preview" width="1200" height="630"></canvas>
+
+        <button onclick="generateImage()">Generate PNG Image (1200x630)</button>
+        <button onclick="generateTwitterImage()">Generate Twitter Image (1200x600)</button>
+
+        <div class="info">
+            <p><strong>Image Specs:</strong></p>
+            <ul>
+                <li>OG Image: 1200 x 630 px (Facebook, LinkedIn)</li>
+                <li>Twitter Image: 1200 x 600 px (Twitter/X summary_large_image)</li>
+                <li>Background: #109cb0 (your primary color)</li>
+                <li>Baby icon centered with text</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function drawImage(canvas, width, height) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = width;
+            canvas.height = height;
+
+            // Background
+            ctx.fillStyle = '#109cb0';
+            ctx.fillRect(0, 0, width, height);
+
+            // Baby icon - draw the SVG path manually
+            ctx.save();
+            ctx.translate(width/2, height/2 - 50);
+            ctx.scale(8, 8);
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Left eye
+            ctx.beginPath();
+            ctx.arc(9, 12, 0.5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Right eye
+            ctx.beginPath();
+            ctx.arc(15, 12, 0.5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Smile
+            ctx.beginPath();
+            ctx.moveTo(10, 16);
+            ctx.quadraticCurveTo(11.5, 17, 12, 16.5);
+            ctx.quadraticCurveTo(12.5, 17, 14, 16);
+            ctx.stroke();
+
+            // Head outline (approximation)
+            ctx.beginPath();
+            ctx.arc(12, 12, 9, 0, Math.PI * 2);
+            ctx.stroke();
+
+            // Hair tuft
+            ctx.beginPath();
+            ctx.moveTo(12, 3);
+            ctx.quadraticCurveTo(14, 4, 13.5, 5.5);
+            ctx.stroke();
+
+            ctx.restore();
+
+            // Title text
+            ctx.font = 'bold 64px Arial, sans-serif';
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.fillText('Flesvoeding Calculator', width/2, height - 150);
+
+            // Subtitle text
+            ctx.font = '36px Arial, sans-serif';
+            ctx.globalAlpha = 0.95;
+            ctx.fillText('Bereken de juiste hoeveelheid voor je baby', width/2, height - 90);
+        }
+
+        function generateImage() {
+            const canvas = document.getElementById('preview');
+            drawImage(canvas, 1200, 630);
+
+            // Convert to PNG and download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'og-image.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        function generateTwitterImage() {
+            const canvas = document.createElement('canvas');
+            drawImage(canvas, 1200, 600);
+
+            // Convert to PNG and download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'twitter-image.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        // Draw preview on load
+        window.onload = function() {
+            const canvas = document.getElementById('preview');
+            drawImage(canvas, 1200, 630);
+        };
+    </script>
+</body>
+</html>

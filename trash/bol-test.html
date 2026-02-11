@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bol.com Script Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            border: 2px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        h1 { color: #333; }
+        h2 { color: #666; }
+        .debug { 
+            background: #f0f8ff; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-left: 4px solid #007acc;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Bol.com Script Test</h1>
+        <p>Testing the exact Bol.com affiliate script in isolation.</p>
+        
+        <div class="test-section">
+            <h2>Test: Your Bol.com Script</h2>
+            <div class="debug">
+                Script ID: bol_1759937475554<br>
+                Product ID: 9300000062682298<br>
+                Expected: Philips Avent Flessterilisator
+            </div>
+            
+            <!-- Container for the Bol.com widget -->
+            <div id="bol_1759937475554" style="border: 1px dashed #ccc; padding: 20px; min-height: 200px;">
+                <p style="color: #666; font-style: italic;">Loading Bol.com widget...</p>
+            </div>
+            
+            <!-- Your exact script -->
+            <script type="text/javascript">
+                var bol_sitebar_v2={"id":"bol_1759937475554", "baseUrl":"partner.bol.com","productId":"9300000062682298","familyId":"","siteId":"1472968","target":true,"rating":true,"price":true,"deliveryDescription":true,"button":false,"linkName":"Philips%20Avent%20Flessterilisator%20Damp%20Droger%20-%20D...","linkSubId":""};
+            </script>
+            <script type="text/javascript" src="https://partner.bol.com/promotion/static/js/partnerProductlinkV2.js" id="bol_1759937475554"></script>
+        </div>
+        
+        <div class="test-section">
+            <h2>Debug Information</h2>
+            <div class="debug">
+                <div id="debug-info">
+                    <p>🔍 Open browser console (F12) to see script loading details</p>
+                    <p>⏰ Wait 5-10 seconds for Bol.com content to load</p>
+                    <p>✅ Success: Product image and details should appear above</p>
+                    <p>❌ Failure: Only "Loading..." message remains visible</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-section">
+            <h2>Expected Result</h2>
+            <p>If working correctly, you should see:</p>
+            <ul>
+                <li>✅ Product image of Philips Avent Flessterilisator</li>
+                <li>✅ Product title/name</li>
+                <li>✅ Price information</li>
+                <li>✅ No "Loading..." message</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Debug script to monitor loading -->
+    <script>
+        console.log('🧪 Bol.com Test Script Started');
+        console.log('📝 bol_sitebar_v2 config:', bol_sitebar_v2);
+        
+        // Monitor target div for changes
+        const targetDiv = document.getElementById('bol_1759937475554');
+        if (targetDiv) {
+            console.log('🎯 Target div found:', targetDiv);
+            
+            // Check every 2 seconds for content changes
+            let checkCount = 0;
+            const checkInterval = setInterval(() => {
+                checkCount++;
+                const content = targetDiv.innerHTML;
+                console.log(`⏰ Check ${checkCount}: Content length = ${content.length} chars`);
+                
+                if (content.includes('product') || content.includes('bol.com') || content.includes('€')) {
+                    console.log('✅ SUCCESS: Bol.com content detected!');
+                    document.getElementById('debug-info').innerHTML += '<p style="color: green; font-weight: bold;">✅ SUCCESS: Bol.com widget loaded!</p>';
+                    clearInterval(checkInterval);
+                } else if (checkCount > 10) {
+                    console.log('❌ TIMEOUT: No Bol.com content after 20 seconds');
+                    document.getElementById('debug-info').innerHTML += '<p style="color: red; font-weight: bold;">❌ TIMEOUT: Script may be blocked or not loading</p>';
+                    clearInterval(checkInterval);
+                }
+            }, 2000);
+        } else {
+            console.error('❌ Target div not found!');
+        }
+    </script>
+</body>
+</html>

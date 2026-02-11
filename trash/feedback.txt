@@ -1,0 +1,177 @@
+📋 Project Evaluatie
+⚠️ Kritieke Issues - Onwaarheden & Incorrecte Informatie
+1. "Over Ons" Pagina - FICTIEVE TEAMLEDEN
+De /app/over-ons/page.jsx bevat volledig verzonnen teamleden:
+
+Dr. Sarah van der Berg (bestaat niet)
+Lisa Hendriksen (bestaat niet)
+Mark Jansen (generieke naam)
+
+Oplossing: Verwijder fictieve namen of maak duidelijk dat het voorbeeldcontent is:
+jsx// VERVANG MET:
+const team = [
+  {
+    name: 'Medisch Expert',
+    role: 'Kinderarts & Voedingsspecialist',
+    bio: 'Ons medisch team heeft uitgebreide ervaring...',
+    avatar: '👩‍⚕️'
+  }
+  // OF verwijder team sectie volledig
+]
+2. Blog Pagina - Niet-bestaande Content
+/app/blog/page.jsx suggereert artikelen die niet bestaan met fictieve auteurs.
+Oplossing: Markeer als "Coming Soon" of verwijder:
+jsx// Voeg toe aan elk artikel:
+upcoming: true, // In de data
+{article.upcoming && <span className="text-xs bg-gray-100 px-2 py-1 rounded">Binnenkort</span>}
+🔧 Code Review - Technische Problemen
+1. Missing Environment Variables
+Het project mist essentiële configuratie:
+javascript// Maak een .env.local file:
+NEXT_PUBLIC_SITE_URL=https://flesvoedingcalculator.nl
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+2. Deployment Configuration Issues
+.github/workflows/deploy.yml gebruikt CapRover, maar configuratie ontbreekt:
+yaml# Deze secrets moeten worden ingesteld in GitHub:
+CAPROVER_SERVER  # Niet geconfigureerd
+APP_NAME         # Niet geconfigureerd  
+APP_TOKEN        # Niet geconfigureerd
+Betere oplossing voor gratis hosting:
+yaml# Vervang met Vercel deployment:
+name: Deploy to Vercel
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.ORG_ID}}
+          vercel-project-id: ${{ secrets.PROJECT_ID}}
+3. Next.js Config - Static Export Problems
+next.config.js gebruikt output: 'export' maar de site heeft dynamische features:
+javascript// next.config.js MOET zijn:
+const nextConfig = {
+  // Verwijder: output: 'export', // Dit breekt dynamische routes
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  }
+}
+4. Component Import Issues
+/components/Header.jsx heeft een quote-escape probleem:
+jsx// Regel 17 - FOUT:
+{ id: '/voedingsschemas', name: 'Voedingsschema&apos;s', icon: Calendar, href: '/voedingsschemas' },
+
+// MOET ZIJN:
+{ id: '/voedingsschemas', name: "Voedingsschema's", icon: Calendar, href: '/voedingsschemas' },
+5. Tailwind Animation Classes
+tailwind.config.js definieert custom animations maar CSS ontbreekt:
+javascript// app/globals.css MOET deze classes hebben:
+@layer utilities {
+  .animate-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .slide-in-from-bottom {
+    animation: slideInFromBottom 0.3s ease-out;
+  }
+  
+  .slide-in-from-top {
+    animation: slideInFromTop 0.3s ease-out;
+  }
+}
+📝 Inhoudelijke Verbeteringen
+1. Calculator Logica Validatie
+De calculator in /app/page.jsx is correct, maar mist edge cases:
+javascript// Voeg toe aan calculateFeeding():
+if (weightKg > 15) {
+  alert('Voor baby\'s zwaarder dan 15kg, raadpleeg uw arts');
+  return;
+}
+
+if (weightKg < 2.5) {
+  alert('Voor baby\'s lichter dan 2.5kg, raadpleeg uw arts');
+  return;
+}
+2. Incomplete Routes
+Veel routes in de sitemap bestaan niet:
+
+/kennisbank - ONTBREEKT
+/faq - ONTBREEKT
+/contact - ONTBREEKT
+/partners - ONTBREEKT
+/privacy - ONTBREEKT
+/voorwaarden - ONTBREEKT
+/disclaimer - ONTBREEKT
+
+Maak placeholder pages:
+jsx// app/kennisbank/page.jsx
+export default function KennisbankPage() {
+  return (
+    <Layout>
+      <div className="text-center py-20">
+        <h1 className="text-2xl font-bold mb-4">Kennisbank</h1>
+        <p>Deze pagina wordt binnenkort toegevoegd.</p>
+      </div>
+    </Layout>
+  )
+}
+3. SEO Metadata Verbetering
+app/layout.jsx mist belangrijke metadata:
+jsxexport const metadata = {
+  title: 'FlesvoedingCalculator.nl - Bereken de juiste hoeveelheid',
+  description: 'Gratis Nederlandse flesvoeding calculator...',
+  keywords: 'flesvoeding, calculator, baby, nederland',
+  robots: 'index, follow',
+  openGraph: {
+    title: 'FlesvoedingCalculator.nl',
+    description: 'Bereken hoeveel flesvoeding jouw baby nodig heeft',
+    url: 'https://flesvoedingcalculator.nl',
+    siteName: 'FlesvoedingCalculator.nl',
+    images: ['/og-image.png'],
+    locale: 'nl_NL',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'FlesvoedingCalculator.nl',
+    description: 'Bereken hoeveel flesvoeding jouw baby nodig heeft',
+    images: ['/twitter-image.png'],
+  },
+  alternates: {
+    canonical: 'https://flesvoedingcalculator.nl',
+  },
+}
+✅ Wat is Goed
+
+Calculator functionaliteit - Correct geïmplementeerd met juiste formules
+Mobile-first design - Responsive en gebruiksvriendelijk
+Nederlandse taal - Consistent Nederlands gebruikt
+Component structuur - Nette scheiding van components
+
+🚀 Prioriteit Actielijst
+
+URGENT: Verwijder fictieve teamleden uit Over Ons
+URGENT: Fix Header.jsx quote-escape issue
+HOOG: Maak placeholder pages voor ontbrekende routes
+HOOG: Fix next.config.js voor juiste deployment
+MEDIUM: Voeg .env.local toe met basis configuratie
+MEDIUM: Implementeer basis FAQ en Kennisbank pages
+LAAG: Voeg analytics en cookie banner toe
+
+google analytics implementatie: details
+Streamdetails
+Naam van stream
+flesvoedingcalculator
+Stream-URL
+https://flesvoedingcalculator.nl
+Stream-ID
+12028066171
+Metings-ID
+G-L58FEMT8Y2
+implementeer dit

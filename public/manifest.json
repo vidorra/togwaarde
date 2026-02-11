@@ -1,0 +1,38 @@
+{
+  "name": "TOGWaarde.nl",
+  "short_name": "TOG Waarde",
+  "description": "Bereken de ideale TOG waarde voor de slaapzak van uw baby met onze Nederlandse TOG calculator",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF9F0",
+  "theme_color": "#E85D42",
+  "orientation": "portrait-primary",
+  "categories": ["health", "parenting", "utilities"],
+  "lang": "nl",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [],
+  "shortcuts": [
+    {
+      "name": "TOG Calculator",
+      "short_name": "Calculator",
+      "description": "Bereken direct de juiste TOG waarde voor uw baby",
+      "url": "/calculator",
+      "icons": []
+    },
+    {
+      "name": "Kennisbank",
+      "short_name": "Kennis",
+      "description": "Bekijk informatie over TOG en veilige babyslaap",
+      "url": "/kennisbank",
+      "icons": []
+    },
+    {
+      "name": "Producten",
+      "short_name": "Slaapzakken",
+      "description": "Bekijk aanbevolen slaapzakken per TOG waarde",
+      "url": "/producten",
+      "icons": []
+    }
+  ]
+}
