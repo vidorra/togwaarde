@@ -41,5 +41,11 @@ next-env.d.ts
 *.swo
 
 # OS
-Thumbs.db# Deployment trigger - Tue Oct 28 16:21:33 CET 2025
+Thumbs.db
+
+# Documentation & planning files
+md/
+.env.example
+
+# Deployment trigger - Tue Oct 28 16:21:33 CET 2025
 
