@@ -178,7 +178,7 @@ export default function PrematureBabyTOGWaardePage() {
                     <li>Lichaamstemperatuur onder 36°C of boven 38°C</li>
                     <li>Koude huid over het hele lichaam</li>
                     <li>Blauwige verkleuring rond mond of nagels</li>
-                    <li>Ongewoon slapheid of prikkelbaarheid</li>
+                    <li>Ongewone slapheid of prikkelbaarheid</li>
                     <li>Moeite met ademen of snelle ademhaling</li>
                     <li>Weigeren van voeding</li>
                   </ul>
@@ -255,25 +255,25 @@ export default function PrematureBabyTOGWaardePage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/baby-temperatuur-controleren"
+              href="/kennisbank/tog-waarde-berekenen"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest uitgelegd</div>
+              <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
+              <div className="text-sm text-gray-600">Berekening aanpassen voor premature baby</div>
             </Link>
             <Link
-              href="/kennisbank/warmtestuwing-baby"
+              href="/kennisbank/veilige-slaaptemperatuur"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Warmtestuwing bij Baby's</div>
-              <div className="text-sm text-gray-600">Herkennen en voorkomen</div>
+              <div className="font-medium text-gray-900 mb-1">Veilige Slaaptemperatuur</div>
+              <div className="text-sm text-gray-600">Extra voorzichtigheid bij prematuren</div>
             </Link>
             <Link
-              href="/kennisbank/baby-slaapzak-koopgids"
+              href="/kennisbank/babykamer-temperatuur"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slaapzak Koopgids</div>
-              <div className="text-sm text-gray-600">Premature maten</div>
+              <div className="font-medium text-gray-900 mb-1">Ideale Babykamer Temperatuur</div>
+              <div className="text-sm text-gray-600">Hogere kamertemperatuur prematuren</div>
             </Link>
           </div>
         </div>

@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Table, ArrowRight, ChevronRight, Activity, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'TOG-waarde Babykleding Tabel: Complete Referentie | TOGWaarde.nl',
+  description: 'Complete referentietabel met TOG-waardes van alle babykledingstukken. Van rompertje tot pyjama - weet exact hoeveel isolatie elk kledingstuk biedt.',
+  keywords: 'TOG waarde babykleding, kleding TOG tabel, romper TOG waarde, pyjama TOG waarde, babykleding isolatie'
+}
 
 export default function TOGWaardeBabykledingTabelPage() {
   return (
@@ -26,7 +31,7 @@ export default function TOGWaardeBabykledingTabelPage() {
             TOG-waarde Babykleding Tabel
           </h1>
           <p className="text-lg text-gray-600">
-            Complete referentie tabel met TOG-waardes van alle babykledingstukken voor het samenstellen van de perfecte outfit.
+            Complete referentietabel met TOG-waardes van alle babykledingstukken voor het samenstellen van de perfecte outfit.
           </p>
         </header>
 
@@ -128,6 +133,18 @@ export default function TOGWaardeBabykledingTabelPage() {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mt-4">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <div>
+                    <p className="text-sm text-gray-900 font-semibold mb-1">Let op: Gevoerde Pyjama's</p>
+                    <p className="text-sm text-gray-700">
+                      Een gevoerde pyjama (1.5 TOG) met een TOG 2.5 slaapzak geeft 4.0+ totaal TOG. Dit kan te warm zijn voor de meeste baby's.
+                      Gebruik een gevoerde pyjama alleen bij extreem koude kamers (onder 14°C) of kies voor een lagere TOG slaapzak.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -251,25 +268,25 @@ export default function TOGWaardeBabykledingTabelPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/baby-slaapzak-koopgids"
+              href="/kennisbank/kleding-onder-slaapzak"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slaapzak Koopgids</div>
-              <div className="text-sm text-gray-600">Beste merken en modellen</div>
+              <div className="font-medium text-gray-900 mb-1">Kleding Onder de Slaapzak</div>
+              <div className="text-sm text-gray-600">Hoe kleding te combineren</div>
+            </Link>
+            <Link
+              href="/kennisbank/tog-schaal-overzicht"
+              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+            >
+              <div className="font-medium text-gray-900 mb-1">TOG-Schaal Overzicht</div>
+              <div className="text-sm text-gray-600">Alle TOG-waardes begrijpen</div>
             </Link>
             <Link
               href="/kennisbank/tog-waarde-berekenen"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
               <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
-              <div className="text-sm text-gray-600">Stap-voor-stap handleiding</div>
-            </Link>
-            <Link
-              href="/kennisbank/baby-temperatuur-controleren"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
-            >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest uitgelegd</div>
+              <div className="text-sm text-gray-600">Totale TOG berekenen</div>
             </Link>
           </div>
         </div>

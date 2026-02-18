@@ -1,7 +1,7 @@
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
-import { Moon, Thermometer, Info, CheckCircle, ArrowRight, Calculator, Check, Lightbulb, XCircle } from 'lucide-react'
+import { Moon, Thermometer, Info, CheckCircle, ArrowRight, Calculator, Check, Lightbulb, XCircle, ChevronRight, BookOpen } from 'lucide-react'
 
 export const metadata = {
   title: 'Wat is TOG? Uitleg TOG Waarde voor Babyslaapzakken | TOGWaarde.nl',
@@ -13,12 +13,22 @@ export default function WatIsTOGPage() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link href="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="w-4 h-4" />
+          <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-primary">Wat is TOG?</span>
+        </nav>
+
         {/* Header */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <Info className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <BookOpen className="w-6 h-6 mr-3 text-primary" />
             Wat is TOG?
           </h1>
           <p className="text-lg text-gray-600">
@@ -30,7 +40,7 @@ export default function WatIsTOGPage() {
         <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           {/* Introduction */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">TOG Betekenis</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4">TOG Betekenis</h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               <strong>TOG staat voor Thermal Overall Grade</strong> en is een internationale maatstaf die aangeeft hoe warm een babyslaapzak is. Hoe hoger de TOG waarde, hoe warmer de slaapzak. Een slaapzak met TOG 2.5 houdt je baby dus warmer dan een slaapzak met TOG 0.5.
             </p>
@@ -48,7 +58,7 @@ export default function WatIsTOGPage() {
           {/* TOG Scale */}
           
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">De TOG Schaal Uitgelegd</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">De TOG Schaal Uitgelegd</h2>
             <p className="text-lg text-gray-700 mb-6">
               De meest gebruikte TOG waardes voor babyslaapzakken zijn:
             </p>
@@ -84,7 +94,7 @@ export default function WatIsTOGPage() {
                 </div>
                 <p className="text-gray-700">
                   <strong>Kamertemperatuur: 21-23°C</strong><br />
-                  Perfect voor de tusenseizoenen. De meest veelzijdige TOG waarde die veel ouders het hele jaar gebruiken.
+                  Perfect voor de tussenseizoenen. De meest veelzijdige TOG waarde die veel ouders het hele jaar gebruiken.
                 </p>
               </div>
 
@@ -127,7 +137,7 @@ export default function WatIsTOGPage() {
           {/* Why TOG Matters */}
           
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Waarom is TOG Belangrijk?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Waarom is TOG Belangrijk?</h2>
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
@@ -171,7 +181,7 @@ export default function WatIsTOGPage() {
           {/* How to Choose */}
           
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Hoe Kies je de Juiste TOG?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Hoe Kies je de Juiste TOG?</h2>
             <p className="text-lg text-gray-700 mb-6">
               De juiste TOG waarde kiezen hangt af van drie factoren:
             </p>
@@ -185,7 +195,8 @@ export default function WatIsTOGPage() {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Kamertemperatuur</h4>
                     <p className="text-gray-700">
-                      Meet de temperatuur in de babykamer met een thermometer. Dit is de belangrijkste factor bij het kiezen van een TOG waarde.
+                      Meet de temperatuur in de babykamer met een thermometer. Dit is de belangrijkste factor bij het kiezen van een TOG waarde. Lees meer over de{' '}
+                      <Link href="/kennisbank/babykamer-temperatuur" className="text-primary hover:underline font-medium">ideale babykamer temperatuur</Link>.
                     </p>
                   </div>
                 </li>
@@ -197,7 +208,7 @@ export default function WatIsTOGPage() {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Kleding Onder de Slaapzak</h4>
                     <p className="text-gray-700">
-                      Wat draagt je baby onder de slaapzak? Een lange mouw romper voegt ongeveer 0.5 TOG toe, terwijl alleen een luier 0 TOG toevoegt.
+                      Wat draagt je baby onder de slaapzak? Een lange mouw romper voegt ongeveer 0.3 TOG toe, terwijl alleen een luier 0 TOG toevoegt.
                     </p>
                   </div>
                 </li>
@@ -230,7 +241,7 @@ export default function WatIsTOGPage() {
           {/* Common Mistakes */}
           
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Veelgemaakte Fouten</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Veelgemaakte Fouten</h2>
 
             <div className="space-y-4">
               <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-primary/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
@@ -278,7 +289,7 @@ export default function WatIsTOGPage() {
           {/* Quick Reference Table */}
           
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Snelle Referentietabel</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Snelle Referentietabel</h2>
 
             <div className="overflow-x-auto">
               <table className="w-full border-collapse">
@@ -323,7 +334,7 @@ export default function WatIsTOGPage() {
           {/* FAQ */}
           
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Veelgestelde Vragen</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Veelgestelde Vragen</h2>
 
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 rounded-xl p-6">
@@ -376,7 +387,7 @@ export default function WatIsTOGPage() {
               Gebruik onze gratis TOG Calculator om direct te zien welke TOG waarde het beste past bij jouw situatie
             </p>
             <Link
-              href="/calculator"
+              href="/"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors"
             >
               <Calculator className="w-5 h-5 mr-2" />
@@ -387,30 +398,26 @@ export default function WatIsTOGPage() {
 
         {/* Related Articles */}
         <div className="mt-12 pt-12 border-t border-gray-200">
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Gerelateerde Artikelen</h2>
+          <h2 className="text-lg font-semibold text-primary mb-6">Gerelateerde Artikelen</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <Link href="/kennisbank/veilige-slaaptemperatuur" className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary">
-                Veilige Slaaptemperatuur voor Baby's
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Leer welke kamertemperatuur ideaal is voor veilige babyslaap
-              </p>
-              <span className="inline-flex items-center text-primary font-medium">
-                Lees meer <ArrowRight className="w-4 h-4 ml-1" />
-              </span>
+            <Link href="/kennisbank/tog-schaal-overzicht" className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default">
+              <div className="font-medium text-primary">De Complete TOG-Schaal →</div>
+              <div className="text-sm text-gray-600">Overzicht van alle TOG-waardes van 0.5 tot 3.5</div>
             </Link>
 
-            <Link href="/kennisbank/kledinglagen" className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary">
-                Kledinglagen Onder de Slaapzak
-              </h3>
-              <p className="text-gray-600 mb-4">
-                Ontdek wat je baby moet dragen onder de slaapzak
-              </p>
-              <span className="inline-flex items-center text-primary font-medium">
-                Lees meer <ArrowRight className="w-4 h-4 ml-1" />
-              </span>
+            <Link href="/kennisbank/tog-waarde-berekenen" className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default">
+              <div className="font-medium text-primary">TOG-waarde Berekenen →</div>
+              <div className="text-sm text-gray-600">Stap-voor-stap handleiding voor de juiste berekening</div>
+            </Link>
+
+            <Link href="/kennisbank/babykamer-temperatuur" className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default">
+              <div className="font-medium text-primary">Ideale Babykamer Temperatuur →</div>
+              <div className="text-sm text-gray-600">Welke kamertemperatuur is ideaal voor veilige babyslaap?</div>
+            </Link>
+
+            <Link href="/" className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default">
+              <div className="font-medium text-primary">TOG Calculator →</div>
+              <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
             </Link>
           </div>
         </div>

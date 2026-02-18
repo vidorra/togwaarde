@@ -4,7 +4,7 @@ import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
-  title: 'Nederlandse Babyslaapzak Merken Vergelijking 2024: Puckababy, Jollein, HEMA | TOGWaarde.nl',
+  title: 'Nederlandse Babyslaapzak Merken Vergelijking 2026: Puckababy, Jollein, HEMA | TOGWaarde.nl',
   description: 'Complete vergelijking van Nederlandse babyslaapzak merken. Puckababy, Jollein, HEMA, Meyco en Lodger - kwaliteit, prijzen, TOG-waardes en eerlijke reviews van ouders.',
   keywords: 'babyslaapzak merken, Puckababy, Jollein slaapzak, HEMA baby, Meyco, Lodger, merken vergelijking, beste slaapzak Nederland'
 }
@@ -45,7 +45,7 @@ export default function NederlandseMerkenVergelijking() {
                   <Star className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-1">Puckababy</h2>
+                  <h2 className="text-2xl font-bold text-primary mb-1">Puckababy</h2>
                   <p className="text-lg text-gray-700 font-medium">Premium Nederlands Merk</p>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default function NederlandseMerkenVergelijking() {
                 Ervaringen van Ouders
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                "Beste investering ooit! Stof wordt na wassen zachter. Verstelbare lengte is genius - je hebt maar één maat nodig. Meerdere review sites en ouderforums noemen Puckababy consistent als nummer één in kwaliteit."
+                "Beste investering ooit! Stof wordt na wassen zachter. Verstelbare lengte is geniaal - je hebt maar één maat nodig. Meerdere beoordelingssites en ouderforums noemen Puckababy consistent als nummer één in kwaliteit."
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Let op:</strong> Stof is aanvankelijk wat stug maar wordt zachter. Voor pasgeborenen kies de Piep (0-3 maanden) of Mini (3-6 maanden) met antikriebel manchetjes.
@@ -131,7 +131,7 @@ export default function NederlandseMerkenVergelijking() {
                   <Star className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-1">Jollein</h2>
+                  <h2 className="text-2xl font-bold text-primary mb-1">Jollein</h2>
                   <p className="text-lg text-gray-700 font-medium">Populaire Mid-Range Keuze</p>
                 </div>
               </div>
@@ -217,7 +217,7 @@ export default function NederlandseMerkenVergelijking() {
                   <TrendingUp className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-white mb-1">HEMA</h2>
+                  <h2 className="text-2xl font-bold text-primary mb-1">HEMA</h2>
                   <p className="text-lg text-gray-700 font-medium">Budget Kampioen</p>
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function NederlandseMerkenVergelijking() {
                 <ul className="space-y-2 text-gray-700 text-sm">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-secondary-dark mt-0.5 flex-shrink-0" />
-                    <span><strong>Onverslaanbaar prijzig</strong> - €7.50-30</span>
+                    <span><strong>Onverslaanbaar voordelig</strong> - €7.50-30</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-secondary-dark mt-0.5 flex-shrink-0" />
@@ -266,7 +266,7 @@ export default function NederlandseMerkenVergelijking() {
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Materiaal:</dt>
-                    <dd className="font-semibold text-gray-900">100% katoen + 50% bamboe</dd>
+                    <dd className="font-semibold text-gray-900">100% katoen of katoen-bamboe blend</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Extra's:</dt>
@@ -286,7 +286,7 @@ export default function NederlandseMerkenVergelijking() {
                 Ervaringen van Ouders
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                "HEMA is de kampioen koopje zonder kwaliteitsverlies. Nederlandse ouders prijzen HEMA vaak als hun backup optie naast duurdere merken, maar velen gebruiken HEMA als enige merk met volledige tevredenheid."
+                "HEMA is de koopjeskampioen zonder kwaliteitsverlies. Nederlandse ouders prijzen HEMA vaak als hun backup optie naast duurdere merken, maar velen gebruiken HEMA als enige merk met volledige tevredenheid."
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Perfect voor:</strong> Ouders die budget-bewust zijn maar geen compromis willen op veiligheid. Ook ideaal als je meerdere slaapzakken wilt zonder veel te investeren.
@@ -382,7 +382,7 @@ export default function NederlandseMerkenVergelijking() {
                 </ul>
 
                 <p className="text-xs text-gray-600 italic">
-                  "Goede prijs-kwaliteit verhouding, vergelijkbaar met Meyco. Binnenlaag erg dun en mouwtjesloos volgens reviews."
+                  "Goede prijs-kwaliteit verhouding, vergelijkbaar met Meyco. Binnenlaag erg dun en mouwloos volgens reviews."
                 </p>
               </div>
             </div>
@@ -498,12 +498,6 @@ export default function NederlandseMerkenVergelijking() {
             </div>
           </section>
 
-          {/* Affiliate Widget - After Brand Reviews */}
-          <AffiliateProductWidget
-            pageId="nederlandse-merken-vergelijking"
-            title="Aanbevolen Babyslaapzakken"
-          />
-
           {/* Important Notes */}
 
           <section className="mb-12">
@@ -614,6 +608,17 @@ export default function NederlandseMerkenVergelijking() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               <Link
+                href="/kennisbank/baby-slaapzak-koopgids"
+                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+              >
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Baby Slaapzak Koopgids</h4>
+                <p className="text-sm text-gray-600 mb-3">Koopgids voor de juiste keuze</p>
+                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
+                  Lees meer <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+
+              <Link
                 href="/kennisbank/tog-schaal-overzicht"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
@@ -625,24 +630,13 @@ export default function NederlandseMerkenVergelijking() {
               </Link>
 
               <Link
-                href="/kennisbank/wat-is-tog"
+                href="/kennisbank/tog-waarde-babykleding-tabel"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Wat is TOG?</h4>
-                <p className="text-sm text-gray-600 mb-3">Basis uitleg TOG-systeem</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">TOG-waarde Babykleding Tabel</h4>
+                <p className="text-sm text-gray-600 mb-3">Kleding TOG-waardes per stuk</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
-                </span>
-              </Link>
-
-              <Link
-                href="/kennisbank"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
-              >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Volledige Kennisbank</h4>
-                <p className="text-sm text-gray-600 mb-3">Alle artikelen over babyslaap</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Naar kennisbank <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
             </div>

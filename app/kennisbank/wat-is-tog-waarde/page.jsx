@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { BookOpen, ArrowRight, ChevronRight, Activity, ThermometerSun, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Wat is TOG-waarde? Betekenis en Uitleg voor Babyslaapzakken | TOGWaarde.nl',
+  description: 'Ontdek wat TOG-waarde betekent, hoe het werkt en waarom het belangrijk is voor babyslaapzakken. Complete uitleg over de TOG-schaal van 0.5 tot 3.5.',
+  keywords: 'wat is TOG waarde, TOG betekenis, TOG uitleg, TOG slaapzak, thermische isolatie baby'
+}
 
 export default function WatIsTOGWaardePage() {
   return (
@@ -61,7 +66,9 @@ export default function WatIsTOGWaardePage() {
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Waarom is TOG belangrijk voor je baby?</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Baby's zijn bijzonder kwetsbaar als het gaat om temperatuurregulatie. Ze kunnen nog niet:
+              Baby's zijn bijzonder kwetsbaar als het gaat om temperatuurregulatie. De{' '}
+              <Link href="/kennisbank/babykamer-temperatuur" className="text-primary hover:underline font-medium">ideale babykamer temperatuur</Link>{' '}
+              speelt hierbij een cruciale rol. Ze kunnen nog niet:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
               <li>Zelf dekens van zich af gooien als ze het te warm krijgen</li>
@@ -117,28 +124,35 @@ export default function WatIsTOGWaardePage() {
 
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
-          <div className="grid md:grid-cols-3 gap-4">
+          <h3 className="font-semibold text-primary mb-4">Gerelateerde Artikelen</h3>
+          <div className="grid md:grid-cols-2 gap-4">
             <Link
-              href="/kennisbank/tog-waarde-berekenen"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/wat-is-tog"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
-              <div className="text-sm text-gray-600">Stap-voor-stap handleiding</div>
+              <div className="font-medium text-primary">Wat is TOG? →</div>
+              <div className="text-sm text-gray-600">Basis uitleg over het TOG-systeem</div>
             </Link>
             <Link
               href="/kennisbank/babykamer-temperatuur"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Ideale Babykamer Temperatuur</div>
+              <div className="font-medium text-primary">Ideale Babykamer Temperatuur →</div>
               <div className="text-sm text-gray-600">16, 18 of 20 graden?</div>
             </Link>
             <Link
-              href="/kennisbank/tog-waarde-winter"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/tog-waarde-berekenen"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">TOG-waarde Winter</div>
-              <div className="text-sm text-gray-600">Veilig en warm in de winter</div>
+              <div className="font-medium text-primary">TOG-waarde Berekenen →</div>
+              <div className="text-sm text-gray-600">Stap-voor-stap handleiding</div>
+            </Link>
+            <Link
+              href="/"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">TOG Calculator →</div>
+              <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
             </Link>
           </div>
         </div>

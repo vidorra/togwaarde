@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Shield, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Wiegendood Voorkomen met de Juiste TOG-waarde | TOGWaarde.nl',
+  description: 'Hoe de juiste TOG-waarde bijdraagt aan wiegendoodpreventie. Wetenschappelijk onderbouwde richtlijnen voor veilige babyslaap en temperatuurregulatie.',
+  keywords: 'wiegendood voorkomen, TOG waarde wiegendood, SIDS preventie, veilig slapen baby, slaapzak veiligheid'
+}
 
 export default function WiegendoodVoorkomenTOGPage() {
   return (
@@ -44,8 +49,8 @@ export default function WiegendoodVoorkomenTOGPage() {
             <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80 mb-6">
               <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
               <div className="flex-1">
-                <div className="font-semibold text-sm mb-1 text-text-primary">Belangrijke Statistiek</div>
-                <div className="text-sm text-text-secondary-dark">In Nederland overlijden jaarlijks ongeveer 50-100 baby's aan wiegendood. Door het naleven van de veiligheidsrichtlijnen, inclusief het gebruik van de juiste TOG-waarde, is dit aantal de afgelopen decennia significant gedaald met meer dan 70%.</div>
+                <div className="font-semibold text-sm mb-1 text-primary">Belangrijke Statistiek</div>
+                <div className="text-sm text-secondary-dark">In Nederland overlijden jaarlijks ongeveer 25-40 baby's aan wiegendood. Door het naleven van de veiligheidsrichtlijnen, inclusief het gebruik van de juiste TOG-waarde, is dit aantal de afgelopen decennia significant gedaald met meer dan 90%.</div>
               </div>
             </div>
 
@@ -205,25 +210,25 @@ export default function WiegendoodVoorkomenTOGPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/warmtestuwing-baby"
+              href="/kennisbank/wiegendood-preventie"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Warmtestuwing bij Baby's</div>
-              <div className="text-sm text-gray-600">Herkennen en behandelen</div>
+              <div className="font-medium text-gray-900 mb-1">Wiegendood Preventie</div>
+              <div className="text-sm text-gray-600">Temperatuur en SIDS preventie</div>
             </Link>
             <Link
-              href="/kennisbank/baby-temperatuur-controleren"
+              href="/kennisbank/tog-schaal-overzicht"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest uitgelegd</div>
+              <div className="font-medium text-gray-900 mb-1">TOG-Schaal Overzicht</div>
+              <div className="text-sm text-gray-600">TOG-waarden voor veiligheid</div>
             </Link>
             <Link
               href="/kennisbank/babykamer-temperatuur"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
               <div className="font-medium text-gray-900 mb-1">Ideale Babykamer Temperatuur</div>
-              <div className="text-sm text-gray-600">Veilige slaaptemperatuur</div>
+              <div className="text-sm text-gray-600">Veilige kamertemperatuur instellen</div>
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
-import { ShoppingCart, ArrowRight, ChevronRight, Activity, Star, Info, CheckCircle } from 'lucide-react'
+import { ShoppingCart, ArrowRight, ChevronRight, Activity, Star, Info, CheckCircle, ShoppingBag } from 'lucide-react'
 
 export default function BabySlaapzakKoopgidsPage() {
   return (
@@ -22,7 +22,8 @@ export default function BabySlaapzakKoopgidsPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <ShoppingCart className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <ShoppingBag className="w-6 h-6 mr-3 text-primary" />
             Baby Slaapzak Koopgids
           </h1>
           <p className="text-lg text-gray-600">
@@ -33,7 +34,7 @@ export default function BabySlaapzakKoopgidsPage() {
         {/* Main Content */}
         <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Waar moet je op letten bij het kopen?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4">Waar moet je op letten bij het kopen?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               Het kopen van een baby slaapzak is een belangrijke investering in de veiligheid en het
               comfort van je baby. Deze gids helpt je de juiste keuze te maken op basis van TOG-waarde,
@@ -42,16 +43,31 @@ export default function BabySlaapzakKoopgidsPage() {
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Belangrijkste Aandachtspunten</h3>
-              <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Juiste TOG-waarde voor jouw klimaat/seizoen</li>
-                <li>Correcte maat (niet te groot voor veiligheid)</li>
-                <li>Kwaliteit van ritsen en stiksels</li>
-                <li>Materiaal (ademend, GOTS gecertificeerd)</li>
-                <li>Wasinstructies en duurzaamheid</li>
+              <ul className="space-y-2">
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Juiste TOG-waarde voor jouw klimaat/seizoen</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Correcte maat (niet te groot voor veiligheid)</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Kwaliteit van ritsen en stiksels</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Materiaal (ademend, GOTS gecertificeerd)</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Wasinstructies en duurzaamheid</span>
+                </li>
               </ul>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Slaapzakken per TOG-waarde</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Slaapzakken per TOG-waarde</h2>
 
             <div className="space-y-6 mb-8">
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
@@ -91,7 +107,7 @@ export default function BabySlaapzakKoopgidsPage() {
                   <h4 className="font-semibold text-gray-900">TOG 2.5 - Winterslaapzakken</h4>
                   <span className="text-sm text-gray-600">€35-€75</span>
                 </div>
-                <p className="text-sm text-gray-700 mb-3">Standaard voor winter (15-18°C)</p>
+                <p className="text-sm text-gray-700 mb-3">Standaard voor winter (16-20°C)</p>
                 <div className="space-y-2">
                   <div className="text-sm">
                     <span className="font-medium">Populaire merken:</span> Snoozebaby, Bemini, aden + anais
@@ -119,54 +135,78 @@ export default function BabySlaapzakKoopgidsPage() {
               </div>
             </div>
 
-            
-
-        {/* Affiliate Widget */}
-        <AffiliateProductWidget
-          pageId="baby-slaapzak-koopgids"
-          title="Aanbevolen Babyslaapzakken"
-        />
-
-
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Maten en leeftijden</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Maten en leeftijden</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               De juiste maat is cruciaal voor veiligheid. Een te grote slaapzak kan over het hoofd
               van je baby glijden. Standaard maten:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-              <li><strong>0-6 maanden:</strong> 70 cm (tot ongeveer 6 kg)</li>
-              <li><strong>6-18 maanden:</strong> 90 cm (tot ongeveer 10 kg)</li>
-              <li><strong>18-36 maanden:</strong> 110 cm (tot ongeveer 15 kg)</li>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>0-6 maanden:</strong> 70 cm (tot ongeveer 6 kg)</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>6-18 maanden:</strong> 90 cm (tot ongeveer 10 kg)</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>18-36 maanden:</strong> 110 cm (tot ongeveer 15 kg)</span>
+              </li>
             </ul>
 
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mt-6">
               <CheckCircle className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-base font-semibold text-gray-900 mb-4">Pro Tip: Basis Garderobe</p>
+                <p className="text-base font-semibold text-gray-900 mb-4">Handige tip: Basis Garderobe</p>
                 <p className="text-base text-gray-700 mb-2">
                   Aanbevolen basis set voor het hele jaar:
                 </p>
-                <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
-                  <li>1x TOG 0.5 (zomer)</li>
-                  <li>2x TOG 1.0 of 2.5 (tussenseizoen/winter - extra voor in de was)</li>
-                  <li>Optioneel: 1x TOG 3.5 (alleen bij zeer koude winters)</li>
+                <ul className="space-y-2">
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span className="text-base text-gray-700">1x TOG 0.5 (zomer)</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span className="text-base text-gray-700">2x TOG 1.0 of 2.5 (tussenseizoen/winter - extra voor in de was)</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span className="text-base text-gray-700">Optioneel: 1x TOG 3.5 (alleen bij zeer koude winters)</span>
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Kwaliteitskenmerken</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Kwaliteitskenmerken</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Check deze kwaliteitskenmerken voor duurzaamheid:
+              Controleer deze kwaliteitskenmerken voor duurzaamheid:
             </p>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-              <li><strong>YKK ritsen:</strong> Beste kwaliteit, gaan langer mee</li>
-              <li><strong>GOTS/OEKO-TEX:</strong> Certificering voor veilige materialen</li>
-              <li><strong>Dubbele stiksels:</strong> Bij schouders en ritsen</li>
-              <li><strong>Wasbaar op 60°C:</strong> Belangrijk voor hygiëne</li>
-              <li><strong>Drukknoopjes bij schouders:</strong> Makkelijker verschonen</li>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>YKK ritsen:</strong> Beste kwaliteit, gaan langer mee</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>GOTS/OEKO-TEX:</strong> Certificering voor veilige materialen</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Dubbele stiksels:</strong> Bij schouders en ritsen</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Wasbaar op 60°C:</strong> Belangrijk voor hygiëne</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Drukknoopjes bij schouders:</strong> Makkelijker verschonen</span>
+              </li>
             </ul>
 
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Budget vs Premium</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Budget versus premium</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               Je hoeft niet altijd het duurste merk te kiezen. Veel middensegment merken bieden
               uitstekende kwaliteit. Let wel op: goedkope slaapzakken (onder €20) hebben vaak
@@ -177,7 +217,7 @@ export default function BabySlaapzakKoopgidsPage() {
 
         {/* CTA naar Calculator */}
         <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
-          <h3 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-3">
+          <h3 className="font-medium text-gray-900 mb-3">
             Bereken Welke TOG-waarde Je Nodig Hebt
           </h3>
           <p className="text-gray-600 mb-6">
@@ -197,25 +237,25 @@ export default function BabySlaapzakKoopgidsPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/tog-waarde-babykleding-tabel"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/tog-schaal-overzicht"
+              className="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">TOG-waarde Babykleding Tabel</div>
-              <div className="text-sm text-gray-600">Referentie alle kledingstukken</div>
+              <div className="font-medium text-gray-900 mb-1">TOG-schaal Overzicht</div>
+              <div className="text-sm text-gray-600">Alle TOG-waardes uitgelegd</div>
             </Link>
             <Link
-              href="/kennisbank/wat-is-tog-waarde"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/kleding-onder-slaapzak"
+              className="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Wat is TOG-waarde?</div>
-              <div className="text-sm text-gray-600">Complete uitleg</div>
+              <div className="font-medium text-gray-900 mb-1">Kleding Onder de Slaapzak</div>
+              <div className="text-sm text-gray-600">Combinatie kleding en slaapzak</div>
             </Link>
             <Link
-              href="/kennisbank/baby-slapen-zomer"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/nederlandse-merken-vergelijking"
+              className="p-4 rounded-lg border border-gray-200 hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slapen in de Zomer</div>
-              <div className="text-sm text-gray-600">Zomerslaapzak tips</div>
+              <div className="font-medium text-gray-900 mb-1">Nederlandse Merken Vergelijking</div>
+              <div className="text-sm text-gray-600">Puckababy, Jollein, HEMA vergeleken</div>
             </Link>
           </div>
         </div>
@@ -247,7 +287,14 @@ export default function BabySlaapzakKoopgidsPage() {
             </div>
             <ArrowRight className="w-6 h-6 text-gray-400" />
           </Link>
-        </div>      </div>
+        </div>
+
+        {/* Affiliate Widget */}
+        <AffiliateProductWidget
+          pageId="baby-slaapzak-koopgids"
+          title="Aanbevolen Babyslaapzakken"
+        />
+      </div>
     </Layout>
   )
 }

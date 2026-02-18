@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Thermometer, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Warmtestuwing bij Baby: Herkennen, Voorkomen en Behandelen | TOGWaarde.nl',
+  description: 'Alles over warmtestuwing bij baby\'s: symptomen herkennen, directe actie ondernemen en effectief voorkomen. Inclusief noodprotocol en preventietips.',
+  keywords: 'warmtestuwing baby, oververhitting baby, baby te warm, hittestress baby, baby warm weer'
+}
 
 export default function WarmtestuwingBabyPage() {
   return (
@@ -44,7 +49,7 @@ export default function WarmtestuwingBabyPage() {
             <div className="bg-background rounded-xl p-6 mb-6">
               <h4 className="font-semibold text-gray-900 mb-3">Waarom Baby's Extra Kwetsbaar Zijn</h4>
               <ul className="text-sm text-gray-700 list-disc pl-6 space-y-2">
-                <li>Kleinere lichaamsoppervlak ten opzichte van massa</li>
+                <li>Kleiner lichaamsoppervlak ten opzichte van massa</li>
                 <li>Minder ontwikkelde zweetklieren</li>
                 <li>Kunnen zich niet zelf ontkleden of aangeven dat het te warm is</li>
                 <li>Verhoogd metabolisme produceert meer warmte</li>
@@ -60,22 +65,52 @@ export default function WarmtestuwingBabyPage() {
               <div className="bg-primary/10 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-3">Milde Symptomen</h4>
                 <ul className="text-sm text-gray-700 space-y-2">
-                  <li>• Warme, droge huid</li>
-                  <li>• Rode wangen of gezicht</li>
-                  <li>• Snellere ademhaling</li>
-                  <li>• Rusteloosheid</li>
-                  <li>• Extra dorstig</li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Warme, droge huid</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Rode wangen of gezicht</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Snellere ademhaling</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Rusteloosheid</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Extra dorstig</span>
+                  </li>
                 </ul>
               </div>
 
               <div className="bg-accent/10 rounded-xl p-6 border-2 border-accent">
                 <h4 className="font-semibold text-gray-900 mb-3">Ernstige Symptomen - Bel 112</h4>
                 <ul className="text-sm text-gray-700 space-y-2">
-                  <li>• Temperatuur boven 39°C</li>
-                  <li>• Slap of niet responsief</li>
-                  <li>• Stuiptrekkingen</li>
-                  <li>• Braken</li>
-                  <li>• Snelle, oppervlakkige ademhaling</li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Temperatuur boven 39°C</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Slap of niet responsief</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Stuiptrekkingen</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Braken</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Snelle, oppervlakkige ademhaling</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -224,25 +259,25 @@ export default function WarmtestuwingBabyPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/wiegendood-voorkomen-tog"
+              href="/kennisbank/oververhitting-herkennen"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Wiegendood Voorkomen</div>
-              <div className="text-sm text-gray-600">SIDS preventie met TOG</div>
+              <div className="font-medium text-gray-900 mb-1">Oververhitting Herkennen</div>
+              <div className="text-sm text-gray-600">Signalen herkennen bij je baby</div>
             </Link>
             <Link
-              href="/kennisbank/baby-temperatuur-controleren"
+              href="/kennisbank/veilige-slaaptemperatuur"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest en methodes</div>
+              <div className="font-medium text-gray-900 mb-1">Veilige Slaaptemperatuur</div>
+              <div className="text-sm text-gray-600">Preventie oververhitting</div>
             </Link>
             <Link
               href="/kennisbank/baby-slapen-zomer"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
               <div className="font-medium text-gray-900 mb-1">Baby Slapen in de Zomer</div>
-              <div className="text-sm text-gray-600">Hitteplan tropische nachten</div>
+              <div className="text-sm text-gray-600">Zomerrisico warmtestuwing</div>
             </Link>
           </div>
         </div>

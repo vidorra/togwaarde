@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Snowflake, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'TOG-waarde Winter: Baby Warm en Veilig Aankleden | TOGWaarde.nl',
+  description: 'Complete wintergids voor TOG-waardes. Ontdek welke slaapzak en kleding je baby nodig heeft bij koude temperaturen voor warme en veilige winterslaap.',
+  keywords: 'TOG waarde winter, baby warm aankleden winter, winterslaapzak baby, TOG 2.5, TOG 3.5'
+}
 
 export default function TOGWaardeWinterPage() {
   return (
@@ -22,7 +27,8 @@ export default function TOGWaardeWinterPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <Snowflake className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <Snowflake className="w-6 h-6 mr-3 text-primary" />
             TOG-waarde Winter
           </h1>
           <p className="text-lg text-gray-600">
@@ -33,7 +39,7 @@ export default function TOGWaardeWinterPage() {
         {/* Main Content */}
         <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
           <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Welke TOG-waarde in de winter?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4">Welke TOG-waarde in de winter?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               In de winter heb je een hogere TOG-waarde nodig om je baby warm te houden. Maar let op:
               meer is niet altijd beter. Het belangrijkste is dat je de juiste balans vindt tussen
@@ -43,13 +49,13 @@ export default function TOGWaardeWinterPage() {
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Winter TOG-waarde Richtlijnen</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li><strong>15-18°C:</strong> TOG 2.5 - Dikke winterslaapzak</li>
+                <li><strong>16-20°C:</strong> TOG 2.5 - Dikke winterslaapzak</li>
                 <li><strong>12-15°C:</strong> TOG 3.5 - Extra warme winterslaapzak</li>
                 <li><strong>Onder 12°C:</strong> Verhoog eerst de kamertemperatuur</li>
               </ul>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Laagjes combineren in de winter</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Laagjes combineren in de winter</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               De kunst van baby's warm houden in de winter zit in het slim combineren van lagen.
               Hier zijn de beste combinaties per temperatuur:
@@ -70,16 +76,7 @@ export default function TOGWaardeWinterPage() {
               </div>
             </div>
 
-            
-
-        {/* Affiliate Widget */}
-        <AffiliateProductWidget
-          pageId="tog-waarde-winter"
-          title="Aanbevolen Babyslaapzakken"
-        />
-
-
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Veelgemaakte winterfouten</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Veelgemaakte winterfouten</h2>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
               <li><strong>Te veel lagen:</strong> Dit kan juist leiden tot oververhitting</li>
               <li><strong>Dekentjes gebruiken:</strong> Gevaarlijk en niet nodig met de juiste TOG</li>
@@ -99,18 +96,19 @@ export default function TOGWaardeWinterPage() {
               </div>
             </div>
 
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Transitie tussen seizoenen</h2>
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Transitie tussen seizoenen</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              De overgang van herfst naar winter en van winter naar lente kan lastig zijn. Houd een
-              thermometer bij het bed en pas de TOG-waarde geleidelijk aan bij temperatuurschommelingen
-              van meer dan 2-3 graden.
+              De overgang van herfst naar winter en van winter naar lente kan lastig zijn. Bekijk ons{' '}
+              <Link href="/kennisbank/tog-waarde-per-seizoen" className="text-primary hover:underline font-medium">overzicht van TOG-waardes per seizoen</Link>{' '}
+              voor een complete seizoensgids. Houd een thermometer bij het bed en pas de TOG-waarde
+              geleidelijk aan bij temperatuurschommelingen van meer dan 2-3 graden.
             </p>
           </div>
         </div>
 
         {/* CTA naar Calculator */}
         <div className="bg-gradient-to-br from-primary/10 to-primary/5 rounded-2xl p-8 mb-8">
-          <h3 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-3">
+          <h3 className="font-medium text-gray-900 mb-3">
             Bereken de Juiste Winter TOG-waarde
           </h3>
           <p className="text-gray-600 mb-6">
@@ -127,28 +125,35 @@ export default function TOGWaardeWinterPage() {
 
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
-          <div className="grid md:grid-cols-3 gap-4">
+          <h3 className="font-semibold text-primary mb-4">Gerelateerde Artikelen</h3>
+          <div className="grid md:grid-cols-2 gap-4">
             <Link
-              href="/kennisbank/baby-slapen-zomer"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/tog-waarde-per-seizoen"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slapen in de Zomer</div>
-              <div className="text-sm text-gray-600">TOG-waarde bij warm weer</div>
+              <div className="font-medium text-primary">TOG-waarde per Seizoen →</div>
+              <div className="text-sm text-gray-600">Seizoensoverzicht voor het Nederlandse klimaat</div>
             </Link>
             <Link
-              href="/kennisbank/babykamer-temperatuur"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/veilige-slaaptemperatuur"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Ideale Babykamer Temperatuur</div>
-              <div className="text-sm text-gray-600">16, 18 of 20 graden?</div>
+              <div className="font-medium text-primary">Veilige Slaaptemperatuur →</div>
+              <div className="text-sm text-gray-600">Veiligheidscheck voor de wintermaanden</div>
             </Link>
             <Link
               href="/kennisbank/baby-slaapzak-koopgids"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slaapzak Koopgids</div>
-              <div className="text-sm text-gray-600">Beste winterslaapzakken</div>
+              <div className="font-medium text-primary">Baby Slaapzak Koopgids →</div>
+              <div className="text-sm text-gray-600">De beste winterslaapzakken voor jouw baby</div>
+            </Link>
+            <Link
+              href="/"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">TOG Calculator →</div>
+              <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
             </Link>
           </div>
         </div>
@@ -180,7 +185,14 @@ export default function TOGWaardeWinterPage() {
             </div>
             <ArrowRight className="w-6 h-6 text-gray-400" />
           </Link>
-        </div>      </div>
+        </div>
+
+        {/* Affiliate Widget */}
+        <AffiliateProductWidget
+          pageId="tog-waarde-winter"
+          title="Aanbevolen Babyslaapzakken"
+        />
+      </div>
     </Layout>
   )
 }

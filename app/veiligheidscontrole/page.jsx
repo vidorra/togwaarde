@@ -228,7 +228,7 @@ export default function VeiligheidscontrolePage() {
               Gebruik onze calculator om de perfecte slaapzak en kleding voor je baby te bepalen
             </p>
             <a
-              href="/calculator"
+              href="/"
               className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-gray-100 transition-colors"
             >
               <span>Naar TOG Calculator</span>

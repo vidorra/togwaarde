@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Hand, ArrowRight, ChevronRight, Activity, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Baby Temperatuur Controleren: Nektest en Andere Methodes | TOGWaarde.nl',
+  description: 'Leer hoe je de temperatuur van je baby controleert met de nektest en thermometer. Herken oververhitting en onderkoeling voor veilige babyslaap.',
+  keywords: 'baby temperatuur controleren, nektest baby, baby te warm, baby te koud, thermometer baby'
+}
 
 export default function BabyTemperatuurControlerenPage() {
   return (
@@ -217,25 +222,25 @@ export default function BabyTemperatuurControlerenPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/warmtestuwing-baby"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
-            >
-              <div className="font-medium text-gray-900 mb-1">Warmtestuwing bij Baby's</div>
-              <div className="text-sm text-gray-600">Herkennen en behandelen</div>
-            </Link>
-            <Link
               href="/kennisbank/babykamer-temperatuur"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
               <div className="font-medium text-gray-900 mb-1">Ideale Babykamer Temperatuur</div>
-              <div className="text-sm text-gray-600">16, 18 of 20 graden?</div>
+              <div className="text-sm text-gray-600">Kamertemperatuur meten</div>
             </Link>
             <Link
-              href="/kennisbank/tog-waarde-berekenen"
+              href="/kennisbank/oververhitting-herkennen"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
-              <div className="text-sm text-gray-600">Stap-voor-stap handleiding</div>
+              <div className="font-medium text-gray-900 mb-1">Oververhitting Herkennen</div>
+              <div className="text-sm text-gray-600">Betekenis van temperatuursignalen</div>
+            </Link>
+            <Link
+              href="/kennisbank/veilige-slaaptemperatuur"
+              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+            >
+              <div className="font-medium text-gray-900 mb-1">Veilige Slaaptemperatuur</div>
+              <div className="text-sm text-gray-600">Veilige grenzen 16-20°C</div>
             </Link>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import Layout from '../../../components/Layout'
-import { ThermometerSun, Shirt, Baby, Info, CheckCircle, AlertTriangle, XCircle, Calculator, BookOpen, ArrowRight, Check } from 'lucide-react'
+import { ThermometerSun, Shirt, Baby, Info, CheckCircle, AlertTriangle, XCircle, Calculator, BookOpen, ArrowRight, Check, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
@@ -13,6 +13,15 @@ export default function KledingOnderSlaapzak() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link href="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="w-4 h-4" />
+          <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-primary">Kleding Onder de Slaapzak</span>
+        </nav>
+
         {/* Header - NOT framed */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
@@ -32,8 +41,8 @@ export default function KledingOnderSlaapzak() {
           <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80 mb-10">
             <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
             <div className="flex-1">
-              <div className="font-semibold text-sm mb-1 text-text-primary">De "Plus Één Laag" Regel</div>
-              <div className="text-sm text-text-secondary-dark">Kleed je baby in één laag meer dan wat een volwassene comfortabel zou dragen bij die temperatuur. Als jij 's nachts een t-shirt en pyjama draagt onder je dekbed bij 18°C, dan draagt je baby een romper en pyjama onder de TOG 2.5 slaapzak.</div>
+              <div className="font-semibold text-sm mb-1 text-primary">De "Plus Één Laag" Regel</div>
+              <div className="text-sm text-secondary-dark">Kleed je baby in één laag meer dan wat een volwassene comfortabel zou dragen bij die temperatuur. Als jij 's nachts een t-shirt en pyjama draagt onder je dekbed bij 18°C, dan draagt je baby een romper en pyjama onder de TOG 2.5 slaapzak.</div>
             </div>
           </div>
 
@@ -130,7 +139,7 @@ export default function KledingOnderSlaapzak() {
                   <h3 className="font-semibold text-gray-900 text-sm">23-24°C</h3>
                 </div>
                 <p className="text-gray-700 text-sm mb-2"><strong>Kort mouwtje rompertje</strong></p>
-                <p className="text-xs text-gray-600">Dunne katoen, single layer</p>
+                <p className="text-xs text-gray-600">Dunne katoen, enkele laag</p>
               </div>
 
               <div className="bg-white border-2 border-secondary/20 rounded-xl p-5">
@@ -240,10 +249,10 @@ export default function KledingOnderSlaapzak() {
               <div className="bg-white border-2 border-accent/20 rounded-xl p-5 ring-2 ring-accent/30">
                 <div className="flex items-center gap-2 mb-3">
                   <CheckCircle className="w-5 h-5 text-accent" />
-                  <h3 className="font-semibold text-gray-900 text-sm">17-19°C ⭐</h3>
+                  <h3 className="font-semibold text-gray-900 text-sm">17-19°C (optimaal)</h3>
                 </div>
                 <p className="text-gray-700 text-sm mb-2"><strong>Romper + warme pyjama</strong></p>
-                <p className="text-xs text-gray-600">Standaard Nederlandse wintersetup</p>
+                <p className="text-xs text-gray-600">Standaard Nederlandse wintercombinatie</p>
               </div>
 
               <div className="bg-white border-2 border-secondary/20 rounded-xl p-5">
@@ -262,7 +271,7 @@ export default function KledingOnderSlaapzak() {
                 De perfecte Nederlandse wintercombinatie
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme flannellen pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap volgens RIVM en VeiligheidNL richtlijnen.
+                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme flannellen pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap in lijn met RIVM en VeiligheidNL aanbevelingen voor babyslaap.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Materialen:</strong> Kies voor natuurlijke materialen zoals katoen of flanel voor de pyjama. Deze ademen beter dan synthetische stoffen en voeren vocht goed af.
@@ -339,7 +348,7 @@ export default function KledingOnderSlaapzak() {
                 <div className="flex-1">
                   <p className="text-base font-semibold text-gray-900 mb-4">Nooit een Muts of Hoofdbedekking Binnenshuis</p>
                   <div className="text-base text-gray-700">
-                    <p className="mb-3">Gebruik nooit een muts of hoofdbedekking binnenshuis tijdens slaap. Baby's reguleren hun temperatuur hoofdzakelijk via het hoofd, en een muts verhoogt oververhittingsrisico drastisch. Een mutsje binnenshuis is levensgevaarlijk.</p>
+                    <p className="mb-3">Gebruik nooit een muts of hoofdbedekking binnenshuis tijdens slaap. Baby's reguleren hun temperatuur hoofdzakelijk via het hoofd, en een muts verhoogt het risico op oververhitting aanzienlijk. Een mutsje binnenshuis tijdens het slapen verhoogt het risico op oververhitting aanzienlijk.</p>
                     <p><strong>Regel:</strong> Mutsen zijn alleen voor buiten. Verwijder ze zodra je binnenkomt.</p>
                   </div>
                 </div>
@@ -349,7 +358,7 @@ export default function KledingOnderSlaapzak() {
                 <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
                 <div className="flex-1">
                   <p className="text-base font-semibold text-gray-900 mb-4">Sokjes: Meestal Niet Nodig</p>
-                  <div className="text-base text-gray-700">Sokjes zijn meestal niet nodig als de kamertemperatuur correct is en je de juiste TOG gebruikt. Baby's hebben van nature koelere handjes en voetjes door immature circulatie – dit is normaal en geen teken van onderkoeling. In de Nederlandse slaapkamercultuur zijn blote voetjes onder een goed gekozen slaapzak volkomen veilig.</div>
+                  <div className="text-base text-gray-700">Sokjes zijn meestal niet nodig als de kamertemperatuur correct is en je de juiste TOG gebruikt. Baby's hebben van nature koelere handjes en voetjes door onvolgroeide circulatie – dit is normaal en geen teken van onderkoeling. In de Nederlandse slaapkamercultuur zijn blote voetjes onder een goed gekozen slaapzak volkomen veilig.</div>
                 </div>
               </div>
 
@@ -383,7 +392,7 @@ export default function KledingOnderSlaapzak() {
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-secondary-dark flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong>Bamboe-viscose</strong> - Extra ademend, zacht, temperatuuregulerend
+                      <strong>Bamboe-viscose</strong> - Extra ademend, zacht, temperatuurregulerend
                     </div>
                   </li>
                   <li className="flex items-start gap-2">
@@ -611,6 +620,17 @@ export default function KledingOnderSlaapzak() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               <Link
+                href="/kennisbank/tog-waarde-babykleding-tabel"
+                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+              >
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">TOG-waarde Babykleding Tabel</h4>
+                <p className="text-sm text-gray-600 mb-3">Kledingcombinaties per temperatuur</p>
+                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
+                  Lees meer <ArrowRight className="w-4 h-4" />
+                </span>
+              </Link>
+
+              <Link
                 href="/kennisbank/tog-schaal-overzicht"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
@@ -622,24 +642,13 @@ export default function KledingOnderSlaapzak() {
               </Link>
 
               <Link
-                href="/kennisbank/tog-waarde-per-seizoen"
+                href="/kennisbank/oververhitting-herkennen"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">TOG per Seizoen</h4>
-                <p className="text-sm text-gray-600 mb-3">Seizoensadvies voor Nederland</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Oververhitting Herkennen</h4>
+                <p className="text-sm text-gray-600 mb-3">Te warm door extra kleding?</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
-                </span>
-              </Link>
-
-              <Link
-                href="/kennisbank"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
-              >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Volledige Kennisbank</h4>
-                <p className="text-sm text-gray-600 mb-3">Alle artikelen over babyslaap</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Naar kennisbank <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
             </div>

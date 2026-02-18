@@ -36,8 +36,11 @@ export default function BabySlapenZomerPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Welke TOG-waarde bij warm weer?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               In de zomer kies je voor de laagste TOG-waardes. Het doel is om je baby koel te houden
-              zonder het risico op oververhitting, terwijl je toch voldoende bescherming biedt voor
-              een veilige slaapomgeving.
+              zonder het risico op{' '}
+              <Link href="/kennisbank/oververhitting-herkennen" className="text-primary hover:underline font-medium">oververhitting</Link>,
+              terwijl je toch voldoende bescherming biedt voor een veilige slaapomgeving.
+              Bekijk ook ons{' '}
+              <Link href="/kennisbank/tog-waarde-per-seizoen" className="text-primary hover:underline font-medium">overzicht van TOG-waardes per seizoen</Link>.
             </p>
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
@@ -145,28 +148,35 @@ export default function BabySlapenZomerPage() {
 
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
-          <div className="grid md:grid-cols-3 gap-4">
+          <h3 className="font-semibold text-primary mb-4">Gerelateerde Artikelen</h3>
+          <div className="grid md:grid-cols-2 gap-4">
             <Link
-              href="/kennisbank/tog-waarde-winter"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/tog-waarde-per-seizoen"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">TOG-waarde Winter</div>
-              <div className="text-sm text-gray-600">Baby warm houden in de winter</div>
+              <div className="font-medium text-primary">TOG-waarde per Seizoen →</div>
+              <div className="text-sm text-gray-600">Seizoensoverzicht voor het Nederlandse klimaat</div>
             </Link>
             <Link
-              href="/kennisbank/warmtestuwing-baby"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/oververhitting-herkennen"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Warmtestuwing bij Baby's</div>
-              <div className="text-sm text-gray-600">Herkennen en voorkomen</div>
+              <div className="font-medium text-primary">Oververhitting Herkennen →</div>
+              <div className="text-sm text-gray-600">Tekenen van oververhitting in de zomer</div>
             </Link>
             <Link
-              href="/kennisbank/baby-slaapzak-koopgids"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/veilige-slaaptemperatuur"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slaapzak Koopgids</div>
-              <div className="text-sm text-gray-600">Beste zomerslaapzakken</div>
+              <div className="font-medium text-primary">Veilige Slaaptemperatuur →</div>
+              <div className="text-sm text-gray-600">Veilige temperatuurgrens voor zomernachten</div>
+            </Link>
+            <Link
+              href="/"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">TOG Calculator →</div>
+              <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
             </Link>
           </div>
         </div>

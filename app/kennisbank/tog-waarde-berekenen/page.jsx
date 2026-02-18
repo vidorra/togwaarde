@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Calculator, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'TOG-waarde Berekenen: Stap-voor-Stap Handleiding | TOGWaarde.nl',
+  description: 'Leer hoe je de juiste TOG-waarde berekent op basis van kamertemperatuur, seizoen en kledinglagen. Inclusief praktische voorbeelden en rekentool.',
+  keywords: 'TOG waarde berekenen, TOG berekening, juiste TOG waarde, kamertemperatuur TOG, TOG calculator'
+}
 
 export default function TOGWaardeBerekenenPage() {
   return (
@@ -59,7 +64,8 @@ export default function TOGWaardeBerekenenPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Stap 2: Kies de basislaag kleding</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               Start met een rompertje of pyjama als basislaag. Afhankelijk van de temperatuur kun je
-              hier lagen aan toevoegen of juist verminderen.
+              hier lagen aan toevoegen of juist verminderen. Lees meer over{' '}
+              <Link href="/kennisbank/kleding-onder-slaapzak" className="text-primary hover:underline font-medium">kleding combineren onder de slaapzak</Link>.
             </p>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Stap 3: Gebruik de TOG-tabel</h2>
@@ -82,7 +88,7 @@ export default function TOGWaardeBerekenenPage() {
             </div>
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Pro Tip</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Handige tip</h3>
               <p className="text-gray-700 leading-relaxed">
                 Controleer altijd de nektemperatuur van je baby. De nek moet warm aanvoelen, maar niet
                 klam of bezweet. Dit is de beste indicator of de TOG-waarde correct is.
@@ -110,28 +116,35 @@ export default function TOGWaardeBerekenenPage() {
 
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
-          <div className="grid md:grid-cols-3 gap-4">
-            <Link
-              href="/kennisbank/wat-is-tog-waarde"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
-            >
-              <div className="font-medium text-gray-900 mb-1">Wat is TOG-waarde?</div>
-              <div className="text-sm text-gray-600">Complete gids en uitleg</div>
-            </Link>
+          <h3 className="font-semibold text-primary mb-4">Gerelateerde Artikelen</h3>
+          <div className="grid md:grid-cols-2 gap-4">
             <Link
               href="/kennisbank/babykamer-temperatuur"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Ideale Babykamer Temperatuur</div>
-              <div className="text-sm text-gray-600">16, 18 of 20 graden?</div>
+              <div className="font-medium text-primary">Ideale Babykamer Temperatuur →</div>
+              <div className="text-sm text-gray-600">16, 18 of 20 graden voor veilige babyslaap?</div>
             </Link>
             <Link
-              href="/kennisbank/baby-temperatuur-controleren"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/kennisbank/kleding-onder-slaapzak"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest en andere methodes</div>
+              <div className="font-medium text-primary">Kleding Onder de Slaapzak →</div>
+              <div className="text-sm text-gray-600">Welke kledinglagen passen bij welke TOG?</div>
+            </Link>
+            <Link
+              href="/kennisbank/tog-schaal-overzicht"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">De Complete TOG-Schaal →</div>
+              <div className="text-sm text-gray-600">Overzicht van alle TOG-waardes</div>
+            </Link>
+            <Link
+              href="/"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">TOG Calculator →</div>
+              <div className="text-sm text-gray-600">Bereken direct de juiste TOG-waarde voor jouw baby</div>
             </Link>
           </div>
         </div>

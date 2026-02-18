@@ -291,7 +291,7 @@ export default function ProductenPage() {
               Gebruik onze calculator om de perfecte TOG waarde te bepalen
             </p>
             <Link
-              href="/calculator"
+              href="/"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors"
             >
               <Thermometer className="w-5 h-5 mr-2" />

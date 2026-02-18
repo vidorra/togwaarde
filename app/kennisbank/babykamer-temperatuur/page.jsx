@@ -1,8 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { ThermometerSun, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Ideale Babykamer Temperatuur: 16-20°C voor Veilige Slaap | TOGWaarde.nl',
+  description: 'Ontdek de ideale babykamer temperatuur voor veilig slapen. Wetenschappelijk onderbouwd advies over 16-20°C, tips voor temperatuurregeling en TOG-waarde afstemming.',
+  keywords: 'babykamer temperatuur, ideale temperatuur babykamer, baby slaapkamer graden, veilige slaaptemperatuur baby'
+}
 
 export default function BabykamerTemperatuurPage() {
   return (
@@ -76,7 +81,9 @@ export default function BabykamerTemperatuurPage() {
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Tips voor de juiste temperatuur</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Het behouden van de juiste temperatuur kan uitdagend zijn, vooral bij wisselend weer:
+              Het behouden van de juiste temperatuur kan uitdagend zijn, vooral bij wisselend weer. Bij onjuiste temperatuur moet je ook op{' '}
+              <Link href="/kennisbank/oververhitting-herkennen" className="text-primary hover:underline font-medium">tekenen van oververhitting</Link>{' '}
+              letten:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
               <li>Gebruik een betrouwbare kamerthermometer op bedrand-hoogte</li>
@@ -118,28 +125,35 @@ export default function BabykamerTemperatuurPage() {
 
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
-          <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
-          <div className="grid md:grid-cols-3 gap-4">
+          <h3 className="font-semibold text-primary mb-4">Gerelateerde Artikelen</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Link
+              href="/kennisbank/veilige-slaaptemperatuur"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">Veilige Slaaptemperatuur →</div>
+              <div className="text-sm text-gray-600">Veiligheidsgrenzen voor de babykamer</div>
+            </Link>
+            <Link
+              href="/kennisbank/oververhitting-herkennen"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+            >
+              <div className="font-medium text-primary">Oververhitting Herkennen →</div>
+              <div className="text-sm text-gray-600">Tekenen van te warm bij je baby</div>
+            </Link>
             <Link
               href="/kennisbank/tog-waarde-berekenen"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
-              <div className="text-sm text-gray-600">Stap-voor-stap handleiding</div>
+              <div className="font-medium text-primary">TOG-waarde Berekenen →</div>
+              <div className="text-sm text-gray-600">Gebruik de temperatuur in jouw berekening</div>
             </Link>
             <Link
-              href="/kennisbank/baby-temperatuur-controleren"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
+              href="/"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest en andere methodes</div>
-            </Link>
-            <Link
-              href="/kennisbank/wiegendood-voorkomen-tog"
-              className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
-            >
-              <div className="font-medium text-gray-900 mb-1">Wiegendood Voorkomen</div>
-              <div className="text-sm text-gray-600">SIDS preventie met TOG-waarde</div>
+              <div className="font-medium text-primary">TOG Calculator →</div>
+              <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
             </Link>
           </div>
         </div>

@@ -26,7 +26,7 @@ export default function InbakerenTOGWaardePage() {
             Inbakeren en TOG-waarde
           </h1>
           <p className="text-lg text-gray-600">
-            Veilig inbakeren met de juiste TOG-waarde aanpassing: complete gids met do's en don'ts.
+            Veilig inbakeren met de juiste TOG-waarde aanpassing: complete gids met wat wel en niet te doen.
           </p>
         </header>
 
@@ -192,7 +192,7 @@ export default function InbakerenTOGWaardePage() {
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Stap 2: Beide armen vrij (3-5 dagen)</h4>
                 <p className="text-sm text-gray-700">
-                  Bakker alleen nog het lichaam in, beide armen zijn vrij. Of gebruik een inbakerslaapzak
+                  Wikkel alleen nog het lichaam in, beide armen zijn vrij. Of gebruik een inbakerslaapzak
                   met open vleugels.
                 </p>
               </div>
@@ -214,7 +214,7 @@ export default function InbakerenTOGWaardePage() {
               <li><strong>Love to Dream Swaddle UP:</strong> 0.2, 1.0 en 2.5 TOG (met armen omhoog positie)</li>
               <li><strong>Ergobaby Swaddler:</strong> 0.5 en 1.0 TOG (verstelbare vleugels)</li>
               <li><strong>Aden + Anais Snug Swaddle:</strong> 0.5 en 1.0 TOG (3-weg ritssysteem)</li>
-              <li><strong>Puckababy:</strong> Diverse TOG-waardes (Nederlandse merk)</li>
+              <li><strong>Puckababy:</strong> Diverse TOG-waardes (Nederlands merk)</li>
             </ul>
 
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mb-6">
@@ -253,25 +253,25 @@ export default function InbakerenTOGWaardePage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/wiegendood-voorkomen-tog"
+              href="/kennisbank/kleding-onder-slaapzak"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Wiegendood Voorkomen</div>
-              <div className="text-sm text-gray-600">SIDS preventie gids</div>
+              <div className="font-medium text-gray-900 mb-1">Kleding Onder Slaapzak</div>
+              <div className="text-sm text-gray-600">Kledingcombinatie bij inbakeren</div>
             </Link>
             <Link
-              href="/kennisbank/baby-slaapzak-koopgids"
+              href="/kennisbank/oververhitting-herkennen"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Slaapzak Koopgids</div>
-              <div className="text-sm text-gray-600">Inbakerslaapzakken</div>
+              <div className="font-medium text-gray-900 mb-1">Oververhitting Herkennen</div>
+              <div className="text-sm text-gray-600">Risico bij inbakeren herkennen</div>
             </Link>
             <Link
-              href="/kennisbank/baby-temperatuur-controleren"
+              href="/kennisbank/tog-waarde-berekenen"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
-              <div className="font-medium text-gray-900 mb-1">Baby Temperatuur Controleren</div>
-              <div className="text-sm text-gray-600">Nektest uitgelegd</div>
+              <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
+              <div className="text-sm text-gray-600">Berekening bij inbakeren aanpassen</div>
             </Link>
           </div>
         </div>

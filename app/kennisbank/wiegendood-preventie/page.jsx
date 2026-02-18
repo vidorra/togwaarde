@@ -1,5 +1,5 @@
 import Layout from '../../../components/Layout'
-import { ThermometerSun, Shield, Baby, AlertTriangle, CheckCircle, Info, Heart, Calculator, BookOpen, ArrowRight, Check, XCircle } from 'lucide-react'
+import { ThermometerSun, Shield, Baby, AlertTriangle, CheckCircle, Info, Heart, Calculator, BookOpen, ArrowRight, Check, XCircle, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
@@ -13,6 +13,15 @@ export default function WiegendoodPreventie() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link href="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="w-4 h-4" />
+          <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-primary">Wiegendood Preventie</span>
+        </nav>
+
         {/* Header */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
@@ -29,7 +38,7 @@ export default function WiegendoodPreventie() {
         {/* Main Content - Single White Frame */}
         <div className="p-6 lg:p-12 bg-white rounded-2xl mb-6">
         {/* Critical Warning Box */}
-        <div className="relative bg-primary/10 p-6 rounded-lg mb-12 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-600">
+        <div className="relative bg-primary/10 p-6 rounded-lg mb-12 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent">
           <div className="flex items-start gap-3">
             <AlertTriangle className="w-7 h-7 text-primary flex-shrink-0 mt-1" />
             <div>
@@ -143,7 +152,7 @@ export default function WiegendoodPreventie() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Hoe Oververhitting Gevaarlijk Wordt</h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Het mechanisme achter temperatuur en wiegendood heeft te maken met de hersenfonctie van baby's. Wanneer een baby te warm wordt, verhoogt de <strong>arousal threshold</strong> – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Dit is bijzonder gevaarlijk omdat baby's in diepe slaap mogelijk niet reageren op zuurstoftekort.
+              Het mechanisme achter temperatuur en wiegendood heeft te maken met de hersenfunctie van baby's. Wanneer een baby te warm wordt, verhoogt de <strong>arousal threshold (prikkeldrempel)</strong> – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Dit is bijzonder gevaarlijk omdat baby's in diepe slaap mogelijk niet reageren op zuurstoftekort.
             </p>
 
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 border-l-4 border-primary p-6 rounded-lg mb-6">
@@ -212,7 +221,7 @@ export default function WiegendoodPreventie() {
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-primary/10 border-2 border-red-300 rounded-xl p-6">
+              <div className="bg-primary/10 border-2 border-accent/30 rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <AlertTriangle className="w-6 h-6 text-primary" />
                   <h3 className="font-semibold text-gray-900">Waarschuwingstekenen</h3>
@@ -383,7 +392,7 @@ export default function WiegendoodPreventie() {
               Het correct kiezen van een TOG-waarde is essentieel voor wiegendood preventie. Te hoge TOG-waardes of verkeerde kledingcombinaties verhogen het oververhittingsrisico.
             </p>
 
-            <div className="bg-gradient-to-br from-green-50 to-blue-50 border-2 border-secondary/20 rounded-xl p-6 mb-6">
+            <div className="bg-gradient-to-br from-secondary/10 to-accent/10 border-2 border-secondary/20 rounded-xl p-6 mb-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <CheckCircle className="w-6 h-6 text-secondary-dark" />
                 Veilige TOG-keuze Richtlijnen
@@ -428,7 +437,7 @@ export default function WiegendoodPreventie() {
               </ul>
             </div>
 
-            <div className="bg-primary/10 border-2 border-red-300 rounded-xl p-6">
+            <div className="bg-primary/10 border-2 border-accent/30 rounded-xl p-6">
               <h3 className="font-semibold text-gray-900 mb-4 flex items-center gap-2">
                 <AlertTriangle className="w-6 h-6 text-primary" />
                 Gevaarlijke Praktijken - NOOIT Doen
@@ -518,7 +527,7 @@ export default function WiegendoodPreventie() {
                     <strong className="text-gray-900">Slaappositie: Altijd op de rug</strong>
                   </div>
                   <p className="text-gray-700 text-sm pl-7">
-                    Zowel overdag als 's nachts. Voeten aan voeteneinde van bed (feet-to-foot).
+                    Zowel overdag als 's nachts. Voeten aan voeteneinde van bed (feet-to-foot, voetjes aan het voeteneinde).
                   </p>
                 </div>
 
@@ -682,33 +691,33 @@ export default function WiegendoodPreventie() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               <Link
-                href="/kennisbank/tog-schaal-overzicht"
+                href="/kennisbank/wiegendood-voorkomen-tog"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">TOG-Schaal Overzicht</h4>
-                <p className="text-sm text-gray-600 mb-3">Kies de juiste TOG-waarde</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Wiegendood Voorkomen met TOG</h4>
+                <p className="text-sm text-gray-600 mb-3">Specifiek TOG-advies voor veiligheid</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
 
               <Link
-                href="/kennisbank/kleding-onder-slaapzak"
+                href="/kennisbank/veilige-slaaptemperatuur"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Kleding Onder Slaapzak</h4>
-                <p className="text-sm text-gray-600 mb-3">Veilig aankleden per temperatuur</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Veilige Slaaptemperatuur</h4>
+                <p className="text-sm text-gray-600 mb-3">Ideale kamertemperatuur 16-20°C</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
 
               <Link
-                href="/kennisbank/wat-is-tog"
+                href="/kennisbank/oververhitting-herkennen"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Wat is TOG?</h4>
-                <p className="text-sm text-gray-600 mb-3">Basis uitleg TOG-systeem</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Oververhitting Herkennen</h4>
+                <p className="text-sm text-gray-600 mb-3">Signalen van te warm herkennen</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
                 </span>

@@ -1,5 +1,5 @@
 import Layout from '../../../components/Layout'
-import { ThermometerSun, Snowflake, Sun, CloudRain, Leaf, Info, CheckCircle, AlertTriangle, Calculator, BookOpen, ArrowRight } from 'lucide-react'
+import { ThermometerSun, Snowflake, Sun, CloudRain, Leaf, Info, CheckCircle, AlertTriangle, Calculator, BookOpen, ArrowRight, XCircle, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
@@ -13,6 +13,15 @@ export default function TOGWaardePerSeizoen() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link href="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="w-4 h-4" />
+          <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-primary">TOG-waarde per Seizoen</span>
+        </nav>
+
         {/* Header - NOT framed */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
@@ -32,7 +41,13 @@ export default function TOGWaardePerSeizoen() {
           <div className="relative bg-primary/5 p-6 rounded-lg mb-10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
             <p className="text-gray-800 font-medium">
               <Info className="w-5 h-5 inline mr-2 text-primary" />
-              <strong>Kamertemperatuur belangrijker dan seizoen:</strong> Het seizoen geeft een indicatie, maar de daadwerkelijke kamertemperatuur bepaalt welke TOG-waarde je nodig hebt. Een babykamer in de winter met centrale verwarming kan dezelfde TOG vereisen als in de lente. Meet daarom altijd de exacte temperatuur met een thermometer.
+              <strong>Kamertemperatuur belangrijker dan seizoen:</strong> Het seizoen geeft een indicatie, maar de daadwerkelijke{' '}
+              <Link href="/kennisbank/babykamer-temperatuur" className="text-primary hover:underline font-medium">babykamer temperatuur</Link>{' '}
+              bepaalt welke TOG-waarde je nodig hebt. Lees meer over{' '}
+              <Link href="/kennisbank/tog-waarde-winter" className="text-primary hover:underline font-medium">TOG-waarde in de winter</Link>{' '}
+              en{' '}
+              <Link href="/kennisbank/baby-slapen-zomer" className="text-primary hover:underline font-medium">baby slapen in de zomer</Link>.
+              Meet daarom altijd de exacte temperatuur met een thermometer.
             </p>
           </div>
 
@@ -58,7 +73,7 @@ export default function TOGWaardePerSeizoen() {
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-4">
               <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-secondary-dark" />
-                Aanbevolen Setup Winter
+                Aanbevolen combinatie Winter
               </h4>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
@@ -98,11 +113,26 @@ export default function TOGWaardePerSeizoen() {
             <div className="bg-primary/10 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 mb-3">Praktische Wintertips</h4>
               <ul className="space-y-2 text-gray-700 text-sm">
-                <li>✓ Laat de verwarming 's nachts niet te laag zakken (minimum 16°C)</li>
-                <li>✓ Plaats het bedje niet direct bij een radiator of raam</li>
-                <li>✓ Controleer het nekje extra tijdens koude nachten</li>
-                <li>✓ Voorwarm het bed niet met een kruik – dit is gevaarlijk</li>
-                <li>✓ Gebruik geen extra dekentjes – TOG 2.5 is voldoende</li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Laat de verwarming 's nachts niet te laag zakken (minimum 16°C)</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Plaats het bedje niet direct bij een radiator of raam</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Controleer het nekje extra tijdens koude nachten</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Voorwarm het bed niet met een kruik – dit is gevaarlijk</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Gebruik geen extra dekentjes – TOG 2.5 is voldoende</span>
+                </li>
               </ul>
             </div>
           </section>
@@ -169,11 +199,26 @@ export default function TOGWaardePerSeizoen() {
             <div className="bg-secondary/20 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 mb-3">Praktische Voorjaarstips</h4>
               <ul className="space-y-2 text-gray-700 text-sm">
-                <li>✓ Check de temperatuur elke avond – niet automatisch dezelfde setup gebruiken</li>
-                <li>✓ Het moment dat de verwarming uitgaat is kritiek – meet opnieuw</li>
-                <li>✓ Warme lentedagen betekenen niet automatisch warme nachten</li>
-                <li>✓ Pas eerst de kleding aan voordat je een andere TOG-waarde koopt</li>
-                <li>✓ Investeer in slaapzakken met afritsbare mouwen voor flexibiliteit</li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Controleer de temperatuur elke avond – niet automatisch dezelfde combinatie gebruiken</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Het moment dat de verwarming uitgaat is kritiek – meet opnieuw</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Warme lentedagen betekenen niet automatisch warme nachten</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Pas eerst de kleding aan voordat je een andere TOG-waarde koopt</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Investeer in slaapzakken met afritsbare mouwen voor flexibiliteit</span>
+                </li>
               </ul>
             </div>
           </section>
@@ -200,7 +245,7 @@ export default function TOGWaardePerSeizoen() {
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-4">
               <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <CheckCircle className="w-5 h-5 text-secondary-dark" />
-                Aanbevolen Setup Zomer
+                Aanbevolen combinatie Zomer
               </h4>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start gap-2">
@@ -240,12 +285,30 @@ export default function TOGWaardePerSeizoen() {
             <div className="bg-accent/10 rounded-xl p-6">
               <h4 className="font-semibold text-gray-900 mb-3">Praktische Zomertips</h4>
               <ul className="space-y-2 text-gray-700 text-sm">
-                <li>✓ Investeer in hydrofiel katoen slaapzakken – ultra-ademend en snel drogend</li>
-                <li>✓ Laat ramen open voor ventilatie, maar gebruik horren tegen muggen</li>
-                <li>✓ Gebruik een ventilator (niet direct op baby gericht) voor luchtcirculatie</li>
-                <li>✓ Bij alleen een luier: dit is veilig en nodig tijdens extreme hitte</li>
-                <li>✓ Controleer vaker het nekje tijdens hittegolven</li>
-                <li>✓ Donkere gordijnen overdag dicht houden om opwarming te voorkomen</li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Investeer in hydrofiel katoen slaapzakken – ultra-ademend en snel drogend</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Laat ramen open voor ventilatie, maar gebruik horren tegen muggen</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Gebruik een ventilator (niet direct op baby gericht) voor luchtcirculatie</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Bij alleen een luier: dit is veilig en nodig tijdens extreme hitte</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Controleer vaker het nekje tijdens hittegolven</span>
+                </li>
+                <li className="flex items-start space-x-2">
+                  <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                  <span>Donkere gordijnen overdag dicht houden om opwarming te voorkomen</span>
+                </li>
               </ul>
             </div>
           </section>
@@ -318,7 +381,7 @@ export default function TOGWaardePerSeizoen() {
                 <li>1. Start met TOG 2.0 + lange mouw romper (september)</li>
                 <li>2. Voeg een dun pyjama topje toe (begin oktober)</li>
                 <li>3. Schakel naar TOG 2.5 + romper + pyjama (eind oktober)</li>
-                <li>4. Dit blijft je setup voor de hele winter</li>
+                <li>4. Dit blijft je combinatie voor de hele winter</li>
               </ul>
             </div>
           </section>
@@ -404,7 +467,7 @@ export default function TOGWaardePerSeizoen() {
                   <li>• Op gevoel afgaan zonder thermometer</li>
                   <li>• Plotseling twee TOG-waardes omhoog/omlaag</li>
                   <li>• Extra dekentjes gebruiken bij twijfel</li>
-                  <li>• Dezelfde setup blijven gebruiken uit gewoonte</li>
+                  <li>• Dezelfde combinatie blijven gebruiken uit gewoonte</li>
                   <li>• Alleen op handjes/voetjes afgaan</li>
                 </ul>
               </div>
@@ -477,42 +540,38 @@ export default function TOGWaardePerSeizoen() {
 
           {/* Related Articles */}
           <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-primary" />
-              Gerelateerde Artikelen
-            </h3>
-            <div className="grid md:grid-cols-3 gap-4">
+            <h3 className="text-xl font-semibold text-primary mb-6">Gerelateerde Artikelen</h3>
+            <div className="grid md:grid-cols-2 gap-4">
               <Link
-                href="/kennisbank/tog-schaal-overzicht"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+                href="/kennisbank/tog-waarde-winter"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">De Complete TOG-Schaal</h4>
-                <p className="text-sm text-gray-600 mb-3">Uitleg van alle TOG-waardes van 0.5 tot 3.5</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Lees meer <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="font-medium text-primary">TOG-waarde Winter →</div>
+                <div className="text-sm text-gray-600">Baby warm en veilig aankleden in de winter</div>
               </Link>
 
               <Link
-                href="/kennisbank/wat-is-tog"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+                href="/kennisbank/baby-slapen-zomer"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Wat is TOG?</h4>
-                <p className="text-sm text-gray-600 mb-3">Complete uitleg over het TOG-systeem</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Lees meer <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="font-medium text-primary">Baby Slapen in de Zomer →</div>
+                <div className="text-sm text-gray-600">TOG-waarde bij warm weer en hittegolven</div>
               </Link>
 
               <Link
-                href="/producten"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+                href="/kennisbank/babykamer-temperatuur"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Aanbevolen Slaapzakken</h4>
-                <p className="text-sm text-gray-600 mb-3">Beste slaapzakken per seizoen</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Bekijk producten <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="font-medium text-primary">Ideale Babykamer Temperatuur →</div>
+                <div className="text-sm text-gray-600">Kamertemperatuur per seizoen meten</div>
+              </Link>
+
+              <Link
+                href="/"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+              >
+                <div className="font-medium text-primary">TOG Calculator →</div>
+                <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
               </Link>
             </div>
           </div>

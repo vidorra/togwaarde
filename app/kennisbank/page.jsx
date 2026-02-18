@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Layout from '../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../components/AffiliateProductWidget'
-import { BookOpen, ThermometerSun, Baby, ShieldCheck, Snowflake, Sun, ShoppingBag, AlertCircle, Activity, Clock, ChevronRight, Grid } from 'lucide-react'
+import { BookOpen, ThermometerSun, Baby, ShieldCheck, Snowflake, Sun, ShoppingBag, AlertCircle, Activity, Clock, ChevronRight, Grid, Shirt, Scale, Layers, Home, Star } from 'lucide-react'
 
 export default function KennisbankPage() {
   const [activePhase, setActivePhase] = useState('all')
@@ -18,16 +18,32 @@ export default function KennisbankPage() {
     },
     {
       id: 'foundation',
-      title: 'Foundation - Basis Kennis',
+      title: 'Basis - Basis Kennis',
       icon: BookOpen,
       description: 'Begin hier met de fundamenten van TOG-waardes',
       articles: [
+        {
+          title: 'Wat is TOG?',
+          slug: 'wat-is-tog',
+          description: 'Complete uitleg TOG-schaal en praktisch gebruik',
+          icon: BookOpen,
+          readTime: '12 min',
+          difficulty: 'Beginner'
+        },
         {
           title: 'Wat is TOG-waarde?',
           slug: 'wat-is-tog-waarde',
           description: 'Betekenis, geschiedenis en wetenschappelijke basis',
           icon: BookOpen,
           readTime: '8 min',
+          difficulty: 'Beginner'
+        },
+        {
+          title: 'TOG-schaal Overzicht',
+          slug: 'tog-schaal-overzicht',
+          description: 'Complete referentie TOG 0.5 tot 4.0',
+          icon: Scale,
+          readTime: '10 min',
           difficulty: 'Beginner'
         },
         {
@@ -55,6 +71,14 @@ export default function KennisbankPage() {
       description: 'TOG-waardes per seizoen en weersomstandigheden',
       articles: [
         {
+          title: 'TOG-waarde per Seizoen',
+          slug: 'tog-waarde-per-seizoen',
+          description: 'Complete gids lente, zomer, herfst, winter',
+          icon: Sun,
+          readTime: '20 min',
+          difficulty: 'Gemiddeld'
+        },
+        {
           title: 'TOG-waarde Winter',
           slug: 'tog-waarde-winter',
           description: 'Baby warm én veilig aankleden in de winter',
@@ -74,7 +98,7 @@ export default function KennisbankPage() {
     },
     {
       id: 'commercial',
-      title: 'Shopping - Product Keuzes',
+      title: 'Productkeuzes',
       icon: ShoppingBag,
       description: 'Welke producten kiezen op basis van TOG',
       articles: [
@@ -87,10 +111,26 @@ export default function KennisbankPage() {
           difficulty: 'Gemiddeld'
         },
         {
+          title: 'Nederlandse Merken Vergelijking',
+          slug: 'nederlandse-merken-vergelijking',
+          description: 'Puckababy, Jollein, HEMA en meer vergeleken',
+          icon: Star,
+          readTime: '22 min',
+          difficulty: 'Gemiddeld'
+        },
+        {
+          title: 'Kleding Onder de Slaapzak',
+          slug: 'kleding-onder-slaapzak',
+          description: 'Complete kledingadvies per TOG en temperatuur',
+          icon: Shirt,
+          readTime: '16 min',
+          difficulty: 'Gemiddeld'
+        },
+        {
           title: 'TOG-waarde Babykleding Tabel',
           slug: 'tog-waarde-babykleding-tabel',
           description: 'Complete referentie tabel alle kledingstukken',
-          icon: Baby,
+          icon: Layers,
           readTime: '12 min',
           difficulty: 'Gemiddeld'
         }
@@ -103,11 +143,35 @@ export default function KennisbankPage() {
       description: 'Kritieke veiligheid en speciale situaties',
       articles: [
         {
+          title: 'Veilige Slaaptemperatuur',
+          slug: 'veilige-slaaptemperatuur',
+          description: 'Complete gids 16-20°C regel en TOG-waarde',
+          icon: Home,
+          readTime: '14 min',
+          difficulty: 'Belangrijk'
+        },
+        {
+          title: 'Wiegendood Preventie',
+          slug: 'wiegendood-preventie',
+          description: 'Uitgebreide SIDS preventiegids en richtlijnen',
+          icon: ShieldCheck,
+          readTime: '25 min',
+          difficulty: 'Belangrijk'
+        },
+        {
           title: 'Wiegendood Voorkomen met TOG',
           slug: 'wiegendood-voorkomen-tog',
-          description: 'Complete SIDS preventie gids + TOG-waarde rol',
+          description: 'Hoe TOG-waarde bijdraagt aan SIDS preventie',
           icon: ShieldCheck,
-          readTime: '20 min',
+          readTime: '18 min',
+          difficulty: 'Belangrijk'
+        },
+        {
+          title: 'Oververhitting Herkennen',
+          slug: 'oververhitting-herkennen',
+          description: 'Symptomen, risico\'s en preventie',
+          icon: AlertCircle,
+          readTime: '16 min',
           difficulty: 'Belangrijk'
         },
         {
@@ -169,18 +233,18 @@ export default function KennisbankPage() {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Alles wat je moet weten over TOG-waardes voor veilig en comfortabel slapen van je baby.
-            12 diepgaande artikelen, evidence-based informatie, praktische tips.
+            20 diepgaande artikelen, evidence-based informatie, praktische tips.
           </p>
         </div>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">12</div>
+            <div className="text-3xl font-bold text-primary mb-2">20</div>
             <div className="text-sm text-gray-600">Artikelen</div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">30k+</div>
+            <div className="text-3xl font-bold text-primary mb-2">30.000+</div>
             <div className="text-sm text-gray-600">Woorden</div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
@@ -188,7 +252,9 @@ export default function KennisbankPage() {
             <div className="text-sm text-gray-600">Fases</div>
           </div>
           <div className="bg-white rounded-xl p-6 text-center border border-gray-100">
-            <div className="text-3xl font-bold text-primary mb-2">100%</div>
+            <div className="text-3xl font-bold text-primary mb-2">
+              <ShieldCheck className="w-8 h-8 mx-auto" />
+            </div>
             <div className="text-sm text-gray-600">Evidence-based</div>
           </div>
         </div>
@@ -309,7 +375,7 @@ export default function KennisbankPage() {
               <ShieldCheck className="w-8 h-8 text-primary mb-3" />
               <h3 className="font-semibold text-gray-900 mb-2">Veiligheid Eerst</h3>
               <p className="text-gray-600 text-sm">
-                Alle informatie gebaseerd op RIVM, VeiligheidNL en AAP richtlijnen
+                Alle informatie gebaseerd op RIVM, VeiligheidNL en Nederlandse richtlijnen
               </p>
             </div>
             <div className="p-6 bg-default rounded-xl">

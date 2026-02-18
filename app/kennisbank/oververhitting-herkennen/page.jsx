@@ -1,5 +1,5 @@
 import Layout from '../../../components/Layout'
-import { ThermometerSun, AlertTriangle, CheckCircle, Info, XCircle, Heart, Calculator, BookOpen, ArrowRight, Check } from 'lucide-react'
+import { ThermometerSun, AlertTriangle, CheckCircle, Info, XCircle, Heart, Calculator, BookOpen, ArrowRight, Check, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
@@ -13,6 +13,15 @@ export default function OververhittingHerkennen() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link href="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="w-4 h-4" />
+          <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-primary">Oververhitting Herkennen</span>
+        </nav>
+
         {/* Header - NOT framed */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
@@ -34,7 +43,7 @@ export default function OververhittingHerkennen() {
             <div className="flex-1">
               <p className="text-base font-semibold text-gray-900 mb-4">Waarom Oververhitting Gevaarlijk Is</p>
               <div className="text-base text-gray-700">
-                Warmtestress is een onafhankelijke risicofactor voor wiegendood (SIDS). Wanneer een baby te warm wordt, verhoogt de arousal threshold – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Baby's in diepe slaap reageren mogelijk niet op zuurstoftekort.
+                Warmtestress is een onafhankelijke risicofactor voor wiegendood (SIDS). Wanneer een baby te warm wordt, verhoogt de arousal threshold (prikkeldrempel) – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Baby's in diepe slaap reageren mogelijk niet op zuurstoftekort.
               </div>
             </div>
           </div>
@@ -93,8 +102,8 @@ export default function OververhittingHerkennen() {
             <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80">
               <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
               <div className="flex-1">
-                <div className="font-semibold text-sm mb-1 text-text-primary">Onbetrouwbare Indicatoren</div>
-                <div className="text-sm text-text-secondary-dark">
+                <div className="font-semibold text-sm mb-1 text-primary">Onbetrouwbare Indicatoren</div>
+                <div className="text-sm text-secondary-dark">
                   <ul className="list-disc pl-4 space-y-1 mt-2">
                     <li><strong>Handjes en voetjes</strong> - Deze zijn normaal koeler door immature circulatie</li>
                     <li><strong>Gezichtstemperatuur</strong> - Kan misleidend zijn door externe factoren</li>
@@ -207,8 +216,8 @@ export default function OververhittingHerkennen() {
             <div className="relative p-4 pl-5 rounded-xl flex items-center gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80 mb-6">
               <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0" />
               <div className="flex-1">
-                <div className="font-semibold text-sm mb-1 text-text-primary">Stapsgewijze Actie</div>
-                <div className="text-sm text-text-secondary-dark">
+                <div className="font-semibold text-sm mb-1 text-primary">Stapsgewijze Actie</div>
+                <div className="text-sm text-secondary-dark">
                   <div className="space-y-3 mt-2">
                     <div>
                       <strong>1. Verwijder Kledinglagen:</strong> Verwijder de slaapzak en overtollige kleding. Begin met de buitenste laag. Laat baby in een romper of luier afkoelen.
@@ -326,7 +335,7 @@ export default function OververhittingHerkennen() {
                     <h4 className="font-semibold text-gray-900">Direct na het inslapen (30 min)</h4>
                   </div>
                   <p className="text-sm text-gray-600 ml-11">
-                    Baby's warmte regulatie stabiliseert na 20-30 minuten. Eerste controle is cruciaal.
+                    Baby's warmteregulatie stabiliseert na 20-30 minuten. Eerste controle is cruciaal.
                   </p>
                 </div>
 
@@ -397,33 +406,33 @@ export default function OververhittingHerkennen() {
             </h3>
             <div className="grid md:grid-cols-3 gap-4">
               <Link
-                href="/kennisbank/wiegendood-preventie"
+                href="/kennisbank/warmtestuwing-baby"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Wiegendood Preventie</h4>
-                <p className="text-sm text-gray-600 mb-3">De rol van temperatuur en TOG</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Warmtestuwing bij Baby's</h4>
+                <p className="text-sm text-gray-600 mb-3">Gevolgen van oververhitting</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
 
               <Link
-                href="/kennisbank/kleding-onder-slaapzak"
+                href="/kennisbank/veilige-slaaptemperatuur"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Kleding Onder Slaapzak</h4>
-                <p className="text-sm text-gray-600 mb-3">Juiste kledingcombinaties</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Veilige Slaaptemperatuur</h4>
+                <p className="text-sm text-gray-600 mb-3">Veilige grenzen kamertemperatuur</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
                 </span>
               </Link>
 
               <Link
-                href="/kennisbank/tog-schaal-overzicht"
+                href="/kennisbank/baby-temperatuur-controleren"
                 className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">TOG-Schaal Overzicht</h4>
-                <p className="text-sm text-gray-600 mb-3">Alle TOG-waardes uitgelegd</p>
+                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Baby Temperatuur Controleren</h4>
+                <p className="text-sm text-gray-600 mb-3">Nektest en andere methodes</p>
                 <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
                   Lees meer <ArrowRight className="w-4 h-4" />
                 </span>

@@ -18,7 +18,8 @@ export default function VeiligeSlaaptemperatuurPage() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
             <Shield className="w-8 h-8 text-primary" />
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+            <Home className="w-6 h-6 mr-3 text-primary" />
             Veilige Slaaptemperatuur voor Baby's
           </h1>
           <p className="text-lg text-gray-600">
@@ -46,7 +47,7 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* Why This Temperature */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Waarom 16-20°C?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Waarom 16-20°C?</h2>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
               Baby's kunnen hun lichaamstemperatuur nog niet goed reguleren. Ze verliezen sneller warmte dan volwassenen, maar kunnen ook snel oververhit raken. Een kamertemperatuur van 16-20°C biedt de perfecte balans.
@@ -56,7 +57,7 @@ export default function VeiligeSlaaptemperatuurPage() {
               <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2 flex items-center gap-2">
                   <Brain className="w-5 h-5 inline" />
-                  Beter Hersenontwikkeling
+                  Betere Hersenontwikkeling
                 </h3>
                 <p className="text-gray-700">
                   Onderzoek toont aan dat baby's die bij een koelere temperatuur slapen, dieper en rustiger slapen. Diepe slaap is essentieel voor hersenontwikkeling en groei.
@@ -87,7 +88,7 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* Temperature Guide */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Temperatuur Gids per Seizoen</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Temperatuur Gids per Seizoen</h2>
 
             <div className="space-y-6">
               {/* Winter */}
@@ -125,7 +126,7 @@ export default function VeiligeSlaaptemperatuurPage() {
               {/* Spring/Fall */}
               <div className="bg-white border-2 border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 bg-secondary/200 rounded-xl flex items-center justify-center">
+                  <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
                     <Flower className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -194,7 +195,7 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* How to Measure */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Hoe Meet je de Kamertemperatuur?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Hoe Meet je de Kamertemperatuur?</h2>
 
             <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8 mb-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Gebruik een Betrouwbare Thermometer</h3>
@@ -273,7 +274,7 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* Check Baby's Temperature */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Controleer de Temperatuur van Je Baby</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Controleer de Temperatuur van Je Baby</h2>
 
             <p className="text-lg text-gray-700 mb-6">
               De kamertemperatuur is één ding, maar hoe weet je of je baby het ook daadwerkelijk comfortabel heeft?
@@ -381,7 +382,7 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* Common Mistakes */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Veelgemaakte Fouten</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Veelgemaakte Fouten</h2>
 
             <div className="space-y-4">
               <div className="relative bg-primary/10 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/100">
@@ -428,7 +429,7 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* Tips */}
           <section className="mb-12">
-            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Praktische Tips</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Praktische Tips</h2>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white border border-gray-200 rounded-xl p-6">
@@ -485,7 +486,7 @@ export default function VeiligeSlaaptemperatuurPage() {
               Gebruik onze gratis calculator om te zien welke TOG waarde perfect is bij jouw kamertemperatuur
             </p>
             <Link
-              href="/calculator"
+              href="/"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary rounded-xl font-semibold text-lg hover:bg-gray-100 transition-colors"
             >
               <Thermometer className="w-5 h-5 mr-2" />
@@ -496,21 +497,33 @@ export default function VeiligeSlaaptemperatuurPage() {
 
         {/* Related Articles */}
         <div className="mt-12 pt-12 border-t border-gray-200">
-          <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Gerelateerde Artikelen</h2>
+          <h2 className="text-lg font-semibold text-primary mb-6">Gerelateerde Artikelen</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <Link href="/kennisbank/wat-is-tog" className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+            <Link href="/kennisbank/babykamer-temperatuur" className="group bg-default border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary">
-                Wat is TOG?
+                Babykamer Temperatuur
               </h3>
               <p className="text-gray-600 mb-4">
-                Leer alles over TOG waardes en hoe je de juiste slaapzak kiest
+                Hoe meet je de kamertemperatuur en wat is ideaal voor je baby
               </p>
               <span className="inline-flex items-center text-primary font-medium">
                 Lees meer <ArrowRight className="w-4 h-4 ml-1" />
               </span>
             </Link>
 
-            <Link href="/kennisbank/oververhitting" className="group bg-white border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+            <Link href="/kennisbank/wiegendood-preventie" className="group bg-default border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary">
+                Wiegendood Preventie
+              </h3>
+              <p className="text-gray-600 mb-4">
+                De rol van temperatuur en TOG-waarde bij wiegendood preventie
+              </p>
+              <span className="inline-flex items-center text-primary font-medium">
+                Lees meer <ArrowRight className="w-4 h-4 ml-1" />
+              </span>
+            </Link>
+
+            <Link href="/kennisbank/oververhitting-herkennen" className="group bg-default border border-gray-200 rounded-xl p-6 hover:shadow-md transition-shadow">
               <h3 className="text-xl font-semibold text-gray-900 mb-2 group-hover:text-primary">
                 Oververhitting Herkennen
               </h3>

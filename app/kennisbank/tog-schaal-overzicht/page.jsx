@@ -1,5 +1,5 @@
 import Layout from '../../../components/Layout'
-import { ThermometerSun, Thermometer, Info, CheckCircle, AlertTriangle, Calculator, BookOpen, ArrowRight, Check } from 'lucide-react'
+import { ThermometerSun, Thermometer, Info, CheckCircle, AlertTriangle, Calculator, BookOpen, ArrowRight, Check, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
@@ -13,6 +13,15 @@ export default function TOGSchaalOverzicht() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        {/* Breadcrumb Navigation */}
+        <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
+          <Link href="/" className="hover:text-primary">Home</Link>
+          <ChevronRight className="w-4 h-4" />
+          <Link href="/kennisbank" className="hover:text-primary">Kennisbank</Link>
+          <ChevronRight className="w-4 h-4" />
+          <span className="text-primary">TOG-schaal Overzicht</span>
+        </nav>
+
         {/* Header */}
         <header className="max-w-4xl mx-auto text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
@@ -178,7 +187,7 @@ export default function TOGSchaalOverzicht() {
 
           {/* TOG 2.5 Section */}
           <section className="mb-12">
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-accent/20 p-8 rounded-2xl mb-6">
+            <div className="bg-gradient-to-br from-secondary/10 to-secondary/20 border border-accent/20 p-8 rounded-2xl mb-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-16 h-16 bg-accent/100 rounded-xl flex items-center justify-center">
                   <Thermometer className="w-8 h-8 text-white" />
@@ -222,14 +231,14 @@ export default function TOGSchaalOverzicht() {
                 De Nederlandse standaard
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap volgens RIVM en VeiligheidNL richtlijnen.
+                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap in lijn met RIVM en VeiligheidNL aanbevelingen voor babyslaap.
               </p>
             </div>
           </section>
 
           {/* TOG 3.0-3.5 Section */}
           <section className="mb-12">
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-accent/20 p-8 rounded-2xl mb-6">
+            <div className="bg-gradient-to-br from-secondary/10 to-secondary/20 border border-accent/20 p-8 rounded-2xl mb-6">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-16 h-16 bg-accent/100 rounded-xl flex items-center justify-center">
                   <Thermometer className="w-8 h-8 text-white" />
@@ -374,7 +383,9 @@ export default function TOGSchaalOverzicht() {
                   Start met Twee TOG-waardes
                 </h3>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Voor het Nederlandse klimaat heb je minimaal twee slaapzakken nodig: TOG 1.0 voor zomer en TOG 2.5 voor winter. Dit is de minimale basisuitrusting voor veilige babyslaap door alle seizoenen.
+                  Voor het Nederlandse klimaat heb je minimaal twee slaapzakken nodig: TOG 1.0 voor zomer en TOG 2.5 voor winter. Bekijk ons{' '}
+                  <Link href="/kennisbank/tog-waarde-per-seizoen" className="text-primary hover:underline font-medium">overzicht van TOG-waardes per seizoen</Link>{' '}
+                  voor meer details. Dit is de minimale basisuitrusting voor veilige babyslaap.
                 </p>
               </div>
 
@@ -412,42 +423,38 @@ export default function TOGSchaalOverzicht() {
 
           {/* Related Articles */}
           <div className="bg-gray-50 rounded-2xl p-8">
-            <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <BookOpen className="w-6 h-6 text-primary" />
-              Gerelateerde Artikelen
-            </h3>
-            <div className="grid md:grid-cols-3 gap-4">
+            <h3 className="text-xl font-semibold text-primary mb-6">Gerelateerde Artikelen</h3>
+            <div className="grid md:grid-cols-2 gap-4">
               <Link
-                href="/kennisbank/wat-is-tog"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+                href="/kennisbank/tog-waarde-per-seizoen"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Wat is TOG?</h4>
-                <p className="text-sm text-gray-600 mb-3">Complete uitleg over het TOG-systeem en hoe het werkt</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Lees meer <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="font-medium text-primary">TOG-waarde per Seizoen →</div>
+                <div className="text-sm text-gray-600">Welke TOG-waarde per seizoen in Nederland?</div>
               </Link>
 
               <Link
-                href="/producten"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+                href="/kennisbank/kleding-onder-slaapzak"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Aanbevolen Slaapzakken</h4>
-                <p className="text-sm text-gray-600 mb-3">Bekijk geteste slaapzakken per TOG-waarde</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Bekijk producten <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="font-medium text-primary">Kleding Onder de Slaapzak →</div>
+                <div className="text-sm text-gray-600">Wat draagt je baby onder de slaapzak?</div>
               </Link>
 
               <Link
-                href="/kennisbank"
-                className="bg-white border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors group"
+                href="/kennisbank/tog-waarde-babykleding-tabel"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
               >
-                <h4 className="font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">Volledige Kennisbank</h4>
-                <p className="text-sm text-gray-600 mb-3">Ontdek alle artikelen over veilige babyslaap</p>
-                <span className="text-primary text-sm font-medium inline-flex items-center gap-1">
-                  Naar kennisbank <ArrowRight className="w-4 h-4" />
-                </span>
+                <div className="font-medium text-primary">TOG-waarde Babykleding Tabel →</div>
+                <div className="text-sm text-gray-600">Praktische tabel met alle kledingcombinaties</div>
+              </Link>
+
+              <Link
+                href="/"
+                className="p-3 border border-gray-200 rounded-lg hover:border-primary hover:bg-default transition-colors bg-default"
+              >
+                <div className="font-medium text-primary">TOG Calculator →</div>
+                <div className="text-sm text-gray-600">Bereken de juiste TOG-waarde voor jouw baby</div>
               </Link>
             </div>
           </div>
