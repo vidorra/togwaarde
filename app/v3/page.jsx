@@ -28,7 +28,7 @@ export default function HomePageV3() {
               De juiste TOG voor jouw baby
             </h1>
             <p className="text-sm sm:text-base text-text-secondary mb-5">
-              In 3 stappen het juiste slaapadvies — gebaseerd op NHS &amp; VeiligheidNL.
+              Vul in wat past — wij rekenen live mee. Gebaseerd op NHS &amp; VeiligheidNL.
             </p>
 
             {/* Trust row — compact */}
