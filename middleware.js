@@ -89,8 +89,17 @@ function generateNonce() {
 }
 
 export function middleware(request) {
-  const response = NextResponse.next()
   const nonce = generateNonce()
+
+  // Forward nonce on the REQUEST headers so Next.js can apply it to its
+  // own injected <script> tags. Without this, the CSP header nonce and the
+  // script-tag nonce diverge and the browser blocks every Next.js script.
+  const requestHeaders = new Headers(request.headers)
+  requestHeaders.set('x-nonce', nonce)
+
+  const response = NextResponse.next({
+    request: { headers: requestHeaders }
+  })
 
   // Get pathname for route-specific handling
   const { pathname } = request.nextUrl
