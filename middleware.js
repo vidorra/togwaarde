@@ -9,6 +9,8 @@ import { NextResponse } from 'next/server'
  * - HSTS (Strict-Transport-Security)
  */
 
+const isDev = process.env.NODE_ENV === 'development'
+
 // Content Security Policy configuration
 const getCSPHeader = (nonce) => {
   const cspDirectives = {
@@ -17,7 +19,12 @@ const getCSPHeader = (nonce) => {
       "'self'",
       // Allow inline scripts with nonce for Next.js
       `'nonce-${nonce}'`,
-      "'strict-dynamic'",
+      // In dev: Next.js react-refresh uses eval(); 'strict-dynamic' also
+      // blocks host-allowlisted scripts and unhashed inline scripts that
+      // the dev runtime emits — so we relax in dev only.
+      ...(isDev
+        ? ["'unsafe-eval'", "'unsafe-inline'"]
+        : ["'strict-dynamic'"]),
       // Third-party scripts
       'https://www.googletagmanager.com',
       'https://www.google-analytics.com',
