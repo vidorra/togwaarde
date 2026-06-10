@@ -49,3 +49,6 @@ md/
 
 # Deployment trigger - Tue Oct 28 16:21:33 CET 2025
 
+
+# Local-only docs (contained credentials once; never commit)
+trash/
