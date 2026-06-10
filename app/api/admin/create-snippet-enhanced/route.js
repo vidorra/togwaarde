@@ -1,13 +1,18 @@
 import { NextResponse } from 'next/server'
 import { db } from '../../../../lib/db/connection.js'
 import { snippets } from '../../../../lib/db/schema.js'
+import { verifyAdminAndGetWebsite } from '../../../../lib/jwt-utils.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
 
-// Simple session check
 function isAuthenticated(request) {
-  return true // For demo purposes, same as other admin endpoints
+  try {
+    verifyAdminAndGetWebsite(request)
+    return true
+  } catch {
+    return false
+  }
 }
 
 // Detect if input is a Bol.com script snippet

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 import { fetchPrice } from '../../../../lib/price-fetcher.js'
+import { verifyAdminAndGetWebsite } from '../../../../lib/jwt-utils.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
@@ -9,11 +10,13 @@ export const dynamic = 'force-dynamic'
 const DATA_DIR = path.join(process.cwd(), 'data', 'admin')
 const SNIPPETS_FILE = path.join(DATA_DIR, 'snippets.json')
 
-// Simple session check
 function isAuthenticated(request) {
-  // For now, we'll skip server-side session validation 
-  // and rely on client-side session management
-  return true
+  try {
+    verifyAdminAndGetWebsite(request)
+    return true
+  } catch {
+    return false
+  }
 }
 
 // Load snippets from file

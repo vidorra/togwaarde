@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
+import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
@@ -16,12 +17,13 @@ function ensureDataDir() {
   // Don't create empty file here - let loadPageSnippets() handle default data
 }
 
-// Simple session check
 function isAuthenticated(request) {
-  // For now, we'll skip server-side session validation 
-  // and rely on client-side session management
-  // In production, you'd want proper server-side session handling
-  return true
+  try {
+    verifyAdminAndGetWebsite(request)
+    return true
+  } catch {
+    return false
+  }
 }
 
 // Load page snippets from file with error handling

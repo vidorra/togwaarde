@@ -1,31 +1,32 @@
 import { NextResponse } from 'next/server'
+import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
 
-// Simple health check endpoint
+// Health check endpoint (admin only)
 export async function GET(request) {
   try {
-    const now = new Date()
-    
+    verifyAdminAndGetWebsite(request)
+  } catch {
+    return NextResponse.json(
+      { success: false, message: 'Unauthorized' },
+      { status: 401 }
+    )
+  }
+
+  try {
     return NextResponse.json({
       success: true,
       status: 'healthy',
-      timestamp: now.toISOString(),
-      uptime: process.uptime(),
-      environment: process.env.NODE_ENV || 'development',
+      timestamp: new Date().toISOString(),
       message: 'Admin system is operational'
     })
 
   } catch (error) {
     console.error('Health check failed:', error)
     return NextResponse.json(
-      { 
-        success: false, 
-        status: 'unhealthy', 
-        error: error.message,
-        timestamp: new Date().toISOString()
-      },
+      { success: false, status: 'unhealthy' },
       { status: 500 }
     )
   }

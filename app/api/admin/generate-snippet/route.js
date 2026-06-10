@@ -1,15 +1,17 @@
 import { NextResponse } from 'next/server'
 import { fetchPrice, generatePriceHtml } from '../../../../lib/price-fetcher.js'
+import { verifyAdminAndGetWebsite } from '../../../../lib/jwt-utils.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
 
-// Simple session check - matches other admin endpoints
 function isAuthenticated(request) {
-  // For now, we'll skip server-side session validation 
-  // and rely on client-side session management
-  // In production, you'd want proper server-side session handling
-  return true
+  try {
+    verifyAdminAndGetWebsite(request)
+    return true
+  } catch {
+    return false
+  }
 }
 
 // Extract Amazon ASIN from various URL formats

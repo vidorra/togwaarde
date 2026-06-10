@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
+import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
@@ -8,9 +9,13 @@ export const dynamic = 'force-dynamic'
 const DATA_DIR = path.join(process.cwd(), 'data', 'admin')
 const PAGE_SNIPPETS_FILE = path.join(DATA_DIR, 'page-snippets.json')
 
-// Simple session check
 function isAuthenticated(request) {
-  return true // Simplified for now
+  try {
+    verifyAdminAndGetWebsite(request)
+    return true
+  } catch {
+    return false
+  }
 }
 
 // Load page snippets to calculate real snippet counts

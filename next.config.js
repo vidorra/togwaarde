@@ -139,7 +139,7 @@ const nextConfig = {
           },
           {
             key: 'Access-Control-Allow-Origin',
-            value: '*'
+            value: 'https://togwaarde.nl'
           }
         ]
       },

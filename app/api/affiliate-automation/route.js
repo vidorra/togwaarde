@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server'
 import affiliateAutomation from '../../../lib/affiliate-automation.js'
+import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 
 /**
- * GET /api/affiliate-automation - Get automation status and preview
+ * GET /api/affiliate-automation - Get automation status and preview (admin only)
  */
 export async function GET(request) {
   try {
+    verifyAdminAndGetWebsite(request)
     const { searchParams } = new URL(request.url)
     const action = searchParams.get('action')
     const article = searchParams.get('article')
@@ -68,19 +70,23 @@ export async function GET(request) {
         })
     }
   } catch (error) {
+    if (error.message.includes('token') || error.message.includes('JWT')) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 })
+    }
     console.error('Affiliate automation API error:', error)
     return NextResponse.json({
       success: false,
-      error: error.message
+      error: 'Internal server error'
     }, { status: 500 })
   }
 }
 
 /**
- * POST /api/affiliate-automation - Process articles with affiliate links
+ * POST /api/affiliate-automation - Process articles with affiliate links (admin only)
  */
 export async function POST(request) {
   try {
+    verifyAdminAndGetWebsite(request)
     const { action, articles, priority } = await request.json()
     
     switch (action) {
@@ -171,10 +177,13 @@ export async function POST(request) {
         }, { status: 400 })
     }
   } catch (error) {
+    if (error.message.includes('token') || error.message.includes('JWT')) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 })
+    }
     console.error('Affiliate automation processing error:', error)
     return NextResponse.json({
       success: false,
-      error: error.message
+      error: 'Internal server error'
     }, { status: 500 })
   }
 }

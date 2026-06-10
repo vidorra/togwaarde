@@ -1,15 +1,22 @@
 import { NextResponse } from 'next/server'
 import { checkDatabaseConnection } from '../../../lib/db/connection'
+import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 
 /**
- * Database Connection Test Endpoint
+ * Database Connection Test Endpoint (Admin-only)
  *
  * GET /api/test-db
- *
- * Tests the database connection and returns status
- * This endpoint can be accessed to verify database connectivity in production
  */
-export async function GET() {
+export async function GET(request) {
+  try {
+    verifyAdminAndGetWebsite(request)
+  } catch {
+    return NextResponse.json(
+      { status: 'error', message: 'Unauthorized' },
+      { status: 401 }
+    )
+  }
+
   try {
     const startTime = Date.now()
     const result = await checkDatabaseConnection()
@@ -19,33 +26,19 @@ export async function GET() {
       return NextResponse.json({
         status: 'success',
         database: 'connected',
-        responseTime: `${responseTime}ms`,
-        timestamp: new Date().toISOString(),
-        environment: process.env.NODE_ENV,
-        databaseUrlSet: !!process.env.DATABASE_URL,
-        message: '✅ Database connection is working'
+        responseTime: `${responseTime}ms`
       })
     } else {
       return NextResponse.json({
         status: 'error',
         database: 'failed',
-        error: result.error || 'Unknown error',
-        responseTime: `${responseTime}ms`,
-        timestamp: new Date().toISOString(),
-        environment: process.env.NODE_ENV,
-        databaseUrlSet: !!process.env.DATABASE_URL,
-        message: '❌ Database connection failed'
+        responseTime: `${responseTime}ms`
       }, { status: 500 })
     }
   } catch (error) {
     return NextResponse.json({
       status: 'error',
-      database: 'error',
-      error: error.message,
-      timestamp: new Date().toISOString(),
-      environment: process.env.NODE_ENV,
-      databaseUrlSet: !!process.env.DATABASE_URL,
-      message: '❌ Database connection test failed'
+      database: 'error'
     }, { status: 500 })
   }
 }

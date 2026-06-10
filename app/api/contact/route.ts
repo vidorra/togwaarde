@@ -25,14 +25,8 @@ async function sendEmail(
 ): Promise<{ success: boolean; response: string }> {
   const emailjsConfig = getEmailJSConfig()
 
-  // Log config for debugging with last 3 characters
-  console.log('=== SERVER ENVIRONMENT DEBUG ===')
-  console.log('EmailJS Public Key:', emailjsConfig.publicKey ? `...${emailjsConfig.publicKey.slice(-3)}` : 'NOT SET')
-  console.log('EmailJS Private Key:', emailjsConfig.privateKey ? `...${emailjsConfig.privateKey.slice(-3)}` : 'NOT SET')
-  console.log('EmailJS Service ID:', emailjsConfig.serviceId ? `...${emailjsConfig.serviceId.slice(-3)}` : 'NOT SET')
-  console.log('EmailJS Template ID:', emailjsConfig.templateId ? `...${emailjsConfig.templateId.slice(-3)}` : 'NOT SET')
-  console.log('reCAPTCHA Secret Key:', process.env.RECAPTCHA_SECRET_KEY ? `...${process.env.RECAPTCHA_SECRET_KEY.slice(-3)}` : 'NOT SET')
-  console.log('================================')
+  // Log config status (without exposing values)
+  console.log('EmailJS config:', emailjsConfig.isValid ? 'configured' : 'missing keys')
 
   // Check if EmailJS is configured
   if (!emailjsConfig.isValid) {

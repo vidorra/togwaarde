@@ -1,39 +1,54 @@
 import { NextResponse } from 'next/server'
+import bcrypt from 'bcryptjs'
+
+const requestLog = []
+function checkRateLimit() {
+  const now = Date.now()
+  const oneMinuteAgo = now - 60000
+  while (requestLog.length > 0 && requestLog[0] < oneMinuteAgo) {
+    requestLog.shift()
+  }
+  if (requestLog.length >= 10) return false
+  requestLog.push(now)
+  return true
+}
 
 /**
  * POST /api/admin-auth - Authenticate admin user
  */
 export async function POST(request) {
   try {
+    if (!checkRateLimit()) {
+      return NextResponse.json({
+        success: false,
+        error: 'Too many requests. Please wait a moment.'
+      }, { status: 429 })
+    }
+
     const { password } = await request.json()
-    
-    // Get admin password from environment variable
-    const adminPassword = process.env.ADMIN_PASSWORD
-    
-    if (!adminPassword) {
-      console.error('ADMIN_PASSWORD environment variable not set')
+
+    const adminPasswordHash = process.env.ADMIN_PASSWORD_HASH
+    if (!adminPasswordHash) {
       return NextResponse.json({
         success: false,
         error: 'Authentication not configured'
       }, { status: 500 })
     }
-    
-    // Simple password comparison (in production, consider using bcrypt)
-    if (password === adminPassword) {
+
+    const isValid = await bcrypt.compare(password, adminPasswordHash)
+
+    if (isValid) {
       return NextResponse.json({
         success: true,
         message: 'Authentication successful'
       })
     } else {
-      // Log failed attempts (but don't log the password)
-      console.warn('Failed admin login attempt from IP:', request.headers.get('x-forwarded-for') || 'unknown')
-      
       return NextResponse.json({
         success: false,
         error: 'Invalid password'
       }, { status: 401 })
     }
-    
+
   } catch (error) {
     console.error('Admin auth error:', error)
     return NextResponse.json({

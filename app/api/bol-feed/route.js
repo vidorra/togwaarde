@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server'
 import bolProductFeed from '../../../lib/bol-product-feed.js'
+import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 
 /**
- * GET /api/bol-feed - Get product feed status and statistics
+ * GET /api/bol-feed - Get product feed status and statistics (admin only)
  */
 export async function GET(request) {
   try {
+    verifyAdminAndGetWebsite(request)
     const { searchParams } = new URL(request.url)
     const action = searchParams.get('action')
     
@@ -178,19 +180,23 @@ export async function GET(request) {
         })
     }
   } catch (error) {
+    if (error.message.includes('token') || error.message.includes('JWT')) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 })
+    }
     console.error('Product feed API error:', error)
     return NextResponse.json({
       success: false,
-      error: error.message
+      error: 'Internal server error'
     }, { status: 500 })
   }
 }
 
 /**
- * POST /api/bol-feed - Update product feed (download and process)
+ * POST /api/bol-feed - Update product feed (download and process, admin only)
  */
 export async function POST(request) {
   try {
+    verifyAdminAndGetWebsite(request)
     const { action, productNames } = await request.json()
     
     switch (action) {
@@ -237,10 +243,13 @@ export async function POST(request) {
         }, { status: 400 })
     }
   } catch (error) {
+    if (error.message.includes('token') || error.message.includes('JWT')) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 })
+    }
     console.error('API error:', error)
     return NextResponse.json({
       success: false,
-      error: error.message
+      error: 'Internal server error'
     }, { status: 500 })
   }
 }
