@@ -48,6 +48,7 @@ export interface SafetyLimits {
   HIGH_TOG_WARNING: number
   MIN_ROOM_TEMP: number
   MAX_ROOM_TEMP: number
+  HEATWAVE_ROOM_TEMP: number
   LOOSE_BLANKET_MIN_AGE: string
 }
 

@@ -15,7 +15,7 @@ import type {
 /**
  * Parameters for the useTOGCalculation hook
  * @interface UseTOGCalculationParams
- * @property {number} kamerTemp - Room temperature in Celsius (8-28°C)
+ * @property {number} kamerTemp - Room temperature in Celsius (14-32°C)
  * @property {number} slaapzakTOG - Selected sleeping bag TOG value (0.5-3.5 TOG)
  * @property {string[]} gekozenKleding - Array of selected clothing item keys
  * @property {string[]} gekozenDekens - Array of selected blanket item keys (if used)
@@ -216,7 +216,13 @@ export function useTOGCalculation({
       })
     }
 
-    if (kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP) {
+    if (kamerTemp >= SAFETY_LIMITS.HEATWAVE_ROOM_TEMP) {
+      result.push({
+        type: 'critical',
+        titel: 'Erg warm: alleen een luier',
+        tekst: 'Bij deze temperatuur is een slaapzak of deken te warm. Laat je baby alleen in een luier slapen, eventueel met een dun rompertje, zonder slaapzak of deken. Houd de kamer overdag koel met gesloten gordijnen, lucht ’s nachts en let goed op tekenen van oververhitting.'
+      })
+    } else if (kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP) {
       result.push({
         type: 'warning',
         titel: 'Hoge kamertemperatuur',

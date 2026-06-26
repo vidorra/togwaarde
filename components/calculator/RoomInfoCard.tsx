@@ -158,14 +158,21 @@ const RoomInfoCard = memo(function RoomInfoCard({
           </p>
         </div>
       )}
-      {kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP && (
+      {kamerTemp >= SAFETY_LIMITS.HEATWAVE_ROOM_TEMP ? (
+        <div className="relative mt-4 p-3 pl-5 rounded-lg flex items-start gap-2 bg-red-50 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-500">
+          <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-500" />
+          <p className="text-sm text-text-primary">
+            Erg warm. Laat je baby alleen in een luier slapen, eventueel met een dun rompertje, zonder slaapzak of deken. Houd de kamer overdag koel en let op tekenen van oververhitting.
+          </p>
+        </div>
+      ) : kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP ? (
         <div className="relative mt-4 p-3 pl-5 rounded-lg flex items-start gap-2 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
           <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary/80" />
           <p className="text-sm text-text-primary">
             Kamertemperatuur is hoog. Risico op oververhitting! Gebruik maximaal 0.5 TOG.
           </p>
         </div>
-      )}
+      ) : null}
     </div>
   )
 })
