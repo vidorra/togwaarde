@@ -101,6 +101,6 @@ export const SAFETY_LIMITS: SafetyLimits = {
 // Temperatuur slider configuratie
 export const TEMP_SLIDER_CONFIG: TempSliderConfig = {
   min: 14,
-  max: 32,
+  max: 27,
   default: 19
 } as const

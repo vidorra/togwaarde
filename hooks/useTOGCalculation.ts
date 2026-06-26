@@ -15,7 +15,7 @@ import type {
 /**
  * Parameters for the useTOGCalculation hook
  * @interface UseTOGCalculationParams
- * @property {number} kamerTemp - Room temperature in Celsius (14-32°C)
+ * @property {number} kamerTemp - Room temperature in Celsius (14-27°C)
  * @property {number} slaapzakTOG - Selected sleeping bag TOG value (0.5-3.5 TOG)
  * @property {string[]} gekozenKleding - Array of selected clothing item keys
  * @property {string[]} gekozenDekens - Array of selected blanket item keys (if used)
