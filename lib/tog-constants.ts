@@ -79,6 +79,7 @@ export const REGION_FALLBACK_COORDS: Record<string, LocationCoords> = {
 
 // TOG aanbevelingen per temperatuur (NHS/Lullaby Trust richtlijnen)
 export const TOG_RECOMMENDATIONS: readonly TOGRecommendation[] = [
+  { minTemp: 32, range: { min: 0, ideal: 0.1, max: 0.1 } },
   { minTemp: 27, range: { min: 0, ideal: 0.1, max: 0.2 } },
   { minTemp: 24, range: { min: 0.2, ideal: 0.5, max: 0.5 } },
   { minTemp: 22, range: { min: 0.5, ideal: 0.8, max: 1.0 } },
@@ -95,6 +96,7 @@ export const SAFETY_LIMITS: SafetyLimits = {
   MIN_ROOM_TEMP: 16,
   MAX_ROOM_TEMP: 24,
   HEATWAVE_ROOM_TEMP: 27,
+  EXTREME_HEAT_ROOM_TEMP: 32,
   LOOSE_BLANKET_MIN_AGE: '12+'
 } as const
 

@@ -216,11 +216,17 @@ export function useTOGCalculation({
       })
     }
 
-    if (kamerTemp >= SAFETY_LIMITS.HEATWAVE_ROOM_TEMP) {
+    if (kamerTemp >= SAFETY_LIMITS.EXTREME_HEAT_ROOM_TEMP) {
+      result.push({
+        type: 'critical',
+        titel: 'Extreem warm: alleen een luier',
+        tekst: 'Het is extreem warm. Laat je baby alleen in een luier slapen, dus zonder rompertje, slaapzak of deken. Koel de kamer overdag actief (gesloten gordijnen, eventueel een ventilator die niet direct op je baby gericht staat), bied extra vocht aan en let voortdurend op tekenen van oververhitting.'
+      })
+    } else if (kamerTemp >= SAFETY_LIMITS.HEATWAVE_ROOM_TEMP) {
       result.push({
         type: 'critical',
         titel: 'Erg warm: alleen een luier',
-        tekst: 'Bij deze temperatuur is een slaapzak of deken te warm. Laat je baby alleen in een luier slapen, eventueel met een dun rompertje, zonder slaapzak of deken. Houd de kamer overdag koel met gesloten gordijnen, lucht ’s nachts en let goed op tekenen van oververhitting.'
+        tekst: 'Bij deze temperatuur is een slaapzak of deken te warm. Laat je baby alleen in een luier slapen, hooguit met een dun rompertje, zonder slaapzak of deken. Houd de kamer overdag koel met gesloten gordijnen, lucht ’s nachts en let goed op tekenen van oververhitting.'
       })
     } else if (kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP) {
       result.push({
