@@ -49,7 +49,6 @@ export interface SafetyLimits {
   MIN_ROOM_TEMP: number
   MAX_ROOM_TEMP: number
   HEATWAVE_ROOM_TEMP: number
-  EXTREME_HEAT_ROOM_TEMP: number
   LOOSE_BLANKET_MIN_AGE: string
 }
 
