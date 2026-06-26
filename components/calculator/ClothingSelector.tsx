@@ -6,6 +6,7 @@ import {
   KLEDING_WAARDEN,
   DEKEN_WAARDEN,
   SLAAPZAK_TOG_OPTIES,
+  SAFETY_LIMITS,
 } from '../../lib/tog-constants'
 import type { ClothingSelectorProps, KledingItem, DekenItem } from '../../lib/tog-types'
 
@@ -128,6 +129,7 @@ const langeRomperTooltipContent: React.ReactNode = (
  * @returns {JSX.Element} Clothing and blanket selector interface
  */
 const ClothingSelector = memo(function ClothingSelector({
+  kamerTemp,
   gekozenKleding,
   setGekozenKleding,
   gekozenDekens,
@@ -139,6 +141,19 @@ const ClothingSelector = memo(function ClothingSelector({
   babyLeeftijd,
   onShowInfoModal
 }: ClothingSelectorProps): JSX.Element {
+  // Bij hoge temperatuur (27°C+) is geen slaapzak of deken het advies
+  const isHittegolf = kamerTemp >= SAFETY_LIMITS.HEATWAVE_ROOM_TEMP
+  const heeftBedekking = gebruikDekens ? gekozenDekens.length > 0 : slaapzakTOG > 0
+
+  // Zet de bedekking op 'geen': leeg de dekens of de slaapzak-TOG
+  const kiesGeen = (): void => {
+    if (gebruikDekens) {
+      setGekozenDekens([])
+    } else {
+      setSlaapzakTOG(0)
+    }
+  }
+
   const toggleKleding = (item: string): void => {
     if (gekozenKleding.includes(item)) {
       setGekozenKleding(gekozenKleding.filter(k => k !== item))
@@ -220,7 +235,19 @@ const ClothingSelector = memo(function ClothingSelector({
 
         {!gebruikDekens ? (
           /* Slaapzak TOG selectie */
-          <div className="grid grid-cols-5 gap-2">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            <button
+              onClick={() => setSlaapzakTOG(0)}
+              className={`py-3 px-2 rounded-lg font-semibold text-sm transition-all border-2 ${
+                slaapzakTOG === 0
+                  ? 'bg-primary text-white border-primary'
+                  : 'bg-primary/10 text-gray-700 border-transparent'
+              }`}
+              aria-pressed={slaapzakTOG === 0}
+              aria-label="Geen slaapzak"
+            >
+              Geen
+            </button>
             {SLAAPZAK_TOG_OPTIES.map(tog => (
               <button
                 key={tog}
@@ -255,6 +282,23 @@ const ClothingSelector = memo(function ClothingSelector({
             </div>
             {gekozenDekens.length > 0 && <BlanketWarning />}
           </>
+        )}
+
+        {isHittegolf && heeftBedekking && (
+          <div className="relative mt-3 p-3 pl-5 rounded-lg flex items-start gap-2 bg-red-50 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-500">
+            <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-500" />
+            <div className="flex-1">
+              <p className="text-sm text-text-primary">
+                Bij {kamerTemp}°C is een slaapzak of deken te warm. Laat je baby alleen in een luier slapen, zonder iets eroverheen.
+              </p>
+              <button
+                onClick={kiesGeen}
+                className="mt-2 text-sm font-semibold text-red-700 underline"
+              >
+                {gebruikDekens ? 'Haal de dekens weg' : 'Zet op geen slaapzak'}
+              </button>
+            </div>
+          </div>
         )}
       </div>
 

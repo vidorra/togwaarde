@@ -96,6 +96,7 @@ export default function TOGCalculator({ titleTag = 'h2' }: TOGCalculatorProps): 
 
           {/* Clothing Selector */}
           <ClothingSelector
+            kamerTemp={kamerTemp}
             gekozenKleding={gekozenKleding}
             setGekozenKleding={setGekozenKleding}
             gekozenDekens={gekozenDekens}

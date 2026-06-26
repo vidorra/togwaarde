@@ -124,6 +124,7 @@ export interface RoomInfoCardProps {
 
 // Props for ClothingSelector
 export interface ClothingSelectorProps {
+  kamerTemp: number
   gekozenKleding: string[]
   setGekozenKleding: (kleding: string[]) => void
   gekozenDekens: string[]
