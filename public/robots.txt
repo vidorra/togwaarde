@@ -7,9 +7,9 @@ Sitemap: https://togwaarde.nl/sitemap.xml
 # Disallow old knowledge base sections (duplicate content)
 Disallow: /kennisbank/old/
 
-# Disallow experimental calculator variants and admin
+# Disallow old/experimental calculator variants and admin
+Disallow: /old
 Disallow: /v2
-Disallow: /v3
 Disallow: /calculator
 Disallow: /admin
 
