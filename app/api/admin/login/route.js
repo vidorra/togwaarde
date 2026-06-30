@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import * as jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs'
 import { rateLimitMiddleware } from '../../../../lib/rate-limiter'
 
 // Force dynamic route
@@ -12,6 +13,21 @@ function getRequiredEnvVar(name) {
     throw new Error(`Missing required environment variable: ${name}`)
   }
   return value
+}
+
+// Verify the supplied password. Prefers a bcrypt hash (ADMIN_PASSWORD_HASH);
+// falls back to plaintext ADMIN_PASSWORD only if no hash is configured, so an
+// existing deploy keeps working until the hash env var is set.
+async function verifyPassword(password) {
+  const hash = process.env.ADMIN_PASSWORD_HASH
+  if (hash) {
+    return bcrypt.compare(password, hash)
+  }
+  const plain = process.env.ADMIN_PASSWORD
+  if (plain) {
+    return password === plain
+  }
+  throw new Error('Missing ADMIN_PASSWORD_HASH (or ADMIN_PASSWORD)')
 }
 
 export async function POST(request) {
@@ -30,9 +46,8 @@ export async function POST(request) {
     }
 
     // Validate environment variables are configured
-    let ADMIN_PASSWORD, JWT_SECRET
+    let JWT_SECRET
     try {
-      ADMIN_PASSWORD = getRequiredEnvVar('ADMIN_PASSWORD')
       JWT_SECRET = getRequiredEnvVar('JWT_SECRET')
     } catch (envError) {
       console.error('Configuration error:', envError.message)
@@ -44,7 +59,18 @@ export async function POST(request) {
 
     const { password } = await request.json()
 
-    if (password !== ADMIN_PASSWORD) {
+    let passwordValid
+    try {
+      passwordValid = await verifyPassword(password)
+    } catch (envError) {
+      console.error('Configuration error:', envError.message)
+      return NextResponse.json(
+        { message: 'Server configuration error. Please contact administrator.' },
+        { status: 503 }
+      )
+    }
+
+    if (!passwordValid) {
       return NextResponse.json(
         { message: 'Invalid password' },
         {

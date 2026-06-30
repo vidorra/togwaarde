@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Layout from '../../components/Layout'
 import TOGCalculatorV3 from '../../components/calculator-v3/TOGCalculatorV3'
 import {
@@ -6,11 +7,12 @@ import {
   Shield,
   Heart,
   BookOpen,
-  ArrowRight,
-  Check,
   Calculator,
   Award,
-  Star
+  Star,
+  Thermometer,
+  CheckCircle,
+  Snowflake
 } from 'lucide-react'
 
 export default function HomePageV3() {
@@ -44,9 +46,11 @@ export default function HomePageV3() {
         <div className="flex items-end justify-center gap-0">
           {/* Mother — left, desktop only */}
           <div className="hidden lg:block flex-shrink-0 ml-10">
-            <img
+            <Image
               src="/mother.webp"
               alt="Moeder met baby"
+              width={734}
+              height={890}
               className="w-[240px] h-auto object-cover object-top rounded-t-full"
             />
           </div>
@@ -95,9 +99,11 @@ export default function HomePageV3() {
 
           {/* Baby sleeping bag — right, desktop only */}
           <div className="hidden lg:block flex-shrink-0 mr-10">
-            <img
+            <Image
               src="/baby-sleeping-bag.webp"
               alt="Baby in slaapzak"
+              width={613}
+              height={891}
               className="w-[240px] h-auto object-cover object-top rounded-t-full"
             />
           </div>
@@ -111,52 +117,267 @@ export default function HomePageV3() {
         </div>
       </section>
 
-      {/* Mini explainer — 3 cards */}
-      <section className="py-10 mt-4">
+      {/* What is TOG Section */}
+      <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-xl mx-auto">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-5 text-center">
-              Wat betekent TOG?
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Wat is TOG?
             </h2>
-            <div className="grid gap-3">
-              <TOGCard tog="0.5" label="Warme zomernacht" temp="24°C+" />
-              <TOGCard tog="1.0" label="Lente / herfst" temp="18–24°C" />
-              <TOGCard tog="2.5" label="Koude winternacht" temp="15–18°C" />
+            <p className="text-base lg:text-lg text-gray-600">
+              TOG is een internationaal erkende maatstaf die aangeeft hoe goed textiel warmte vasthoudt. Een hogere TOG-waarde betekent meer isolatie en een warmere slaapzak.
+            </p>
+          </div>
+
+          <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-6 lg:p-8 mx-auto">
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              <div className="bg-white p-6 rounded-2xl border border-gray-100">
+                <div className="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center mb-4">
+                  <Thermometer className="w-6 h-6 text-secondary-dark" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">TOG 0.5</h3>
+                <p className="text-gray-600">Voor warme zomernachten (24°C+)</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-gray-100">
+                <div className="w-12 h-12 bg-primary/5 rounded-xl flex items-center justify-center mb-4">
+                  <Thermometer className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">TOG 1.0</h3>
+                <p className="text-gray-600">Voor lente en herfst (18-24°C)</p>
+              </div>
+
+              <div className="bg-white p-6 rounded-2xl border border-gray-100">
+                <div className="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-4">
+                  <Thermometer className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">TOG 2.5</h3>
+                <p className="text-gray-600">Voor koude winternachten (15-18°C)</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Single CTA */}
-      <section className="pb-10">
+      {/* Features Section */}
+      <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-xl mx-auto text-center">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Waarom TOGWaarde.nl?
+            </h2>
+            <p className="text-base lg:text-lg text-gray-600">
+              De meest complete TOG calculator van Nederland
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="bg-white p-6 rounded-2xl border border-gray-100">
+              <CheckCircle className="w-10 h-10 text-primary/60 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Wetenschappelijk Onderbouwd</h3>
+              <p className="text-gray-600">
+                Gebaseerd op Nederlandse richtlijnen en internationale veiligheidsnormen
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100">
+              <Calculator className="w-10 h-10 text-primary/60 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Persoonlijk Advies</h3>
+              <p className="text-gray-600">
+                Aangepaste aanbevelingen op basis van jouw babys leeftijd en kamertemperatuur
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100">
+              <ThermometerSun className="w-10 h-10 text-primary/60 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Seizoensadvies</h3>
+              <p className="text-gray-600">
+                Specifieke tips voor lente, zomer, herfst en winter in Nederland
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100">
+              <Shield className="w-10 h-10 text-primary/60 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">SIDS Preventie</h3>
+              <p className="text-gray-600">
+                Informatie over veilig slapen en het voorkomen van wiegendood
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100">
+              <BookOpen className="w-10 h-10 text-primary/60 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Uitgebreide Kennisbank</h3>
+              <p className="text-gray-600">
+                Alles over TOG, veilige slaaptemperatuur en seizoensgebonden tips
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-100">
+              <Heart className="w-10 h-10 text-primary/60 mb-4" />
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">100% Gratis</h3>
+              <p className="text-gray-600">
+                Geen verborgen kosten, registratie of verplichtingen
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-12 lg:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center mb-12">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                Hoe Werkt Het?
+              </h2>
+              <p className="text-base lg:text-lg text-gray-600">
+                In 5 eenvoudige stappen naar veilige babyslaap
+              </p>
+            </div>
+            <div className="space-y-6 lg:space-y-8">
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Meet de kamertemperatuur</h3>
+                  <p className="text-gray-700">
+                    Gebruik een betrouwbare thermometer of een babyfoon met temperatuurmeting. Meet op verschillende momenten van de dag en nacht, want temperaturen kunnen flink schommelen.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Bepaal de maximale TOG-waarde</h3>
+                  <p className="text-gray-700">
+                    Kijk in de tabel hierboven wat de aanbevolen maximale TOG-waarde is voor de gemeten temperatuur.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Kies de kleding en beddengoed</h3>
+                  <p className="text-gray-700 mb-2">Tel de TOG-waardes van alle lagen bij elkaar op:</p>
+                  <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
+                    <li>Alle kledingstukken die je baby aanheeft</li>
+                    <li>Het slaapzakje of de dekentjes</li>
+                    <li>Eventuele extra laagjes</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  4
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Blijf onder de maximum waarde</h3>
+                  <p className="text-gray-700">
+                    Zorg dat je totaal onder of gelijk aan de aanbevolen maximale TOG-waarde blijft. Liever iets onder dan erboven.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 lg:gap-6">
+                <div className="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                  5
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Controleer regelmatig</h3>
+                  <p className="text-gray-700 mb-2">Voel in het nekje of aan de rug van je baby:</p>
+                  <ul className="space-y-2 text-gray-700">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-700 flex-shrink-0 mt-0.5" />
+                      <span><strong>Lauwwarm en droog:</strong> Perfect!</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ThermometerSun className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span><strong>Klam of zweterig:</strong> Te warm, verwijder een laagje</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Snowflake className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <span><strong>Koel:</strong> Mogelijk te koud, voeg een laagje toe</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 lg:mt-12 text-center">
+              <button
+                onClick={scrollToCalc}
+                className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
+              >
+                <Calculator className="w-5 h-5" />
+                <span>Bereken Nu Jouw TOG Waarde</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety Banner */}
+      <section className="py-12 bg-gradient-to-r from-primary to-accent rounded-3xl mx-4">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <Shield className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-4 opacity-90" />
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-4 text-white">
+              Veilige Babyslaap Begint Hier
+            </h2>
+            <p className="text-base lg:text-lg opacity-90 mb-6">
+              De juiste TOG waarde helpt oververhitting te voorkomen en draagt bij aan een veilige slaapomgeving voor je baby
+            </p>
             <a
               href="/kennisbank"
-              className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:underline"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-gray-100 transition-colors"
             >
-              <BookOpen className="w-4 h-4" />
-              Meer over veilig babyslapen
-              <ArrowRight className="w-4 h-4" />
+              <span>Lees Meer over Veilig Slapen</span>
             </a>
           </div>
         </div>
       </section>
-    </Layout>
-  )
-}
 
-function TOGCard({ tog, label, temp }) {
-  return (
-    <div className="flex items-center gap-4 p-4 bg-white border border-border rounded-2xl">
-      <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-primary/10 flex flex-col items-center justify-center">
-        <span className="text-xs text-primary font-medium leading-none">TOG</span>
-        <span className="text-lg text-primary font-bold leading-none mt-0.5">{tog}</span>
-      </div>
-      <div className="flex-1 min-w-0">
-        <div className="font-semibold text-sm text-text-primary">{label}</div>
-        <div className="text-xs text-text-secondary">Kamertemperatuur {temp}</div>
-      </div>
-    </div>
+      {/* CTA Section */}
+      <section className="py-12 lg:py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <ThermometerSun className="w-12 h-12 lg:w-16 lg:h-16 mx-auto mb-6 text-primary" />
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Klaar om te Beginnen?
+            </h2>
+            <p className="text-lg lg:text-xl text-gray-600 mb-8">
+              Bereken nu de perfecte TOG waarde voor jouw baby
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={scrollToCalc}
+                className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
+              >
+                <Calculator className="w-5 h-5" />
+                <span>Naar Calculator</span>
+              </button>
+
+              <a
+                href="/kennisbank/tog-waarde-per-seizoen"
+                className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary border-2 border-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-primary/5 transition-colors"
+              >
+                <BookOpen className="w-5 h-5" />
+                <span>Seizoensadvies</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </Layout>
   )
 }

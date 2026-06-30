@@ -2,10 +2,16 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://flesvoedingcalculator.nl/sitemap.xml
+Sitemap: https://togwaarde.nl/sitemap.xml
 
 # Disallow old knowledge base sections (duplicate content)
 Disallow: /kennisbank/old/
+
+# Disallow experimental calculator variants and admin
+Disallow: /v2
+Disallow: /v3
+Disallow: /calculator
+Disallow: /admin
 
 # Allow all main pages
 Allow: /

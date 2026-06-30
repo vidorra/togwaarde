@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import Image from 'next/image'
 import Layout from '../../components/Layout'
 import TOGCalculator from '../../components/TOGCalculator'
 import { Calculator, BookOpen, ShoppingBag, Thermometer, ThermometerSun, CheckCircle, Snowflake, Shield, Heart, Award, Star } from 'lucide-react'
@@ -40,9 +40,11 @@ export default function HomePage() {
         <div className="flex items-end justify-center gap-0">
           {/* Mother Image - Left */}
           <div className="hidden lg:block flex-shrink-0 ml-10">
-            <img
+            <Image
               src="/mother.webp"
               alt="Moeder met baby"
+              width={734}
+              height={890}
               className="w-[280px] h-auto object-cover object-top rounded-t-full"
             />
           </div>
@@ -97,9 +99,11 @@ export default function HomePage() {
 
           {/* Baby Sleeping Bag Image - Right */}
           <div className="hidden lg:block flex-shrink-0 mr-10">
-            <img
+            <Image
               src="/baby-sleeping-bag.webp"
               alt="Baby in slaapzak"
+              width={613}
+              height={891}
               className="w-[280px] h-auto object-cover object-top rounded-t-full"
             />
           </div>

@@ -28,60 +28,66 @@ Legenda: 🧑 = alleen Jens kan dit (CapRover/DNS) · 🤖 = Claude kan dit uitv
 
 **Klaar wanneer:** oud DB-wachtwoord werkt niet meer; admin werkt met nieuwe env vars.
 
-## Fase 2 — Auth consolideren 🤖 (~2 uur)
+## Fase 2 — Auth consolideren ✅ (gedaan)
 
-Eén auth-flow in plaats van twee halve:
+Bleek schoner dan gedacht: het dashboard gebruikte de JWT-Bearer-flow al
+correct (`/api/admin/login` → token in localStorage → `Authorization: Bearer`).
+`AdminAuth.jsx` + `/api/admin-auth` waren dode/orphan code (nergens geïmporteerd).
 
-- [ ] `/api/admin/login` ombouwen: bcrypt-check tegen `ADMIN_PASSWORD_HASH`
-      (nu nog plaintext `ADMIN_PASSWORD`), JWT teruggeven zoals nu
-- [ ] `components/AdminAuth.jsx` ombouwen: token uit login-response opslaan
-      en als `Authorization: Bearer` meesturen in alle admin-fetches
-      (sessionStorage-vlag "authenticated" vervalt)
-- [ ] `/api/admin-auth` route verwijderen (overbodig na bovenstaande)
-- [ ] In-memory rate-limit array in admin-auth vervalt mee; `lib/rate-limiter.js`
-      blijft de standaard
-- [ ] 🧑 Daarna `ADMIN_PASSWORD` env var verwijderen op CapRover
+- [x] `/api/admin/login` gebruikt nu bcrypt tegen `ADMIN_PASSWORD_HASH`, met
+      fallback naar plaintext `ADMIN_PASSWORD` zolang de hash nog niet gezet is
+      (geen lockout tijdens overgang). JWT-respons ongewijzigd.
+- [x] `components/AdminAuth.jsx` verwijderd (ongebruikte cosmetische sessionStorage-flow)
+- [x] `/api/admin-auth` route verwijderd (alleen door AdminAuth aangeroepen)
+- [x] `lib/rate-limiter.js` blijft de enige rate-limiter
+- [ ] 🧑 Daarna `ADMIN_PASSWORD` env var verwijderen op CapRover zodra
+      `ADMIN_PASSWORD_HASH` gezet is en login getest
 
-**Klaar wanneer:** 1 login-route, bcrypt, JWT end-to-end, devtools-bypass onmogelijk.
+**Klaar wanneer:** 1 login-route, bcrypt, JWT end-to-end. ✅
 
-## Fase 3 — Dependencies 🤖 (~1-2 uur, met testronde)
+## Fase 3 — Dependencies ✅ (grotendeels gedaan)
 
-- [ ] `npm audit fix` (dekt o.a. `jws`, relevant voor JWT-auth)
-- [ ] `jspdf` major bump (critical: path traversal / JS-injectie); gebruik checken
-      en PDF-export testen
-- [ ] `drizzle-orm` naar ≥0.45.2 (SQL-injectie via identifiers; breaking, dus
-      query's nalopen + db-routes testen)
-- [ ] `next` upgraden binnen 14.x naar gepatchte versie (SSRF in middleware
-      redirects raakt ons: wij gebruiken middleware); volledige build + smoke test
-- [ ] Browserslist updaten: `npx update-browserslist-db@latest`
+- [x] `npm audit fix` (non-breaking) + `npx update-browserslist-db@latest`
+- [x] `jspdf` → 4.2.1 (lost **critical** op; enige gebruik in voedingsschemas
+      gebruikt alleen stabiele core-API `text`/`save`/`splitTextToSize`)
+- [x] `drizzle-orm` → 0.45.2 (lost **high** SQL-injectie op; query's zijn
+      standaard select/insert/update/delete + eq/and, geen rauwe identifiers)
+- [x] `jws` high opgelost via audit fix (relevant voor JWT-auth)
+- [x] Volledige productie-build groen (58/58 pagina's)
+- [ ] 🧑 `next` 14.2.35 is al de hoogste 14.2.x; resterende Next-CVE's vereisen
+      een **Next 15 major upgrade** — aparte, geteste klus (App Router async API's)
+- [ ] Resterende 9 audit-meldingen zijn **dev-only** (`glob` via eslint/tailwind,
+      `esbuild` via drizzle-kit) — geen runtime/productie-impact
 
-**Klaar wanneer:** `npm audit --omit=dev` toont 0 critical / 0 high.
+**Klaar wanneer:** geen critical/high in productie-deps. ✅ (alleen dev-tooling + Next-major resteren)
 
-## Fase 4 — SEO-fixes 🤖 (~1 uur)
+## Fase 4 — SEO-fixes ✅ (gedaan)
 
-- [ ] `public/robots.txt`: sitemap-regel naar `https://togwaarde.nl/sitemap.xml`
-      (wijst nu naar flesvoedingcalculator.nl) en Allow-lijst nalopen op
-      togwaarde-routes
-- [ ] `noindex` op `/calculator`, `/v2`, `/v3` zolang het experimenten zijn
-- [ ] Homepage opsplitsen: server component met `export const metadata`
-      (title/description/OG per pagina) die de client-calculator rendert;
-      zelfde patroon voor v2/v3 zolang die bestaan
+- [x] `public/robots.txt`: sitemap → `https://togwaarde.nl/sitemap.xml`,
+      plus `Disallow` voor `/v2`, `/v3`, `/calculator`, `/admin`
+- [x] `noindex, nofollow` + canonical → `/` op `/calculator`, `/v2`, `/v3`
+      via route-segment `layout.jsx` (client-pagina's kunnen zelf geen metadata
+      exporteren; een server-layout wel)
+- [x] Homepage-metadata: `/` erft al volledige metadata (title/description/OG/
+      canonical) uit de root-`layout.jsx`, dus aparte server-split was overbodig
 - [ ] Na keuze winnend ontwerp: verliezende varianten verwijderen en
       sitemap.xml actualiseren
 
-**Klaar wanneer:** 1 canonieke calculatorpagina indexeerbaar, juiste sitemap-verwijzing.
+**Klaar wanneer:** 1 canonieke calculatorpagina indexeerbaar, juiste sitemap. ✅
 
-## Fase 5 — Opschonen 🤖 (~30 min)
+## Fase 5 — Opschonen ✅ (gedaan)
 
-- [ ] Dode bestanden uit git: `calc.html`, `dekens.tsx`,
+- [x] Dode bestanden uit git verwijderd: `calc.html`, `dekens.tsx`,
       `improved-tog-calculator.tsx`, `components/TOGCalculator.jsx.backup`,
       `app/api/affiliate-automation/route.js.bak`, `lib/affiliate-automation.js.bak`,
       `app/admin/dashboard/page.jsx.backup.*`
-- [ ] `max-height: 100vh` weghalen van `html, body` in `app/globals.css`
-- [ ] `<img>` → `next/image` voor hero-afbeeldingen (v2/v3, build-warnings)
-- [ ] GA-script in `app/layout.jsx` naar `next/script` (build-warning)
+- [x] `max-height: 100vh` weggehaald van `html, body` in `app/globals.css`
+- [x] `<img>` → `next/image` voor hero-afbeeldingen op v2 en v3
+- [ ] GA-script naar `next/script`: **bewust uitgesteld** — staat in `<head>`
+      met comment "voor verificatie"; verplaatsen kan Google Search Console-
+      verificatie raken. Marginale winst (alleen build-warning), niet het risico waard.
 
-**Klaar wanneer:** schone `git ls-files`, geen latente CSS-footgun, minder build-warnings.
+**Klaar wanneer:** schone `git ls-files`, geen CSS-footgun, minder build-warnings. ✅
 
 ## Fase 6 — Nice to have 💡
 
@@ -93,5 +99,6 @@ Eén auth-flow in plaats van twee halve:
 
 ---
 
-*Volgorde-advies: Fase 1 kost je 15 minuten en dicht het echte lek. Fase 2-5 kan
-Claude in één sessie wegwerken zodra Fase 1 staat.*
+*Status: Fase 0, 2, 4, 5 klaar en Fase 3 grotendeels (alle productie-deps gepatcht).
+Resteert voor jou: **Fase 1** (CapRover — DB-wachtwoord roteren + `JWT_SECRET` en
+`ADMIN_PASSWORD_HASH` zetten), de optionele **Next 15** upgrade, en Fase 6.*
