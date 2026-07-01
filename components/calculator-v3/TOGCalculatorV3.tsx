@@ -124,7 +124,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
           icon={<Thermometer className="w-5 h-5" />}
           title="Kamertemperatuur"
           subtitle="Meet de slaapkamer met een thermometer"
-          value={`${kamerTemp}°C`}
+          value={kamerTemp >= TEMP_SLIDER_CONFIG.max ? `${kamerTemp}°C+` : `${kamerTemp}°C`}
         >
           <div className="px-1">
             <input
@@ -140,7 +140,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
             <div className="flex justify-between mt-2 text-xs text-text-secondary">
               <span className="flex items-center gap-1"><Snowflake className="w-3 h-3" /> {TEMP_SLIDER_CONFIG.min}°</span>
               <span className="font-medium text-primary">Ideaal 16–20°</span>
-              <span className="flex items-center gap-1">{TEMP_SLIDER_CONFIG.max}° <Sun className="w-3 h-3" /></span>
+              <span className="flex items-center gap-1">{TEMP_SLIDER_CONFIG.max}°+ <Sun className="w-3 h-3" /></span>
             </div>
           </div>
 
