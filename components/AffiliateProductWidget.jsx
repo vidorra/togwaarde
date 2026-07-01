@@ -98,12 +98,14 @@ function BolScriptWidget({ product }) {
  * @param {string} props.title - Section title
  * @param {number} props.maxProducts - Maximum number of products to show (only for static fallback)
  */
-export default function AffiliateProductWidget({ 
+export default function AffiliateProductWidget({
   pageId = null,
-  category = null, 
+  category = null,
   productIds = null,
-  title = "Aanbevolen Producten", 
-  maxProducts = null 
+  title = "Aanbevolen Producten",
+  maxProducts = null,
+  filterTag = null,
+  hideIndex = false
 }) {
   const containerRef = useRef(null)
   const [products, setProducts] = useState([])
@@ -210,8 +212,20 @@ export default function AffiliateProductWidget({
     }
   }, [products, loading, pageId, category])
 
+  // Optionally filter by a TOG tag (e.g. "2.5"). Matches the recommended TOG
+  // against the snippet's tag. If nothing matches, fall back to all products so
+  // the section is never empty.
+  const matchesTag = (p) => {
+    if (!filterTag) return true
+    const m = String(p.tag || '').replace(',', '.').match(/\d+(\.\d+)?/)
+    if (!m) return false
+    return Math.abs(parseFloat(m[0]) - parseFloat(filterTag)) < 0.01
+  }
+  const tagFiltered = filterTag ? products.filter(matchesTag) : products
+  const base = (filterTag && tagFiltered.length === 0) ? products : tagFiltered
+
   // For admin-managed pages, show all products. For static fallback, limit if specified
-  const displayProducts = pageId ? products : (maxProducts ? products.slice(0, maxProducts) : products)
+  const displayProducts = pageId ? base : (maxProducts ? base.slice(0, maxProducts) : base)
   
   // Debug: Log the transition from products to displayProducts
   if (products.length !== displayProducts.length) {
@@ -273,13 +287,15 @@ export default function AffiliateProductWidget({
               </div>
             )}
             
-            {/* Debug: Product counter */}
-            <div className="absolute top-2 right-2 z-10">
-              <span className="bg-gray-800 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">
-                {index + 1}
-              </span>
-            </div>
-            
+            {/* Product counter */}
+            {!hideIndex && (
+              <div className="absolute top-2 right-2 z-10">
+                <span className="bg-gray-800 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">
+                  {index + 1}
+                </span>
+              </div>
+            )}
+
             {/* Bol.com Iframe Widget */}
             {product.type === 'bol_iframe' && (
               <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col w-full">
