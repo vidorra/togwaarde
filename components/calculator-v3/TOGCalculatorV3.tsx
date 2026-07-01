@@ -38,16 +38,18 @@ function SeasonIcon({ seizoen }: { seizoen: Seizoen }) {
   }
 }
 
-// Renders the status message with the "voor een kamertemperatuur van X°C!"
-// clause in bold. Falls back to plain text if the clause isn't present.
+// Renders the status message with only the "voor een kamertemperatuur van X°C!"
+// clause in bold, leaving any advice before/after in normal weight.
 function renderStatusTekst(tekst: string) {
-  const marker = 'voor een kamertemperatuur van'
-  const i = tekst.indexOf(marker)
-  if (i === -1) return tekst
+  const m = tekst.match(/voor een kamertemperatuur van \d+°C!/)
+  if (!m || m.index === undefined) return tekst
+  const start = m.index
+  const end = start + m[0].length
   return (
     <>
-      {tekst.slice(0, i)}
-      <strong className="font-semibold">{tekst.slice(i)}</strong>
+      {tekst.slice(0, start)}
+      <strong className="font-semibold">{tekst.slice(start, end)}</strong>
+      {tekst.slice(end)}
     </>
   )
 }
@@ -396,14 +398,14 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
                 <div className={`text-sm font-semibold ${statusText}`}>{status.titel}</div>
               </div>
               <p className="text-xs text-text-secondary mb-5">{renderStatusTekst(status.tekst)}</p>
-              <div className="flex items-stretch gap-4">
-                <div className="flex-1 text-center">
-                  <div className="text-[10px] uppercase tracking-wide text-text-secondary mb-1">Jouw TOG</div>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="text-[10px] uppercase tracking-wide text-text-secondary">Jouw TOG</div>
                   <div className="text-3xl font-bold text-text-primary leading-none">{totaleTOG.toFixed(1)}</div>
                 </div>
-                <div className="w-px bg-border" />
-                <div className="flex-1 text-center">
-                  <div className="text-[10px] uppercase tracking-wide text-text-secondary mb-1">Advies</div>
+                <div className="h-px bg-border" />
+                <div className="flex items-center justify-between">
+                  <div className="text-[10px] uppercase tracking-wide text-text-secondary">Advies</div>
                   <div className="text-3xl font-bold text-primary leading-none">
                     {aanbevolenTOGRange.min === aanbevolenTOGRange.max
                       ? aanbevolenTOGRange.ideal.toFixed(1)

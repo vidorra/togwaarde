@@ -137,14 +137,18 @@ export function useTOGCalculation({
           status: 'te_koud',
           kleur: 'red',
           titel: 'Aanpassing nodig',
-          tekst: `Te koud ${bijTekst}`
+          tekst: kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
+            ? `Te koud ${bijTekst} Verhoog de kamertemperatuur naar minimaal 16°C en voeg warmere lagen toe.`
+            : `Te koud ${bijTekst} Voeg warmere lagen toe voor comfort.`
         }
       }
       return {
         status: 'iets_te_koud',
         kleur: 'orange',
         titel: 'Let op',
-        tekst: `Iets te koud ${bijTekst}`
+        tekst: kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
+          ? `Iets te koud ${bijTekst} Verhoog naar minimaal 16°C en overweeg een extra laagje.`
+          : `Iets te koud ${bijTekst} Overweeg een extra laagje.`
       }
     }
 
@@ -155,14 +159,14 @@ export function useTOGCalculation({
           status: 'te_warm',
           kleur: 'red',
           titel: 'Aanpassing nodig',
-          tekst: `Te warm ${bijTekst}`
+          tekst: `Te warm ${bijTekst} Verwijder lagen om oververhitting te voorkomen.`
         }
       }
       return {
         status: 'iets_te_warm',
         kleur: 'orange',
         titel: 'Let op',
-        tekst: `Iets te warm ${bijTekst}`
+        tekst: `Iets te warm ${bijTekst} Overweeg een lichtere slaapzak of minder lagen.`
       }
     }
 
@@ -170,7 +174,7 @@ export function useTOGCalculation({
       status: 'perfect',
       kleur: 'green',
       titel: 'Perfect!',
-      tekst: `Perfect ${bijTekst}`
+      tekst: `Perfect ${bijTekst} Ideale warmte voor je baby.`
     }
   }, [totaleTOG, aanbevolenTOGRange, kamerTemp])
 
