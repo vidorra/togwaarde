@@ -127,6 +127,8 @@ export function useTOGCalculation({
    */
   const status = useMemo((): CalculatorStatus => {
     const { min, max } = aanbevolenTOGRange
+    // Uniform message tail for every alert; the component bolds this clause.
+    const bijTekst = `voor een kamertemperatuur van ${Math.round(kamerTemp)}°C!`
 
     if (totaleTOG < min) {
       const verschil = min - totaleTOG
@@ -135,18 +137,14 @@ export function useTOGCalculation({
           status: 'te_koud',
           kleur: 'red',
           titel: 'Aanpassing nodig',
-          tekst: kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
-            ? 'Te koud! Verhoog de kamertemperatuur naar minimaal 16°C en voeg warmere lagen toe.'
-            : 'Te koud! Voeg warmere lagen toe voor comfort.'
+          tekst: `Te koud ${bijTekst}`
         }
       }
       return {
         status: 'iets_te_koud',
         kleur: 'orange',
         titel: 'Let op',
-        tekst: kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
-          ? 'Kamertemperatuur te laag. Verhoog naar minimaal 16°C en overweeg een extra laagje.'
-          : 'Iets te koud. Overweeg een extra laagje.'
+        tekst: `Iets te koud ${bijTekst}`
       }
     }
 
@@ -157,14 +155,14 @@ export function useTOGCalculation({
           status: 'te_warm',
           kleur: 'red',
           titel: 'Aanpassing nodig',
-          tekst: 'Te warm! Verwijder lagen om oververhitting te voorkomen.'
+          tekst: `Te warm ${bijTekst}`
         }
       }
       return {
         status: 'iets_te_warm',
         kleur: 'orange',
         titel: 'Let op',
-        tekst: 'Iets te warm. Overweeg een lichtere slaapzak of minder lagen.'
+        tekst: `Iets te warm ${bijTekst}`
       }
     }
 
@@ -172,7 +170,7 @@ export function useTOGCalculation({
       status: 'perfect',
       kleur: 'green',
       titel: 'Perfect!',
-      tekst: 'Perfect! Ideale warmte voor je baby.'
+      tekst: `Perfect ${bijTekst}`
     }
   }, [totaleTOG, aanbevolenTOGRange, kamerTemp])
 

@@ -38,6 +38,20 @@ function SeasonIcon({ seizoen }: { seizoen: Seizoen }) {
   }
 }
 
+// Renders the status message with the "voor een kamertemperatuur van X°C!"
+// clause in bold. Falls back to plain text if the clause isn't present.
+function renderStatusTekst(tekst: string) {
+  const marker = 'voor een kamertemperatuur van'
+  const i = tekst.indexOf(marker)
+  if (i === -1) return tekst
+  return (
+    <>
+      {tekst.slice(0, i)}
+      <strong className="font-semibold">{tekst.slice(i)}</strong>
+    </>
+  )
+}
+
 export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' | 'h2' }) {
   const TitleComponent = titleTag === 'h1' ? 'h1' : 'h2'
   const { buitenTemp, locationCity, seizoen, setSeizoen } = useWeatherLocation()
@@ -83,11 +97,6 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
     ? Object.entries(DEKEN_WAARDEN).filter(([key]) => !key.includes('los'))
     : Object.entries(DEKEN_WAARDEN)
 
-  const statusBg = status.kleur === 'green'
-    ? 'bg-green-50 border-green-200'
-    : status.kleur === 'orange'
-      ? 'bg-amber-50 border-amber-200'
-      : 'bg-red-50 border-red-200'
   const statusText = status.kleur === 'green'
     ? 'text-green-700'
     : status.kleur === 'orange'
@@ -350,10 +359,10 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
             {warnings.map((w, i) => (
               <div
                 key={i}
-                className={`p-3 rounded-xl border-l-4 flex items-start gap-2 ${
-                  w.type === 'critical' ? 'bg-red-50 border-red-500' :
-                    w.type === 'warning' ? 'bg-amber-50 border-amber-500' :
-                      'bg-blue-50 border-blue-500'
+                className={`p-3 rounded-xl flex items-start gap-2 ${
+                  w.type === 'critical' ? 'bg-red-50' :
+                    w.type === 'warning' ? 'bg-amber-50' :
+                      'bg-blue-50'
                 }`}
               >
                 <AlertTriangle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
@@ -379,14 +388,14 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
         )}
           </div>
 
-          {/* Right column: sticky result panel (desktop) */}
+          {/* Right column: sticky result panel (desktop) — styled like the mobile bar */}
           <div className="hidden lg:block">
-            <div className={`lg:sticky lg:top-6 rounded-2xl border shadow-md p-5 ${statusBg}`}>
+            <div className={`lg:sticky lg:top-6 rounded-2xl border-2 bg-white shadow-[0_8px_28px_rgba(0,0,0,0.10)] p-5 ${statusAccent}`}>
               <div className="flex items-center gap-2 mb-3">
                 <div className={`w-2.5 h-2.5 rounded-full ${statusDot} flex-shrink-0`} />
                 <div className={`text-sm font-semibold ${statusText}`}>{status.titel}</div>
               </div>
-              <p className="text-xs text-text-secondary mb-5">{status.tekst}</p>
+              <p className="text-xs text-text-secondary mb-5">{renderStatusTekst(status.tekst)}</p>
               <div className="flex items-stretch gap-4">
                 <div className="flex-1 text-center">
                   <div className="text-[10px] uppercase tracking-wide text-text-secondary mb-1">Jouw TOG</div>
@@ -421,7 +430,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
                 <div className={`w-2.5 h-2.5 rounded-full ${statusDot} animate-pulse flex-shrink-0`} />
                 <div className="min-w-0">
                   <div className={`text-sm font-semibold truncate ${statusText}`}>{status.titel}</div>
-                  <div className="text-xs text-text-secondary truncate">{status.tekst}</div>
+                  <div className="text-xs text-text-secondary truncate">{renderStatusTekst(status.tekst)}</div>
                 </div>
               </div>
               <div className="flex items-center gap-4 flex-shrink-0">
