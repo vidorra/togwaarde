@@ -51,6 +51,7 @@ export default function HomePage() {
               alt="Blije dreumes"
               width={896}
               height={1344}
+              sizes="240px"
               className="w-[240px] h-auto object-cover object-top rounded-full"
             />
           </div>
@@ -104,6 +105,7 @@ export default function HomePage() {
               alt="Slapende baby"
               width={896}
               height={1344}
+              sizes="290px"
               className="w-[290px] h-auto object-cover object-top rounded-full"
             />
           </div>

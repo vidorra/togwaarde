@@ -8,8 +8,10 @@ const nextConfig = {
   images: {
     // Disable only if hosting on static CDN without Next.js image server
     unoptimized: false,
-    // Supported image formats: JPEG, PNG, WebP, AVIF
-    formats: ['image/webp', 'image/avif'],
+    // WebP only. AVIF encoding is very CPU-heavy and on this VPS (no CDN) it
+    // made on-demand optimization take 5-8s per image. WebP generates in a
+    // fraction of that and the sources are already WebP.
+    formats: ['image/webp'],
     // Maximum allowed image width (responsive images up to this size)
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     // Image breakpoints for srcset generation
