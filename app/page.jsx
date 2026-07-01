@@ -35,7 +35,7 @@ export default function HomePage() {
               <ThermometerSun className="w-7 h-7 text-primary" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 font-display leading-tight">
-              De Perfecte Slaaptemperatuur voor jouw baby
+              De Perfecte Slaaptemperatuur<br />voor jouw baby
             </h1>
           </div>
         </div>
