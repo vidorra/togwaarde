@@ -64,7 +64,7 @@ function SelectionButton({
  */
 function BlanketWarning(): JSX.Element {
   return (
-    <div className="mt-3 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+    <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
       <div className="flex items-start gap-2">
         <AlertTriangle className="w-4 h-4 text-yellow-600 mt-0.5 flex-shrink-0" />
         <p className="text-xs text-yellow-800">
@@ -205,7 +205,7 @@ const ClothingSelector = memo(function ClothingSelector({
       </div>
 
       {/* Info Alert */}
-      <div className="relative mb-4 p-4 pl-5 rounded-xl flex items-start gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+      <div className="mb-4 p-4 rounded-xl flex items-start gap-3 bg-background border border-border">
         <Info className="w-5 h-5 text-primary/80 mt-0.5 flex-shrink-0" />
         <div className="flex-1">
           <div className="font-semibold text-sm mb-1 text-text-primary">Let op</div>
@@ -285,7 +285,7 @@ const ClothingSelector = memo(function ClothingSelector({
         )}
 
         {isHittegolf && heeftBedekking && (
-          <div className="relative mt-3 p-3 pl-5 rounded-lg flex items-start gap-2 bg-red-50 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-500">
+          <div className="mt-3 p-3 rounded-lg flex items-start gap-2 bg-red-50 border border-red-200">
             <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-500" />
             <div className="flex-1">
               <p className="text-sm text-text-primary">

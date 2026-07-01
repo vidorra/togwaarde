@@ -151,7 +151,7 @@ const RoomInfoCard = memo(function RoomInfoCard({
 
       {/* Temperature Warnings */}
       {kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP && (
-        <div className="relative mt-4 p-3 pl-5 rounded-lg flex items-start gap-2 bg-blue-50 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-500">
+        <div className="mt-4 p-3 rounded-lg flex items-start gap-2 bg-blue-50 border border-blue-200">
           <Snowflake className="w-4 h-4 mt-0.5 flex-shrink-0 text-blue-500" />
           <p className="text-sm text-text-primary">
             Kamertemperatuur is lager dan aanbevolen (16-20°C). Gebruik 3.5 TOG slaapzak met warme kleding.
@@ -159,14 +159,14 @@ const RoomInfoCard = memo(function RoomInfoCard({
         </div>
       )}
       {kamerTemp >= SAFETY_LIMITS.HEATWAVE_ROOM_TEMP ? (
-        <div className="relative mt-4 p-3 pl-5 rounded-lg flex items-start gap-2 bg-red-50 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-red-500">
+        <div className="mt-4 p-3 rounded-lg flex items-start gap-2 bg-red-50 border border-red-200">
           <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0 text-red-500" />
           <p className="text-sm text-text-primary">
             Erg warm. Laat je baby alleen in een luier slapen, hooguit met een dun hemdje, zonder slaapzak of deken. Koel de kamer, bied extra vocht aan en let op tekenen van oververhitting.
           </p>
         </div>
       ) : kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP ? (
-        <div className="relative mt-4 p-3 pl-5 rounded-lg flex items-start gap-2 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+        <div className="mt-4 p-3 rounded-lg flex items-start gap-2 bg-background border border-border">
           <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary/80" />
           <p className="text-sm text-text-primary">
             Kamertemperatuur is hoog. Risico op oververhitting! Gebruik maximaal 0.5 TOG.

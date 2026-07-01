@@ -163,7 +163,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
                 className={`py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
                   kamerTemp === t
                     ? 'bg-primary text-white border-primary'
-                    : 'bg-background border-transparent hover:border-primary/30'
+                    : 'bg-background text-text-primary border-transparent hover:border-primary/30'
                 }`}
               >
                 {t}°
@@ -526,10 +526,10 @@ function InlineAlert({
   children: React.ReactNode
 }) {
   const cls = tone === 'warn'
-    ? 'bg-amber-50 border-amber-400 text-amber-800'
-    : 'bg-blue-50 border-blue-400 text-blue-800'
+    ? 'bg-amber-50 border-amber-200 text-amber-800'
+    : 'bg-blue-50 border-blue-200 text-blue-800'
   return (
-    <div className={`mt-4 p-3 rounded-xl border-l-4 flex items-start gap-2 text-sm ${cls}`}>
+    <div className={`mt-4 p-3 rounded-xl border flex items-start gap-2 text-sm ${cls}`}>
       <span className="mt-0.5 flex-shrink-0">{icon}</span>
       <span>{children}</span>
     </div>

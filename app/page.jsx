@@ -71,7 +71,7 @@ export default function HomePage() {
               </span>
               <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                 <Award className="w-4 h-4 text-amber-600" />
-                <span className="text-sm font-medium text-gray-700">CE Gecertificeerd</span>
+                <span className="text-sm font-medium text-gray-700">Wetenschappelijk onderbouwd</span>
               </span>
               <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                 <Star className="w-4 h-4 text-primary" />

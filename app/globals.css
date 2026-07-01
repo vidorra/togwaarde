@@ -34,15 +34,11 @@
   --border-primary: 232, 216, 197;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
+/* Light-only design: pin colours even when the OS/browser is in dark mode.
+   Otherwise inherited text turns white on the light backgrounds (e.g. the
+   temperature preset buttons became invisible on dark-mode phones). */
 html {
+  color-scheme: light;
   scroll-behavior: smooth;
 }
 

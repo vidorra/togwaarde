@@ -109,7 +109,7 @@ const TOGInfoModal = memo(function TOGInfoModal({ isOpen, onClose }: TOGInfoModa
 
         <div className="space-y-4 text-sm text-text-secondary-dark">
           {/* Belangrijke informatie */}
-          <div className="relative p-4 rounded-lg bg-background pl-6 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
+          <div className="p-4 rounded-lg bg-background border border-border">
             <p className="font-semibold text-primary/80 mb-2">Belangrijke informatie:</p>
             <p>
               De TOG-waarden voor individuele kledingstukken in deze calculator zijn{' '}
@@ -180,7 +180,7 @@ const TOGInfoModal = memo(function TOGInfoModal({ isOpen, onClose }: TOGInfoModa
           </div>
 
           {/* Advies */}
-          <div className="relative p-4 rounded-lg bg-blue-50 pl-6 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-blue-500">
+          <div className="p-4 rounded-lg bg-blue-50 border border-blue-200">
             <p className="font-semibold text-blue-800 mb-2">Advies:</p>
             <p>
               Gebruik deze calculator als richtlijn, maar vertrouw vooral op je eigen observatie.

@@ -68,7 +68,7 @@ export default function ReversePage() {
               </span>
               <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                 <Award className="w-4 h-4 text-amber-600" />
-                <span className="text-sm font-medium text-gray-700">CE Gecertificeerd</span>
+                <span className="text-sm font-medium text-gray-700">Wetenschappelijk onderbouwd</span>
               </span>
               <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                 <Star className="w-4 h-4 text-primary" />
@@ -82,14 +82,14 @@ export default function ReversePage() {
                 className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
               >
                 <Calculator className="w-5 h-5" />
-                <span>Bekijk het advies</span>
+                <span>Bekijk het kledingadvies</span>
               </button>
               <a
                 href="/"
                 className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary border-2 border-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-primary/5 transition-colors"
               >
-                <BookOpen className="w-5 h-5" />
-                <span>Check mijn combinatie</span>
+                <Calculator className="w-5 h-5" />
+                <span>Bereken TOG van je combinatie</span>
               </a>
             </div>
           </div>

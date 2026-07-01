@@ -126,7 +126,7 @@ const TOGWarnings = memo(function TOGWarnings({ warnings }: TOGWarningsProps): J
       {warnings.map((warning, index) => (
         <div
           key={index}
-          className="mt-4 p-3 bg-red-50 border-l-4 border-red-500 rounded"
+          className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg"
         >
           <div className="flex items-start gap-2">
             <AlertTriangle className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
@@ -193,12 +193,12 @@ const TOGResultsPanel = memo(function TOGResultsPanel({
 
         {/* Status Alert */}
         <div
-          className={`relative p-4 pl-5 rounded-xl mb-8 flex items-start gap-3 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 ${
+          className={`p-4 rounded-xl mb-8 flex items-start gap-3 border ${
             status.kleur === 'green'
-              ? 'bg-green-50 before:bg-green-500'
+              ? 'bg-green-50 border-green-200'
               : status.kleur === 'orange'
-                ? 'bg-background before:bg-primary'
-                : 'bg-primary/10 before:bg-primary/100'
+                ? 'bg-background border-border'
+                : 'bg-primary/10 border-primary/30'
           }`}
           role="status"
           aria-live="polite"

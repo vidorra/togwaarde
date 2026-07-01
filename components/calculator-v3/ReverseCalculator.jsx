@@ -42,13 +42,16 @@ function getRange(temp) {
 // Reverse advice: given a temperature, what to actually put on the baby.
 // Aligned with NHS / VeiligheidNL bands and Dutch consumer guidance.
 function getReverseAdvies(temp) {
-  if (temp >= 26) return { slaapzakTOG: 0.5, kleding: ['luier'] }
-  if (temp >= 24) return { slaapzakTOG: 0.5, kleding: ['korte_romper'] }
-  if (temp >= 22) return { slaapzakTOG: 1.0, kleding: ['korte_romper'] }
-  if (temp >= 20) return { slaapzakTOG: 1.0, kleding: ['lange_romper'] }
-  if (temp >= 18) return { slaapzakTOG: 2.5, kleding: ['lange_romper'] }
-  if (temp >= 16) return { slaapzakTOG: 2.5, kleding: ['lange_romper', 'dun_slaappak'] }
-  return { slaapzakTOG: 3.5, kleding: ['lange_romper', 'dik_slaappak'] }
+  // Slaapzak + kleding (incl. luier 0.1) blijft binnen het aanbevolen bereik
+  // en altijd ruim onder de 4.0 TOG veiligheidsgrens. Totalen ter controle:
+  // 27+ →0.1 · 24-26 →0.6 · 22-23 →0.8 · 20-21 →1.3 · 18-19 →2.8 · 16-17 →3.4 · <16 →3.6
+  if (temp >= 27) return { slaapzakTOG: 0, kleding: ['luier'], geenSlaapzak: true }
+  if (temp >= 24) return { slaapzakTOG: 0.5, kleding: ['luier'] }
+  if (temp >= 22) return { slaapzakTOG: 0.5, kleding: ['korte_romper'] }
+  if (temp >= 20) return { slaapzakTOG: 1.0, kleding: ['korte_romper'] }
+  if (temp >= 18) return { slaapzakTOG: 2.5, kleding: ['korte_romper'] }
+  if (temp >= 16) return { slaapzakTOG: 2.5, kleding: ['lange_romper'] }
+  return { slaapzakTOG: 3.5, kleding: ['luier'] }
 }
 
 export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = 'reverse-slaapzakken' }) {
@@ -62,9 +65,9 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
   const isKoud = kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
   const tempLabel = kamerTemp >= TEMP_SLIDER_CONFIG.max ? `${kamerTemp}°C+` : `${kamerTemp}°C`
 
-  const kledingNamen = advies.kleding
-    .map((k) => KLEDING_WAARDEN[k]?.naam || k)
-    .join(' + ')
+  const kledingNamen = (advies.kleding.length === 1 && advies.kleding[0] === 'luier')
+    ? 'Alleen een luier'
+    : advies.kleding.map((k) => KLEDING_WAARDEN[k]?.naam || k).join(' + ')
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -119,7 +122,7 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
               className={`py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
                 kamerTemp === t
                   ? 'bg-primary text-white border-primary'
-                  : 'bg-background border-transparent hover:border-primary/30'
+                  : 'bg-background text-text-primary border-transparent hover:border-primary/30'
               }`}
             >
               {t}°
@@ -161,10 +164,14 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
         </div>
 
         <div className="grid sm:grid-cols-2 gap-3">
-          <div className="p-4 rounded-2xl bg-primary/5 text-center">
+          <div className="p-4 rounded-2xl bg-primary/5 text-center flex flex-col justify-center">
             <Bed className="w-6 h-6 text-primary mx-auto mb-2" />
             <div className="text-[10px] uppercase tracking-wide text-text-secondary">Slaapzak</div>
-            <div className="text-2xl font-bold text-primary leading-none mt-1">{advies.slaapzakTOG} TOG</div>
+            {advies.geenSlaapzak ? (
+              <div className="text-lg font-bold text-primary leading-tight mt-1">Geen slaapzak<br /><span className="text-xs font-normal text-text-secondary">te warm</span></div>
+            ) : (
+              <div className="text-2xl font-bold text-primary leading-none mt-1">{advies.slaapzakTOG} TOG</div>
+            )}
           </div>
           <div className="p-4 rounded-2xl bg-background text-center flex flex-col justify-center">
             <Shirt className="w-6 h-6 text-secondary-dark mx-auto mb-2" />
@@ -174,25 +181,31 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
         </div>
 
         <p className="text-xs text-text-secondary text-center mt-4">
-          Samen ± {range.ideal.toFixed(1)} TOG · veilig bereik {range.min.toFixed(1)}–{range.max.toFixed(1)} TOG (NHS / VeiligheidNL)
+          Aanbevolen totaal {range.min.toFixed(1)}–{range.max.toFixed(1)} TOG · veilig tot 4.0 TOG (NHS / VeiligheidNL)
         </p>
 
         {/* Safety note */}
-        <div className="mt-4 p-3 rounded-xl bg-blue-50 border-l-4 border-blue-400 flex items-start gap-2 text-sm text-blue-800">
+        <div className="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-start gap-2 text-sm text-blue-800">
           <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
           <span>
             Voel in het nekje of aan de rug: lauwwarm en droog betekent goed. Te warm is gevaarlijker dan te koud — kies bij twijfel een laagje minder.
           </span>
         </div>
 
-        {isWarm && (
-          <div className="mt-3 p-3 rounded-xl bg-amber-50 border-l-4 border-amber-400 flex items-start gap-2 text-sm text-amber-800">
+        {advies.geenSlaapzak && (
+          <div className="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800">
+            <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+            <span>Te warm voor een slaapzak. Alleen een luier is genoeg — eventueel een dun hydrofiel laken. Zorg voor frisse lucht en controleer je baby extra.</span>
+          </div>
+        )}
+        {isWarm && !advies.geenSlaapzak && (
+          <div className="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800">
             <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
             <span>Boven 24°C: risico op oververhitting. Gebruik een dunne slaapzak (max 0.5 TOG) en houd de kleding minimaal.</span>
           </div>
         )}
         {isKoud && (
-          <div className="mt-3 p-3 rounded-xl bg-blue-50 border-l-4 border-blue-500 flex items-start gap-2 text-sm text-blue-800">
+          <div className="mt-3 p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-start gap-2 text-sm text-blue-800">
             <Snowflake className="w-4 h-4 mt-0.5 flex-shrink-0" />
             <span>Onder 16°C: verhoog liefst de kamertemperatuur. Gebruik anders een 3.5 TOG slaapzak met warme kleding eronder.</span>
           </div>
@@ -203,9 +216,9 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
       <div className="mt-6">
         <AffiliateProductWidget
           pageId={affiliatePageId}
-          filterTag={String(advies.slaapzakTOG)}
+          filterTag={advies.geenSlaapzak ? '0.5' : String(advies.slaapzakTOG)}
           hideIndex
-          title={`Slaapzakken met TOG ${advies.slaapzakTOG}`}
+          title={advies.geenSlaapzak ? 'Dunne zomerslaapzak (voor koelere nachten)' : `Slaapzakken met TOG ${advies.slaapzakTOG}`}
         />
       </div>
     </div>
