@@ -44,14 +44,14 @@ export default function HomePage() {
       {/* Images flanking centre content (lg+ only) */}
       <div className="container mx-auto px-4 -mt-6 relative z-10">
         <div className="flex items-end justify-center gap-0">
-          {/* Mother — left, desktop only */}
-          <div className="hidden lg:block flex-shrink-0 ml-10">
+          {/* Left image — smaller, lifted higher (desktop only) */}
+          <div className="hidden lg:block flex-shrink-0 ml-6 lg:-translate-y-12">
             <Image
               src="/blije-dreumes.webp"
               alt="Blije dreumes"
               width={896}
               height={1344}
-              className="w-[240px] h-auto object-cover object-top rounded-full"
+              className="w-[220px] h-auto object-cover object-top rounded-full"
             />
           </div>
 
@@ -97,14 +97,14 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Baby sleeping bag — right, desktop only */}
-          <div className="hidden lg:block flex-shrink-0 mr-10">
+          {/* Right image — larger, grounded lower (desktop only) */}
+          <div className="hidden lg:block flex-shrink-0 mr-6 lg:translate-y-4">
             <Image
               src="/slapende-baby.webp"
               alt="Slapende baby"
               width={896}
               height={1344}
-              className="w-[240px] h-auto object-cover object-top rounded-full"
+              className="w-[290px] h-auto object-cover object-top rounded-full"
             />
           </div>
         </div>
