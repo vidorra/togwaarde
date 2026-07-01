@@ -67,7 +67,7 @@ export default function HomePage() {
             <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
               <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                 <Shield className="w-4 h-4 text-green-700" />
-                <span className="text-sm font-medium text-gray-700">SIDS Preventie</span>
+                <span className="text-sm font-medium text-gray-700">Veilig Slapen</span>
               </span>
               <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
                 <Award className="w-4 h-4 text-amber-600" />
@@ -154,7 +154,7 @@ export default function HomePage() {
                   <Thermometer className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">TOG 2.5</h3>
-                <p className="text-gray-600">Voor koude winternachten (15-18°C)</p>
+                <p className="text-gray-600">Voor koude winternachten (16-18°C)</p>
               </div>
             </div>
           </div>
@@ -200,7 +200,7 @@ export default function HomePage() {
 
             <div className="bg-white p-6 rounded-2xl border border-gray-100">
               <Shield className="w-10 h-10 text-primary/60 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">SIDS Preventie</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Veilig Slapen</h3>
               <p className="text-gray-600">
                 Informatie over veilig slapen en het voorkomen van wiegendood
               </p>

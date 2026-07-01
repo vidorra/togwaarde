@@ -73,7 +73,7 @@ export default function WiegendoodPreventie() {
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li><strong>1984:</strong> 120 per 100.000 baby's overleden aan wiegendood</li>
                 <li><strong>2004:</strong> Gedaald naar 9 per 100.000 door betere voorlichting</li>
-                <li><strong>2022-2024:</strong> Zorgelijke stijging van 50%, nu ongeveer 25-39 gevallen per jaar (3 baby's per maand)</li>
+                <li><strong>2022-2024:</strong> Een zorgelijke stijging naar ongeveer 35 tot 41 gevallen per jaar, tegenover eerder zo'n 25. Deze cijfers zijn wel onzeker: bij een deel van de recente gevallen ontbreken de registratieformulieren.</li>
               </ul>
               <p className="text-gray-700 text-sm mt-4">
                 Deze dramatische daling en recente stijging benadrukken het belang van blijvende educatie over veilig slapen en correcte temperatuurregulatie.
