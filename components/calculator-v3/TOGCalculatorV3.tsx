@@ -98,20 +98,27 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
     : status.kleur === 'orange'
       ? 'bg-amber-500'
       : 'bg-red-500'
+  const statusAccent = status.kleur === 'green'
+    ? 'border-green-400'
+    : status.kleur === 'orange'
+      ? 'border-amber-400'
+      : 'border-red-400'
 
   return (
-    <div className="relative pb-36 sm:pb-28">
-      {/* Header */}
-      <div className="text-center mb-6 max-w-xl mx-auto">
-        <TitleComponent className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-          TOG Calculator
-        </TitleComponent>
-        <p className="text-sm text-text-secondary">
-          Vul in wat van toepassing is — alle delen zijn optioneel.
-        </p>
-      </div>
+    <div className="relative pb-40 lg:pb-8">
+      <div className="max-w-5xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-6">
+          <TitleComponent className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+            TOG Calculator
+          </TitleComponent>
+          <p className="text-sm text-text-secondary">
+            Vul in wat van toepassing is — alle delen zijn optioneel.
+          </p>
+        </div>
 
-      <div className="max-w-xl mx-auto space-y-4">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-6 lg:items-start">
+          <div className="space-y-4">
         {/* === Card 1: Temperatuur === */}
         <Section
           icon={<Thermometer className="w-5 h-5" />}
@@ -370,11 +377,44 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
             ))}
           </div>
         )}
+          </div>
+
+          {/* Right column: sticky result panel (desktop) */}
+          <div className="hidden lg:block">
+            <div className={`lg:sticky lg:top-6 rounded-2xl border shadow-md p-5 ${statusBg}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <div className={`w-2.5 h-2.5 rounded-full ${statusDot} flex-shrink-0`} />
+                <div className={`text-sm font-semibold ${statusText}`}>{status.titel}</div>
+              </div>
+              <p className="text-xs text-text-secondary mb-5">{status.tekst}</p>
+              <div className="flex items-stretch gap-4">
+                <div className="flex-1 text-center">
+                  <div className="text-[10px] uppercase tracking-wide text-text-secondary mb-1">Jouw TOG</div>
+                  <div className="text-3xl font-bold text-text-primary leading-none">{totaleTOG.toFixed(1)}</div>
+                </div>
+                <div className="w-px bg-border" />
+                <div className="flex-1 text-center">
+                  <div className="text-[10px] uppercase tracking-wide text-text-secondary mb-1">Advies</div>
+                  <div className="text-3xl font-bold text-primary leading-none">
+                    {aanbevolenTOGRange.min === aanbevolenTOGRange.max
+                      ? aanbevolenTOGRange.ideal.toFixed(1)
+                      : `${aanbevolenTOGRange.min.toFixed(1)}–${aanbevolenTOGRange.max.toFixed(1)}`}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Attribution — static, in normal flow (not the fixed bar) */}
+        <p className="text-center text-[11px] text-text-secondary mt-6">
+          Op basis van NHS / Lullaby Trust / VeiligheidNL
+        </p>
       </div>
 
-      {/* Sticky bottom result bar */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 px-3 sm:px-4 pb-3 sm:pb-4 pointer-events-none">
-        <div className={`max-w-xl mx-auto pointer-events-auto rounded-2xl border shadow-lg backdrop-blur-md bg-white/95 ${statusBg}`}>
+      {/* Mobile fixed result bar — solid, high-contrast (below lg only) */}
+      <div className="lg:hidden fixed inset-x-0 bottom-0 z-40 p-3 pointer-events-none">
+        <div className={`max-w-xl mx-auto pointer-events-auto rounded-2xl border-2 bg-white shadow-[0_-6px_28px_rgba(0,0,0,0.16)] ${statusAccent}`}>
           <div className="p-4">
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-3 min-w-0">
@@ -402,9 +442,6 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
             </div>
           </div>
         </div>
-        <p className="text-center text-[10px] text-text-secondary mt-1.5">
-          Op basis van NHS / Lullaby Trust / VeiligheidNL
-        </p>
       </div>
     </div>
   )
