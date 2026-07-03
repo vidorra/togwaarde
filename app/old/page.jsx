@@ -1,85 +1,121 @@
 'use client'
-import { useState } from 'react'
+import Image from 'next/image'
 import Layout from '../../components/Layout'
-import TOGCalculator from '../../components/TOGCalculator'
-import { Calculator, BookOpen, ShoppingBag, Thermometer, ThermometerSun, CheckCircle, Snowflake, Shield, Heart, Award, Star } from 'lucide-react'
+import TOGCalculatorV3 from '../../components/calculator-v3/TOGCalculatorV3'
+import {
+  ThermometerSun,
+  Shield,
+  Heart,
+  BookOpen,
+  Calculator,
+  Award,
+  Star,
+  Thermometer,
+  CheckCircle,
+  Snowflake
+} from 'lucide-react'
 
-export default function OldHomePage() {
-  const handleScrollToCalculator = () => {
-    const calculator = document.getElementById('tog-calculator')
-    if (calculator) {
-      calculator.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }
+export default function HomePage() {
+  const scrollToCalc = () => {
+    document.getElementById('tog-calculator-v3')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-16 lg:py-20">
+      {/* Hero with decorative blurs and flanking images (lg+) */}
+      <section className="pb-0">
         <div className="container mx-auto px-4 relative">
           {/* Decorative blur elements */}
           <div className="absolute top-10 left-10 w-60 h-60 bg-secondary/20 rounded-full blur-xl pointer-events-none" style={{ animation: 'subtleFloat1 10s ease-in-out infinite' }}></div>
           <div className="absolute bottom-10 right-10 w-72 h-72 bg-primary/10 rounded-full blur-xl pointer-events-none" style={{ animation: 'subtleFloat2 12.5s ease-in-out infinite' }}></div>
           <div className="absolute top-1/2 left-1/4 w-72 h-72 bg-primary/10 rounded-full blur-xl pointer-events-none" style={{ animation: 'subtleFloat3 11s ease-in-out infinite' }}></div>
 
-          <div className="max-w-4xl mx-auto text-center mb-12 relative z-10">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-              <ThermometerSun className="w-8 h-8 text-primary" />
+          <div className="max-w-4xl mx-auto text-center mb-4 relative z-10 pt-10 lg:pt-16">
+            <div className="inline-flex items-center justify-center w-14 h-14 bg-primary/10 rounded-full mb-3">
+              <ThermometerSun className="w-7 h-7 text-primary" />
             </div>
-
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-4 font-display">
-              De Perfecte Slaaptemperatuur voor jouw baby
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 font-display leading-tight">
+              De Perfecte Slaaptemperatuur<br />voor jouw baby
             </h1>
-
-            <p className="text-lg text-gray-600">
-              Bereken in 30 seconden de ideale TOG waarde voor de slaapzak van je baby.
-              Veilige babyslaap begint met de juiste temperatuur.
-            </p>
-          </div>
-
-          {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-8 relative z-10">
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-              <Shield className="w-4 h-4 text-green-700" />
-              <span className="text-sm font-medium text-gray-700">SIDS Preventie</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-              <Award className="w-4 h-4 text-amber-600" />
-              <span className="text-sm font-medium text-gray-700">Wetenschappelijk onderbouwd</span>
-            </div>
-            <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
-              <Star className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-gray-700">Nederlands Advies</span>
-            </div>
-          </div>
-
-          <div className="relative z-10">
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={handleScrollToCalculator}
-                className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
-              >
-                <Calculator className="w-5 h-5" />
-                <span>Start TOG Calculator</span>
-              </button>
-
-              <a
-                href="/wat-is-tog-waarde"
-                className="inline-flex items-center gap-2 sm:gap-3 bg-default text-primary border-2 border-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-primary/5 transition-colors"
-              >
-                <BookOpen className="w-5 h-5" />
-                <span>Wat is TOG waarde?</span>
-              </a>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Calculator Section */}
-      <section id="tog-calculator" className="py-8 lg:py-12">
-        <div className="container mx-auto px-4">
-          <TOGCalculator />
+      {/* Images flanking centre content (lg+ only) */}
+      <div className="container mx-auto px-4 -mt-6 relative z-10">
+        <div className="flex items-end justify-center gap-0">
+          {/* Left image — lifted higher (desktop only) */}
+          <div className="hidden lg:block flex-shrink-0 ml-6 lg:-translate-y-12">
+            <Image
+              src="/blije-dreumes.webp"
+              alt="Blije dreumes"
+              width={896}
+              height={1344}
+              sizes="240px"
+              className="w-[240px] h-auto object-cover object-top rounded-full"
+            />
+          </div>
+
+          {/* Centre: tagline + trust + CTAs */}
+          <div className="flex-1 max-w-3xl flex flex-col items-center justify-start px-4 pb-16 lg:pb-24 self-start pt-6">
+            <p className="text-base lg:text-lg text-text-secondary text-center mb-6 max-w-2xl">
+              Vul in wat past — wij rekenen live mee.
+              Gebaseerd op NHS, Lullaby Trust en VeiligheidNL.
+            </p>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+              <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+                <Shield className="w-4 h-4 text-green-700" />
+                <span className="text-sm font-medium text-gray-700">Veilig Slapen</span>
+              </span>
+              <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+                <Award className="w-4 h-4 text-amber-600" />
+                <span className="text-sm font-medium text-gray-700">Wetenschappelijk onderbouwd</span>
+              </span>
+              <span className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+                <Star className="w-4 h-4 text-primary" />
+                <span className="text-sm font-medium text-gray-700">Nederlands Advies</span>
+              </span>
+            </div>
+
+            {/* CTAs — same banner as the home page (reverse ↔ forward switch) */}
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="/"
+                className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary border-2 border-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-primary/5 transition-colors"
+              >
+                <Calculator className="w-5 h-5" />
+                <span>Bekijk het kledingadvies</span>
+              </a>
+              <button
+                onClick={scrollToCalc}
+                className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
+              >
+                <Calculator className="w-5 h-5" />
+                <span>Bereken TOG van je combinatie</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right image — larger, grounded lower (desktop only) */}
+          <div className="hidden lg:block flex-shrink-0 mr-6 lg:translate-y-4">
+            <Image
+              src="/slapende-baby.webp"
+              alt="Slapende baby"
+              width={896}
+              height={1344}
+              sizes="290px"
+              className="w-[290px] h-auto object-cover object-top rounded-full"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Calculator */}
+      <section id="tog-calculator-v3" className="py-4">
+        <div className="container mx-auto px-3 sm:px-4">
+          <TOGCalculatorV3 titleTag="h2" />
         </div>
       </section>
 
@@ -118,7 +154,7 @@ export default function OldHomePage() {
                   <Thermometer className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">TOG 2.5</h3>
-                <p className="text-gray-600">Voor koude winternachten (15-18°C)</p>
+                <p className="text-gray-600">Voor koude winternachten (16-18°C)</p>
               </div>
             </div>
           </div>
@@ -164,7 +200,7 @@ export default function OldHomePage() {
 
             <div className="bg-white p-6 rounded-2xl border border-gray-100">
               <Shield className="w-10 h-10 text-primary/60 mb-4" />
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">SIDS Preventie</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Veilig Slapen</h3>
               <p className="text-gray-600">
                 Informatie over veilig slapen en het voorkomen van wiegendood
               </p>
@@ -280,7 +316,7 @@ export default function OldHomePage() {
 
             <div className="mt-8 lg:mt-12 text-center">
               <button
-                onClick={handleScrollToCalculator}
+                onClick={scrollToCalc}
                 className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
               >
                 <Calculator className="w-5 h-5" />
@@ -326,7 +362,7 @@ export default function OldHomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={handleScrollToCalculator}
+                onClick={scrollToCalc}
                 className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
               >
                 <Calculator className="w-5 h-5" />

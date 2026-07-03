@@ -48,7 +48,13 @@ html, body {
   font-weight: 400;
   color: rgb(var(--foreground-rgb));
   background: white;
-  overflow-x: hidden;
+}
+
+/* Prevent horizontal overflow without a second scroll container.
+   overflow-x:hidden on BOTH html and body forces overflow-y:auto on each,
+   which produced a double vertical scrollbar. `clip` on body only avoids that. */
+body {
+  overflow-x: clip;
   max-width: 100vw;
 }
 

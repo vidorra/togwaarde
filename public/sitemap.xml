@@ -8,13 +8,6 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Reverse advies: welke kleding bij welke temperatuur -->
-  <url>
-    <loc>https://togwaarde.nl/reverse</loc>
-    <lastmod>2026-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
 
   <!-- Main Tools -->
   <url>

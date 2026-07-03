@@ -9,9 +9,9 @@ export const viewport = {
 
 export const metadata = {
   metadataBase: new URL('https://togwaarde.nl'),
-  title: 'TOG Waarde Calculator 2025 | Ideale Babyslaap Temperatuur',
-  description: 'Gratis TOG waarde calculator voor de perfecte slaapzak. Bereken direct de juiste TOG voor jouw baby op basis van kamertemperatuur. ✓ Veilige babyslaap ✓ Nederlandse richtlijnen',
-  keywords: 'tog waarde, tog calculator, baby slaapzak, kamertemperatuur baby, veilige babyslaap, slaapzak temperatuur, Nederlandse richtlijnen',
+  title: 'Wat moet mijn baby aan bij deze temperatuur? | TOG Calculator',
+  description: 'Stel de kamertemperatuur in en zie direct welke TOG-slaapzak en kleding je baby veilig aan kan. Gratis, gebaseerd op NHS, Lullaby Trust en VeiligheidNL.',
+  keywords: 'welke kleding baby nacht temperatuur, wat moet mijn baby aan, welke tog slaapzak, tog waarde per temperatuur, baby aankleden nacht, tog calculator, veilige babyslaap',
   robots: 'index, follow',
   authors: [{ name: 'TOGWaarde.nl' }],
   manifest: '/manifest.json',
