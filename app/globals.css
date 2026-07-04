@@ -40,6 +40,16 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+  /* clip (not hidden) — clips the off-screen reCAPTCHA badge without turning
+     the root into a scroll container, so no double scrollbar returns */
+  overflow-x: clip;
+}
+
+/* reCAPTCHA v3 loads site-wide (the contact modal lives in the footer). Hide
+   its fixed badge to avoid a mobile horizontal scroll; the required Google
+   attribution text is shown inside the contact form instead. */
+.grecaptcha-badge {
+  visibility: hidden;
 }
 
 html, body {
