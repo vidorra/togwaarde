@@ -93,9 +93,9 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Google Analytics (gtag) */}
+        {/* Google Analytics (gtag) - eigen togwaarde stream */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3NZ90KFHQ6"
+          src="https://www.googletagmanager.com/gtag/js?id=G-JC52G66X85"
           strategy="afterInteractive"
         />
         <Script id="ga-init" strategy="afterInteractive">
@@ -103,7 +103,7 @@ export default function RootLayout({ children }) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-3NZ90KFHQ6');
+            gtag('config', 'G-JC52G66X85');
           `}
         </Script>
 
