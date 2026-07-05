@@ -35,7 +35,7 @@ export default function HomePage() {
               <ThermometerSun className="w-7 h-7 text-primary" />
             </div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 font-display leading-tight">
-              De Perfecte Slaaptemperatuur<br />voor jouw baby
+              Bereken de TOG-waarde<br />van jouw combinatie
             </h1>
           </div>
         </div>
@@ -59,8 +59,8 @@ export default function HomePage() {
           {/* Centre: tagline + trust + CTAs */}
           <div className="flex-1 max-w-3xl flex flex-col items-center justify-start px-4 pb-16 lg:pb-24 self-start pt-6">
             <p className="text-base lg:text-lg text-text-secondary text-center mb-6 max-w-2xl">
-              Vul in wat past — wij rekenen live mee.
-              Gebaseerd op NHS, Lullaby Trust en VeiligheidNL.
+              Weet je al wat je baby aanheeft? Tel slaapzak, kleding en dekens op
+              en check of de combinatie veilig is. Gebaseerd op NHS, Lullaby Trust en VeiligheidNL.
             </p>
 
             {/* Trust badges */}

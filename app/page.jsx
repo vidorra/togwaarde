@@ -85,7 +85,7 @@ export default function ReversePage() {
                 <span>Bekijk het kledingadvies</span>
               </button>
               <a
-                href="/old"
+                href="/calculator"
                 className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary border-2 border-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-primary/5 transition-colors"
               >
                 <Calculator className="w-5 h-5" />
@@ -254,7 +254,7 @@ export default function ReversePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="/old"
+                href="/calculator"
                 className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"
               >
                 <Calculator className="w-5 h-5" />

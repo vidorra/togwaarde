@@ -43,6 +43,22 @@ const nextConfig = {
     ]
   },
 
+  async redirects() {
+    return [
+      // Forward calculator briefly lived at /old and /v2/v3 during redesign
+      {
+        source: '/old',
+        destination: '/calculator',
+        permanent: true
+      },
+      {
+        source: '/v2',
+        destination: '/calculator',
+        permanent: true
+      }
+    ]
+  },
+
   // ✅ Comprehensive Caching Headers (Phase 3)
   // Implements cache strategy for different content types:
   // - Static assets (JS/CSS): 1 year (immutable)
