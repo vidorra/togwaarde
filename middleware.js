@@ -27,7 +27,9 @@ const getCSPHeader = (nonce) => {
         : ["'strict-dynamic'"]),
       // Third-party scripts
       'https://www.googletagmanager.com',
+      'https://*.googletagmanager.com',
       'https://www.google-analytics.com',
+      'https://pagead2.googlesyndication.com',
       'https://www.google.com/recaptcha/',
       'https://www.gstatic.com/recaptcha/',
       'https://partner.bol.com',
@@ -47,6 +49,8 @@ const getCSPHeader = (nonce) => {
       'blob:',
       // Allow images from these sources
       'https://www.google-analytics.com',
+      'https://*.google-analytics.com',
+      'https://*.googletagmanager.com',
       'https://media.s-bol.com',
       'https://www.bol.com',
       'https://*.bol.com',
@@ -60,6 +64,9 @@ const getCSPHeader = (nonce) => {
       "'self'",
       // API connections
       'https://www.google-analytics.com',
+      'https://*.google-analytics.com',
+      'https://*.analytics.google.com',
+      'https://*.googletagmanager.com',
       'https://api.emailjs.com',
       'https://www.google.com/recaptcha/',
       'https://ipapi.co',
@@ -69,6 +76,7 @@ const getCSPHeader = (nonce) => {
     ],
     'frame-src': [
       "'self'",
+      'https://www.googletagmanager.com',
       'https://www.google.com/recaptcha/',
       'https://recaptcha.google.com',
       'https://partner.bol.com',
