@@ -13,26 +13,22 @@ export default function PartnersPage() {
     {
       name: 'Puckababy',
       description: 'Nederlands premium merk met duidelijke TOG-labels per seizoen',
-      features: ['Duidelijke TOG-aanduiding', 'Doordachte pasvorm', 'Sterke wasbestendigheid'],
-      website: 'https://www.puckababy.com'
+      features: ['Duidelijke TOG-aanduiding', 'Doordachte pasvorm', 'Sterke wasbestendigheid']
     },
     {
       name: 'Jollein',
       description: 'Breed Nederlands assortiment slaapzakken in veel maten en dessins',
-      features: ['Groot assortiment', 'Veel maten en stijlen', 'Goede verkrijgbaarheid'],
-      website: 'https://www.jollein.nl'
+      features: ['Groot assortiment', 'Veel maten en stijlen', 'Goede verkrijgbaarheid']
     },
     {
       name: 'HEMA',
       description: 'Betaalbare slaapzakken met heldere TOG-informatie op het label',
-      features: ['Beste prijs-kwaliteit', 'TOG op het label', 'Overal verkrijgbaar'],
-      website: 'https://www.hema.nl'
+      features: ['Beste prijs-kwaliteit', 'TOG op het label', 'Overal verkrijgbaar']
     },
     {
       name: 'Meyco',
       description: 'Nederlands merk met basics en seizoensslaapzakken',
-      features: ['Seizoenscollecties', 'Zachte materialen', 'Eerlijke prijzen'],
-      website: 'https://www.meyco.nl'
+      features: ['Seizoenscollecties', 'Zachte materialen', 'Eerlijke prijzen']
     }
   ]
 
@@ -120,17 +116,7 @@ export default function PartnersPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {brands.map((brand, index) => (
               <div key={index} className="border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="font-medium text-gray-800">{brand.name}</h3>
-                  <a
-                    href={brand.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary-dark transition-colors"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
+                <h3 className="font-medium text-gray-800 mb-3">{brand.name}</h3>
 
                 <p className="text-sm text-gray-600 mb-3">{brand.description}</p>
 
@@ -143,6 +129,23 @@ export default function PartnersPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-4 grid md:grid-cols-2 gap-4">
+            <Link
+              href="/kennisbank/nederlandse-merken-vergelijking"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary transition-colors"
+            >
+              <div className="font-medium text-primary">Uitgebreide merkenvergelijking →</div>
+              <div className="text-sm text-gray-600">Puckababy, Jollein, HEMA en meer naast elkaar</div>
+            </Link>
+            <Link
+              href="/producten"
+              className="p-3 border border-gray-200 rounded-lg hover:border-primary transition-colors"
+            >
+              <div className="font-medium text-primary">Aanbevolen slaapzakken →</div>
+              <div className="text-sm text-gray-600">Onze selectie per TOG-waarde</div>
+            </Link>
           </div>
 
           <div className="mt-4 p-4 bg-gray-50 rounded-xl">
