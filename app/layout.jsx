@@ -76,8 +76,12 @@ export default function RootLayout({ children }) {
               },
               "publisher": {
                 "@type": "Organization",
-                "name": "TOGWaarde.nl",
-                "url": "https://togwaarde.nl"
+                "name": "Vidorra",
+                "url": "https://togwaarde.nl",
+                "sameAs": [
+                  "https://togwaarde.nl",
+                  "https://flesvoedingcalculator.nl"
+                ]
               }
             })
           }}

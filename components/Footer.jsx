@@ -105,8 +105,20 @@ export default function Footer() {
             <div className="text-sm text-gray-500 mb-4 md:mb-0">
               <p>© 2025 TOGWaarde.nl - Alle rechten voorbehouden</p>
             </div>
-            <div className="text-xs text-gray-400">
+            <div className="text-xs text-gray-400 space-y-1 md:text-right">
               <p>Veilige babyslaap informatie gebaseerd op Nederlandse richtlijnen</p>
+              <p>
+                Ook van ons:{' '}
+                <a
+                  href="https://flesvoedingcalculator.nl"
+                  target="_blank"
+                  rel="noopener"
+                  className="underline hover:text-primary transition-colors"
+                >
+                  FlesvoedingCalculator.nl
+                </a>
+                , bereken hoeveel flesvoeding je baby nodig heeft
+              </p>
             </div>
           </div>
         </div>

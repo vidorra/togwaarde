@@ -217,6 +217,17 @@ export default function BabyTemperatuurControlerenPage() {
           </Link>
         </div>
 
+        {/* Zustersite tip */}
+        <div className="bg-white rounded-2xl p-6 border border-gray-100 mb-8">
+          <p className="text-gray-700 leading-relaxed">
+            Naast de lichaamstemperatuur is ook de temperatuur van de voeding belangrijk. Lees op onze zustersite hoe je{' '}
+            <a href="https://flesvoedingcalculator.nl/kennisbank/voedingstechnieken/juiste-temperatuur-controleren/" className="text-primary hover:underline font-medium">
+              de temperatuur van de fles controleert
+            </a>
+            .
+          </p>
+        </div>
+
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>

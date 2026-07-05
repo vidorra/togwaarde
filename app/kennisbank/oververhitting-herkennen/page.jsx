@@ -234,6 +234,13 @@ export default function OververhittingHerkennen() {
                     <div>
                       <strong>5. Aanpassen voor Volgende Keer:</strong> Gebruik lichtere TOG-waarde of minder kleding. Controleer kamertemperatuur met thermometer.
                     </div>
+                    <div>
+                      <strong>6. Bied Extra Vocht Aan:</strong> Geef borst- of flesvoeding om het vochtverlies aan te vullen. Bij warm weer geldt: vaker kleinere voedingen. Zie ook{' '}
+                      <a href="https://flesvoedingcalculator.nl/kennisbank/praktische-tips/flesvoeding-bij-warm-weer/" className="text-primary hover:underline font-medium">
+                        extra vocht aanbieden bij warm weer
+                      </a>{' '}
+                      op FlesvoedingCalculator.nl.
+                    </div>
                   </div>
                 </div>
               </div>

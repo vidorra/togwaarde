@@ -495,6 +495,17 @@ export default function VeiligeSlaaptemperatuurPage() {
           </div>
         </div>
 
+        {/* Zustersite tip */}
+        <div className="mt-12 bg-white rounded-2xl p-6 border border-gray-100">
+          <p className="text-gray-700 leading-relaxed">
+            Wordt je baby &apos;s nachts wakker voor een voeding? Houd de kamer donker en rustig en lees op onze zustersite hoe je{' '}
+            <a href="https://flesvoedingcalculator.nl/kennisbank/praktische-tips/nachtvoeding-optimaliseren/" className="text-primary hover:underline font-medium">
+              nachtvoedingen rustig laat verlopen
+            </a>
+            , zodat iedereen sneller weer slaapt.
+          </p>
+        </div>
+
         {/* Related Articles */}
         <div className="mt-12 pt-12 border-t border-gray-200">
           <h2 className="text-lg font-semibold text-primary mb-6">Gerelateerde Artikelen</h2>

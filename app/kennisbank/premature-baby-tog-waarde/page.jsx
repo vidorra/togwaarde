@@ -250,6 +250,17 @@ export default function PrematureBabyTOGWaardePage() {
           </Link>
         </div>
 
+        {/* Zustersite tip */}
+        <div className="bg-white rounded-2xl p-6 border border-gray-100 mb-8">
+          <p className="text-gray-700 leading-relaxed">
+            Krijgt je premature baby de fles? Op onze zustersite lees je alles over{' '}
+            <a href="https://flesvoedingcalculator.nl/kennisbank/basis-flesvoeding/flesvoeding-bij-premature-babys/" className="text-primary hover:underline font-medium">
+              flesvoeding bij premature baby&apos;s
+            </a>
+            , inclusief hoeveelheden per gecorrigeerde leeftijd.
+          </p>
+        </div>
+
         {/* Related Articles */}
         <div className="bg-white rounded-2xl p-6 border border-gray-100">
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>

@@ -205,6 +205,14 @@ export default function KennisbankPage() {
           icon: Baby,
           readTime: '15 min',
           difficulty: 'Gemiddeld'
+        },
+        {
+          title: 'Slaapt je Baby Slecht? Check ook de Voeding',
+          slug: 'slaapt-baby-slecht-check-voeding',
+          description: 'Temperatuur, TOG en voeding beïnvloeden samen de nachtrust',
+          icon: Baby,
+          readTime: '10 min',
+          difficulty: 'Beginner'
         }
       ]
     }

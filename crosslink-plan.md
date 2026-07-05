@@ -89,10 +89,16 @@ op dezelfde twee artikelen heen en weer; de tabellen hierboven variëren bewust.
 - Referral-verkeer flesvoedingcalculator → togwaarde (GA4)
 - Indexatiestatus /calculator en / op togwaarde
 
-## Status
+## Status (uitgevoerd 5 juli 2026)
 
-- [ ] Fase 1: footer-vermelding beide sites
-- [ ] Fase 2: 5 + 5 contextuele links
-- [ ] Fase 3.1: brugartikel flesvoedingcalculator
-- [ ] Fase 3.2: brugartikel togwaarde
-- [ ] Fase 3.4: gedeelde Organization schema markup
+- [x] Fase 1: footer-vermelding beide sites (branded anchor in onderbalk)
+- [x] Fase 2: 5 + 5 contextuele links geplaatst volgens de tabellen hierboven
+- [x] Fase 3.1: brugartikel flesvoedingcalculator:
+      `/kennisbank/praktische-tips/baby-terugleggen-na-nachtvoeding`
+- [x] Fase 3.2: brugartikel togwaarde:
+      `/kennisbank/slaapt-baby-slecht-check-voeding`
+- [x] Fase 3.3: zustersite-blok op beide partnerspagina's
+- [x] Fase 3.4: gedeelde Organization ("Vidorra") met sameAs naar beide domeinen
+      in de schema markup van beide sites
+
+Meetpunten checken vanaf ~half augustus 2026 (zie hierboven).

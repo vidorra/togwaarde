@@ -115,6 +115,13 @@ export default function BabySlapenZomerPage() {
               <li><strong>Natte doek in bedje:</strong> Verhoogt luchtvochtigheid en verslechtert warmtebeleving</li>
               <li><strong>Veel drinken forceren:</strong> Baby neemt wat nodig is; bied aan maar forceer niet</li>
             </ul>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Geef je de fles? Lees dan ook de tips over{' '}
+              <a href="https://flesvoedingcalculator.nl/kennisbank/praktische-tips/flesvoeding-bij-warm-weer/" className="text-primary hover:underline font-medium">
+                flesvoeding geven bij warm weer
+              </a>{' '}
+              op onze zustersite FlesvoedingCalculator.nl.
+            </p>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Zomer slaapzak materialen</h2>
             <p className="text-gray-700 leading-relaxed mb-6">

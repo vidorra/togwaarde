@@ -264,6 +264,26 @@ export default function PartnersPage() {
           </div>
         </div>
 
+        {/* Zustersite */}
+        <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
+          <h2 className="text-lg font-medium text-gray-800 mb-4">
+            Ook van de makers van TOGWaarde.nl
+          </h2>
+          <a
+            href="https://flesvoedingcalculator.nl"
+            className="block border border-gray-200 rounded-xl p-4 hover:border-primary transition-colors"
+          >
+            <div className="flex items-start justify-between mb-2">
+              <h3 className="font-medium text-gray-800">FlesvoedingCalculator.nl</h3>
+              <ExternalLink className="w-4 h-4 text-primary" />
+            </div>
+            <p className="text-sm text-gray-600">
+              Bereken gratis hoeveel flesvoeding je baby nodig heeft per leeftijd en gewicht,
+              met een uitgebreide kennisbank over flesvoeding volgens Nederlandse richtlijnen.
+            </p>
+          </a>
+        </div>
+
         {/* Contact */}
         <div className="bg-primary-gradient rounded-2xl p-6 text-white">
           <h2 className="font-medium text-lg mb-4">
