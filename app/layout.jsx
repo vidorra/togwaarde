@@ -4,6 +4,16 @@ import ConsentBanner from '../components/ConsentBanner'
 import UmamiScript from '../components/UmamiScript'
 import { initWebVitals } from '../lib/analytics'
 
+/**
+ * Aan/uit-schakelaar voor de cookie-zettende trackers (GA4, GTM, Clarity)
+ * en de bijbehorende cookiebanner. Staat UIT: we meten cookieless via Umami
+ * (geen consent nodig), dus de banner is niet meer verplicht.
+ *
+ * Terugzetten naar consent-model: zet dit op true. Dan laden GA4/GTM/Clarity
+ * weer achter de banner (Consent Mode v2). Alle code blijft daarvoor staan.
+ */
+const COOKIE_TRACKERS_ENABLED = false
+
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -74,83 +84,87 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W88NL33G"
-            height="0"
-            width="0"
-            style={{ display: 'none', visibility: 'hidden' }}
-          ></iframe>
-        </noscript>
+        {COOKIE_TRACKERS_ENABLED && (
+          <>
+            {/* Google Tag Manager (noscript) */}
+            <noscript>
+              <iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-W88NL33G"
+                height="0"
+                width="0"
+                style={{ display: 'none', visibility: 'hidden' }}
+              ></iframe>
+            </noscript>
 
-        {/* Consent Mode v2 defaults - MOET voor GTM/gtag draaien (staat als
-            eerste inline script; afterInteractive scripts draaien op volgorde) */}
-        <Script id="consent-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
-              ad_storage: 'denied',
-              ad_user_data: 'denied',
-              ad_personalization: 'denied',
-              analytics_storage: 'denied',
-              functionality_storage: 'granted',
-              security_storage: 'granted',
-              wait_for_update: 500
-            });
-            try {
-              if (localStorage.getItem('cookie-consent') === 'accepted') {
-                gtag('consent', 'update', {
-                  ad_storage: 'granted',
-                  ad_user_data: 'granted',
-                  ad_personalization: 'granted',
-                  analytics_storage: 'granted'
+            {/* Consent Mode v2 defaults - MOET voor GTM/gtag draaien (staat als
+                eerste inline script; afterInteractive scripts draaien op volgorde) */}
+            <Script id="consent-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('consent', 'default', {
+                  ad_storage: 'denied',
+                  ad_user_data: 'denied',
+                  ad_personalization: 'denied',
+                  analytics_storage: 'denied',
+                  functionality_storage: 'granted',
+                  security_storage: 'granted',
+                  wait_for_update: 500
                 });
-              }
-            } catch (e) {}
-          `}
-        </Script>
+                try {
+                  if (localStorage.getItem('cookie-consent') === 'accepted') {
+                    gtag('consent', 'update', {
+                      ad_storage: 'granted',
+                      ad_user_data: 'granted',
+                      ad_personalization: 'granted',
+                      analytics_storage: 'granted'
+                    });
+                  }
+                } catch (e) {}
+              `}
+            </Script>
 
-        {/* Google Tag Manager */}
-        <Script id="gtm-init" strategy="afterInteractive">
-          {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-W88NL33G');
-          `}
-        </Script>
+            {/* Google Tag Manager */}
+            <Script id="gtm-init" strategy="afterInteractive">
+              {`
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','GTM-W88NL33G');
+              `}
+            </Script>
 
-        {/* Google Analytics (gtag) - eigen togwaarde stream */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JC52G66X85"
-          strategy="afterInteractive"
-        />
-        <Script id="ga-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-JC52G66X85');
-          `}
-        </Script>
+            {/* Google Analytics (gtag) - eigen togwaarde stream */}
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-JC52G66X85"
+              strategy="afterInteractive"
+            />
+            <Script id="ga-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-JC52G66X85');
+              `}
+            </Script>
 
-        {/* Microsoft Clarity - alleen na cookie-akkoord (banner init bij accept) */}
-        <Script id="clarity-init" strategy="afterInteractive">
-          {`
-            try {
-              if (localStorage.getItem('cookie-consent') === 'accepted') {
-                (function(c,l,a,r,i,t,y){
-                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-                })(window, document, "clarity", "script", "swtgjl0ozf");
-              }
-            } catch (e) {}
-          `}
-        </Script>
+            {/* Microsoft Clarity - alleen na cookie-akkoord (banner init bij accept) */}
+            <Script id="clarity-init" strategy="afterInteractive">
+              {`
+                try {
+                  if (localStorage.getItem('cookie-consent') === 'accepted') {
+                    (function(c,l,a,r,i,t,y){
+                        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                    })(window, document, "clarity", "script", "swtgjl0ozf");
+                  }
+                } catch (e) {}
+              `}
+            </Script>
+          </>
+        )}
 
         {/* Web Vitals Monitoring */}
         <Script id="web-vitals-init" strategy="afterInteractive">
@@ -194,8 +208,8 @@ export default function RootLayout({ children }) {
 
         {children}
 
-        {/* Cookie consent (Consent Mode v2) */}
-        <ConsentBanner />
+        {/* Cookie consent (Consent Mode v2) - alleen nodig bij cookie-trackers */}
+        {COOKIE_TRACKERS_ENABLED && <ConsentBanner />}
       </body>
     </html>
   )
