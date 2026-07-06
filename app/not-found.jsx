@@ -49,14 +49,14 @@ export default function NotFound() {
                 </div>
               </Link>
               
-              <Link 
-                href="/voedingsschemas"
+              <Link
+                href="/calculator"
                 className="flex items-center p-4 rounded-xl border border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <Calendar className="w-5 h-5 text-primary mr-3 group-hover:scale-110 transition-transform" />
                 <div className="text-left">
-                  <div className="font-medium text-gray-800">Voedingsschema's</div>
-                  <div className="text-sm text-gray-600">Bereken voedingsschema's</div>
+                  <div className="font-medium text-gray-800">TOG Calculator</div>
+                  <div className="text-sm text-gray-600">Bereken de TOG van je combinatie</div>
                 </div>
               </Link>
               
@@ -67,7 +67,7 @@ export default function NotFound() {
                 <BookOpen className="w-5 h-5 text-primary mr-3 group-hover:scale-110 transition-transform" />
                 <div className="text-left">
                   <div className="font-medium text-gray-800">Kennisbank</div>
-                  <div className="text-sm text-gray-600">Informatie over flesvoeding</div>
+                  <div className="text-sm text-gray-600">Informatie over TOG en veilig slapen</div>
                 </div>
               </Link>
               

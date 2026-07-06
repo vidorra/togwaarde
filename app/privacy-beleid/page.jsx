@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { Shield, ArrowRight, Home, Eye, Cookie, Mail, Lock } from 'lucide-react'
 
 export const metadata = {
-  title: 'Privacy Beleid | FlesvoedingCalculator.nl',
-  description: 'Privacybeleid van FlesvoedingCalculator.nl - Hoe wij omgaan met uw persoonlijke gegevens volgens de AVG.',
+  title: 'Privacy Beleid | TOGWaarde.nl',
+  description: 'Privacybeleid van TOGWaarde.nl - Hoe wij omgaan met uw persoonlijke gegevens volgens de AVG.',
 }
 
 export default function PrivacyBeleidPage() {
@@ -35,7 +35,7 @@ export default function PrivacyBeleidPage() {
         {/* Intro */}
         <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
           <p className="text-gray-700 leading-relaxed">
-            Bij FlesvoedingCalculator.nl respecteren wij uw privacy en zijn wij transparant over hoe wij omgaan met uw persoonlijke gegevens. 
+            Bij TOGWaarde.nl respecteren wij uw privacy en zijn wij transparant over hoe wij omgaan met uw persoonlijke gegevens. 
             Dit privacybeleid legt uit welke gegevens wij verzamelen, hoe wij deze gebruiken en welke rechten u heeft volgens de 
             Algemene Verordening Gegevensbescherming (AVG).
           </p>
@@ -279,7 +279,7 @@ export default function PrivacyBeleidPage() {
               <h3 className="font-medium text-gray-800 mb-3">Hoe uw rechten uitoefenen:</h3>
               <div className="bg-blue-50 rounded-xl p-4 border border-blue-200">
                 <p className="text-sm text-blue-800 mb-2">Stuur een e-mail naar:</p>
-                <p className="font-medium text-blue-900">privacy@flesvoedingcalculator.nl</p>
+                <p className="font-medium text-blue-900">info@vidorra.nl</p>
                 <p className="text-xs text-blue-700 mt-2">
                   Wij reageren binnen 30 dagen op uw verzoek.
                 </p>

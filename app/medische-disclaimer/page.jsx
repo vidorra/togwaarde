@@ -45,7 +45,7 @@ export default function MedischeDisclaimerPage() {
             Medische Disclaimer
           </h1>
           <p className="text-gray-600">
-            Belangrijke informatie over het gebruik van deze website en calculator voor flesvoeding.
+            Belangrijke informatie over het gebruik van deze website en de TOG calculator.
           </p>
         </div>
 

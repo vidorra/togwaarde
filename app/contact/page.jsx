@@ -58,7 +58,7 @@ export default function ContactPage() {
             Contact
           </h1>
           <p className="text-gray-600">
-            Heeft u vragen over flesvoeding of onze website? Wij helpen u graag verder.
+            Heeft u vragen over TOG-waardes, slaapzakken of onze website? Wij helpen u graag verder.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export default function ContactPage() {
               {submitStatus === 'error' && (
                 <div className="bg-primary/10 border border-red-200 rounded-lg p-4 mb-6">
                   <p className="text-red-800">
-                    ❌ Er is iets misgegaan. Probeer het later opnieuw of stuur een e-mail naar info@flesvoedingcalculator.nl
+                    ❌ Er is iets misgegaan. Probeer het later opnieuw of stuur een e-mail naar info@vidorra.nl
                   </p>
                 </div>
               )}
@@ -156,7 +156,7 @@ export default function ContactPage() {
                   >
                     <option value="">Kies een onderwerp</option>
                     <option value="calculator">Vraag over de calculator</option>
-                    <option value="informatie">Vraag over flesvoeding informatie</option>
+                    <option value="informatie">Vraag over TOG informatie</option>
                     <option value="website">Technisch probleem met website</option>
                     <option value="suggestie">Suggestie voor verbetering</option>
                     <option value="samenwerking">Samenwerking of partnership</option>
@@ -220,14 +220,14 @@ export default function ContactPage() {
               <div className="space-y-3">
                 <div>
                   <h4 className="font-medium text-gray-800">Algemene vragen:</h4>
-                  <a href="mailto:info@flesvoedingcalculator.nl" className="text-primary hover:underline">
-                    info@flesvoedingcalculator.nl
+                  <a href="mailto:info@vidorra.nl" className="text-primary hover:underline">
+                    info@vidorra.nl
                   </a>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-800">Privacy vragen:</h4>
-                  <a href="mailto:privacy@flesvoedingcalculator.nl" className="text-primary hover:underline">
-                    privacy@flesvoedingcalculator.nl
+                  <a href="mailto:info@vidorra.nl" className="text-primary hover:underline">
+                    info@vidorra.nl
                   </a>
                 </div>
               </div>
@@ -283,13 +283,13 @@ export default function ContactPage() {
         {/* Professional Resources */}
         <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
           <h2 className="text-lg font-medium text-gray-800 mb-4">
-            Professionele hulp bij flesvoeding
+            Professionele hulp bij veilig slapen
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center p-4 bg-gray-50 rounded-xl">
               <Phone className="w-8 h-8 text-primary mx-auto mb-2" />
               <h3 className="font-medium text-gray-800 mb-1">Consultatiebureau</h3>
-              <p className="text-sm text-gray-600">Voor advies over voeding en groei van uw baby</p>
+              <p className="text-sm text-gray-600">Voor advies over slapen en de groei van uw baby</p>
             </div>
             
             <div className="text-center p-4 bg-gray-50 rounded-xl">

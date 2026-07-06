@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { FileText, ArrowRight, Home, AlertTriangle, Scale, Shield, Info } from 'lucide-react'
 
 export const metadata = {
-  title: 'Gebruiksvoorwaarden | FlesvoedingCalculator.nl',
-  description: 'Gebruiksvoorwaarden van FlesvoedingCalculator.nl - Voorwaarden voor het gebruik van onze flesvoeding calculator en informatie.',
+  title: 'Gebruiksvoorwaarden | TOGWaarde.nl',
+  description: 'Gebruiksvoorwaarden van TOGWaarde.nl - Voorwaarden voor het gebruik van onze TOG calculator en informatie.',
 }
 
 export default function GebruiksvoorwaardenPage() {
@@ -40,7 +40,7 @@ export default function GebruiksvoorwaardenPage() {
           </h2>
           <div className="space-y-3 text-amber-800">
             <p className="font-medium">
-              FlesvoedingCalculator.nl is een informatieve website en vervangt GEEN medisch advies.
+              TOGWaarde.nl is een informatieve website en vervangt GEEN medisch advies.
             </p>
             <ul className="space-y-1 text-sm">
               <li className="flex items-center space-x-2">
@@ -66,7 +66,7 @@ export default function GebruiksvoorwaardenPage() {
         {/* Intro */}
         <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
           <p className="text-gray-700 leading-relaxed">
-            Door gebruik te maken van FlesvoedingCalculator.nl stemt u in met deze gebruiksvoorwaarden. 
+            Door gebruik te maken van TOGWaarde.nl stemt u in met deze gebruiksvoorwaarden. 
             Deze voorwaarden zijn van toepassing op alle diensten en informatie die wij aanbieden via onze website.
           </p>
         </div>
@@ -83,11 +83,11 @@ export default function GebruiksvoorwaardenPage() {
               <ul className="space-y-2 text-sm text-gray-600">
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                  <span>Gratis flesvoeding calculator</span>
+                  <span>Gratis TOG calculator</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                  <span>Educatieve informatie over flesvoeding</span>
+                  <span>Educatieve informatie over TOG-waardes en veilig slapen</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
@@ -145,7 +145,7 @@ export default function GebruiksvoorwaardenPage() {
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                  <span>Informatieve doeleinden voor flesvoeding</span>
+                  <span>Informatieve doeleinden voor veilig babyslapen</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
@@ -196,7 +196,7 @@ export default function GebruiksvoorwaardenPage() {
             <div className="border-l-4 border-primary pl-4">
               <h3 className="font-medium text-gray-800 mb-1">Onze content:</h3>
               <p className="text-sm text-gray-600">
-                Alle teksten, afbeeldingen, logo's en calculator functionaliteit zijn eigendom van FlesvoedingCalculator.nl 
+                Alle teksten, afbeeldingen, logo's en calculator functionaliteit zijn eigendom van TOGWaarde.nl 
                 of gebruikt met toestemming van derden.
               </p>
             </div>
@@ -272,7 +272,7 @@ export default function GebruiksvoorwaardenPage() {
           
           <div className="space-y-3">
             <p className="text-gray-700">
-              FlesvoedingCalculator.nl streeft naar juiste en actuele informatie, maar kan niet garanderen dat alle informatie 
+              TOGWaarde.nl streeft naar juiste en actuele informatie, maar kan niet garanderen dat alle informatie 
               volledig, juist of geschikt is voor uw specifieke situatie.
             </p>
             

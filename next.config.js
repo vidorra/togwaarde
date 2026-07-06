@@ -55,6 +55,38 @@ const nextConfig = {
         source: '/v2',
         destination: '/calculator',
         permanent: true
+      },
+      // Flesvoeding fork leftovers: tools live on the sister site
+      {
+        source: '/voedingsschemas',
+        destination: 'https://flesvoedingcalculator.nl/voedingsschemas',
+        permanent: true
+      },
+      {
+        source: '/schepjes-calculator',
+        destination: 'https://flesvoedingcalculator.nl/schepjes-calculator',
+        permanent: true
+      },
+      // Removed leftover info pages
+      {
+        source: '/informatie',
+        destination: '/kennisbank',
+        permanent: true
+      },
+      {
+        source: '/infographics',
+        destination: '/kennisbank',
+        permanent: true
+      },
+      {
+        source: '/uitleg-calculator',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/disclaimer',
+        destination: '/medische-disclaimer',
+        permanent: true
       }
     ]
   },

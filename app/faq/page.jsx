@@ -13,8 +13,8 @@ export default function FAQPage() {
 
   const categories = [
     { id: 'calculator', name: 'Calculator gebruik', icon: Calculator },
-    { id: 'feeding', name: 'Algemene voedingsvragen', icon: Baby },
-    { id: 'medical', name: 'Medische vragen', icon: AlertCircle },
+    { id: 'tog', name: 'TOG & slaapzakken', icon: Baby },
+    { id: 'medical', name: 'Veiligheid', icon: AlertCircle },
     { id: 'practical', name: 'Praktische tips', icon: Info }
   ]
 
@@ -23,38 +23,53 @@ export default function FAQPage() {
       {
         id: 1,
         question: 'Hoe nauwkeurig is deze calculator?',
-        answer: 'Onze calculator is gebaseerd op de officiële Nederlandse richtlijnen van het Voedingscentrum. De berekening gebruikt 150ml per kg lichaamsgewicht als uitgangspunt, aangepast voor leeftijd. Dit geeft een goede richtlijn, maar elke baby is uniek.'
+        answer: 'Onze adviezen volgen de TOG-richtbanden per kamertemperatuur van de NHS, The Lullaby Trust en VeiligheidNL. Alleen slaapzakken hebben een officiële TOG-rating; de waarden voor losse kleding zijn schattingen. De calculator geeft dus een goede richtlijn, maar voel altijd ook zelf in het nekje van je baby.'
       },
       {
         id: 2,
-        question: 'Waarom wijkt het resultaat af van wat mijn dokter zei?',
-        answer: 'Artsen kunnen specifieke aanbevelingen geven op basis van de individuele ontwikkeling van uw baby. Onze calculator geeft algemene richtlijnen. Volg altijd het advies van uw kinderarts.'
+        question: 'Wat is het verschil tussen de twee calculators?',
+        answer: 'Op de homepage stel je de kamertemperatuur in en zie je direct welke slaapzak en kleding veilig zijn. Op de TOG Calculator werk je andersom: je vult in wat je baby aanheeft en checkt of die combinatie past bij de temperatuur.'
       }
     ],
-    feeding: [
+    tog: [
       {
         id: 3,
-        question: 'Hoeveel flesvoeding heeft mijn baby per dag nodig?',
-        answer: 'Dit hangt af van het gewicht en de leeftijd van uw baby. Als vuistregel geldt 150ml per kg lichaamsgewicht per dag, verdeeld over meerdere voedingen. Gebruik onze calculator voor een persoonlijke berekening.'
+        question: 'Welke TOG-waarde heeft mijn baby nodig?',
+        answer: 'Dat hangt af van de kamertemperatuur: rond 0.5 TOG bij 24 graden of warmer, 1.0 TOG bij 20 tot 24 graden, 2.5 TOG bij 16 tot 20 graden en 3.5 TOG onder de 16 graden. Tel slaapzak en kleding altijd bij elkaar op.'
       },
       {
         id: 4,
-        question: 'Kan mijn baby teveel flesvoeding krijgen?',
-        answer: 'Ja, overvoeding kan voorkomen. Baby\'s hebben een natuurlijk verzadigingsgevoel. Stop met voeden als uw baby de fles wegduwt, zijn hoofd wegdraait of niet meer zuigt.'
+        question: 'Hoeveel slaapzakken heb ik nodig?',
+        answer: 'De meeste ouders redden zich met twee: een 1.0 TOG voor lente en herfst en een 2.5 TOG voor de winter. Voor hete zomernachten volstaat een 0.5 TOG of alleen een romper.'
+      },
+      {
+        id: 5,
+        question: 'Mag mijn baby onder een losse deken slapen?',
+        answer: 'Onder de 12 maanden wordt een losse deken afgeraden vanwege het risico op bedekking van het gezicht. Gebruik een slaapzak, of stop een dekentje stevig in volgens de "feet to foot" methode. Vouw een deken nooit dubbel: dat verdubbelt de TOG-waarde.'
       }
     ],
     medical: [
       {
-        id: 5,
-        question: 'Wanneer moet ik contact opnemen met de dokter?',
-        answer: 'Neem contact op bij: ongewone gewichtstoename of -afname, braken na elke voeding, tekenen van uitdroging, of als u zich zorgen maakt over de voeding van uw baby.'
+        id: 6,
+        question: 'Hoe herken ik oververhitting?',
+        answer: 'Signalen zijn een klam of bezweet nekje, rood gezicht, snelle ademhaling en onrust. Te warm slapen is een risicofactor voor wiegendood. Verwijder bij twijfel een laagje en check de kamertemperatuur (ideaal 16 tot 20 graden).'
+      },
+      {
+        id: 7,
+        question: 'Wanneer moet ik contact opnemen met een arts?',
+        answer: 'Bel direct 112 als je baby slap of niet aanspreekbaar is, blauw verkleurt of ademproblemen heeft. Neem bij aanhoudende onrust, koorts of twijfel contact op met het consultatiebureau of je huisarts.'
       }
     ],
     practical: [
       {
-        id: 6,
-        question: 'Hoe warm moet flesvoeding zijn?',
-        answer: 'Flesvoeding moet lichaamstemperatuur hebben (37°C). Test de temperatuur door een druppel op uw pols te doen - het moet lauw aanvoelen, niet heet of koud.'
+        id: 8,
+        question: 'Hoe controleer ik of mijn baby het te warm of te koud heeft?',
+        answer: 'Voel met je vingers in het nekje of aan de rug: lauwwarm en droog is goed. Klam of zweterig betekent te warm (laagje uit), koel betekent mogelijk te koud (laagje erbij). Koele handjes zijn normaal.'
+      },
+      {
+        id: 9,
+        question: 'Wat trek ik mijn baby aan onder de slaapzak?',
+        answer: 'Bij 16 tot 20 graden meestal een romper met eventueel een pyjama, bij 20 tot 24 graden alleen een romper, en boven de 24 graden vaak alleen een luier. Gebruik onze calculator op de homepage voor advies per graad.'
       }
     ]
   }
@@ -86,7 +101,7 @@ export default function FAQPage() {
             Veelgestelde Vragen
           </h1>
           <p className="text-gray-600">
-            Vind snel antwoorden op de meest gestelde vragen over flesvoeding en onze calculator.
+            Vind snel antwoorden op de meest gestelde vragen over TOG-waardes, slaapzakken en onze calculators.
           </p>
         </div>
 
@@ -145,7 +160,7 @@ export default function FAQPage() {
         <div className="bg-primary rounded-2xl p-6 text-white">
           <h2 className="font-medium mb-2">Vraag niet gevonden?</h2>
           <p className="text-gray-100 mb-4">
-            Neem contact met ons op voor persoonlijke ondersteuning bij uw vragen over flesvoeding.
+            Neem contact met ons op voor persoonlijke ondersteuning bij uw vragen over TOG-waardes en veilig slapen.
           </p>
           <button 
             onClick={() => setIsContactModalOpen(true)}
