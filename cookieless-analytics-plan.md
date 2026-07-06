@@ -65,28 +65,34 @@ realtime, één script van ~2 kB (sneller dan gtag), en meet 100% van de
 bezoekers in plaats van alleen wie op Accepteren klikt. Data blijft op de
 eigen server in Falkenstein.
 
-## 4. Het AdSense-vraagstuk (de echte banner-veroorzaker)
+## 4. Besluit (juli 2026): beide sites krijgen advertenties
 
-Analytics is oplosbaar zonder banner; de banner blijft alleen nodig voor
-AdSense-personalisatie en Clarity. Drie scenario's:
+Richting vastgesteld: beide sites krijgen in de toekomst AdSense-units op de
+homepage en op elke artikelpagina. Daarmee vervalt het bannervrij-scenario
+(dat werkte alleen zonder gepersonaliseerde advertenties) en wordt het beleid
+voor beide sites gelijk:
 
-**A. Volledig bannervrij (aanbevolen voor togwaarde)**
-- Umami voor analytics, GA4 + GTM + Clarity eruit
-- AdSense: eruit op togwaarde (levert daar toch weinig op; bol.com-affiliate
-  is het model) OF op "limited ads zonder consent" laten draaien
-- Resultaat: geen banner, 100% meetdekking, snellere site
+**Gekozen model: hybride op beide sites**
+- **Banner + Consent Mode v2 blijven** (staat al live, subtiel vormgegeven).
+  Dit is precies het juiste setup voor het advertentiemodel:
+  - bezoeker accepteert -> gepersonaliseerde AdSense (hoogste eCPM) + GA4
+  - bezoeker weigert -> AdSense schakelt automatisch naar limited/niet-
+    gepersonaliseerde ads (nog steeds omzet, geen cookies) en GA4 meet niet
+- **Umami parallel erbij** voor wat GA4 nooit kan leveren: funnels en
+  klikdata over 100% van de bezoekers, cookieless, dus ook de weigeraars.
+  GA4 blijft voor de accepterende meerderheid (retentie, Ads-koppeling later).
 
-**B. Hybride (aanbevolen voor flesvoedingcalculator zolang AdSense daar geld oplevert)**
-- Umami erbij voor volledige anonieme funnels/klikdata
-- GA4 + AdSense + banner blijven zoals nu (net gebouwd, subtiel)
-- Wie weigert wordt toch gemeten (anoniem, via Umami); de banner is er dan
-  alleen nog voor de advertentie-inkomsten
-- Na 2 maanden vergelijken: als Umami alles geeft wat je gebruikt en de
-  AdSense-inkomsten beperkt zijn, doorschakelen naar scenario A
+Feitelijke stand advertentie-inventory (check juli 2026):
+- flesvoedingcalculator: units op 48+ pagina's (kennisbank-sidebar, home)
+- togwaarde: script geladen maar 0 units geplaatst; GoogleAdSlot-component
+  bestaat al en wordt nergens gebruikt
 
-**C. Alles houden zoals nu**
-- Alleen GA4 met consent: je meet slechts het deel van de bezoekers dat
-  accepteert (typisch 60-80%), funnels zijn dus altijd onvolledig
+**Nog te plannen: advertentie-uitrol togwaarde** (aparte klus)
+- Home: 1 unit onder het adviesblok of tussen de secties
+- Artikelpagina's: 1 unit na de eerste sectie of onder Gerelateerde
+  Artikelen (zelfde patroon als flesvoeding-sidebar)
+- Balans bewaken: niet meer dan 1-2 units per pagina zolang het verkeer
+  klein is; affiliate-blokken behouden voorrang op de koopgerichte pagina's
 
 ## 5. Voorgestelde uitvoering (na akkoord)
 
@@ -96,9 +102,9 @@ AdSense-personalisatie en Clarity. Drie scenario's:
    calculator_usage en affiliate_click parallel aan GA4 doorzetten
 3. Funnels inrichten in Umami: home -> advies gezien -> affiliate_click en
    kennisbank -> calculator -> affiliate_click
-4. Per site AdSense-besluit nemen (scenario A of B); bij A: banner, GA4,
-   GTM en Clarity verwijderen van die site
-5. Na 2 maanden: dekking en bruikbaarheid vergelijken, definitief kiezen
+4. Advertentie-uitrol togwaarde plannen en plaatsen (zie hierboven)
+5. Na 2 maanden: GA4-consentgraad en Umami-dekking naast elkaar leggen;
+   banner en tags blijven, dit wordt de vaste meetcombinatie
 
 ## 6. Risico's en kanttekeningen
 
