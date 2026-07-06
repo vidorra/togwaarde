@@ -1,5 +1,6 @@
 import './globals.css'
 import Script from 'next/script'
+import ConsentBanner from '../components/ConsentBanner'
 import { initWebVitals } from '../lib/analytics'
 
 export const viewport = {
@@ -82,6 +83,34 @@ export default function RootLayout({ children }) {
           ></iframe>
         </noscript>
 
+        {/* Consent Mode v2 defaults - MOET voor GTM/gtag draaien (staat als
+            eerste inline script; afterInteractive scripts draaien op volgorde) */}
+        <Script id="consent-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'denied',
+              functionality_storage: 'granted',
+              security_storage: 'granted',
+              wait_for_update: 500
+            });
+            try {
+              if (localStorage.getItem('cookie-consent') === 'accepted') {
+                gtag('consent', 'update', {
+                  ad_storage: 'granted',
+                  ad_user_data: 'granted',
+                  ad_personalization: 'granted',
+                  analytics_storage: 'granted'
+                });
+              }
+            } catch (e) {}
+          `}
+        </Script>
+
         {/* Google Tag Manager */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`
@@ -114,14 +143,18 @@ export default function RootLayout({ children }) {
           crossOrigin="anonymous"
         />
 
-        {/* Microsoft Clarity */}
+        {/* Microsoft Clarity - alleen na cookie-akkoord (banner init bij accept) */}
         <Script id="clarity-init" strategy="afterInteractive">
           {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "swtgjl0ozf");
+            try {
+              if (localStorage.getItem('cookie-consent') === 'accepted') {
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "swtgjl0ozf");
+              }
+            } catch (e) {}
           `}
         </Script>
 
@@ -170,6 +203,9 @@ export default function RootLayout({ children }) {
         </Script>
         
         {children}
+
+        {/* Cookie consent (Consent Mode v2) */}
+        <ConsentBanner />
       </body>
     </html>
   )

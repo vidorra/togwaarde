@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ExternalLink, Star, Euro, ShoppingCart } from 'lucide-react'
+import { trackEvent } from '../lib/analytics'
 // Note: We use API routes to access Bol.com API server-side for security
 
 /**
@@ -42,6 +43,7 @@ export function BolProductCard({ product, variant = 'card' }) {
         href={product.affiliateLink}
         target="_blank"
         rel="noopener noreferrer sponsored"
+        onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'product_card' })}
         className="inline-flex items-center space-x-2 text-primary hover:text-primary-hover font-medium group transition-colors"
       >
         <span>{product.title}</span>
@@ -59,6 +61,7 @@ export function BolProductCard({ product, variant = 'card' }) {
         href={product.affiliateLink}
         target="_blank"
         rel="noopener noreferrer sponsored"
+        onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'product_card' })}
         className="group"
       >
         <div className="flex items-center space-x-3 p-3 bg-white rounded-lg border border-gray-200 hover:border-orange-300 hover:bg-background transition-colors">
@@ -103,6 +106,7 @@ export function BolProductCard({ product, variant = 'card' }) {
       href={product.affiliateLink}
       target="_blank"
       rel="noopener noreferrer sponsored"
+      onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'product_card' })}
       className="group"
     >
       <div className="bg-white rounded-xl border border-gray-200 p-4 hover:border-orange-300 hover:shadow-md transition-all">

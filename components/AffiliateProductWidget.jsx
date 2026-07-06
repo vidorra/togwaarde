@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 import { getProductsByCategory, getProductsByIds } from './affiliate-products.js'
+import { trackEvent } from '../lib/analytics'
 import '../styles/bol-widget.css'
 
 /**
@@ -79,6 +80,7 @@ function BolScriptWidget({ product }) {
             href={product.url || product.data?.productUrl || '#'}
             target="_blank"
             rel="nofollow noopener"
+            onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })}
             className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors inline-block"
           >
             Bekijk op bol.com →
@@ -300,10 +302,11 @@ export default function AffiliateProductWidget({
             {product.type === 'bol_iframe' && (
               <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col w-full">
                 <div className="text-center flex flex-col flex-grow">
-                  <a 
+                  <a
                     href={product.data.productUrl}
                     target="_blank"
                     rel="nofollow noopener"
+                    onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })}
                     className="block hover:opacity-90 transition-opacity"
                   >
                     <div className="mb-3">
@@ -347,6 +350,7 @@ export default function AffiliateProductWidget({
                     href={product.data.url}
                     target="_blank"
                     rel="nofollow noopener"
+                    onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })}
                     className="block hover:opacity-90 transition-opacity flex flex-col flex-grow"
                   >
                     <div className="mb-3">
