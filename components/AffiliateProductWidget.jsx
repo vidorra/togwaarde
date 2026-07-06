@@ -11,6 +11,41 @@ import '../styles/bol-widget.css'
  */
 function BolScriptWidget({ product }) {
   const containerRef = useRef(null)
+  const lastClickRef = useRef(0)
+
+  // GA4 affiliate_click for this embedded widget. The clickable link is usually
+  // inside the injected bol.com script/iframe, so a React onClick on our own
+  // button would miss those clicks. We delegate on the whole card: any click on
+  // an <a> (injected or our fallback button), plus an iframe-intent fallback
+  // (window blur while the pointer is over the card = the bol iframe was clicked
+  // and opened a new tab). Debounced so one user action never double-counts.
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    let pointerInside = false
+    const fire = () => {
+      const now = Date.now()
+      if (now - lastClickRef.current < 1500) return
+      lastClickRef.current = now
+      trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })
+    }
+    const onClick = (e) => { if (e.target.closest?.('a')) fire() }
+    const onEnter = () => { pointerInside = true }
+    const onLeave = () => { pointerInside = false }
+    const onBlur = () => { if (pointerInside) fire() }
+
+    el.addEventListener('click', onClick)
+    el.addEventListener('mouseenter', onEnter)
+    el.addEventListener('mouseleave', onLeave)
+    window.addEventListener('blur', onBlur)
+    return () => {
+      el.removeEventListener('click', onClick)
+      el.removeEventListener('mouseenter', onEnter)
+      el.removeEventListener('mouseleave', onLeave)
+      window.removeEventListener('blur', onBlur)
+    }
+  }, [product.id])
 
   useEffect(() => {
     if (!containerRef.current || !product.generatedHtml) return
@@ -80,7 +115,6 @@ function BolScriptWidget({ product }) {
             href={product.url || product.data?.productUrl || '#'}
             target="_blank"
             rel="nofollow noopener"
-            onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })}
             className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors inline-block"
           >
             Bekijk op bol.com →
