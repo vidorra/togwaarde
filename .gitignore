@@ -52,3 +52,6 @@ md/
 
 # Local-only docs (contained credentials once; never commit)
 trash/
+
+# Lokale docs (niet committen)
+adsense-herintroductie.md

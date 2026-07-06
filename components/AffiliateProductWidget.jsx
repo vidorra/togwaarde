@@ -358,6 +358,20 @@ export default function AffiliateProductWidget({
                     <h4 className="font-medium text-primary text-sm mb-2 line-clamp-2 min-h-[40px] flex items-center justify-center">
                       {product.data.title}
                     </h4>
+                    {/* Prijs uit eigen database (nachtelijke sync), geen third-party script */}
+                    {product.price && (
+                      <div className="mb-2">
+                        <span className="text-lg font-bold text-gray-900">{product.price}</span>
+                        {product.originalPrice && product.originalPrice !== product.price && (
+                          <span className="ml-2 text-sm text-gray-500 line-through">{product.originalPrice}</span>
+                        )}
+                        {product.priceLastUpdated && (
+                          <div className="text-[10px] text-gray-400 mt-0.5">
+                            Prijs van {new Date(product.priceLastUpdated).toLocaleDateString('nl-NL')}, actuele prijs op bol.com
+                          </div>
+                        )}
+                      </div>
+                    )}
                     <div className="mt-auto">
                       <div className="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors inline-block">
                         Bekijk op bol.com →
@@ -402,18 +416,11 @@ export default function AffiliateProductWidget({
                     <h4 className="font-medium text-primary text-sm mb-2 line-clamp-2 min-h-[40px] flex items-center justify-center">
                       {product.name}
                     </h4>
-                    {/* Price display */}
-                    {product.price && (
-                      <div className="my-2">
-                        <span className="text-lg font-bold text-gray-900">€{product.price}</span>
-                        {product.originalPrice && product.originalPrice > product.price && (
-                          <span className="ml-2 text-sm text-gray-500 line-through">€{product.originalPrice}</span>
-                        )}
-                      </div>
-                    )}
+                    {/* Geen prijsweergave voor Amazon: hun voorwaarden verbieden
+                        zelf opgehaalde/verouderde prijzen zonder PA-API */}
                     <div className="mt-auto">
                       <div className="text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors inline-block" style={{ backgroundColor: '#FF9900' }}>
-                        Bekijk op Amazon →
+                        Bekijk prijs op Amazon →
                       </div>
                     </div>
                   </a>
