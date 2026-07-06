@@ -136,13 +136,6 @@ export default function RootLayout({ children }) {
           `}
         </Script>
 
-        {/* Google AdSense */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5215838917916938"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-        />
-
         {/* Microsoft Clarity - alleen na cookie-akkoord (banner init bij accept) */}
         <Script id="clarity-init" strategy="afterInteractive">
           {`
@@ -192,13 +185,6 @@ export default function RootLayout({ children }) {
                 console.error('Failed to load web vitals:', error);
               }
             })();
-          `}
-        </Script>
-        
-        {/* Google AdSense Initialization */}
-        <Script id="adsense-init" strategy="afterInteractive">
-          {`
-            (adsbygoogle = window.adsbygoogle || []).push({});
           `}
         </Script>
         

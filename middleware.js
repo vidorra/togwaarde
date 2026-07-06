@@ -29,7 +29,6 @@ const getCSPHeader = (nonce) => {
       'https://www.googletagmanager.com',
       'https://*.googletagmanager.com',
       'https://www.google-analytics.com',
-      'https://pagead2.googlesyndication.com',
       'https://www.google.com/recaptcha/',
       'https://www.gstatic.com/recaptcha/',
       'https://partner.bol.com',
