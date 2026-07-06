@@ -65,46 +65,62 @@ realtime, één script van ~2 kB (sneller dan gtag), en meet 100% van de
 bezoekers in plaats van alleen wie op Accepteren klikt. Data blijft op de
 eigen server in Falkenstein.
 
-## 4. Besluit (juli 2026): beide sites krijgen advertenties
+## 4. Besluit (juli 2026, herzien): verdienmodel is 100% affiliate
 
-Richting vastgesteld: beide sites krijgen in de toekomst AdSense-units op de
-homepage en op elke artikelpagina. Daarmee vervalt het bannervrij-scenario
-(dat werkte alleen zonder gepersonaliseerde advertenties) en wordt het beleid
-voor beide sites gelijk:
+Nieuwe feiten: AdSense stond bewust verborgen en de inkomsten waren nihil.
+Het verdienmodel voor beide sites is volledig **affiliate marketing**
+(bol.com en Amazon): relevante producten tonen bij de tool en artikelen.
+- togwaarde: slaapzakken, gematcht op TOG-waarde (systeem bestaat al:
+  AffiliateProductWidget met filterTag + admin-tags)
+- flesvoedingcalculator: flesjes starterkits, sterilisatoren, spenen etc.
+  per onderwerp/categorie
 
-**Gekozen model: hybride op beide sites**
-- **Banner + Consent Mode v2 blijven** (staat al live, subtiel vormgegeven).
-  Dit is precies het juiste setup voor het advertentiemodel:
-  - bezoeker accepteert -> gepersonaliseerde AdSense (hoogste eCPM) + GA4
-  - bezoeker weigert -> AdSense schakelt automatisch naar limited/niet-
-    gepersonaliseerde ads (nog steeds omzet, geen cookies) en GA4 meet niet
-- **Umami parallel erbij** voor wat GA4 nooit kan leveren: funnels en
-  klikdata over 100% van de bezoekers, cookieless, dus ook de weigeraars.
-  GA4 blijft voor de accepterende meerderheid (retentie, Ads-koppeling later).
+Belangrijk gevolg: **eigen affiliate-productkaarten zijn gewoon content**,
+geen tracking. Een link naar bol.com/Amazon zet op ónze site geen cookies
+(bol/Amazon regelen hun eigen consent na de klik). Zonder AdSense is er dus
+geen advertentie-reden meer voor een cookiebanner.
 
-Feitelijke stand advertentie-inventory (check juli 2026):
-- flesvoedingcalculator: units op 48+ pagina's (kennisbank-sidebar, home)
-- togwaarde: script geladen maar 0 units geplaatst; GoogleAdSlot-component
-  bestaat al en wordt nergens gebruikt
+**Gekozen model: volledig bannervrij op beide sites (scenario A)**
+- AdSense-scripts en GoogleAdSlot-componenten verwijderen (beide sites)
+- Umami (cookieless, self-host) wordt dé meettool: pageviews, bronnen,
+  funnels, calculator_usage en affiliate_click over 100% van de bezoekers
+- GA4, GTM, Clarity en de cookiebanner kunnen daarna van beide sites af;
+  de site wordt lichter en de UX schoner (geen banner meer)
+- GA4-property's laten bestaan (historie), maar niet meer laden
 
-**Nog te plannen: advertentie-uitrol togwaarde** (aparte klus)
-- Home: 1 unit onder het adviesblok of tussen de secties
-- Artikelpagina's: 1 unit na de eerste sectie of onder Gerelateerde
-  Artikelen (zelfde patroon als flesvoeding-sidebar)
-- Balans bewaken: niet meer dan 1-2 units per pagina zolang het verkeer
-  klein is; affiliate-blokken behouden voorrang op de koopgerichte pagina's
+**Aandachtspunt bol-widgets:** affiliate-snippets van het type `bol_script`
+injecteren JavaScript van partner.bol.com; dat kan third-party opslag doen.
+Voor 100% bannervrij: productkaarten renderen als eigen afbeelding + tekst +
+gewone affiliate-link (de widget en admin-snippets ondersteunen dit al via
+image/link-weergave), en de bol-scriptvariant vermijden of per snippet
+controleren. Amazon-links zijn al gewone links.
+
+**Affiliate-uitrol (beide sites): home + elke artikelpagina**
+- togwaarde home: slaapzak-blok onder het adviesresultaat, gematcht op de
+  geadviseerde TOG (bestaat al op de homepage via reverse-slaapzakken)
+- togwaarde artikelen: AffiliateProductWidget per pagina-id (reis, dekbed
+  en producten-pagina bestaan al; overige artikelen aanvullen in admin)
+- flesvoeding home: starterkit/bestsellers-blok onder de calculator
+  (PopularProductsWidget bestaat al)
+- flesvoeding artikelen: relevant blok per categorie (sterilisatoren bij
+  hygiene, spenen bij voedingstechnieken, enz.), via het admin-systeem
+- Vuistregel: 1 relevant productblok per pagina, boven de fold alleen op
+  koopgerichte pagina's; content blijft leidend
 
 ## 5. Voorgestelde uitvoering (na akkoord)
 
-1. Umami deployen op CapRover (one-click/Docker, database in bestaande
-   Postgres-instantie, subdomein bijv. stats.server.devjens.nl)
-2. Umami-script op beide sites (2 kB, geen consent-gate nodig) + events:
-   calculator_usage en affiliate_click parallel aan GA4 doorzetten
-3. Funnels inrichten in Umami: home -> advies gezien -> affiliate_click en
-   kennisbank -> calculator -> affiliate_click
-4. Advertentie-uitrol togwaarde plannen en plaatsen (zie hierboven)
-5. Na 2 maanden: GA4-consentgraad en Umami-dekking naast elkaar leggen;
-   banner en tags blijven, dit wordt de vaste meetcombinatie
+1. Umami deployen op CapRover (database in bestaande Postgres, subdomein
+   bijv. stats.server.devjens.nl)
+2. Umami-script op beide sites + events calculator_usage en affiliate_click
+3. Funnels inrichten: home -> advies -> affiliate_click en
+   artikel -> calculator -> affiliate_click
+4. AdSense volledig verwijderen (scripts, init, CSP-vermeldingen,
+   GoogleAdSlot en de verborgen ad-units op flesvoeding)
+5. Banner, GA4, GTM en Clarity verwijderen van beide sites (na 1-2 weken
+   Umami parallel draaien ter controle)
+6. Affiliate-uitrol per site: productblokken op home + artikelpagina's
+   vullen via de admin (TOG-tags op togwaarde, categorieen op flesvoeding)
+7. bol_script-snippets omzetten naar image/link-kaarten waar nodig
 
 ## 6. Risico's en kanttekeningen
 
