@@ -98,8 +98,7 @@ CSP-veilige scripts, dark-mode contrastfix, next/image op hero's.
 ## 6. Content (uit vragen-content.md)
 
 Volgorde op verwacht rendement:
-- [ ] FAQ-uitbreiding (16 regels + categorie "Temperatuur in de praktijk"),
-      1 sessie, direct meer FAQ-schema-dekking
+- [x] FAQ-uitbreiding uitgevoerd (12 vragen + categorie, 21 vragen in FAQ-schema)
 - [ ] Artikel 1: autostoel-draagzak-warmte (hoog volume, veiligheidsintentie)
 - [ ] Artikel 2: van-slaapzak-naar-dekbed (koopintentie einde klantreis)
 - [ ] Artikel 3: baby-koorts-slaapzak (angst-intentie, lage concurrentie)
