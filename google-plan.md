@@ -99,11 +99,11 @@ CSP-veilige scripts, dark-mode contrastfix, next/image op hero's.
 
 Volgorde op verwacht rendement:
 - [x] FAQ-uitbreiding uitgevoerd (12 vragen + categorie, 21 vragen in FAQ-schema)
-- [ ] Artikel 1: autostoel-draagzak-warmte (hoog volume, veiligheidsintentie)
-- [ ] Artikel 2: van-slaapzak-naar-dekbed (koopintentie einde klantreis)
-- [ ] Artikel 3: baby-koorts-slaapzak (angst-intentie, lage concurrentie)
-- [ ] Artikel 4: slaapzak-op-reis (+ cross-link zustersite, affiliate reiszakken)
-- [ ] Artikel 5: tog-mythes-en-feiten (deelbaar, forum-frustratie)
+- [x] Artikel 1: autostoel-draagzak-warmte (hoog volume, veiligheidsintentie)
+- [x] Artikel 2: van-slaapzak-naar-dekbed (koopintentie einde klantreis)
+- [x] Artikel 3: baby-koorts-slaapzak (angst-intentie, lage concurrentie)
+- [x] Artikel 4: slaapzak-op-reis (+ cross-link zustersite, affiliate reiszakken)
+- [x] Artikel 5: tog-mythes-en-feiten (deelbaar, forum-frustratie)
 - [ ] Cadans: 1 artikel per 1 à 2 weken; elk artikel in de sitemap + kennisbank-
       index + minstens 1 affiliate-blok waar relevant
 

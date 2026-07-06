@@ -381,10 +381,22 @@ export default function WiegendoodPreventie() {
                 </p>
               </div>
             </div>
+
+            <div className="mt-6 p-5 rounded-xl bg-blue-50 border border-blue-200">
+              <h3 className="font-bold text-gray-900 mb-2">Wat als je baby zichzelf omdraait?</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">
+                Kan je baby zelfstandig van rug naar buik én terug rollen (meestal rond 5 tot 6 maanden),
+                dan hoef je hem of haar &apos;s nachts niet steeds terug te draaien. Blijf wel altijd op de
+                rug te slapen leggen. Belangrijk in deze fase: stop met inbakeren zodra het draaien begint,
+                houd het bed leeg (geen kussens of positioneringskussens) en gebruik een goed passende
+                slaapzak zodat armen en benen vrij kunnen bewegen. Het TOG-advies verandert niet door
+                het draaien; de kamertemperatuur blijft leidend.
+              </p>
+            </div>
           </section>
 
           {/* TOG and Prevention */}
-          
+
           <section className="mb-12">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">De Juiste TOG-waarde Kiezen voor Veiligheid</h2>
 

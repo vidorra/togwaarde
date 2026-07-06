@@ -33,11 +33,11 @@ Status: ✅ afgedekt · 🔶 deels (FAQ-regel toevoegen) · 🆕 nieuw artikel n
 | 16 | Is TOG hetzelfde als dikte van de stof? | kennisbank/wat-is-tog | ✅ |
 | 17 | Tel je TOG van kleding en slaapzak op? | FAQ + calculator | ✅ |
 | 18 | Waarom geen TOG op rompers en pyjama's? | FAQ (calculator, "alleen slaapzakken officieel") | ✅ |
-| 19 | Is TOG in elk land hetzelfde? | 🆕 artikel "TOG-mythes" (zie plan) | 🆕 |
+| 19 | Is TOG in elk land hetzelfde? | kennisbank/tog-mythes-en-feiten | ✅ |
 | 20 | Wat is de maximale veilige TOG-waarde? | Calculator (4.0-grens) + FAQ | ✅ |
 | 21 | Mijn slaapzak is 2.0 TOG, jullie noemen 1.0/2.5, wat nu? | FAQ #10 | ✅ |
 | 22 | Telt een inbakerdoek mee als TOG? | kennisbank/inbakeren-tog-waarde | ✅ |
-| 23 | Verandert TOG na vaak wassen? | 🆕 artikel "TOG-mythes" | 🆕 |
+| 23 | Verandert TOG na vaak wassen? | kennisbank/tog-mythes-en-feiten | ✅ |
 
 ## C. Temperatuur & situaties
 
@@ -47,11 +47,11 @@ Status: ✅ afgedekt · 🔶 deels (FAQ-regel toevoegen) · 🆕 nieuw artikel n
 | 25 | Verwarming valt 's nachts uit, warmer aankleden? | FAQ #14 | ✅ |
 | 26 | Raam open tijdens slapen, welke temperatuur telt? | FAQ #15 | ✅ |
 | 27 | Baby op onze (warmere) kamer, andere TOG? | FAQ #16 | ✅ |
-| 28 | TOG op vakantie in een warm land? | 🆕 artikel "Slaapzak op reis" | 🆕 |
-| 29 | Mag mijn baby met koorts in een slaapzak? | 🆕 artikel "Ziek of koorts: TOG aanpassen" | 🆕 |
-| 30 | Buiten slapen in kinderwagen, welke TOG? | 🆕 artikel "Slaapzak op reis" (sectie buiten slapen) | 🆕 |
-| 31 | Slaapzak of jas in autostoel/draagzak? | 🆕 artikel "Autostoel, draagzak en warmte" | 🆕 |
-| 32 | Airco op de babykamer, welke stand en TOG? | kennisbank/baby-slapen-zomer | 🔶 sectie toevoegen |
+| 28 | TOG op vakantie in een warm land? | kennisbank/slaapzak-op-reis | ✅ |
+| 29 | Mag mijn baby met koorts in een slaapzak? | kennisbank/baby-koorts-slaapzak | ✅ |
+| 30 | Buiten slapen in kinderwagen, welke TOG? | kennisbank/slaapzak-op-reis | ✅ |
+| 31 | Slaapzak of jas in autostoel/draagzak? | kennisbank/autostoel-draagzak-warmte | ✅ |
+| 32 | Airco op de babykamer, welke stand en TOG? | kennisbank/baby-slapen-zomer (airco-sectie) | ✅ |
 | 33 | 's Avonds 24 graden, 's nachts 18, waar kies ik voor? | FAQ #13 | ✅ |
 
 ## D. Leeftijdsspecifiek
@@ -60,9 +60,9 @@ Status: ✅ afgedekt · 🔶 deels (FAQ-regel toevoegen) · 🆕 nieuw artikel n
 |---|---|---|---|
 | 34 | Geldt de TOG-tabel voor mijn premature baby? | kennisbank/premature-baby-tog-waarde | ✅ |
 | 35 | Newborn met altijd koude voetjes, laagje erbij? | FAQ #19 | ✅ |
-| 36 | Tot welke leeftijd is een slaapzak nodig? | 🆕 artikel "Van slaapzak naar dekbed" | 🆕 |
-| 37 | Peuter klimt uit de slaapzak, alternatieven? | 🆕 artikel "Van slaapzak naar dekbed" | 🆕 |
-| 38 | Baby draait zelf op de buik, ander TOG-advies? | kennisbank/wiegendood-preventie | 🔶 sectie toevoegen |
+| 36 | Tot welke leeftijd is een slaapzak nodig? | kennisbank/van-slaapzak-naar-dekbed | ✅ |
+| 37 | Peuter klimt uit de slaapzak, alternatieven? | kennisbank/van-slaapzak-naar-dekbed | ✅ |
+| 38 | Baby draait zelf op de buik, ander TOG-advies? | kennisbank/wiegendood-preventie (draai-sectie) | ✅ |
 | 39 | Kleine/lichte baby, warmer aankleden? | FAQ #21 | ✅ |
 
 ## E. Product & koop
@@ -82,7 +82,7 @@ Status: ✅ afgedekt · 🔶 deels (FAQ-regel toevoegen) · 🆕 nieuw artikel n
 |---|---|---|---|
 | 46 | Hoe voel ik of mijn baby te warm of te koud ligt? | kennisbank/baby-temperatuur-controleren + FAQ | ✅ |
 | 47 | Baby elke nacht om 4u huilend wakker, is het de kou? | kennisbank/slaapt-baby-slecht-check-voeding | ✅ |
-| 48 | Iedereen zegt wat anders, wat klopt er? | 🆕 artikel "TOG-mythes en feiten" | 🆕 |
+| 48 | Iedereen zegt wat anders, wat klopt er? | kennisbank/tog-mythes-en-feiten | ✅ |
 | 49 | Baby te warm aangekleed ontdekt, is er iets mis? | FAQ #17 + oververhitting-herkennen | ✅ |
 | 50 | Is te koud net zo gevaarlijk als te warm? | FAQ #18 | ✅ |
 
@@ -90,7 +90,7 @@ Status: ✅ afgedekt · 🔶 deels (FAQ-regel toevoegen) · 🆕 nieuw artikel n
 
 ## Actieplan
 
-### Nieuwe kennisbankartikelen (prioriteit)
+### Nieuwe kennisbankartikelen (alle 5 gepubliceerd)
 
 1. **`/kennisbank/slaapzak-op-reis`** (28, 30) - vakantie, warm/koud klimaat,
    kinderwagen buiten slapen. Cross-link: flesvoeding-op-vakantie (zustersite).
@@ -112,7 +112,7 @@ Status: ✅ afgedekt · 🔶 deels (FAQ-regel toevoegen) · 🆕 nieuw artikel n
   21 (tussenwaardes zoals 2.0), 39 (lichte baby), 43 (tweedehands),
   45 (mouwen), 49 (eenmalig te warm: geen paniek), 50 (te koud vs te warm)
 
-### Bestaande artikelen aanvullen
+### Bestaande artikelen aanvullen (uitgevoerd)
 
 - baby-slapen-zomer: sectie airco/ventilator instellingen (32)
 - wiegendood-preventie: sectie "baby draait zelf om" (38)

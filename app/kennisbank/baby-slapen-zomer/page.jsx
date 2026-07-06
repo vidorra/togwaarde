@@ -133,6 +133,18 @@ export default function BabySlapenZomerPage() {
               <li><strong>Dun katoen:</strong> Klassiek en betrouwbaar</li>
               <li>Vermijd: Synthetische stoffen, fleece, dikke materialen</li>
             </ul>
+
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Airco en ventilator op de babykamer</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Airco en ventilator zijn prima hulpmiddelen bij hitte, mits goed gebruikt:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
+              <li><strong>Airco op 20 tot 22 graden:</strong> kouder hoeft niet en geeft een groot verschil met de rest van het huis</li>
+              <li><strong>Nooit direct op het bedje:</strong> richt de luchtstroom van airco of ventilator langs de kamer, niet op je baby</li>
+              <li><strong>Kleed aan op de gemeten temperatuur:</strong> met airco op 21 graden hoort een 1.0 TOG met romper, niet de zomercombinatie</li>
+              <li><strong>Zet de airco een uur voor het slapen aan:</strong> dan is de kamer koel zonder dat het apparaat de hele nacht hoeft te draaien</li>
+              <li><strong>Ventilator boven de deur of op de gang:</strong> zorgt voor circulatie zonder tocht op het bedje</li>
+            </ul>
           </div>
         </div>
 

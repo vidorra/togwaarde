@@ -61,6 +61,14 @@ export default function KennisbankPage() {
           icon: ThermometerSun,
           readTime: '12 min',
           difficulty: 'Beginner'
+        },
+        {
+          title: 'TOG-mythes en Feiten',
+          slug: 'tog-mythes-en-feiten',
+          description: '10 hardnekkige adviezen getoetst aan de richtlijnen',
+          icon: BookOpen,
+          readTime: '8 min',
+          difficulty: 'Beginner'
         }
       ]
     },
@@ -92,6 +100,14 @@ export default function KennisbankPage() {
           description: 'TOG-waarde bij warm weer + hitteplan',
           icon: Sun,
           readTime: '14 min',
+          difficulty: 'Gemiddeld'
+        },
+        {
+          title: 'Slaapzak op Reis',
+          slug: 'slaapzak-op-reis',
+          description: 'Vakantie, tent, airco en buiten slapen in de kinderwagen',
+          icon: Sun,
+          readTime: '10 min',
           difficulty: 'Gemiddeld'
         }
       ]
@@ -132,6 +148,14 @@ export default function KennisbankPage() {
           description: 'Complete referentie tabel alle kledingstukken',
           icon: Layers,
           readTime: '12 min',
+          difficulty: 'Gemiddeld'
+        },
+        {
+          title: 'Van Slaapzak naar Dekbed',
+          slug: 'van-slaapzak-naar-dekbed',
+          description: 'Tot welke leeftijd, de overstap en klimmende peuters',
+          icon: Baby,
+          readTime: '10 min',
           difficulty: 'Gemiddeld'
         }
       ]
@@ -213,6 +237,22 @@ export default function KennisbankPage() {
           icon: Baby,
           readTime: '10 min',
           difficulty: 'Beginner'
+        },
+        {
+          title: 'Autostoel, Draagzak en Warmte',
+          slug: 'autostoel-draagzak-warmte',
+          description: 'Waarom geen dikke jas in de autostoel + veilig dragen',
+          icon: ShieldCheck,
+          readTime: '9 min',
+          difficulty: 'Belangrijk'
+        },
+        {
+          title: 'Koorts en de Slaapzak',
+          slug: 'baby-koorts-slaapzak',
+          description: 'TOG verlagen bij koorts en wanneer je de arts belt',
+          icon: AlertCircle,
+          readTime: '8 min',
+          difficulty: 'Belangrijk'
         }
       ]
     }
