@@ -34,6 +34,8 @@ const getCSPHeader = (nonce) => {
       'https://partner.bol.com',
       'https://www.partner.bol.com',
       'https://www.clarity.ms',
+      // Umami (self-hosted, cookieless analytics)
+      'https://stats.server.devjens.nl',
       // EmailJS
       'https://cdn.jsdelivr.net',
     ],
@@ -72,6 +74,7 @@ const getCSPHeader = (nonce) => {
       'https://api.open-meteo.com',
       'https://www.clarity.ms',
       'https://*.clarity.ms',
+      'https://stats.server.devjens.nl',
     ],
     'frame-src': [
       "'self'",

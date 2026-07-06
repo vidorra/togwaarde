@@ -1,6 +1,7 @@
 import './globals.css'
 import Script from 'next/script'
 import ConsentBanner from '../components/ConsentBanner'
+import UmamiScript from '../components/UmamiScript'
 import { initWebVitals } from '../lib/analytics'
 
 export const viewport = {
@@ -188,6 +189,9 @@ export default function RootLayout({ children }) {
           `}
         </Script>
         
+        {/* Umami: cookieless analytics, geen consent nodig */}
+        <UmamiScript />
+
         {children}
 
         {/* Cookie consent (Consent Mode v2) */}

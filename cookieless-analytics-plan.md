@@ -122,6 +122,45 @@ controleren. Amazon-links zijn al gewone links.
    vullen via de admin (TOG-tags op togwaarde, categorieen op flesvoeding)
 7. bol_script-snippets omzetten naar image/link-kaarten waar nodig
 
+## 5b. Umami deploy-runbook (CapRover)
+
+De code-kant staat al klaar op beide sites (UmamiScript-component met lege
+WEBSITE_ID + event-spiegeling in trackEvent). Umami krijgt een eigen
+database IN de bestaande gedeelde Postgres-instantie
+`flesvoedingcalculator-db` (geen nieuwe Postgres nodig).
+
+**Stap 1: database aanmaken (server-SSH)**
+```bash
+docker exec -it $(docker ps -qf name=flesvoedingcalculator-db) psql -U postgres -c \
+  "CREATE USER umami WITH PASSWORD '<UMAMI_DB_WACHTWOORD>'; CREATE DATABASE umami OWNER umami;"
+```
+
+**Stap 2: CapRover-app (dashboard)**
+1. Apps > nieuwe app: naam **stats** (geeft stats.server.devjens.nl)
+2. HTTPS aanzetten + force HTTPS; Container HTTP Port: **3000**
+3. App Configs > Environmental Variables:
+   - `DATABASE_URL=postgresql://umami:<UMAMI_DB_WACHTWOORD>@srv-captain--flesvoedingcalculator-db:5432/umami`
+   - `APP_SECRET=<APP_SECRET>`
+4. Deployment > "Deploy via ImageName":
+   `ghcr.io/umami-software/umami:postgresql-latest`
+   (Umami draait zijn migraties zelf bij de eerste start)
+
+**Stap 3: Umami inrichten (browser)**
+1. https://stats.server.devjens.nl > inloggen met admin / umami
+2. Direct het admin-wachtwoord wijzigen (Profiel > Wachtwoord)
+3. Instellingen > Websites > Add website: togwaarde.nl en
+   flesvoedingcalculator.nl > noteer beide **Website-ID's**
+
+**Stap 4: Website-ID's invullen (code)**
+- togwaarde: `components/UmamiScript.jsx` > WEBSITE_ID
+- flesvoeding: `components/UmamiScript.tsx` > WEBSITE_ID
+Commit + deploy; vanaf dan loopt alles (pageviews automatisch, events via
+de bestaande trackEvent-spiegeling: calculator_usage, affiliate_click).
+
+**Stap 5: funnels aanmaken in Umami** (Reports > Funnel)
+- home -> /calculator -> event affiliate_click
+- kennisbank-artikel -> home of /calculator -> event affiliate_click
+
 ## 6. Risico's en kanttekeningen
 
 - Umami is een extra dienst om te draaien (updates, backups van de
