@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   Thermometer,
   Sun,
@@ -20,6 +20,7 @@ import {
   TOG_RECOMMENDATIONS
 } from '../../lib/tog-constants'
 import AffiliateProductWidget from '../AffiliateProductWidget'
+import { trackCalculatorUsage } from '../../lib/analytics'
 
 function SeasonIcon({ seizoen }) {
   switch (seizoen) {
@@ -58,6 +59,29 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
   const TitleComponent = titleTag === 'h1' ? 'h1' : 'h2'
   const { buitenTemp, locationCity, seizoen, setSeizoen } = useWeatherLocation()
   const [kamerTemp, setKamerTemp] = useState(TEMP_SLIDER_CONFIG.default)
+
+  // GA4: fire calculator_usage once per pageview, only after the user
+  // actually interacts (the calculator shows a default advies on load) and
+  // debounced so slider-dragging doesn't count every intermediate value.
+  const mountedRef = useRef(false)
+  const hasTrackedRef = useRef(false)
+  useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true
+      return
+    }
+    if (hasTrackedRef.current) return
+    const timer = setTimeout(() => {
+      if (hasTrackedRef.current) return
+      hasTrackedRef.current = true
+      const adviesNu = getReverseAdvies(kamerTemp)
+      trackCalculatorUsage('reverse_advies', {
+        kamer_temp: kamerTemp,
+        advies_slaapzak_tog: adviesNu.geenSlaapzak ? 'geen' : adviesNu.slaapzakTOG,
+      })
+    }, 1200)
+    return () => clearTimeout(timer)
+  }, [kamerTemp])
 
   const advies = getReverseAdvies(kamerTemp)
   const range = getRange(kamerTemp)

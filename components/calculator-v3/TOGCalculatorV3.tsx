@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   Thermometer,
   Sun,
@@ -18,6 +18,7 @@ import {
 
 import { useTOGCalculation } from '../../hooks/useTOGCalculation'
 import { useWeatherLocation } from '../../hooks/useWeatherLocation'
+import { trackCalculatorUsage } from '../../lib/analytics'
 import {
   TEMP_SLIDER_CONFIG,
   SAFETY_LIMITS,
@@ -82,6 +83,31 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
       setGekozenDekens(gekozenDekens.filter(d => d !== 'los_deken'))
     }
   }, [babyLeeftijd, gekozenDekens])
+
+  // GA4: fire calculator_usage once per pageview, only after the user
+  // actually interacts (defaults already produce a result on load) and
+  // debounced so intermediate slider/toggle changes don't count.
+  const mountedRef = useRef(false)
+  const hasTrackedRef = useRef(false)
+  useEffect(() => {
+    if (!mountedRef.current) {
+      mountedRef.current = true
+      return
+    }
+    if (hasTrackedRef.current) return
+    const timer = setTimeout(() => {
+      if (hasTrackedRef.current) return
+      hasTrackedRef.current = true
+      trackCalculatorUsage('tog_calculator', {
+        kamer_temp: kamerTemp,
+        totale_tog: Number(totaleTOG.toFixed(1)),
+        sleep_mode: sleepMode,
+        status: status.status
+      })
+    }, 1200)
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kamerTemp, sleepMode, slaapzakTOG, gekozenKleding, gekozenDekens, babyLeeftijd])
 
   const toggleKleding = (item: string) => {
     setGekozenKleding(gekozenKleding.includes(item)
