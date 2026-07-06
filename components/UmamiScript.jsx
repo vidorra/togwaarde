@@ -10,7 +10,7 @@ import Script from 'next/script'
  * WEBSITE_ID invullen na de Umami-deploy: dashboard > Instellingen >
  * Websites > togwaarde.nl > Website-ID. Tot die tijd rendert dit niets.
  */
-const WEBSITE_ID = ''
+const WEBSITE_ID = '490b9306-7cac-43d5-988c-33f332268527'
 const UMAMI_SRC = 'https://stats.server.devjens.nl/script.js'
 
 export default function UmamiScript() {
