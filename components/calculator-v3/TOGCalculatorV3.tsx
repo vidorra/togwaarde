@@ -104,6 +104,22 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
         sleep_mode: sleepMode,
         status: status.status
       })
+
+      // Anonymous server-side event (own DB, shared with flesvoedingcalculator)
+      // so we can learn the age mix of our users. Coarse temp band, no personal data.
+      const t = kamerTemp
+      const roomTempBucket = t < 16 ? '<16°C' : t < 18 ? '16-18°C' : t < 20 ? '18-20°C'
+        : t < 22 ? '20-22°C' : t < 24 ? '22-24°C' : '24°C+'
+      const payload = JSON.stringify({
+        ageCategory: babyLeeftijd,
+        data: { roomTempBucket, togValue: Number(totaleTOG.toFixed(1)), sleepMode, status: status.status }
+      })
+      try {
+        const blob = new Blob([payload], { type: 'application/json' })
+        if (!(typeof navigator !== 'undefined' && navigator.sendBeacon && navigator.sendBeacon('/api/track-calculation', blob))) {
+          fetch('/api/track-calculation', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {})
+        }
+      } catch {}
     }, 1200)
     return () => clearTimeout(timer)
     // eslint-disable-next-line react-hooks/exhaustive-deps

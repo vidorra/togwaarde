@@ -976,12 +976,20 @@ export default function SimpleAdminDashboard() {
                 Manage affiliate links and page assignments
               </p>
             </div>
-            <button
-              onClick={handleLogout}
-              className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
-            >
-              Logout
-            </button>
+            <div className="flex items-center gap-3">
+              <a
+                href="/admin/stats"
+                className="bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors"
+              >
+                Statistieken
+              </a>
+              <button
+                onClick={handleLogout}
+                className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                Logout
+              </button>
+            </div>
           </div>
 
           {/* Website Selector */}
