@@ -2,17 +2,39 @@ import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 import { Moon, Thermometer, Info, CheckCircle, ArrowRight, Calculator, Check, Lightbulb, XCircle, ChevronRight, BookOpen } from 'lucide-react'
+import { generateFAQSchema } from '../../../lib/structured-data'
 
 export const metadata = {
   title: 'Wat is TOG? Uitleg TOG Waarde voor Babyslaapzakken | TOGWaarde.nl',
   description: 'Wat betekent TOG? Complete uitleg over TOG waardes voor babyslaapzakken. Leer hoe je de juiste TOG kiest voor veilige babyslaap bij elke temperatuur.',
   keywords: 'wat is tog, tog betekenis, tog waarde, baby slaapzak tog, tog uitleg, thermal overall grade',
+  alternates: { canonical: '/kennisbank/wat-is-tog/' },
 }
+
+const faqSchema = [
+  {
+    question: 'Is TOG hetzelfde bij alle merken?',
+    answer: 'Nee, niet helemaal. Hoewel TOG een internationale standaard is, kunnen er kleine verschillen zijn tussen merken. Een Jollein 2.5 TOG kan iets anders aanvoelen dan een HEMA 2.5 TOG. Test altijd zelf of je baby het comfortabel heeft.'
+  },
+  {
+    question: 'Kan ik meerdere slaapzakken combineren?',
+    answer: 'Nee, dit wordt afgeraden. Het combineren van twee slaapzakken vergroot het risico op oververhitting en beperkt de bewegingsvrijheid van je baby. Kies een slaapzak met de juiste TOG waarde.'
+  },
+  {
+    question: 'Vanaf welke leeftijd kan ik een slaapzak gebruiken?',
+    answer: 'Vanaf de geboorte! Er zijn speciale newborn slaapzakken (maat 50-56) die perfect zijn voor pasgeboren baby\'s. Zorg wel dat de slaapzak goed past en je baby niet kan zakken.'
+  },
+  {
+    question: 'Moet ik voor elk seizoen een andere slaapzak kopen?',
+    answer: 'Idealiter heb je minimaal 2-3 slaapzakken: een TOG 1.0 voor mild weer, een TOG 2.5 voor winter, en eventueel een TOG 0.5 voor de zomer. Dit geeft je flexibiliteit bij wisselende temperaturen.'
+  }
+]
 
 export default function WatIsTOGPage() {
   return (
     <Layout>
       <article className="container mx-auto px-4 py-12">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqSchema)) }} />
         {/* Breadcrumb Navigation */}
         <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>

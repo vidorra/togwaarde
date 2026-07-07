@@ -2,17 +2,35 @@ import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Shield, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+import { generateFAQSchema } from '../../../lib/structured-data'
 
 export const metadata = {
   title: 'Wiegendood Voorkomen met de Juiste TOG-waarde | TOGWaarde.nl',
   description: 'Hoe de juiste TOG-waarde bijdraagt aan wiegendoodpreventie. Wetenschappelijk onderbouwde richtlijnen voor veilige babyslaap en temperatuurregulatie.',
-  keywords: 'wiegendood voorkomen, TOG waarde wiegendood, SIDS preventie, veilig slapen baby, slaapzak veiligheid'
+  keywords: 'wiegendood voorkomen, TOG waarde wiegendood, SIDS preventie, veilig slapen baby, slaapzak veiligheid',
+  alternates: { canonical: '/kennisbank/wiegendood-voorkomen-tog/' }
 }
+
+const faqSchema = [
+  {
+    question: 'Kan een baby in een slaapzak stikken?',
+    answer: 'Nee, een goed passende slaapzak is juist veiliger dan losse dekens. Zorg dat de halsopening niet te ruim is en de maat correct is voor het gewicht van je baby.'
+  },
+  {
+    question: 'Tot welke leeftijd is wiegendood een risico?',
+    answer: 'Het hoogste risico is tussen 2-4 maanden. Het risico neemt af na 6 maanden en is minimaal na 1 jaar. Blijf echter alle veiligheidsrichtlijnen volgen tot je kind 1 jaar is.'
+  },
+  {
+    question: 'Is een dikke TOG-waarde gevaarlijker?',
+    answer: 'Niet per se, als het past bij de kamertemperatuur. Gevaar ontstaat bij een te hoge TOG-waarde in een te warme kamer. Gebruik altijd onze calculator voor de juiste combinatie.'
+  }
+]
 
 export default function WiegendoodVoorkomenTOGPage() {
   return (
     <Layout>
       <div className="container mx-auto px-4 py-12">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(faqSchema)) }} />
         {/* Breadcrumbs */}
         <nav className="flex items-center justify-center space-x-2 text-sm text-gray-600 mb-8">
           <Link href="/" className="hover:text-primary">Home</Link>
