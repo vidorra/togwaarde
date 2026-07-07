@@ -114,13 +114,16 @@ export async function POST(request, { params }) {
       )
     }
 
-    // Check if snippet is already on this page
+    // Check if snippet is already on this page FOR THIS WEBSITE. Must be
+    // website-scoped to match the GET (display) and DELETE queries; otherwise a
+    // stale row under the other website blocks assignment while the list looks empty.
     const existingPageSnippet = await db
       .select()
       .from(pageSnippets)
       .where(and(
         eq(pageSnippets.pageId, pageId),
-        eq(pageSnippets.snippetId, snippetId)
+        eq(pageSnippets.snippetId, snippetId),
+        eq(pageSnippets.website, website)
       ))
       .limit(1)
 

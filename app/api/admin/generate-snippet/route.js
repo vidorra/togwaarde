@@ -230,7 +230,7 @@ export async function POST(request) {
         console.log('Extracted ASIN:', asin)
         
         // Build the affiliate URL
-        const affiliateTag = 'flesvoedingca-21'
+        const affiliateTag = process.env.AMAZON_AFFILIATE_TAG || 'baby260c-21'
         const affiliateUrl = `https://www.amazon.nl/-/en/dp/${asin}?tag=${affiliateTag}`
         
         // Fetch product details by scraping
