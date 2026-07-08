@@ -80,10 +80,15 @@ export async function POST(request) {
       )
     }
 
-    // Create JWT token valid for 24 hours
-    // Default to flesvoedingcalculator website for initial login
+    // Create JWT token valid for 24 hours.
+    // This is the TOGWaarde admin: default the website context to 'togwaarde'
+    // so snippets/assignments made here are tagged correctly. (Was hardcoded
+    // to 'flesvoedingcalculator' from the fork, which mis-tagged every
+    // togwaarde product.) The website switcher can still cross-manage the
+    // sibling site. Overridable via ADMIN_DEFAULT_WEBSITE.
+    const defaultWebsite = process.env.ADMIN_DEFAULT_WEBSITE || 'togwaarde'
     const token = jwt.sign(
-      { admin: true, website: 'flesvoedingcalculator', iat: Math.floor(Date.now() / 1000) },
+      { admin: true, website: defaultWebsite, iat: Math.floor(Date.now() / 1000) },
       JWT_SECRET,
       { algorithm: 'HS256', expiresIn: '24h' }
     )
@@ -92,7 +97,7 @@ export async function POST(request) {
       {
         success: true,
         token,
-        website: 'flesvoedingcalculator',
+        website: defaultWebsite,
         message: 'Login successful'
       },
       { headers: rateLimit.headers }
