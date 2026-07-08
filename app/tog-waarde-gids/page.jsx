@@ -411,7 +411,7 @@ export default function TOGWaardeGidsPillarPage() {
                     <li>• Dunne pyjama met lange mouwen (0.5 TOG)</li>
                     <li>• Slaapzak van 1.5 TOG</li>
                   </ul>
-                  <p className="font-semibold flex items-center text-sm text-secondary-dark-dark">
+                  <p className="font-semibold flex items-center text-sm text-secondary-dark">
                     <CheckCircle className="w-4 h-4 mr-2 text-secondary-dark" />
                     Totaal: 2.0 TOG - Perfect voor 18°C
                   </p>
@@ -424,7 +424,7 @@ export default function TOGWaardeGidsPillarPage() {
                     <li>• Romper met lange mouwen (0.2 TOG)</li>
                     <li>• Slaapzak van 2.5 TOG</li>
                   </ul>
-                  <p className="font-semibold flex items-center text-sm text-secondary-dark-dark">
+                  <p className="font-semibold flex items-center text-sm text-secondary-dark">
                     <CheckCircle className="w-4 h-4 mr-2 text-secondary-dark" />
                     Totaal: 2.7 TOG - Ook prima voor 18°C (iets warmer)
                   </p>
@@ -440,7 +440,7 @@ export default function TOGWaardeGidsPillarPage() {
                     <li>• Katoenen pyjama (0.5 TOG)</li>
                     <li>• Slaapzak van 2.5 TOG</li>
                   </ul>
-                  <p className="font-semibold flex items-center text-sm text-secondary-dark-dark">
+                  <p className="font-semibold flex items-center text-sm text-secondary-dark">
                     <CheckCircle className="w-4 h-4 mr-2 text-secondary-dark" />
                     Totaal: 3.0 TOG - Perfect voor 16°C
                   </p>
@@ -584,7 +584,7 @@ export default function TOGWaardeGidsPillarPage() {
                         <li>• Luier (0 TOG)</li>
                         <li>• Katoenen pyjama met lange mouwen (0.5 TOG)</li>
                         <li>• Winterslaapzak (2.5 TOG)</li>
-                        <li className="flex items-center gap-2 font-semibold text-secondary-dark-dark">
+                        <li className="flex items-center gap-2 font-semibold text-secondary-dark">
                           <CheckCircle className="w-4 h-4 flex-shrink-0" />
                           <span>Totaal: 3.0 TOG - Perfect voor 16°C</span>
                         </li>
@@ -597,7 +597,7 @@ export default function TOGWaardeGidsPillarPage() {
                         <li>• Luier (0 TOG)</li>
                         <li>• Warmere pyjama met voetjes (1.0 TOG)</li>
                         <li>• Winterslaapzak (2.5 TOG)</li>
-                        <li className="flex items-center gap-2 font-semibold text-secondary-dark-dark">
+                        <li className="flex items-center gap-2 font-semibold text-secondary-dark">
                           <CheckCircle className="w-4 h-4 flex-shrink-0" />
                           <span>Totaal: 3.5 TOG</span>
                         </li>
@@ -650,7 +650,7 @@ export default function TOGWaardeGidsPillarPage() {
                         <li>• Luier (0 TOG)</li>
                         <li>• Rompertje met korte mouwtjes (0.2 TOG)</li>
                         <li>• Zomerslaapzak 0.5 TOG</li>
-                        <li className="flex items-center gap-2 font-semibold text-secondary-dark-dark">
+                        <li className="flex items-center gap-2 font-semibold text-secondary-dark">
                           <CheckCircle className="w-4 h-4 flex-shrink-0" />
                           <span>Totaal: 0.7 TOG</span>
                         </li>
@@ -663,7 +663,7 @@ export default function TOGWaardeGidsPillarPage() {
                         <li>• Luier (0 TOG)</li>
                         <li>• Alleen rompertje zonder mouwen (0.2 TOG)</li>
                         <li>• Zomerslaapzak 1.0 TOG</li>
-                        <li className="flex items-center gap-2 font-semibold text-secondary-dark-dark">
+                        <li className="flex items-center gap-2 font-semibold text-secondary-dark">
                           <CheckCircle className="w-4 h-4 flex-shrink-0" />
                           <span>Totaal: 1.2 TOG (iets warmer, voor baby's die snel koud hebben)</span>
                         </li>
@@ -676,7 +676,7 @@ export default function TOGWaardeGidsPillarPage() {
                         <li>• Luier (0 TOG)</li>
                         <li>• Dun rompertje of alleen luier (0.2 TOG)</li>
                         <li>• Heel dun lakentje (0.2 TOG)</li>
-                        <li className="flex items-center gap-2 font-semibold text-secondary-dark-dark">
+                        <li className="flex items-center gap-2 font-semibold text-secondary-dark">
                           <CheckCircle className="w-4 h-4 flex-shrink-0" />
                           <span>Totaal: 0.4 TOG</span>
                         </li>

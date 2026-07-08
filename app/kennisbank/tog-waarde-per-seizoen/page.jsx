@@ -31,7 +31,7 @@ export default function TOGWaardePerSeizoen() {
             TOG-waarde per Seizoen in Nederland
           </h1>
           <p className="text-lg text-gray-600">
-            Het gematigde Nederlandse klimaat vraagt om een pragmatische aanpak van TOG-waardes door de seizoenen heen. De buitentemperatuur is minder relevant dan de temperatuur in de babykamer – meet die altijd met een betrouwbare thermometer. Deze complete gids helpt je de juiste TOG-waarde te kiezen voor elke maand van het jaar, met specifieke tips voor het Nederlandse klimaat en centrale verwarming.
+            Het gematigde Nederlandse klimaat vraagt om een pragmatische aanpak van TOG-waardes door de seizoenen heen. De buitentemperatuur is minder relevant dan de temperatuur in de babykamer, meet die altijd met een betrouwbare thermometer. Deze complete gids helpt je de juiste TOG-waarde te kiezen voor elke maand van het jaar, met specifieke tips voor het Nederlandse klimaat en centrale verwarming.
           </p>
         </header>
 
@@ -86,7 +86,7 @@ export default function TOGWaardePerSeizoen() {
                 <li className="flex items-start gap-2">
                   <span className="text-primary mt-1">•</span>
                   <div>
-                    <strong>Kleding:</strong> Lange mouw romper + warme flannellen pyjama
+                    <strong>Kleding:</strong> Lange mouw romper + warme flanellen pyjama
                     <p className="text-sm text-gray-600 mt-1">Bij 18°C is dit de ideale combinatie</p>
                   </div>
                 </li>
@@ -106,7 +106,7 @@ export default function TOGWaardePerSeizoen() {
                 Veelgemaakte winterfout
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Verhoog niet de thermostaat boven 20°C "voor de baby" – dit vergroot juist het oververhittingsrisico. Baby's hebben dezelfde slaapkamertemperatuur nodig als volwassenen, of zelfs iets koeler. De ideale temperatuur is 18°C voor zowel baby als volwassene.
+                Verhoog niet de thermostaat boven 20°C "voor de baby", dit vergroot juist het oververhittingsrisico. Baby's hebben dezelfde slaapkamertemperatuur nodig als volwassenen, of zelfs iets koeler. De ideale temperatuur is 18°C voor zowel baby als volwassene.
               </p>
             </div>
 
@@ -127,11 +127,11 @@ export default function TOGWaardePerSeizoen() {
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Voorwarm het bed niet met een kruik – dit is gevaarlijk</span>
+                  <span>Voorwarm het bed niet met een kruik, dit is gevaarlijk</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Gebruik geen extra dekentjes – TOG 2.5 is voldoende</span>
+                  <span>Gebruik geen extra dekentjes, TOG 2.5 is voldoende</span>
                 </li>
               </ul>
             </div>
@@ -192,7 +192,7 @@ export default function TOGWaardePerSeizoen() {
                 Slimme voorjaarstip
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                Slimme ouders houden zowel TOG 2.0 als TOG 2.5 bij de hand en passen aan per nacht. Slaapzakken met afritsbare mouwen van merken als Jollein en HEMA zijn ideaal voor dit seizoen – mouwtjes eraf voor warmere nachten, erop voor koelere.
+                Slimme ouders houden zowel TOG 2.0 als TOG 2.5 bij de hand en passen aan per nacht. Slaapzakken met afritsbare mouwen van merken als Jollein en HEMA zijn ideaal voor dit seizoen, mouwtjes eraf voor warmere nachten, erop voor koelere.
               </p>
             </div>
 
@@ -201,11 +201,11 @@ export default function TOGWaardePerSeizoen() {
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Controleer de temperatuur elke avond – niet automatisch dezelfde combinatie gebruiken</span>
+                  <span>Controleer de temperatuur elke avond, niet automatisch dezelfde combinatie gebruiken</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Het moment dat de verwarming uitgaat is kritiek – meet opnieuw</span>
+                  <span>Het moment dat de verwarming uitgaat is kritiek, meet opnieuw</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -287,7 +287,7 @@ export default function TOGWaardePerSeizoen() {
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span>Investeer in hydrofiel katoen slaapzakken – ultra-ademend en snel drogend</span>
+                  <span>Investeer in hydrofiel katoen slaapzakken, ultra-ademend en snel drogend</span>
                 </li>
                 <li className="flex items-start space-x-2">
                   <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -329,7 +329,7 @@ export default function TOGWaardePerSeizoen() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Typische Kamertemperatuur: 15-22°C (dalend)</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              De herfst lijkt sterk op het voorjaar met wisselende temperaturen, maar dan in omgekeerde richting – dalende in plaats van stijgende temperaturen. Start het seizoen nog met TOG 1.0 of 2.0, maar houd TOG 2.5 klaar voor wanneer de verwarming aangaat (meestal oktober). De overgang verloopt geleidelijk.
+              De herfst lijkt sterk op het voorjaar met wisselende temperaturen, maar dan in omgekeerde richting, dalende in plaats van stijgende temperaturen. Start het seizoen nog met TOG 1.0 of 2.0, maar houd TOG 2.5 klaar voor wanneer de verwarming aangaat (meestal oktober). De overgang verloopt geleidelijk.
             </p>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-4">
@@ -368,7 +368,7 @@ export default function TOGWaardePerSeizoen() {
                 Het moment dat de verwarming aangaat
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Het moment waarop de verwarming aangaat (meestal oktober) is kritiek – controleer de kamertemperatuur daarna opnieuw omdat centrale verwarming alles verandert. De temperatuur stabiliseert dan meestal rond 18-19°C, perfect voor TOG 2.5.
+                Het moment waarop de verwarming aangaat (meestal oktober) is kritiek, controleer de kamertemperatuur daarna opnieuw omdat centrale verwarming alles verandert. De temperatuur stabiliseert dan meestal rond 18-19°C, perfect voor TOG 2.5.
               </p>
             </div>
 
@@ -393,7 +393,7 @@ export default function TOGWaardePerSeizoen() {
                 Centrale Verwarming: De Nederlandse Standaard
               </h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Woningen met centrale verwarming – de meeste Nederlandse huizen – kunnen het hele jaar door op 18-19°C gehouden worden. Dit vereenvoudigt de keuze enorm en maakt seizoenen minder relevant.
+                Woningen met centrale verwarming, de meeste Nederlandse huizen, kunnen het hele jaar door op 18-19°C gehouden worden. Dit vereenvoudigt de keuze enorm en maakt seizoenen minder relevant.
               </p>
 
               <div className="bg-white rounded-xl p-6 mb-4">
@@ -445,7 +445,7 @@ export default function TOGWaardePerSeizoen() {
                 Gouden regel: Één verandering tegelijk
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                Pas ofwel de TOG-waarde aan, ofwel de kleding eronder – niet beide tegelijk. Monitor dan 2-3 nachten of deze aanpassing werkt voordat je verder gaat.
+                Pas ofwel de TOG-waarde aan, ofwel de kleding eronder, niet beide tegelijk. Monitor dan 2-3 nachten of deze aanpassing werkt voordat je verder gaat.
               </p>
             </div>
 

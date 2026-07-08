@@ -44,7 +44,7 @@ export default function InbakerenTOGWaardePage() {
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Voordelen van Inbakeren</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Kalmeert onrustige baby's (vermindert Moro reflex)</li>
+                <li>Kalmeert onrustige baby's (vermindert Moro-reflex)</li>
                 <li>Kan helpen bij betere slaap eerste weken</li>
                 <li>Geeft gevoel van geborgenheid</li>
                 <li>Kan koliek-klachten verminderen</li>

@@ -152,7 +152,7 @@ export default function WiegendoodPreventie() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-6">Hoe Oververhitting Gevaarlijk Wordt</h2>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Het mechanisme achter temperatuur en wiegendood heeft te maken met de hersenfunctie van baby's. Wanneer een baby te warm wordt, verhoogt de <strong>arousal threshold (prikkeldrempel)</strong> – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Dit is bijzonder gevaarlijk omdat baby's in diepe slaap mogelijk niet reageren op zuurstoftekort.
+              Het mechanisme achter temperatuur en wiegendood heeft te maken met de hersenfunctie van baby's. Wanneer een baby te warm wordt, verhoogt de <strong>arousal threshold (prikkeldrempel)</strong>, het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Dit is bijzonder gevaarlijk omdat baby's in diepe slaap mogelijk niet reageren op zuurstoftekort.
             </p>
 
             <div className="bg-gradient-to-r from-primary/10 to-accent/10 border-l-4 border-primary p-6 rounded-lg mb-6">
@@ -413,7 +413,7 @@ export default function WiegendoodPreventie() {
                 <li className="flex items-start gap-3">
                   <Check className="w-4 h-4 text-secondary-dark flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Meet de kamertemperatuur</strong> met een betrouwbare thermometer – niet op gevoel afgaan
+                    <strong>Meet de kamertemperatuur</strong> met een betrouwbare thermometer, niet op gevoel afgaan
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -425,7 +425,7 @@ export default function WiegendoodPreventie() {
                 <li className="flex items-start gap-3">
                   <Check className="w-4 h-4 text-secondary-dark flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Bij twijfel: kies lagere TOG</strong> en voeg kledinglaag toe – makkelijker aan te passen
+                    <strong>Bij twijfel: kies lagere TOG</strong> en voeg kledinglaag toe, makkelijker aan te passen
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -437,7 +437,7 @@ export default function WiegendoodPreventie() {
                 <li className="flex items-start gap-3">
                   <Check className="w-4 h-4 text-secondary-dark flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Pas aan bij temperatuurveranderingen</strong> – seizoensovergangen zijn kritiek
+                    <strong>Pas aan bij temperatuurveranderingen</strong>, seizoensovergangen zijn kritiek
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -458,43 +458,43 @@ export default function WiegendoodPreventie() {
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Slaapzak + dekbed/dekentje combineren</strong> – levensgevaarlijk en onnodig
+                    <strong>Slaapzak + dekbed/dekentje combineren</strong>, levensgevaarlijk en onnodig
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Mutsje binnenshuis</strong> – voorkomt warmteafgifte via hoofd, zeer gevaarlijk
+                    <strong>Mutsje binnenshuis</strong>, voorkomt warmteafgifte via hoofd, zeer gevaarlijk
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Verwarming boven 20°C zetten "voor de baby"</strong> – verhoogt oververhittingsrisico
+                    <strong>Verwarming boven 20°C zetten "voor de baby"</strong>, verhoogt oververhittingsrisico
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Te grote slaapzak</strong> – baby kan erin glijden, verstikkingsgevaar
+                    <strong>Te grote slaapzak</strong>, baby kan erin glijden, verstikkingsgevaar
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Alleen op handjes/voetjes afgaan</strong> – deze zijn altijd koeler, geen indicator
+                    <strong>Alleen op handjes/voetjes afgaan</strong>, deze zijn altijd koeler, geen indicator
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Inbakeren na 4 maanden</strong> of bij eerste tekenen van rollen – rolrisico
+                    <strong>Inbakeren na 4 maanden</strong> of bij eerste tekenen van rollen, rolrisico
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <XCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                   <div>
-                    <strong>Bed voorverwarmen met kruik</strong> – oververhittingsrisico en brandgevaar
+                    <strong>Bed voorverwarmen met kruik</strong>, oververhittingsrisico en brandgevaar
                   </div>
                 </li>
               </ul>

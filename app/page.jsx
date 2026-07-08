@@ -156,7 +156,7 @@ export default function ReversePage() {
         </div>
       </section>
 
-      {/* How It Works — reverse flow */}
+      {/* How It Works, reverse flow */}
       <section className="py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">

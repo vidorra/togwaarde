@@ -201,7 +201,7 @@ export default function TOGSchaalOverzicht() {
 
             <h3 className="text-xl font-semibold text-gray-900 mb-3">Temperatuurbereik: 16-20°C</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              TOG 2.5 is veruit de populairste keuze in Nederland voor de wintermaanden. Dit is de standaard waarmee de meeste Nederlandse ouders door de winter komen. Bij een kamertemperatuur van 18°C – de aanbevolen Nederlandse standaard – is deze TOG-waarde perfect. Merken als Puckababy, Jollein en HEMA bieden uitstekende 2.5 TOG opties met gewatteerde vulling.
+              TOG 2.5 is veruit de populairste keuze in Nederland voor de wintermaanden. Dit is de standaard waarmee de meeste Nederlandse ouders door de winter komen. Bij een kamertemperatuur van 18°C, de aanbevolen Nederlandse standaard, is deze TOG-waarde perfect. Merken als Puckababy, Jollein en HEMA bieden uitstekende 2.5 TOG opties met gewatteerde vulling.
             </p>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-4">
@@ -216,7 +216,7 @@ export default function TOGSchaalOverzicht() {
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                  <span><strong>Bij 17-19°C:</strong> Lange mouw romper + warme flannellen pyjama</span>
+                  <span><strong>Bij 17-19°C:</strong> Lange mouw romper + warme flanellen pyjama</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
@@ -282,7 +282,7 @@ export default function TOGSchaalOverzicht() {
                 Oververhittingsrisico
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Wees extra alert op oververhitting bij deze dikke slaapzakken. Controleer regelmatig je baby's nekje – het moet warm en droog aanvoelen, niet klam of zweterig. Een klam nekje is een teken dat je baby het te warm heeft en dat je een laag kleding moet verwijderen.
+                Wees extra alert op oververhitting bij deze dikke slaapzakken. Controleer regelmatig je baby's nekje, het moet warm en droog aanvoelen, niet klam of zweterig. Een klam nekje is een teken dat je baby het te warm heeft en dat je een laag kleding moet verwijderen.
               </p>
             </div>
           </section>

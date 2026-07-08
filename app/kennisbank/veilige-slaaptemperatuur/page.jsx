@@ -352,7 +352,7 @@ export default function VeiligeSlaaptemperatuurPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                    <span>Hitteuitslag</span>
+                    <span>Hitte-uitslag</span>
                   </li>
                 </ul>
               </div>

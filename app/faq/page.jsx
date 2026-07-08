@@ -223,7 +223,7 @@ export default function FAQPage() {
         <div className="bg-primary rounded-2xl p-6 text-white">
           <h2 className="font-medium mb-2">Vraag niet gevonden?</h2>
           <p className="text-gray-100 mb-4">
-            Neem contact met ons op voor persoonlijke ondersteuning bij uw vragen over TOG-waardes en veilig slapen.
+            Neem contact met ons op voor persoonlijke ondersteuning bij je vragen over TOG-waardes en veilig slapen.
           </p>
           <button 
             onClick={() => setIsContactModalOpen(true)}
@@ -241,7 +241,7 @@ export default function FAQPage() {
               <h3 className="font-medium text-amber-800 mb-1">Medische Disclaimer</h3>
               <p className="text-sm text-amber-700">
                 De informatie op deze pagina is alleen voor informatieve doeleinden en vervangt geen professioneel medisch advies. 
-                Raadpleeg altijd uw kinderarts of een gekwalificeerde zorgverlener voor specifieke medische vragen.
+                Raadpleeg altijd je kinderarts of een gekwalificeerde zorgverlener voor specifieke medische vragen.
               </p>
             </div>
           </div>

@@ -43,7 +43,7 @@ export default function OververhittingHerkennen() {
             <div className="flex-1">
               <p className="text-base font-semibold text-gray-900 mb-4">Waarom Oververhitting Gevaarlijk Is</p>
               <div className="text-base text-gray-700">
-                Warmtestress is een onafhankelijke risicofactor voor wiegendood (SIDS). Wanneer een baby te warm wordt, verhoogt de arousal threshold (prikkeldrempel) – het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Baby's in diepe slaap reageren mogelijk niet op zuurstoftekort.
+                Warmtestress is een onafhankelijke risicofactor voor wiegendood (SIDS). Wanneer een baby te warm wordt, verhoogt de arousal threshold (prikkeldrempel), het wordt moeilijker om wakker te worden bij ademhalingsproblemen. Baby's in diepe slaap reageren mogelijk niet op zuurstoftekort.
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function OververhittingHerkennen() {
                 <div className="font-semibold text-sm mb-1 text-primary">Onbetrouwbare Indicatoren</div>
                 <div className="text-sm text-secondary-dark">
                   <ul className="list-disc pl-4 space-y-1 mt-2">
-                    <li><strong>Handjes en voetjes</strong> - Deze zijn normaal koeler door immature circulatie</li>
+                    <li><strong>Handjes en voetjes</strong> - Deze zijn normaal koeler door onrijpe circulatie</li>
                     <li><strong>Gezichtstemperatuur</strong> - Kan misleidend zijn door externe factoren</li>
                   </ul>
                   <p className="mt-3 font-medium">RIVM: "Zolang de voeten warm aanvoelen heeft een baby het niet te koud, terwijl een zwetende baby het in de regel te warm heeft."</p>
@@ -166,7 +166,7 @@ export default function OververhittingHerkennen() {
               <div className="bg-accent/20 border-2 border-accent/20 rounded-xl p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <AlertTriangle className="w-6 h-6 text-accent" />
-                  <h3 className="font-semibold text-gray-900">Gedrags Signalen</h3>
+                  <h3 className="font-semibold text-gray-900">Gedragssignalen</h3>
                 </div>
                 <ul className="space-y-3 text-gray-700 text-sm">
                   <li className="flex items-start gap-2">

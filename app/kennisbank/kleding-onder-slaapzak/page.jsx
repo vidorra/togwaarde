@@ -233,7 +233,7 @@ export default function KledingOnderSlaapzak() {
             </div>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              De TOG 2.5 setup bij 16-20°C, de Nederlandse winter standaard, combineert een lange mouw romper met een warme flannellen pyjama onder de slaapzak. Sommige ouders gebruiken een thermo romper onder normale pyjama's, wat ook uitstekend werkt. Bij een stabiele kamertemperatuur van 18°C is deze combinatie ideaal en voldoende.
+              De TOG 2.5 setup bij 16-20°C, de Nederlandse winter standaard, combineert een lange mouw romper met een warme flanellen pyjama onder de slaapzak. Sommige ouders gebruiken een thermo romper onder normale pyjama's, wat ook uitstekend werkt. Bij een stabiele kamertemperatuur van 18°C is deze combinatie ideaal en voldoende.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -271,7 +271,7 @@ export default function KledingOnderSlaapzak() {
                 De perfecte Nederlandse wintercombinatie
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme flannellen pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap in lijn met RIVM en VeiligheidNL aanbevelingen voor babyslaap.
+                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme flanellen pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap in lijn met RIVM en VeiligheidNL aanbevelingen voor babyslaap.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Materialen:</strong> Kies voor natuurlijke materialen zoals katoen of flanel voor de pyjama. Deze ademen beter dan synthetische stoffen en voeren vocht goed af.
@@ -294,7 +294,7 @@ export default function KledingOnderSlaapzak() {
             </div>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Voor TOG 3.0-3.5 onder 16°C laag je zwaarder: lange mouw romper, plus een extra boxpakje of romper, plus warme pyjama, allemaal onder de dikke slaapzak. Let hier extra op oververhitting – deze setup is de maximale isolatie en veel baby's hebben het hier te warm. Controleer elk uur het nekje in de eerste nachten met een nieuwe combinatie.
+              Voor TOG 3.0-3.5 onder 16°C laag je zwaarder: lange mouw romper, plus een extra boxpakje of romper, plus warme pyjama, allemaal onder de dikke slaapzak. Let hier extra op oververhitting, deze setup is de maximale isolatie en veel baby's hebben het hier te warm. Controleer elk uur het nekje in de eerste nachten met een nieuwe combinatie.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -304,7 +304,7 @@ export default function KledingOnderSlaapzak() {
                   <h3 className="font-semibold text-gray-900 text-sm">15-16°C</h3>
                 </div>
                 <p className="text-gray-700 text-sm mb-2"><strong>Romper + warme pyjama</strong></p>
-                <p className="text-xs text-gray-600">Lange mouw romper + flannellen pyjama</p>
+                <p className="text-xs text-gray-600">Lange mouw romper + flanellen pyjama</p>
               </div>
 
               <div className="bg-white border-2 border-secondary/20 rounded-xl p-5">
@@ -331,7 +331,7 @@ export default function KledingOnderSlaapzak() {
               <div className="flex-1">
                 <p className="text-base font-semibold text-gray-900 mb-4">Extra alertheid bij TOG 3.0-3.5</p>
                 <div className="text-base text-gray-700">
-                  <p className="mb-3">Wees extra alert op oververhitting bij deze dikke slaapzakken met veel kledinglagen. Controleer regelmatig je baby's nekje – het moet warm en droog aanvoelen, niet klam of zweterig.</p>
+                  <p className="mb-3">Wees extra alert op oververhitting bij deze dikke slaapzakken met veel kledinglagen. Controleer regelmatig je baby's nekje, het moet warm en droog aanvoelen, niet klam of zweterig.</p>
                   <p>Een klam nekje is een teken dat je baby het te warm heeft en dat je een laag kleding moet verwijderen. Bij deze TOG-waarde is het beter om te conservatief te zijn dan te warm aan te kleden.</p>
                 </div>
               </div>
@@ -358,7 +358,7 @@ export default function KledingOnderSlaapzak() {
                 <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
                 <div className="flex-1">
                   <p className="text-base font-semibold text-gray-900 mb-4">Sokjes: Meestal Niet Nodig</p>
-                  <div className="text-base text-gray-700">Sokjes zijn meestal niet nodig als de kamertemperatuur correct is en je de juiste TOG gebruikt. Baby's hebben van nature koelere handjes en voetjes door onvolgroeide circulatie – dit is normaal en geen teken van onderkoeling. In de Nederlandse slaapkamercultuur zijn blote voetjes onder een goed gekozen slaapzak volkomen veilig.</div>
+                  <div className="text-base text-gray-700">Sokjes zijn meestal niet nodig als de kamertemperatuur correct is en je de juiste TOG gebruikt. Baby's hebben van nature koelere handjes en voetjes door onvolgroeide circulatie, dit is normaal en geen teken van onderkoeling. In de Nederlandse slaapkamercultuur zijn blote voetjes onder een goed gekozen slaapzak volkomen veilig.</div>
                 </div>
               </div>
 
@@ -366,7 +366,7 @@ export default function KledingOnderSlaapzak() {
                 <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
                 <div className="flex-1">
                   <p className="text-base font-semibold text-gray-900 mb-4">Individuele Verschillen</p>
-                  <div className="text-base text-gray-700">Sommige baby's slapen van nature warmer of koeler dan andere. Deze richtlijnen zijn startpunten – pas aan op basis van wat je voelt bij het nekje. Een baby die altijd klam is, heeft minder lagen nodig. Een baby met een consistent koel nekje kan een extra laag gebruiken.</div>
+                  <div className="text-base text-gray-700">Sommige baby's slapen van nature warmer of koeler dan andere. Deze richtlijnen zijn startpunten, pas aan op basis van wat je voelt bij het nekje. Een baby die altijd klam is, heeft minder lagen nodig. Een baby met een consistent koel nekje kan een extra laag gebruiken.</div>
                 </div>
               </div>
             </div>

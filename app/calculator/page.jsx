@@ -44,7 +44,7 @@ export default function HomePage() {
       {/* Images flanking centre content (lg+ only) */}
       <div className="container mx-auto px-4 -mt-6 relative z-10">
         <div className="flex items-end justify-center gap-0">
-          {/* Left image — lifted higher (desktop only) */}
+          {/* Left image, lifted higher (desktop only) */}
           <div className="hidden lg:block flex-shrink-0 ml-6 lg:-translate-y-12">
             <Image
               src="/blije-dreumes.webp"
@@ -79,7 +79,7 @@ export default function HomePage() {
               </span>
             </div>
 
-            {/* CTAs — same banner as the home page (reverse ↔ forward switch) */}
+            {/* CTAs, same banner as the home page (reverse ↔ forward switch) */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
                 href="/"
@@ -98,7 +98,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Right image — larger, grounded lower (desktop only) */}
+          {/* Right image, larger, grounded lower (desktop only) */}
           <div className="hidden lg:block flex-shrink-0 mr-6 lg:translate-y-4">
             <Image
               src="/slapende-baby.webp"

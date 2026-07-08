@@ -117,7 +117,7 @@ export default function BabySlapenZomerPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Veelgemaakte zomerfouten</h2>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
               <li><strong>Ventilator direct op baby:</strong> Kan uitdrogen en verkoudheid veroorzaken</li>
-              <li><strong>IJskoud bad voor slapen:</strong> Te schrikken; lauw bad is beter</li>
+              <li><strong>IJskoud bad voor het slapen:</strong> dat geeft te veel schrik, een lauw bad is beter</li>
               <li><strong>Natte doek in bedje:</strong> Verhoogt luchtvochtigheid en verslechtert warmtebeleving</li>
               <li><strong>Veel drinken forceren:</strong> Baby neemt wat nodig is; bied aan maar forceer niet</li>
             </ul>
