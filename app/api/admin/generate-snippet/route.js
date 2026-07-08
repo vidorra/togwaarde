@@ -236,14 +236,10 @@ export async function POST(request) {
         // Fetch product details by scraping
         const productData = await fetchAmazonProductDetails(asin, finalUrl)
         
-        // Fetch price information
-        let priceData = null
-        try {
-          priceData = await fetchPrice(finalUrl, 'amazon')
-          console.log('🛒 Amazon price fetched:', priceData)
-        } catch (priceError) {
-          console.warn('⚠️ Could not fetch Amazon price:', priceError.message)
-        }
+        // Amazon-prijs bewust NIET automatisch ophalen: server-side scraping
+        // wordt door Amazon geblokkeerd en levert vaak geen of een foute prijs.
+        // Vul de prijs voor Amazon-producten handmatig in het dashboard in.
+        const priceData = null
         
         if (!productData) {
           // Fallback with basic data
