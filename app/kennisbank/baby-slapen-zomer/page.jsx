@@ -46,9 +46,9 @@ export default function BabySlapenZomerPage() {
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Zomer TOG-waarde Richtlijnen</h3>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li><strong>24-27°C:</strong> TOG 0.5 - Dunne zomerslaapzak</li>
+                <li><strong>20-24°C:</strong> TOG 1.0 - Lichte slaapzak</li>
+                <li><strong>24°C en warmer:</strong> TOG 0.5 - Dunne zomerslaapzak</li>
                 <li><strong>Boven 27°C:</strong> Alleen een rompertje of luier</li>
-                <li><strong>21-24°C:</strong> TOG 1.0 - Lichte slaapzak</li>
               </ul>
             </div>
 

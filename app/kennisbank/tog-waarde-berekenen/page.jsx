@@ -71,19 +71,19 @@ export default function TOGWaardeBerekenenPage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Stap 3: Gebruik de TOG-tabel</h2>
             <div className="grid md:grid-cols-3 gap-4 mb-8">
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-secondary-dark mb-2">24°C+</div>
+                <div className="text-2xl font-bold text-secondary-dark mb-2">24°C en warmer</div>
                 <div className="text-sm text-gray-700 mb-2">TOG 0.5</div>
                 <div className="text-xs text-gray-600">Alleen romper of dunne pyjama</div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-primary mb-2">18-24°C</div>
-                <div className="text-sm text-gray-700 mb-2">TOG 1.0-2.5</div>
+                <div className="text-2xl font-bold text-primary mb-2">20-24°C</div>
+                <div className="text-sm text-gray-700 mb-2">TOG 1.0</div>
                 <div className="text-xs text-gray-600">Romper + slaapzak</div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-accent mb-2">15-18°C</div>
-                <div className="text-sm text-gray-700 mb-2">TOG 2.5-3.5</div>
-                <div className="text-xs text-gray-600">Pyjama + warme slaapzak</div>
+                <div className="text-2xl font-bold text-accent mb-2">16-20°C</div>
+                <div className="text-sm text-gray-700 mb-2">TOG 2.5</div>
+                <div className="text-xs text-gray-600">Pyjama + warme slaapzak. Onder 16°C TOG 3.5</div>
               </div>
             </div>
 

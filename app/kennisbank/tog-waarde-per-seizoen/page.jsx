@@ -65,9 +65,9 @@ export default function TOGWaardePerSeizoen() {
               </div>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Typische Kamertemperatuur: 16-19°C</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Typische Kamertemperatuur: 16-18°C</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Nederlandse winters betekenen meestal binnentemperaturen van 16-19°C met centrale verwarming. De meeste huishoudens houden de thermostaat tussen 18-20°C overdag en laten deze 's nachts zakken naar 16-18°C. Dit is de periode waarin TOG 2.5 het meest wordt gebruikt.
+              Nederlandse winters betekenen meestal binnentemperaturen van 16-18°C met centrale verwarming. De ideale slaapkamertemperatuur ligt tussen 16-18°C. Veel huishoudens laten de thermostaat 's nachts zakken naar deze waarde. Dit is de periode waarin TOG 2.5 het meest wordt gebruikt.
             </p>
 
             <div className="bg-white border border-gray-200 rounded-xl p-6 mb-4">
@@ -414,7 +414,7 @@ export default function TOGWaardePerSeizoen() {
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-secondary-dark flex-shrink-0 mt-0.5" />
                     <div>
-                      <strong>TOG 0.5 of 1.0</strong> alleen nodig tijdens extreme hittegolven
+                      <strong>TOG 1.0</strong> is de normale voor- en najaars- en warme-zomerwaarde bij 20-24°C, niet enkel bij hittegolf; <strong>TOG 0.5</strong> alleen bij 24°C of warmer tijdens hittegolven
                     </div>
                   </li>
                 </ul>
@@ -490,7 +490,7 @@ export default function TOGWaardePerSeizoen() {
                 <tbody>
                   <tr>
                     <td className="border border-gray-200 px-4 py-2">December - Februari</td>
-                    <td className="border border-gray-200 px-4 py-2">16-19°C</td>
+                    <td className="border border-gray-200 px-4 py-2">16-18°C</td>
                     <td className="border border-gray-200 px-4 py-2 font-semibold">2.5</td>
                     <td className="border border-gray-200 px-4 py-2">Romper + warme pyjama</td>
                   </tr>

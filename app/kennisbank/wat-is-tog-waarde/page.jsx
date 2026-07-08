@@ -44,8 +44,9 @@ export default function WatIsTOGWaardePage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Wat is de TOG-waarde precies?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               <strong>TOG</strong> is een internationaal erkende maatstaf die aangeeft hoe goed textiel warmte vasthoudt.
-              De term komt van het Engelse woord <strong>"togs"</strong> (kledingstukken) en is ontwikkeld door
-              het Shirley Institute in Manchester in 1946.
+              De afkorting wordt vaak uitgelegd als Thermal Overall Grade, al gaat de term waarschijnlijk terug op
+              het Engelse woord <strong>"togs"</strong> (kledingstukken). De maatstaf wordt gebruikt sinds het midden
+              van de vorige eeuw.
             </p>
 
             <p className="text-gray-700 leading-relaxed mb-6">
@@ -59,8 +60,8 @@ export default function WatIsTOGWaardePage() {
                 De TOG-waarde wordt uitgedrukt in thermische weerstand: <strong>1 TOG = 0.1 m²·K/W</strong>.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Het geheim van isolatie zit in de lucht. Textiel zelf isoleert nauwelijks - het zijn de
-                luchtlaagjes tussen de vezels die 80-95% van de isolatie verzorgen.
+                Het geheim van isolatie zit in de lucht. Textiel zelf isoleert nauwelijks, het zijn de
+                luchtlaagjes tussen de vezels die het grootste deel van de isolatie verzorgen.
               </p>
             </div>
 
@@ -90,16 +91,16 @@ export default function WatIsTOGWaardePage() {
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">TOG-waarde Bereiken</h2>
             <div className="grid md:grid-cols-3 gap-4 mb-8">
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-secondary-dark mb-2">0.5 - 1.0</div>
-                <div className="text-sm text-gray-700">Dunne, luchtige materialen voor warme dagen (24°C+)</div>
+                <div className="text-2xl font-bold text-secondary-dark mb-2">0.5</div>
+                <div className="text-sm text-gray-700">Dunne, luchtige materialen voor warme zomernachten (24°C en warmer)</div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-primary mb-2">1.0 - 2.5</div>
-                <div className="text-sm text-gray-700">Tussenseizoenen met gematigde temperaturen (18-24°C)</div>
+                <div className="text-2xl font-bold text-primary mb-2">1.0</div>
+                <div className="text-sm text-gray-700">Voor- en najaar met gematigde temperaturen (20-24°C)</div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-accent mb-2">2.5 - 3.5</div>
-                <div className="text-sm text-gray-700">Warme isolatie voor koude nachten (15-18°C)</div>
+                <div className="text-2xl font-bold text-accent mb-2">2.5</div>
+                <div className="text-sm text-gray-700">Warme isolatie voor koude winternachten (16-20°C). Onder 16°C kies je TOG 3.5, of verwarm liever de kamer</div>
               </div>
             </div>
           </div>

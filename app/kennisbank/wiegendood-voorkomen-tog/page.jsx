@@ -113,7 +113,7 @@ export default function WiegendoodVoorkomenTOGPage() {
                 <ul className="text-sm text-gray-700 list-disc pl-6 space-y-1">
                   <li>Stevig, plat matras zonder kussens of knuffels</li>
                   <li>Gebruik een slaapzak in plaats van losse dekens</li>
-                  <li>Kamertemperatuur tussen 16-20°C</li>
+                  <li>Kamertemperatuur ideaal 16-18°C, en zeker niet warmer dan 20°C</li>
                   <li>Geen rook in de slaapkamer</li>
                 </ul>
               </div>
@@ -154,7 +154,7 @@ export default function WiegendoodVoorkomenTOGPage() {
               <li><strong>Rood gezicht:</strong> Verhit en rood aangelopen</li>
               <li><strong>Snelle ademhaling:</strong> Opvallend sneller dan normaal</li>
               <li><strong>Huiduitslag:</strong> Kleine rode puntjes (warmte-uitslag)</li>
-              <li><strong>Koorts:</strong> Verhoogde lichaamstemperatuur zonder ziekte</li>
+              <li><strong>Verhoogde lichaamstemperatuur door de warmte:</strong> geen ziekte-koorts</li>
             </ul>
 
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
@@ -202,6 +202,12 @@ export default function WiegendoodVoorkomenTOGPage() {
                   TOG-waarde in een te warme kamer. Gebruik altijd onze calculator voor de juiste combinatie.
                 </p>
               </div>
+            </div>
+
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 mt-8">
+              <p className="text-sm text-gray-600">
+                Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de huisarts.
+              </p>
             </div>
           </div>
         </div>

@@ -67,7 +67,7 @@ export default function TogMythesEnFeitenPage() {
             />
             <Mythe
               mythe="Een dikkere slaapzak is altijd een betere slaapzak"
-              feit="De juiste slaapzak past bij de kamertemperatuur. Bij 20 graden is 1.0 TOG passend en is 3.5 TOG gevaarlijk warm. Duurder of dikker is niet beter, passend is beter."
+              feit="De juiste slaapzak past bij de kamertemperatuur. Bij 20 graden zit je op de overgang: afhankelijk van de kleding werkt hier 1.0 tot 2.5 TOG, terwijl 3.5 TOG gevaarlijk warm is. Duurder of dikker is niet beter, passend is beter."
             />
             <Mythe
               mythe="Je kunt een deken gewoon dubbelvouwen als het kouder wordt"
@@ -75,7 +75,7 @@ export default function TogMythesEnFeitenPage() {
             />
             <Mythe
               mythe="TOG-waardes zijn overal hetzelfde geregeld"
-              feit="TOG is een Britse standaard die vooral in Europa op slaapzakken staat. In de VS zie je vaker eigen labels of geen waarde. Het principe blijft gelijk, maar vergelijk labels dus niet blind tussen landen en merken."
+              feit="TOG is oorspronkelijk Brits en wordt breed gebruikt in Europa, waar het op de meeste slaapzakken staat. In de VS zie je vaker eigen labels of geen waarde. Het principe blijft gelijk, maar vergelijk labels dus niet blind tussen landen en merken."
             />
             <Mythe
               mythe="Na een paar keer wassen klopt de TOG-waarde niet meer"

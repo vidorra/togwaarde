@@ -161,7 +161,7 @@ export default function WiegendoodPreventie() {
                 Wetenschappelijke Bevindingen
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                Nederlandse studies tonen aan dat het gebruik van een dekbed in de eerste twee jaar het risico met <strong>factor 3.9</strong> verhoogt. Wanneer een baby volledig onder een dekbed raakt, schiet het risico omhoog naar <strong>factor 38</strong>.
+                Nederlands case-control onderzoek (L'Hoir/de Jonge, gepubliceerd via NCJ/NTVG) laat zien dat het gebruik van een dekbed in de eerste twee jaar samenhangt met een odds ratio van <strong>ongeveer 8,6</strong>. Wanneer een baby volledig onder een dekbed raakt, schiet het risico omhoog naar <strong>factor 38</strong>.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 Dit verklaart waarom VeiligheidNL slaapzakken promoot als één van <strong>"De 4 van Veilig Slapen"</strong>: op de rug, in eigen bedje, in slaapzak, rookvrije omgeving.
@@ -516,10 +516,10 @@ export default function WiegendoodPreventie() {
                 <div className="bg-white rounded-lg p-4">
                   <div className="flex items-center gap-2 mb-2">
                     <ThermometerSun className="w-5 h-5 text-primary" />
-                    <strong className="text-gray-900">Temperatuur: 16-20°C, ideaal 18°C</strong>
+                    <strong className="text-gray-900">Temperatuur: ideaal 16-18°C</strong>
                   </div>
                   <p className="text-gray-700 text-sm pl-7">
-                    Niet hoger dan 20°C, niet lager dan 16°C. Gebruik een betrouwbare thermometer op kindhoogte.
+                    Ideaal 16-18°C, en zeker niet warmer dan 20°C. Gebruik een betrouwbare thermometer op kindhoogte.
                   </p>
                 </div>
 

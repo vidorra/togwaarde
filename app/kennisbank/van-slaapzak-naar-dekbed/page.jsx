@@ -66,7 +66,7 @@ export default function VanSlaapzakNaarDekbedPage() {
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
               <li>Kies een dun peuterdekbed en een warmere pyjama, in plaats van een dik dekbed met dunne pyjama. Zo blijft het comfortabel als het dekbed wegglijdt</li>
-              <li>Houd de <Link href="/kennisbank/veilige-slaaptemperatuur" className="text-primary hover:underline font-medium">slaapkamertemperatuur</Link> tussen 16 en 20 graden, dat verandert niet na de overstap</li>
+              <li>Houd de <Link href="/kennisbank/veilige-slaaptemperatuur" className="text-primary hover:underline font-medium">slaapkamertemperatuur</Link> ideaal op 16-18°C, en zeker niet warmer dan 20°C, dat verandert niet na de overstap</li>
               <li>Twijfel je in de overgangsfase over de combinatie slaapzak plus kleding? Check het met de <Link href="/calculator" className="text-primary hover:underline font-medium">TOG calculator</Link></li>
             </ul>
 

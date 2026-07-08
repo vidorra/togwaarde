@@ -55,13 +55,13 @@ export default function KledingOnderSlaapzak() {
                 </div>
                 <div>
                   <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-1">TOG 0.5</h2>
-                  <p className="text-lg text-gray-600 font-medium">26°C of warmer</p>
+                  <p className="text-lg text-gray-600 font-medium">24°C en warmer</p>
                 </div>
               </div>
             </div>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Bij TOG 0.5 in 26°C+ kamers zijn de opties minimaal. Deze ultralight slaapzakken zijn bedoeld voor de warmste nachten en tijdens hittegolven. Het doel is maximale koeling en ventilatie.
+              Bij TOG 0.5 in 24°C+ kamers zijn de opties minimaal. Deze ultralight slaapzakken zijn bedoeld voor de warmste nachten en tijdens hittegolven. Het doel is maximale koeling en ventilatie.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -233,7 +233,7 @@ export default function KledingOnderSlaapzak() {
             </div>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              De TOG 2.5 setup bij 16-19°C – de Nederlandse winter standaard – combineert een lange mouw romper met een warme flannellen pyjama onder de slaapzak. Sommige ouders gebruiken een thermo romper onder normale pyjama's, wat ook uitstekend werkt. Bij een stabiele kamertemperatuur van 18°C is deze combinatie ideaal en voldoende.
+              De TOG 2.5 setup bij 16-20°C, de Nederlandse winter standaard, combineert een lange mouw romper met een warme flannellen pyjama onder de slaapzak. Sommige ouders gebruiken een thermo romper onder normale pyjama's, wat ook uitstekend werkt. Bij een stabiele kamertemperatuur van 18°C is deze combinatie ideaal en voldoende.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">

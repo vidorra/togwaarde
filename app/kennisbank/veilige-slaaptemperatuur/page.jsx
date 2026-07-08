@@ -4,9 +4,9 @@ import { Thermometer, Shield, AlertTriangle, CheckCircle, ArrowRight, Calculator
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
-  title: 'Veilige Slaaptemperatuur Baby | Ideale Kamertemperatuur 16-20°C',
-  description: 'Wat is de ideale slaaptemperatuur voor baby\'s? Leer alles over de veilige kamertemperatuur van 16-20°C en hoe je oververhitting voorkomt.',
-  keywords: 'veilige slaaptemperatuur baby, ideale kamertemperatuur baby, baby kamertemperatuur, 16-20 graden baby',
+  title: 'Veilige Slaaptemperatuur Baby | Ideale Kamertemperatuur 16-18°C',
+  description: 'Wat is de ideale slaaptemperatuur voor baby\'s? Leer alles over de veilige kamertemperatuur (ideaal 16-18°C, en zeker niet warmer dan 20°C) en hoe je oververhitting voorkomt.',
+  keywords: 'veilige slaaptemperatuur baby, ideale kamertemperatuur baby, baby kamertemperatuur, 16-18 graden baby',
 }
 
 export default function VeiligeSlaaptemperatuurPage() {
@@ -36,7 +36,7 @@ export default function VeiligeSlaaptemperatuurPage() {
               <div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-3">De Gulden Regel</h2>
                 <p className="text-xl text-gray-800 font-semibold mb-2">
-                  De ideale slaaptemperatuur voor baby's is tussen de <span className="text-secondary-dark">16°C en 20°C</span>
+                  De ideale slaaptemperatuur voor baby's is <span className="text-secondary-dark">16-18°C, en zeker niet warmer dan 20°C</span>
                 </p>
                 <p className="text-gray-700">
                   Dit kan kouder aanvoelen dan je gewend bent, maar is perfect voor baby's. Deze temperatuur helpt oververhitting te voorkomen en vermindert het risico op wiegendood (SIDS).
@@ -66,10 +66,10 @@ export default function VeiligeSlaaptemperatuurPage() {
 
           {/* Why This Temperature */}
           <section className="mb-12">
-            <h2 className="text-lg font-semibold text-primary mb-6">Waarom 16-20°C?</h2>
+            <h2 className="text-lg font-semibold text-primary mb-6">Waarom 16-18°C?</h2>
 
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Baby's kunnen hun lichaamstemperatuur nog niet goed reguleren. Ze verliezen sneller warmte dan volwassenen, maar kunnen ook snel oververhit raken. Een kamertemperatuur van 16-20°C biedt de perfecte balans.
+              Baby's kunnen hun lichaamstemperatuur nog niet goed reguleren. Ze verliezen sneller warmte dan volwassenen, maar kunnen ook snel oververhit raken. Een kamertemperatuur van ideaal 16-18°C, en zeker niet warmer dan 20°C, biedt de perfecte balans.
             </p>
 
             <div className="space-y-6">
@@ -89,7 +89,7 @@ export default function VeiligeSlaaptemperatuurPage() {
                   SIDS Preventie
                 </h3>
                 <p className="text-gray-700">
-                  Oververhitting wordt gezien als een risicofactor voor wiegendood (SIDS). Een kamertemperatuur tussen 16-20°C helpt dit risico te verkleinen.
+                  Oververhitting wordt gezien als een risicofactor voor wiegendood (SIDS). Een kamertemperatuur van ideaal 16-18°C, en zeker niet warmer dan 20°C, helpt dit risico te verkleinen.
                 </p>
               </div>
 
@@ -187,7 +187,7 @@ export default function VeiligeSlaaptemperatuurPage() {
                 </div>
                 <div className="space-y-3">
                   <p className="text-gray-700">
-                    <strong>Doel: Niet boven 22°C</strong> - Warme zomernachten vragen om extra aandacht:
+                    <strong>Blijf richten op 16-18°C</strong> - Lukt dat door de hitte echt niet, houd de kamer dan noodgedwongen zo koel mogelijk en zeker onder 22°C. Warme zomernachten vragen om extra aandacht:
                   </p>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-start gap-2">

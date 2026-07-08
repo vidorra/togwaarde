@@ -4,8 +4,8 @@ import { ThermometerSun, ArrowRight, ChevronRight, Activity, AlertCircle, Info, 
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
-  title: 'Ideale Babykamer Temperatuur: 16-20°C voor Veilige Slaap | TOGWaarde.nl',
-  description: 'Ontdek de ideale babykamer temperatuur voor veilig slapen. Wetenschappelijk onderbouwd advies over 16-20°C, tips voor temperatuurregeling en TOG-waarde afstemming.',
+  title: 'Ideale Babykamer Temperatuur: 16-18°C voor Veilige Slaap | TOGWaarde.nl',
+  description: 'Ontdek de ideale babykamer temperatuur voor veilig slapen. Wetenschappelijk onderbouwd advies (ideaal 16-18°C, en zeker niet warmer dan 20°C), tips voor temperatuurregeling en TOG-waarde afstemming.',
   keywords: 'babykamer temperatuur, ideale temperatuur babykamer, baby slaapkamer graden, veilige slaaptemperatuur baby'
 }
 
@@ -40,7 +40,7 @@ export default function BabykamerTemperatuurPage() {
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Wat is de ideale temperatuur?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Experts zijn het erover eens: de ideale babykamer temperatuur ligt tussen <strong>16-20°C</strong>,
+              Experts zijn het erover eens: de ideale babykamer temperatuur is <strong>16-18°C, en zeker niet warmer dan 20°C</strong>,
               met een optimum rond <strong>18°C</strong>. Deze temperatuur biedt de beste balans tussen comfort
               en veiligheid.
             </p>
@@ -78,21 +78,26 @@ export default function BabykamerTemperatuurPage() {
               een natuurlijke temperatuurdaling nodig om in diepe slaap te komen, vergelijkbaar met volwassenen.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-4 mb-8">
-              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-accent mb-2">Te Warm</div>
-                <div className="text-sm text-gray-700 mb-2">Boven 20°C</div>
-                <div className="text-xs text-gray-600">Verhoogd risico op oververhitting en SIDS</div>
-              </div>
-              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="text-2xl font-bold text-primary mb-2">Ideaal</div>
-                <div className="text-sm text-gray-700 mb-2">16-20°C</div>
-                <div className="text-xs text-gray-600">Optimale temperatuur voor veilig slapen</div>
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
                 <div className="text-2xl font-bold text-secondary-dark mb-2">Te Koud</div>
                 <div className="text-sm text-gray-700 mb-2">Onder 16°C</div>
                 <div className="text-xs text-gray-600">Pas TOG-waarde aan of verhoog temperatuur</div>
+              </div>
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
+                <div className="text-2xl font-bold text-primary mb-2">Ideaal</div>
+                <div className="text-sm text-gray-700 mb-2">16-18°C</div>
+                <div className="text-xs text-gray-600">Optimale temperatuur voor veilig slapen</div>
+              </div>
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
+                <div className="text-2xl font-bold text-primary mb-2">Let op</div>
+                <div className="text-sm text-gray-700 mb-2">18-20°C</div>
+                <div className="text-xs text-gray-600">Nog acceptabel, maar houd oververhitting in de gaten</div>
+              </div>
+              <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
+                <div className="text-2xl font-bold text-accent mb-2">Te Warm</div>
+                <div className="text-sm text-gray-700 mb-2">Boven 20°C</div>
+                <div className="text-xs text-gray-600">Verhoogd risico op oververhitting en SIDS</div>
               </div>
             </div>
 
@@ -115,7 +120,7 @@ export default function BabykamerTemperatuurPage() {
                 <p className="text-base font-semibold text-gray-900 mb-4">Belangrijke Waarschuwing</p>
                 <div className="text-base text-gray-700">
                   Een te warme babykamer (boven 20°C) is één van de belangrijkste risicofactoren voor
-                  wiegendood. Houd de temperatuur altijd tussen 16-20°C en pas de TOG-waarde van de
+                  wiegendood. Houd de temperatuur ideaal op 16-18°C, en zeker niet warmer dan 20°C, en pas de TOG-waarde van de
                   slaapzak aan in plaats van de kamertemperatuur te verhogen.
                 </div>
               </div>

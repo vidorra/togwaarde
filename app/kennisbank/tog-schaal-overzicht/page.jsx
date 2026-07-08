@@ -31,7 +31,7 @@ export default function TOGSchaalOverzicht() {
             De Complete TOG-Schaal: Van 0.5 tot 3.5 Uitgelegd
           </h1>
           <p className="text-lg text-gray-600">
-            De TOG-schaal voor babyslaapzakken loopt van 0.2 tot maximaal 4.0, hoewel kinderartsen waarschuwen dat TOG 4.0 eigenlijk te warm is en oververhittingsrisico's met zich meebrengt. Voor het Nederlandse klimaat zijn vijf TOG-waardes het meest relevant: 0.5, 1.0, 2.0, 2.5 en 3.5. In deze complete gids leggen we elke TOG-waarde uit met exacte temperatuurbereiken, kledingadvies en praktische toepassingen.
+            De TOG-schaal voor babyslaapzakken loopt in de praktijk van ongeveer 0.5 tot 3.5, waarbij nog dikkere slaapzakken bestaan maar kinderartsen waarschuwen dat die al snel te warm zijn en oververhittingsrisico's met zich meebrengen. Voor het Nederlandse klimaat zijn deze waardes het meest relevant: 0.5, 1.0, 2.5 en 3.5, met 2.0 als optionele tussenwaarde. In deze complete gids leggen we elke TOG-waarde uit met exacte temperatuurbereiken, kledingadvies en praktische toepassingen.
           </p>
         </header>
 
@@ -64,7 +64,7 @@ export default function TOGSchaalOverzicht() {
               </div>
             </div>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Temperatuurbereik: 23-26°C of warmer</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Temperatuurbereik: 24°C en warmer</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               TOG 0.5 slaapzakken zijn ultralight en bedoeld voor de warmste nachten van het jaar. Deze dunne slaapzakken zijn gemaakt van één laag ademend materiaal zoals hydrofiel katoen of bamboe-viscose. In Nederland gebruik je deze vooral tijdens hittegolven in de zomer, die gelukkig relatief zeldzaam zijn.
             </p>
@@ -231,7 +231,7 @@ export default function TOGSchaalOverzicht() {
                 De Nederlandse standaard
               </h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap in lijn met RIVM en VeiligheidNL aanbevelingen voor babyslaap.
+                Bij een kamertemperatuur van 18°C met TOG 2.5 slaapzak, lange mouw romper en warme pyjama heeft je baby de perfecte temperatuur voor veilige babyslaap in lijn met VeiligheidNL en NCJ aanbevelingen voor babyslaap.
               </p>
             </div>
           </section>
@@ -292,10 +292,10 @@ export default function TOGSchaalOverzicht() {
             <div className="relative bg-primary/5 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
               <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <Info className="w-6 h-6 text-primary" />
-                Belangrijk principe: TOG-waardes optellen
+                Belangrijk principe: TOG-waardes optellen als vuistregel
               </h3>
               <p className="text-gray-700 leading-relaxed mb-3">
-                Je kunt TOG-waardes niet simpelweg bij elkaar optellen tussen verschillende lagen, maar elke laag kleding voegt wel ongeveer 0.5 TOG warmte toe aan het totaal. Dit is een praktische richtlijn, geen exacte wetenschap.
+                Optellen is een vuistregel, geen exacte wetenschap: strikt genomen tel je TOG-waardes niet zomaar bij elkaar op. Toch werkt het als benadering goed, want elke laag kleding voegt ongeveer 0.5 TOG warmte toe aan het totaal. Gebruik het dus als richtlijn, niet als exacte formule.
               </p>
               <p className="text-gray-700 leading-relaxed">
                 <strong>Bijvoorbeeld:</strong> Een baby in een TOG 2.5 slaapzak met een romper (≈0.5 TOG) en pyjama (≈0.5 TOG) heeft effectief ongeveer TOG 3.5 totale isolatie. Gebruik dit als grove schatting en verifieer altijd door het nekje te voelen.
@@ -319,7 +319,7 @@ export default function TOGSchaalOverzicht() {
                 <tbody>
                   <tr>
                     <td className="border border-gray-200 px-4 py-2 font-semibold">0.5</td>
-                    <td className="border border-gray-200 px-4 py-2">23-26°C+</td>
+                    <td className="border border-gray-200 px-4 py-2">24°C en warmer</td>
                     <td className="border border-gray-200 px-4 py-2">Zomer hittegolf</td>
                     <td className="border border-gray-200 px-4 py-2">Luier of kort rompertje</td>
                   </tr>

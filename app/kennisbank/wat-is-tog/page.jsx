@@ -115,7 +115,7 @@ export default function WatIsTOGPage() {
                   </div>
                 </div>
                 <p className="text-gray-700">
-                  <strong>Kamertemperatuur: 21-23°C</strong><br />
+                  <strong>Kamertemperatuur: 20-24°C</strong><br />
                   Perfect voor de tussenseizoenen. De meest veelzijdige TOG waarde die veel ouders het hele jaar gebruiken.
                 </p>
               </div>
@@ -230,7 +230,7 @@ export default function WatIsTOGPage() {
                   <div>
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Kleding Onder de Slaapzak</h4>
                     <p className="text-gray-700">
-                      Wat draagt je baby onder de slaapzak? Een lange mouw romper voegt ongeveer 0.3 TOG toe, terwijl alleen een luier 0 TOG toevoegt.
+                      Wat draagt je baby onder de slaapzak? Elke laag kleding telt als ongeveer 0.5 TOG, terwijl alleen een luier 0 TOG toevoegt.
                     </p>
                   </div>
                 </li>
@@ -329,13 +329,13 @@ export default function WatIsTOGPage() {
                     <td className="border border-gray-200 px-4 py-2">Alleen romper of body</td>
                   </tr>
                   <tr className="bg-gray-50">
-                    <td className="border border-gray-200 px-4 py-2">21-23°C</td>
+                    <td className="border border-gray-200 px-4 py-2">20-24°C</td>
                     <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 1.0</td>
                     <td className="border border-gray-200 px-4 py-2">Korte mouw romper</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-200 px-4 py-2">18-20°C</td>
-                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 1.5-2.0</td>
+                    <td className="border border-gray-200 px-4 py-2 font-semibold">TOG 2.0-2.5</td>
                     <td className="border border-gray-200 px-4 py-2">Lange mouw romper</td>
                   </tr>
                   <tr className="bg-gray-50">
