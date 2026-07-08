@@ -164,6 +164,35 @@ export default function BabySlaapzakKoopgidsPage() {
                 <span className="text-gray-700"><strong>18-36 maanden:</strong> 110 cm (tot ongeveer 15 kg)</span>
               </li>
             </ul>
+
+            <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Een slaapzak voor een pasgeborene</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Een pasgeborene mag vanaf de geboorte in een slaapzak, mits die goed past. Kies een
+                newborn-maat (ongeveer 50-56/60 cm) die niet te groot is, zodat je baby niet omlaag in
+                de zak kan zakken. Een strak sluitend halsje en armgaten zijn belangrijk.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Welke TOG je kiest hangt af van de kamertemperatuur, niet van de leeftijd. Houd de
+                kamer op een ideale 16-18°C en kleed je newborn niet te warm aan. Bij die temperatuur
+                is 2.5 TOG vaak passend, met een dunne romper eronder.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Vanaf de geboorte geschikt bij een goed passende maat</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">TOG op de kamertemperatuur (ideaal 16-18°C), niet op de leeftijd</span>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                  <span className="text-gray-700">Niet te warm aankleden, voel ter controle in het nekje</span>
+                </li>
+              </ul>
+            </div>
+
             <p className="text-gray-700 leading-relaxed mb-6">
               Een slaapzak blijft de veiligste keuze tot ongeveer 2 jaar. Een dekbed of dekentje raad je
               pas aan vanaf circa 2 jaar, omdat je baby dan zelf los beddengoed van het gezicht kan wegduwen.
@@ -219,6 +248,34 @@ export default function BabySlaapzakKoopgidsPage() {
               <li className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
                 <span className="text-gray-700"><strong>Drukknoopjes bij schouders:</strong> Makkelijker verschonen</span>
+              </li>
+            </ul>
+
+            <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Slaapzak hergebruiken of tweedehands</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Een slaapzak van je eerste kind opnieuw gebruiken of tweedehands kopen kan prima, zolang
+              je goed controleert. Veiligheid gaat boven besparen, dus loop deze punten na:
+            </p>
+            <ul className="space-y-2 mb-6">
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Ritsen en drukkers:</strong> heel en stevig, niets dat losraakt</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Naden en stiksels:</strong> geen slijtage of kapotte naden</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Vulling en pasvorm:</strong> niet uitgelubberd, houdt nog zijn vorm</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Schoon gewassen:</strong> voor gebruik goed wassen volgens het label</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>Maat en TOG:</strong> passend bij je kind en bij het seizoen</span>
               </li>
             </ul>
 

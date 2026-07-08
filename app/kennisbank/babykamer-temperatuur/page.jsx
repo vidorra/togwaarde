@@ -114,6 +114,22 @@ export default function BabykamerTemperatuurPage() {
               <li>Overweeg een slimme thermostaat voor constante temperatuur</li>
             </ul>
 
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Twee baby's (of een tweeling) in één kamer</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Slapen twee kinderen in dezelfde kamer, dan is de kamertemperatuur voor allebei gelijk. In principe kies je dus
+              dezelfde TOG-slaapzak voor beide kinderen, op basis van die ene temperatuur.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Kinderen kunnen wel onderling verschillen: de een heeft het van nature warmer dan de ander. Controleer daarom per kind
+              met de nek-test (voel in de nek, warm is goed, bezweet of klam is te warm) en pas zo nodig alleen de kleding
+              <strong> onder</strong> de slaapzak aan. Doe de een een rompertje meer of minder aan in plaats van twee heel verschillende
+              extreme TOG-waarden te kiezen.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Blijf per kind onder de 4.0 TOG totaal (slaapzak plus kleding samen), ook als één kindje het net wat warmer lijkt te
+              hebben.
+            </p>
+
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent my-8">
               <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
               <div className="flex-1">

@@ -65,6 +65,23 @@ export default function VanSlaapzakNaarDekbedPage() {
               <li><strong>Overstappen op pyjama plus dekbed:</strong> vanaf 2 jaar prima, kies dan een peuterdekbed zonder kussen in het begin</li>
             </ul>
 
+            <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Slaapzak met beentjes voor een actieve dreumes</h2>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Rond 18 maanden wil een dreumes vaak staan, lopen en klimmen, ook in bed. Een gewone slaapzak zit dan in de weg,
+              maar voor een dekbed is het nog te vroeg. Een slaapzak met beentjes (ook wel pijpjes of voetopeningen) is dan een
+              handige tussenoplossing.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Het is een slaapzak waarbij de onderkant in twee losse pijpjes uitloopt, soms met openingen voor de voetjes. Zo
+              kan je kind gewoon staan, lopen en klimmen, terwijl het lijfje toch bedekt blijft. Je houdt daarmee de warmte en
+              de veiligheid van een slaapzak, zonder dat je kind erover struikelt.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Ook bij dit type kies je nog steeds de juiste TOG-waarde op basis van de kamertemperatuur, net als bij een gewone
+              slaapzak. Het is een fijne tussenstap voordat een dekbed mag, want een los dekbed en kussen worden pas vanaf 2 jaar
+              geadviseerd.
+            </p>
+
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Warmte na de overstap</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Een dekbed heeft geen TOG-label zoals een slaapzak, en je kind trapt het &apos;s nachts

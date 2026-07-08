@@ -58,6 +58,13 @@ export default function PrematureBabyTOGWaardePage() {
               </ul>
             </div>
 
+            <div className="relative bg-accent/10 p-6 rounded-xl mb-6 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent flex items-start gap-3">
+              <Info className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700 leading-relaxed">
+                Een laag geboortegewicht en weinig lichaamsvet betekenen dat een kleine of premature baby sneller afkoelt, maar ook sneller oververhit raakt. Houd daarom de kamertemperatuur en de nektest extra goed in de gaten en stem de TOG-waarde nauwkeurig af op de kamertemperatuur.
+              </p>
+            </div>
+
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Van couveuse naar thuis</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               In het ziekenhuis ligt je baby in een couveuse met perfect gereguleerde temperatuur

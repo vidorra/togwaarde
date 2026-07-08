@@ -69,6 +69,14 @@ export default function KennisbankPage() {
           icon: BookOpen,
           readTime: '8 min',
           difficulty: 'Beginner'
+        },
+        {
+          title: 'TOG-waarde per Leeftijd',
+          slug: 'tog-waarde-per-leeftijd',
+          description: 'Van newborn tot dreumes: maat per fase, TOG per kamertemperatuur',
+          icon: BookOpen,
+          readTime: '10 min',
+          difficulty: 'Beginner'
         }
       ]
     },
@@ -108,6 +116,14 @@ export default function KennisbankPage() {
           description: 'Vakantie, tent, airco en buiten slapen in de kinderwagen',
           icon: Sun,
           readTime: '10 min',
+          difficulty: 'Gemiddeld'
+        },
+        {
+          title: 'TOG-waarde bij de Kinderopvang',
+          slug: 'tog-waarde-kinderopvang',
+          description: 'Welke slaapzak mee, ander bedje en afspraken met de leidster',
+          icon: Sun,
+          readTime: '9 min',
           difficulty: 'Gemiddeld'
         }
       ]

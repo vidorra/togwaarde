@@ -171,6 +171,15 @@ export default function WarmtestuwingBabyPage() {
               </ol>
             </div>
 
+            <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800 mb-6">
+              <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <span>
+                <strong>Baby met eczeem of gevoelige huid:</strong> warmte en zweten kunnen eczeem en jeuk verergeren. Kleed je
+                baby daarom juist niet te warm aan, kies ademende stof zoals katoen en gebruik de nektest om te checken of het
+                nekje warm maar niet bezweet is.
+              </span>
+            </div>
+
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Eerste hulp bij warmtestuwing</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Als je baby tekenen van warmtestuwing vertoont:

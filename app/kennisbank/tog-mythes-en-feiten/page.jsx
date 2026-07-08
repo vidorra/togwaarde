@@ -99,6 +99,14 @@ export default function TogMythesEnFeitenPage() {
               mythe="Bij 2.0 TOG kun je de calculator niet gebruiken"
               feit="Tussenwaardes bestaan gewoon. Behandel 2.0 TOG als een iets lichtere 2.5 en tel de kleding erbij op. De totale combinatie telt, niet het losse label."
             />
+            <Mythe
+              mythe="Vroeger sliepen baby's op hun buik, dat mag best"
+              feit="Op de rug slapen is de veilige norm. Buikslapen verhoogt het risico op wiegendood aanzienlijk. Leg je baby dus altijd op de rug te slapen, in een slaapzak."
+            />
+            <Mythe
+              mythe="Een dekentje is knus en prima"
+              feit="Losse dekens en dekbedjes verhogen het risico: ze kunnen over het hoofd raken en oververhitting veroorzaken. Een goed passende slaapzak met de juiste TOG is veiliger. Onder 1 jaar dus geen los dekbed."
+            />
 
             <p className="text-gray-700 leading-relaxed mt-8 mb-6">
               Twijfel je na een goedbedoeld advies van familie of een forum? Toets het in 30 seconden:

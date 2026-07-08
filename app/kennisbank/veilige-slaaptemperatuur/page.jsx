@@ -56,6 +56,26 @@ export default function VeiligeSlaaptemperatuurPage() {
             </p>
           </div>
 
+          {/* Reflux - matras schuin zetten */}
+          <div className="relative bg-accent/10 p-6 lg:p-8 rounded-2xl mb-8 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent flex items-start gap-4">
+            <AlertTriangle className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                Mag ik de matras schuin zetten bij reflux?
+              </h3>
+              <p className="text-gray-700 mb-3">
+                Nee, het advies is om de matras <strong>niet</strong> schuin te zetten en je baby niet onder een hoek te laten slapen om reflux (spugen) te verminderen. Het is niet bewezen effectief en verhoogt juist het risico op onveilig slapen, omdat je baby naar beneden of in een onveilige houding kan zakken.
+              </p>
+              <p className="text-gray-700">
+                Veilig slapen gaat voor: plat op de rug, in een leeg bedje. Heb je baby last van reflux, overleg dan met het consultatiebureau of de huisarts over wat wél helpt. Op onze zustersite lees je meer over{' '}
+                <a href="https://flesvoedingcalculator.nl/kennisbank/problemen-oplossen/spugen-na-de-fles" className="text-primary hover:underline font-medium">
+                  spugen en reflux bij flesvoeding
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+
           {/* Medische disclaimer */}
           <div className="relative bg-accent/5 p-6 rounded-lg mb-12 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent flex items-start gap-3">
             <Info className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
