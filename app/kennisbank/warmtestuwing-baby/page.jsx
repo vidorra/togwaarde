@@ -174,9 +174,9 @@ export default function WarmtestuwingBabyPage() {
             <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800 mb-6">
               <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
               <span>
-                <strong>Baby met eczeem of gevoelige huid:</strong> warmte en zweten kunnen eczeem en jeuk verergeren. Kleed je
-                baby daarom juist niet te warm aan, kies ademende stof zoals katoen en gebruik de nektest om te checken of het
-                nekje warm maar niet bezweet is.
+                <strong>Baby met eczeem of gevoelige huid:</strong> niet te warm aankleden geldt voor elke baby, maar bij een
+                gevoelige huid let je er extra op: warmte en zweten kunnen eczeem en jeuk verergeren. Kies ademende stof zoals
+                katoen en gebruik de nektest om te checken of het nekje warm maar niet bezweet is.
               </span>
             </div>
 

@@ -68,7 +68,7 @@ export default function VeiligeSlaaptemperatuurPage() {
               </p>
               <p className="text-gray-700">
                 Veilig slapen gaat voor: plat op de rug, in een leeg bedje. Heb je baby last van reflux, overleg dan met het consultatiebureau of de huisarts over wat wél helpt. Op onze zustersite lees je meer over{' '}
-                <a href="https://flesvoedingcalculator.nl/kennisbank/problemen-oplossen/spugen-na-de-fles" className="text-primary hover:underline font-medium">
+                <a href="https://flesvoedingcalculator.nl/kennisbank/problemen-oplossen/spugen-na-de-fles/" className="text-primary hover:underline font-medium">
                   spugen en reflux bij flesvoeding
                 </a>
                 .
