@@ -377,8 +377,9 @@ export default function TOGWaardeGidsPillarPage() {
             <div className="bg-secondary/10 p-6 rounded-xl mb-6">
               <h4 className="font-semibold text-gray-900 mb-3">Veelvoorkomende merken en hun TOG-waardes:</h4>
               <ul className="text-sm text-gray-700 space-y-2">
-                <li><strong>Ergopouch, Love to Dream:</strong> 0.2, 1.0, 2.5, 3.5 TOG</li>
-                <li><strong>Lodger:</strong> 0.3, 0.5, 3.2, 3.5 TOG</li>
+                <li><strong>Ergopouch:</strong> 0.2, 1.0, 2.5, 3.5 TOG</li>
+                <li><strong>Love to Dream:</strong> voert lichte tot warme TOG-waarden</li>
+                <li><strong>Lodger:</strong> voert lichte TOG-waarden tot een zware winter-TOG rond 3.3</li>
                 <li><strong>Jollein (met afritsbare mouwen):</strong> 2.0 (zonder mouwen), 3.0 (met mouwen)</li>
               </ul>
             </div>

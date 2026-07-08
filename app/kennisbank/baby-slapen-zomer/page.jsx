@@ -1,8 +1,14 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Sun, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Baby Slapen in de Zomer: Welke TOG-slaapzak bij Warm Weer | TOGWaarde.nl',
+  description: 'Hoe laat je je baby veilig slapen in de zomer? Welke TOG-waarde bij warm weer, welke kleding bij hitte, en tips tegen oververhitting.',
+  keywords: 'baby slapen zomer, tog waarde zomer, slaapzak warm weer, baby oververhitting zomer, zomerslaapzak tog',
+  alternates: { canonical: '/kennisbank/baby-slapen-zomer/' },
+}
 
 export default function BabySlapenZomerPage() {
   return (

@@ -73,7 +73,7 @@ export default function BabySlaapzakKoopgidsPage() {
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 0.5 - Zomerslaapzakken</h4>
-                  <span className="text-sm text-gray-600">€20-€45</span>
+                  <span className="text-sm text-gray-600">Richtprijs €20-€45</span>
                 </div>
                 <p className="text-sm text-gray-700 mb-3">Perfect voor warme zomernachten (24°C+)</p>
                 <div className="space-y-2">
@@ -89,7 +89,7 @@ export default function BabySlaapzakKoopgidsPage() {
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 1.0 - Lichte Slaapzakken</h4>
-                  <span className="text-sm text-gray-600">€25-€55</span>
+                  <span className="text-sm text-gray-600">Richtprijs €25-€55</span>
                 </div>
                 <p className="text-sm text-gray-700 mb-3">Ideaal voor lente/herfst (21-24°C)</p>
                 <div className="space-y-2">
@@ -105,7 +105,7 @@ export default function BabySlaapzakKoopgidsPage() {
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 2.5 - Winterslaapzakken</h4>
-                  <span className="text-sm text-gray-600">€35-€75</span>
+                  <span className="text-sm text-gray-600">Richtprijs €35-€75</span>
                 </div>
                 <p className="text-sm text-gray-700 mb-3">Standaard voor winter (16-20°C)</p>
                 <div className="space-y-2">
@@ -121,12 +121,12 @@ export default function BabySlaapzakKoopgidsPage() {
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <div className="flex items-center justify-between mb-3">
                   <h4 className="font-semibold text-gray-900">TOG 3.5 - Extra Warme Winterslaapzakken</h4>
-                  <span className="text-sm text-gray-600">€45-€85</span>
+                  <span className="text-sm text-gray-600">Richtprijs €45-€85</span>
                 </div>
                 <p className="text-sm text-gray-700 mb-3">Voor zeer koude nachten (onder 15°C)</p>
                 <div className="space-y-2">
                   <div className="text-sm">
-                    <span className="font-medium">Populaire merken:</span> Petit Stellou, Bemini, Jollein
+                    <span className="font-medium">Populaire merken:</span> Lodger, Bemini, Jollein
                   </div>
                   <div className="text-sm">
                     <span className="font-medium">Materialen:</span> Dikke fleece, gewatteerde voering
@@ -143,7 +143,11 @@ export default function BabySlaapzakKoopgidsPage() {
             <ul className="space-y-2 mb-6">
               <li className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                <span className="text-gray-700"><strong>0-6 maanden:</strong> 70 cm (tot ongeveer 6 kg)</span>
+                <span className="text-gray-700"><strong>0-3 maanden:</strong> 60 cm (newborn-maat)</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                <span className="text-gray-700"><strong>3-6 maanden:</strong> 70 cm (tot ongeveer 6 kg)</span>
               </li>
               <li className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
@@ -154,11 +158,17 @@ export default function BabySlaapzakKoopgidsPage() {
                 <span className="text-gray-700"><strong>18-36 maanden:</strong> 110 cm (tot ongeveer 15 kg)</span>
               </li>
             </ul>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Een slaapzak blijft de veiligste keuze tot ongeveer 2 jaar. Een dekbed of dekentje raad je
+              pas aan vanaf circa 2 jaar, omdat je baby dan zelf los beddengoed van het gezicht kan wegduwen.
+              Wanneer en hoe je die overstap maakt, lees je in ons artikel over{' '}
+              <Link href="/kennisbank/van-slaapzak-naar-dekbed" className="text-primary hover:underline font-medium">van slaapzak naar dekbed</Link>.
+            </p>
 
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mt-6">
               <CheckCircle className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-base font-semibold text-gray-900 mb-4">Handige tip: Basis Garderobe</p>
+                <p className="text-base font-semibold text-gray-900 mb-4">Handige tip: basisgarderobe</p>
                 <p className="text-base text-gray-700 mb-2">
                   Aanbevolen basis set voor het hele jaar:
                 </p>

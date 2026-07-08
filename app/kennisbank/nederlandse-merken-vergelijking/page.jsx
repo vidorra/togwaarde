@@ -32,7 +32,7 @@ export default function NederlandseMerkenVergelijking() {
           <div className="relative bg-primary/5 p-6 rounded-lg mb-10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
             <p className="text-gray-800 font-medium">
               <Info className="w-5 h-5 inline mr-2 text-primary" />
-              <strong>Waarom Nederlandse Merken?</strong> Nederlandse merken begrijpen ons gematigde klimaat met centrale verwarming en produceren slaapzakken die perfect passen bij onze seizoenen. Ze zijn makkelijk verkrijgbaar bij lokale retailers en voldoen aan Europese veiligheidsnormen EN 16781:2018.
+              <strong>Waarom Nederlandse Merken?</strong> Nederlandse merken begrijpen ons gematigde klimaat met centrale verwarming en produceren slaapzakken die perfect passen bij onze seizoenen. Ze zijn makkelijk verkrijgbaar bij lokale retailers en voldoen aan de Europese veiligheidsnormen voor kinderslaapzakken.
             </p>
           </div>
 
@@ -68,7 +68,7 @@ export default function NederlandseMerkenVergelijking() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-secondary-dark mt-0.5 flex-shrink-0" />
-                    <span><strong>4-seizoenen flexibiliteit</strong> - TOG 0.5 tot 2.5 in één set</span>
+                    <span><strong>4-seizoenen flexibiliteit</strong> - TOG 0.25 tot 2.5 in één set</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-secondary-dark mt-0.5 flex-shrink-0" />
@@ -85,12 +85,12 @@ export default function NederlandseMerkenVergelijking() {
                 <h3 className="font-semibold text-gray-900 mb-3">Specificaties</h3>
                 <dl className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <dt className="text-gray-600">Prijs:</dt>
+                    <dt className="text-gray-600">Richtprijs:</dt>
                     <dd className="font-semibold text-gray-900">€60-90+</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">TOG-bereik:</dt>
-                    <dd className="font-semibold text-gray-900">0.5, 1.0, 2.0, 2.5</dd>
+                    <dd className="font-semibold text-gray-900">0.25, 0.5, 2.0, 2.5</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Materiaal:</dt>
@@ -114,7 +114,7 @@ export default function NederlandseMerkenVergelijking() {
                 Ervaringen van Ouders
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                "Beste investering ooit! Stof wordt na wassen zachter. Verstelbare lengte is geniaal - je hebt maar één maat nodig. Meerdere beoordelingssites en ouderforums noemen Puckababy consistent als nummer één in kwaliteit."
+                Ouders noemen vaak dat de stof na het wassen zachter wordt en dat de verstelbare lengte handig is, omdat je zo met één maat toekomt. Puckababy staat bekend om zijn kwaliteit en wordt op ouderforums geregeld genoemd als een merk dat lang meegaat.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Let op:</strong> Stof is aanvankelijk wat stug maar wordt zachter. Voor pasgeborenen kies de Piep (0-3 maanden) of Mini (3-6 maanden) met antikriebel manchetjes.
@@ -200,10 +200,10 @@ export default function NederlandseMerkenVergelijking() {
                 Ervaringen van Ouders
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                "Jollein domineert de mid-range markt. Materialen blijven zacht na wassen en kwaliteit is betrouwbaar. Perfect als je verschillende prints wilt voor elk seizoen."
+                Jollein is een bekende naam in het mid-range segment. De materialen blijven doorgaans zacht na het wassen en de kwaliteit is betrouwbaar. Een fijne keuze als je verschillende prints wilt voor elk seizoen.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
-                <strong>Kanttekening:</strong> Sommige ouders vinden dat Jollein TOG-waardes lichter aanvoelen dan het label suggereert. Een TOG 3.0 Jollein voelt bijvoorbeeld dunner aan dan een TOG 2.5 Puckababy.
+                <strong>Kanttekening:</strong> Sommige ouders vinden dat Jollein TOG-waardes lichter aanvoelen dan het label suggereert. Een lichtere stof kan bij dezelfde TOG-waarde dunner aanvoelen, terwijl de warmte vergelijkbaar blijft.
               </p>
             </div>
           </section>
@@ -262,7 +262,7 @@ export default function NederlandseMerkenVergelijking() {
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">TOG-bereik:</dt>
-                    <dd className="font-semibold text-gray-900">1.0, 3.0, 3.5</dd>
+                    <dd className="font-semibold text-gray-900">Lichte tot warme TOG-waarden</dd>
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-gray-600">Materiaal:</dt>
@@ -286,7 +286,7 @@ export default function NederlandseMerkenVergelijking() {
                 Ervaringen van Ouders
               </h3>
               <p className="text-gray-700 text-sm leading-relaxed mb-3">
-                "HEMA is de koopjeskampioen zonder kwaliteitsverlies. Nederlandse ouders prijzen HEMA vaak als hun backup optie naast duurdere merken, maar velen gebruiken HEMA als enige merk met volledige tevredenheid."
+                HEMA staat bekend als een voordelige keuze zonder duidelijk kwaliteitsverlies. Ouders gebruiken de slaapzakken vaak als aanvulling naast duurdere merken, en velen zijn ook tevreden met HEMA als enige merk.
               </p>
               <p className="text-gray-700 text-sm leading-relaxed">
                 <strong>Perfect voor:</strong> Ouders die budget-bewust zijn maar geen compromis willen op veiligheid. Ook ideaal als je meerdere slaapzakken wilt zonder veel te investeren.
@@ -339,7 +339,7 @@ export default function NederlandseMerkenVergelijking() {
                 </ul>
 
                 <p className="text-xs text-gray-600 italic">
-                  "Goede kwaliteit in middensegment. Mouwtjes iets korter en rugpand smaller dan Puckababy volgens gebruikers."
+                  Bekend om goede kwaliteit in het middensegment. Volgens gebruikers zijn de mouwtjes iets korter en het rugpand smaller dan bij Puckababy.
                 </p>
               </div>
 
@@ -382,7 +382,7 @@ export default function NederlandseMerkenVergelijking() {
                 </ul>
 
                 <p className="text-xs text-gray-600 italic">
-                  "Goede prijs-kwaliteit verhouding, vergelijkbaar met Meyco. Binnenlaag erg dun en mouwloos volgens reviews."
+                  Bekend om een goede prijs-kwaliteitverhouding, vergelijkbaar met Meyco. De binnenlaag is volgens reviews vrij dun en mouwloos.
                 </p>
               </div>
             </div>
@@ -405,8 +405,8 @@ export default function NederlandseMerkenVergelijking() {
                 <tbody>
                   <tr>
                     <td className="border border-gray-200 px-4 py-2 font-semibold">Puckababy</td>
-                    <td className="border border-gray-200 px-4 py-2">€60-90+</td>
-                    <td className="border border-gray-200 px-4 py-2">0.5-2.5</td>
+                    <td className="border border-gray-200 px-4 py-2">€60-90+ richtprijs</td>
+                    <td className="border border-gray-200 px-4 py-2">0.25-2.5</td>
                     <td className="border border-gray-200 px-4 py-2">Lange termijn investering</td>
                   </tr>
                   <tr className="bg-gray-50">
@@ -453,7 +453,7 @@ export default function NederlandseMerkenVergelijking() {
                   <strong>Kies Puckababy</strong> als je investeert in één systeem dat jaren meegaat. Perfect voor meerdere kinderen of doorverkoop. Het verstelbare systeem groeit mee en bespaart op termijn geld.
                 </p>
                 <p className="text-gray-600 text-xs italic">
-                  Budget: €120-180 voor compleet 4-seizoenen systeem dat 2+ jaar meegaat
+                  Richtprijs: €120-180 voor compleet 4-seizoenen systeem dat 2+ jaar meegaat
                 </p>
               </div>
 
@@ -466,7 +466,7 @@ export default function NederlandseMerkenVergelijking() {
                   <strong>Kies Jollein</strong> als je verschillende prints wilt voor elk seizoen en goede mid-range kwaliteit zoekt. Perfect balans tussen prijs en kwaliteit met grote keuze.
                 </p>
                 <p className="text-gray-600 text-xs italic">
-                  Budget: €60-100 voor complete set (zomer + winter) met trendy designs
+                  Richtprijs: €60-100 voor complete set (zomer + winter) met trendy designs
                 </p>
               </div>
 
@@ -479,7 +479,7 @@ export default function NederlandseMerkenVergelijking() {
                   <strong>Kies HEMA</strong> voor onverslaanbare prijzen zonder kwaliteitsverlies. Perfect als je meerdere slaapzakken nodig hebt of budget beperkt is. Makkelijk verkrijgbaar overal.
                 </p>
                 <p className="text-gray-600 text-xs italic">
-                  Budget: €30-60 voor complete set inclusief backup slaapzakken
+                  Richtprijs: €30-60 voor complete set inclusief backup slaapzakken
                 </p>
               </div>
 
@@ -489,7 +489,7 @@ export default function NederlandseMerkenVergelijking() {
                   Voor Extreme Kou (Onverwarmd)
                 </h3>
                 <p className="text-gray-700 text-sm mb-3">
-                  <strong>Kies Lodger Hopper 3.3</strong> als je slaapkamer consequent onder 16°C komt. De warmste algemeen verkrijgbare optie in Nederland voor zeer koude omstandigheden.
+                  <strong>Kies Lodger Hopper 3.3</strong> als je slaapkamer consequent onder 16°C komt. Een van de warmste algemeen verkrijgbare opties in Nederland voor zeer koude omstandigheden.
                 </p>
                 <p className="text-gray-600 text-xs italic">
                   Let op: Dit is alleen nodig bij slecht geïsoleerde of onverwarmde kamers
@@ -531,7 +531,7 @@ export default function NederlandseMerkenVergelijking() {
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-secondary-dark flex-shrink-0 mt-0.5" />
-                    <span><strong>Prénatal</strong> - 59 winkels, kraamcadeau-lijsten</span>
+                    <span><strong>Prénatal</strong> - landelijk filialen, kraamcadeau-lijsten</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-secondary-dark flex-shrink-0 mt-0.5" />
