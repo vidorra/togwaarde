@@ -1,6 +1,6 @@
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Thermometer, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
+import { Thermometer, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle, Phone } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
@@ -89,30 +89,35 @@ export default function WarmtestuwingBabyPage() {
               </div>
 
               <div className="bg-accent/10 rounded-xl p-6 border-2 border-accent">
-                <h4 className="font-semibold text-gray-900 mb-3">Ernstige Symptomen - Bel 112</h4>
+                <h4 className="font-semibold text-gray-900 mb-3">Levensbedreigende Tekenen - Bel 112</h4>
                 <ul className="text-sm text-gray-700 space-y-2">
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                    <span>Temperatuur boven 39°C</span>
+                    <span>Slap of niet goed aanspreekbaar</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                    <span>Slap of niet responsief</span>
+                    <span>Blauw wordt (lippen, gezicht of romp)</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                    <span>Ademnood of ademhaling die stopt</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
                     <span>Stuiptrekkingen</span>
                   </li>
-                  <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                    <span>Braken</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                    <span>Snelle, oppervlakkige ademhaling</span>
-                  </li>
                 </ul>
               </div>
+            </div>
+
+            <div className="p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-2 text-sm text-red-800 mb-6">
+              <Phone className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+              <span>
+                Heeft je baby koorts (38°C of hoger) en is hij jonger dan 3 maanden? Dan hoort hij
+                altijd dezelfde dag door een (huis)arts gezien te worden. Koorts als getal is geen
+                112-situatie. Bel 112 alleen bij de levensbedreigende tekenen hierboven.
+              </span>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Voorkomen van warmtestuwing</h2>
@@ -234,6 +239,15 @@ export default function WarmtestuwingBabyPage() {
               Daarom is preventie zo belangrijk. Het gebruik van de juiste TOG-waarde is een simpele
               maar effectieve manier om dit risico te minimaliseren.
             </p>
+
+            <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800 mt-8">
+              <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <span>
+                Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of
+                maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de
+                huisarts.
+              </span>
+            </div>
           </div>
         </div>
 

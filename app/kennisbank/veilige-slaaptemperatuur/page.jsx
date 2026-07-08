@@ -1,6 +1,6 @@
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { Thermometer, Shield, AlertTriangle, CheckCircle, ArrowRight, Calculator, Check, Brain, Moon, Snowflake, Flower, Sun, Smartphone, Home, Baby, Square, BarChart3, RefreshCw, Lightbulb } from 'lucide-react'
+import { Thermometer, Shield, AlertTriangle, CheckCircle, ArrowRight, Calculator, Check, Brain, Moon, Snowflake, Flower, Sun, Smartphone, Home, Baby, Square, BarChart3, RefreshCw, Lightbulb, Info } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
@@ -34,7 +34,7 @@ export default function VeiligeSlaaptemperatuurPage() {
             <div className="flex items-start gap-4">
               <Thermometer className="w-12 h-12 text-secondary-dark flex-shrink-0" />
               <div>
-                <h2 className="text-2xl font-bold text-white mb-3">De Gulden Regel</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-3">De Gulden Regel</h2>
                 <p className="text-xl text-gray-800 font-semibold mb-2">
                   De ideale slaaptemperatuur voor baby's is tussen de <span className="text-secondary-dark">16°C en 20°C</span>
                 </p>
@@ -43,6 +43,25 @@ export default function VeiligeSlaaptemperatuurPage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Ruglig - Veilig slapen */}
+          <div className="bg-primary/10 border-2 border-primary/20 rounded-2xl p-6 lg:p-8 mb-8">
+            <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
+              <Shield className="w-6 h-6 text-primary flex-shrink-0" />
+              Ruglig: de basis van veilig slapen
+            </h3>
+            <p className="text-gray-700">
+              Leg je baby altijd op de rug te slapen, op een stevig matras zonder losse dekens, kussens of knuffels. Dat is de belangrijkste maatregel tegen wiegendood; de juiste temperatuur en TOG-waarde komen daarna.
+            </p>
+          </div>
+
+          {/* Medische disclaimer */}
+          <div className="relative bg-accent/5 p-6 rounded-lg mb-12 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent flex items-start gap-3">
+            <Info className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+            <p className="text-gray-700">
+              Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de huisarts.
+            </p>
           </div>
 
           {/* Why This Temperature */}

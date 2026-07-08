@@ -1,6 +1,6 @@
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
-import { ThermometerSun, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
+import { ThermometerSun, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle, Shield } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
@@ -44,6 +44,23 @@ export default function BabykamerTemperatuurPage() {
               met een optimum rond <strong>18°C</strong>. Deze temperatuur biedt de beste balans tussen comfort
               en veiligheid.
             </p>
+
+            <div className="bg-primary/10 border-2 border-primary/20 rounded-xl p-6 my-8">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                <Shield className="w-6 h-6 text-primary flex-shrink-0" />
+                Ruglig: de basis van veilig slapen
+              </h3>
+              <p className="text-gray-700 mb-0">
+                Leg je baby altijd op de rug te slapen, op een stevig matras zonder losse dekens, kussens of knuffels. Dat is de belangrijkste maatregel tegen wiegendood; de juiste temperatuur en TOG-waarde komen daarna.
+              </p>
+            </div>
+
+            <div className="relative bg-accent/5 p-6 rounded-lg my-8 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent flex items-start gap-3">
+              <Info className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+              <p className="text-gray-700 mb-0">
+                Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de huisarts.
+              </p>
+            </div>
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Waarom 18°C Optimaal is</h3>

@@ -386,7 +386,7 @@ export default function WiegendoodPreventie() {
               <h3 className="font-bold text-gray-900 mb-2">Wat als je baby zichzelf omdraait?</h3>
               <p className="text-gray-700 text-sm leading-relaxed">
                 Kan je baby zelfstandig van rug naar buik én terug rollen (meestal rond 5 tot 6 maanden),
-                dan hoef je hem of haar &apos;s nachts niet steeds terug te draaien. Blijf wel altijd op de
+                dan hoef je hem of haar &apos;s nachts niet steeds terug te draaien. Blijf je baby wel altijd op de
                 rug te slapen leggen. Belangrijk in deze fase: stop met inbakeren zodra het draaien begint,
                 houd het bed leeg (geen kussens of positioneringskussens) en gebruik een goed passende
                 slaapzak zodat armen en benen vrij kunnen bewegen. Het TOG-advies verandert niet door
@@ -595,7 +595,7 @@ export default function WiegendoodPreventie() {
                     </li>
                     <li className="flex items-start gap-2">
                       <AlertTriangle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Extreme temperatuur (rectaal onder 36°C of boven 38°C bij baby onder 3 maanden)</span>
+                      <span>Stuiptrekkingen of een baby die onderkoeld is (rectaal onder 36°C)</span>
                     </li>
                   </ul>
                 </div>
@@ -608,6 +608,10 @@ export default function WiegendoodPreventie() {
                 Contact Consultatiebureau of Huisarts Bij:
               </h3>
               <ul className="space-y-2 text-gray-700 text-sm">
+                <li className="flex items-start gap-2">
+                  <Info className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                  <span>Je baby jonger is dan 3 maanden en koorts heeft (38°C of hoger): ga dezelfde dag naar de (huis)arts</span>
+                </li>
                 <li className="flex items-start gap-2">
                   <Info className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                   <span>Zorgen over slaapgedrag of temperatuurregulatie</span>

@@ -252,13 +252,24 @@ export default function OververhittingHerkennen() {
                 <p className="text-base font-semibold text-gray-900 mb-4">Bel 112 Direct Bij:</p>
                 <div className="text-base text-gray-700">
                   <ul className="list-disc pl-6 space-y-1">
-                    <li>Baby reageert niet of is slap en lusteloos</li>
-                    <li>Ademhaling stopt of zeer onregelmatig is</li>
+                    <li>Je baby reageert niet of is slap en lusteloos</li>
+                    <li>De ademhaling stopt of zeer onregelmatig is</li>
                     <li>Blauwe verkleuring van lippen, gezicht of romp</li>
-                    <li>Baby niet wakker te krijgen is</li>
-                    <li>Extreme temperatuur (rectaal boven 40°C)</li>
-                    <li>Stuiptrekkingen of krampen</li>
+                    <li>Je baby niet wakker te krijgen is</li>
+                    <li>Er stuiptrekkingen of krampen zijn</li>
                   </ul>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative p-4 pl-5 rounded-xl flex items-start gap-3 bg-background overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary/80 mt-6">
+              <AlertTriangle className="w-5 h-5 text-primary/80 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <div className="font-semibold text-sm mb-1 text-primary">Baby jonger dan 3 maanden met koorts</div>
+                <div className="text-sm text-secondary-dark">
+                  Is je baby jonger dan 3 maanden en heeft hij koorts (38°C of hoger)? Dan hoort hij
+                  altijd dezelfde dag door een (huis)arts gezien te worden. Koorts als getal is geen
+                  112-situatie. Bel 112 alleen bij de levensbedreigende tekenen hierboven.
                 </div>
               </div>
             </div>
@@ -384,6 +395,15 @@ export default function OververhittingHerkennen() {
               </div>
             </div>
           </section>
+
+          <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800">
+            <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+            <span>
+              Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of
+              maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de
+              huisarts.
+            </span>
+          </div>
         </div>
 
         {/* CTA Sections */}

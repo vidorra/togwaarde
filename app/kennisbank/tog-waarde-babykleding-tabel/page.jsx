@@ -141,10 +141,15 @@ export default function TOGWaardeBabykledingTabelPage() {
                     <p className="text-sm text-gray-900 font-semibold mb-1">Let op: Gevoerde Pyjama's</p>
                     <p className="text-sm text-gray-700">
                       Een gevoerde pyjama (1.5 TOG) met een TOG 2.5 slaapzak geeft 4.0+ totaal TOG. Dit kan te warm zijn voor de meeste baby's.
-                      Gebruik een gevoerde pyjama alleen bij extreem koude kamers (onder 14°C) of kies voor een lagere TOG slaapzak.
+                      Gebruik een gevoerde pyjama alleen bij extreem koude kamers (onder 16°C: verwarm liever de kamer) of kies voor een lagere TOG slaapzak.
                     </p>
                   </div>
                 </div>
+              </div>
+              <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 mt-4">
+                <p className="text-sm text-gray-700">
+                  Dekens en lakens tellen niet mee in deze TOG-optelling en horen in de zomer niet in bed; gebruik ze niet los bij een baby.
+                </p>
               </div>
             </div>
 

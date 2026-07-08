@@ -42,7 +42,8 @@ export default function BabyTemperatuurControlerenPage() {
             <p className="text-gray-700 leading-relaxed mb-6">
               Baby's kunnen hun lichaamstemperatuur nog niet goed reguleren en kunnen niet aangeven
               wanneer ze het te warm of te koud hebben. Regelmatig controleren helpt om oververhitting
-              of onderkoeling te voorkomen - beide risicofactoren voor wiegendood.
+              of onderkoeling te voorkomen. Oververhitting is een bewezen risicofactor voor wiegendood.
+              Onderkoeling is dat niet, maar beide zijn onwenselijk voor een baby.
             </p>
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
@@ -135,6 +136,15 @@ export default function BabyTemperatuurControlerenPage() {
                 </p>
               </div>
 
+              <div className="p-4 rounded-xl bg-red-50 border border-red-200 flex items-start gap-2 text-sm text-red-800">
+                <AlertTriangle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                <span>
+                  Heeft je baby koorts (38°C of hoger) en is hij jonger dan 3 maanden? Bel dan
+                  dezelfde dag de huisarts. Een baby van deze leeftijd met koorts hoort altijd
+                  dezelfde dag door een (huis)arts gezien te worden.
+                </span>
+              </div>
+
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Oorthermometer</h4>
                 <p className="text-sm text-gray-700 mb-2">
@@ -197,6 +207,15 @@ export default function BabyTemperatuurControlerenPage() {
               <li><strong>Direct reageren op één koude hand:</strong> Doe eerst de nektest</li>
               <li><strong>Kamertemperatuur te hoog houden:</strong> 16-20°C is ideaal, niet warmer</li>
             </ul>
+
+            <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800 mt-8">
+              <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
+              <span>
+                Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of
+                maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de
+                huisarts.
+              </span>
+            </div>
           </div>
         </div>
 

@@ -110,6 +110,16 @@ export default function PrematureBabyTOGWaardePage() {
               Voor premature baby's gelden aangepaste richtlijnen in de eerste maanden:
             </p>
 
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Let op</p>
+                <div className="text-base text-gray-700">
+                  De onderstaande waarden zijn indicatief. Volg bij een prematuur geboren baby altijd het advies van je kinderarts, de NICU of het consultatiebureau; de warmtebehoefte verschilt sterk per kind.
+                </div>
+              </div>
+            </div>
+
             <div className="overflow-x-auto mb-8">
               <table className="w-full border-collapse">
                 <thead>
@@ -195,7 +205,7 @@ export default function PrematureBabyTOGWaardePage() {
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Maat 44-50 cm (1-3 kg)</h4>
                 <p className="text-sm text-gray-700">
-                  Speciale prematuur maat, vaak met extra voorzieningen zoals armsgaten die
+                  Speciale prematuur maat, vaak met extra voorzieningen zoals armgaten die
                   afgedekt kunnen worden en zachte, rekbare stoffen.
                 </p>
               </div>

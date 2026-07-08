@@ -60,8 +60,11 @@ export default function InbakerenTOGWaardePage() {
                     Inbakeren vergroot het risico op oververhitting omdat je baby een extra isolerende
                     laag om zich heen heeft. Daarom moet je altijd de TOG-waarde aanpassen.
                   </p>
-                  <p className="font-semibold">
+                  <p className="font-semibold mb-3">
                     Stop met inbakeren zodra je baby tekenen toont van kunnen rollen (meestal rond 3-4 maanden).
+                  </p>
+                  <p>
+                    Een ingebakerde baby die op de buik rolt kan zichzelf niet terugdraaien, en dat verhoogt het risico op wiegendood. Stop daarom met inbakeren zodra je baby tekenen laat zien van omrollen (meestal rond 3-4 maanden).
                   </p>
                 </div>
               </div>
@@ -162,6 +165,16 @@ export default function InbakerenTOGWaardePage() {
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
               <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
               <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Inbakeren en Heupdysplasie</p>
+                <div className="text-base text-gray-700">
+                  Heeft je baby (mogelijk) heupdysplasie? Baker dan niet in zonder overleg met de arts of het consultatiebureau.
+                </div>
+              </div>
+            </div>
+
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/10 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent mb-6">
+              <AlertTriangle className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
                 <p className="text-base font-semibold text-gray-900 mb-4">Stop met Inbakeren Als...</p>
                 <div className="text-base text-gray-700">
                   <ul className="list-disc pl-6 space-y-2">
@@ -211,7 +224,7 @@ export default function InbakerenTOGWaardePage() {
               Deze merken maken veilige inbakerslaapzakken in verschillende TOG-waardes:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-              <li><strong>Love to Dream Swaddle UP:</strong> 0.2, 1.0 en 2.5 TOG (met armen omhoog positie)</li>
+              <li><strong>Love to Dream Swaddle UP:</strong> 0.2, 1.0 en 2.5 TOG (met armen omhoog positie). Waar de algemene regel is om de armen langs het lichaam in te bakeren, werken sommige inbakerdoeken (zoals de Swaddle UP) bewust met de armen omhoog. Dit is een geaccepteerde variant.</li>
               <li><strong>Ergobaby Swaddler:</strong> 0.5 en 1.0 TOG (verstelbare vleugels)</li>
               <li><strong>Aden + Anais Snug Swaddle:</strong> 0.5 en 1.0 TOG (3-weg ritssysteem)</li>
               <li><strong>Puckababy:</strong> Diverse TOG-waardes (Nederlands merk)</li>
@@ -225,6 +238,16 @@ export default function InbakerenTOGWaardePage() {
                   Sommige merken maken speciale transitie-slaapzakken waarbij je de vleugels kunt
                   losmaken. Deze zijn ideaal voor de geleidelijke overgang en kun je daarna gewoon
                   als reguliere slaapzak blijven gebruiken.
+                </div>
+              </div>
+            </div>
+
+            <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mb-6">
+              <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-base font-semibold text-gray-900 mb-4">Medische disclaimer</p>
+                <div className="text-base text-gray-700">
+                  Dit artikel geeft algemene informatie en vervangt geen medisch advies. Twijfel je of maak je je zorgen over je baby, neem dan contact op met het consultatiebureau of de huisarts.
                 </div>
               </div>
             </div>

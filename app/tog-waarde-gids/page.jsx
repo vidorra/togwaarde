@@ -310,6 +310,10 @@ export default function TOGWaardeGidsPillarPage() {
               Om de totale TOG-waarde te berekenen, tel je de waardes van alle lagen kleding en beddengoed bij elkaar op. Hier zijn de gemiddelde TOG-waardes van veelgebruikte babyproducten:
             </p>
 
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Houd de totale TOG-waarde (slaapzak plus kleding) onder de 4.0. Bij een hogere waarde neemt het risico op oververhitting toe. Is het kouder dan 16°C, verwarm dan liever de kamer in plaats van extra lagen te stapelen.
+            </p>
+
             <div className="grid md:grid-cols-2 gap-8 mb-6">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
@@ -559,7 +563,7 @@ export default function TOGWaardeGidsPillarPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-gray-900">Winter (koud weer, lage kamertemperatuur)</h3>
-                    <p className="text-gray-600">De babykamer koel genoeg houden terwijl het buiten vriest</p>
+                    <p className="text-gray-600">De babykamer warm genoeg houden terwijl het buiten vriest</p>
                   </div>
                 </div>
 
@@ -600,16 +604,8 @@ export default function TOGWaardeGidsPillarPage() {
                     </div>
 
                     <div>
-                      <p className="text-sm font-semibold text-gray-900 mb-2">Voor zeer koude nachten (&lt;14°C):</p>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li>• Luier (0 TOG)</li>
-                        <li>• Dikke pyjama met voetjes (1.0 TOG)</li>
-                        <li>• Extra warme winterslaapzak (3.5 TOG)</li>
-                        <li className="flex items-center gap-2 font-semibold text-secondary-dark-dark">
-                          <CheckCircle className="w-4 h-4 flex-shrink-0" />
-                          <span>Totaal: 4.5 TOG</span>
-                        </li>
-                      </ul>
+                      <p className="text-sm font-semibold text-gray-900 mb-2">Is het kouder dan 16°C?</p>
+                      <p className="text-sm text-gray-700">Stapel dan geen extra lagen op om onder een hogere TOG-waarde uit te komen. Verwarm liever de kamer een half uur voor het slapengaan naar 16 tot 18°C, zodat je met een pyjama en een winterslaapzak (samen 3.0 tot 3.5 TOG) uitkomt. Houd de totale TOG-waarde altijd onder de 4.0, want een hogere waarde verhoogt het risico op oververhitting.</p>
                     </div>
 
                     <p className="text-xs text-gray-600 italic">Let op: Deze combinaties zijn gebaseerd op de gangbare TOG-waardes (2.5 en 3.5) die je bij de meeste merken kunt kopen.</p>

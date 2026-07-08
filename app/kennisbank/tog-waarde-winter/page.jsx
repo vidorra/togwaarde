@@ -51,7 +51,7 @@ export default function TOGWaardeWinterPage() {
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li><strong>16-20°C:</strong> TOG 2.5 - Dikke winterslaapzak</li>
                 <li><strong>12-15°C:</strong> TOG 3.5 - Extra warme winterslaapzak</li>
-                <li><strong>Onder 12°C:</strong> Verhoog eerst de kamertemperatuur</li>
+                <li><strong>Onder 16°C:</strong> Verwarm de kamer</li>
               </ul>
             </div>
 
@@ -74,13 +74,21 @@ export default function TOGWaardeWinterPage() {
                 <h4 className="font-semibold text-gray-900 mb-2">Onder 15°C - Zeer Koud</h4>
                 <p className="text-sm text-gray-700">TOG 3.5 slaapzak + dikke pyjama + rompertje (of verhoog eerst de kamertemperatuur)</p>
               </div>
+              <div className="bg-accent/10 border border-accent/20 rounded-xl p-4">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-gray-700">
+                    Let op: bij deze zware combinaties is het risico op oververhitting groter. Controleer elk uur het nekje of de borst van je baby (niet de handjes) en verwarm bij voorkeur de kamer tot minstens 16°C in plaats van meer lagen te stapelen.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-lg font-semibold text-primary mb-4 mt-8">Veelgemaakte winterfouten</h2>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
               <li><strong>Te veel lagen:</strong> Dit kan juist leiden tot oververhitting</li>
               <li><strong>Dekentjes gebruiken:</strong> Gevaarlijk en niet nodig met de juiste TOG</li>
-              <li><strong>Mutsje tijdens slapen:</strong> Baby's verliezen veel warmte via het hoofd (intentioneel)</li>
+              <li><strong>Mutsje tijdens slapen:</strong> Doe je baby binnenshuis nooit een mutsje op tijdens het slapen: dat verhoogt het risico op oververhitting</li>
               <li><strong>Dikke sokken:</strong> Voetjes zijn de thermostaat van je baby</li>
             </ul>
 
