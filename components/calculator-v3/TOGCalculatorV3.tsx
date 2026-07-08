@@ -202,7 +202,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
               <button
                 key={t}
                 onClick={() => setKamerTemp(t)}
-                className={`py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
+                className={`min-h-[44px] py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
                   kamerTemp === t
                     ? 'bg-primary text-white border-primary'
                     : 'bg-background text-text-primary border-transparent hover:border-primary/30'
@@ -223,7 +223,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
               <select
                 value={seizoen}
                 onChange={(e) => setSeizoen(e.target.value as Seizoen)}
-                className="appearance-none bg-white border border-border rounded-lg pl-7 pr-3 py-1.5 text-sm font-medium capitalize cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
+                className="appearance-none bg-white border border-border rounded-lg pl-7 pr-3 py-2.5 text-sm font-medium capitalize cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
                 aria-label="Seizoen"
               >
                 <option value="winter">winter</option>
@@ -297,7 +297,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
                   <button
                     key={age}
                     onClick={() => setBabyLeeftijd(age)}
-                    className={`py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
+                    className={`min-h-[44px] py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
                       babyLeeftijd === age
                         ? 'bg-primary text-white border-primary'
                         : 'bg-background border-transparent hover:border-primary/30'
@@ -548,7 +548,7 @@ function ModeTab({
   return (
     <button
       onClick={onClick}
-      className={`flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
+      className={`min-h-[44px] flex items-center justify-center gap-1.5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
         active ? 'bg-white text-primary shadow-sm' : 'text-text-secondary'
       }`}
       aria-pressed={active}

@@ -143,7 +143,7 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
             <button
               key={t}
               onClick={() => setKamerTemp(t)}
-              className={`py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
+              className={`min-h-[44px] py-2.5 rounded-xl text-sm font-medium border-2 transition-all ${
                 kamerTemp === t
                   ? 'bg-primary text-white border-primary'
                   : 'bg-background text-text-primary border-transparent hover:border-primary/30'
@@ -164,7 +164,7 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
             <select
               value={seizoen}
               onChange={(e) => setSeizoen(e.target.value)}
-              className="appearance-none bg-white border border-border rounded-lg pl-7 pr-3 py-1.5 text-sm font-medium capitalize cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
+              className="appearance-none bg-white border border-border rounded-lg pl-7 pr-3 py-2.5 text-sm font-medium capitalize cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/30"
               aria-label="Seizoen"
             >
               <option value="winter">winter</option>
