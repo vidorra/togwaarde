@@ -1,7 +1,13 @@
-'use client'
 import Layout from '../../components/Layout'
 import Link from 'next/link'
 import { BookOpen, Book, ThermometerSun, Baby, ShieldCheck, Snowflake, Sun, ShoppingBag, AlertCircle, Activity, CheckCircle, Info, ArrowRight, Shirt, StickyNote } from 'lucide-react'
+
+export const metadata = {
+  title: 'TOG-waarde: complete gids voor veilige babyslaap | TOGWaarde.nl',
+  description: 'De complete gids over TOG-waarde: wat het is, de TOG-tabel per kamertemperatuur, TOG-waardes van producten en seizoensgericht aankleden voor veilige babyslaap.',
+  keywords: 'tog-waarde gids, tog tabel, tog waarde baby, slaapzak tog, babykamer temperatuur, veilig slapen baby, tog per temperatuur',
+  alternates: { canonical: '/tog-waarde-gids/' },
+}
 
 export default function TOGWaardeGidsPillarPage() {
   return (

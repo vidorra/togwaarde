@@ -1,7 +1,13 @@
-'use client'
 import Link from 'next/link'
 import Layout from '../../components/Layout'
 import { ShoppingBag, Star, Award, Shield, ExternalLink, Thermometer } from 'lucide-react'
+
+export const metadata = {
+  title: 'Aanbevolen babyslaapzakken per TOG-waarde | TOGWaarde.nl',
+  description: 'Ontdek aanbevolen babyslaapzakken geselecteerd op TOG-waarde en kwaliteit, van 0.5 TOG voor de zomer tot 3.5 TOG voor koude nachten, met maten, materiaal en prijs.',
+  keywords: 'babyslaapzak kopen, slaapzak tog waarde, zomerslaapzak, winterslaapzak, beste babyslaapzak, tog 2.5 slaapzak, slaapzak baby',
+  alternates: { canonical: '/producten/' },
+}
 
 // Nederlandse product database
 const productDatabase = [

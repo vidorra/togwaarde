@@ -1,7 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { HelpCircle, ChevronRight, Activity, CheckCircle, XCircle } from 'lucide-react'
+
+export const metadata = {
+  title: 'TOG-mythes en feiten: babyslaap zonder onzin | TOGWaarde.nl',
+  description: 'Dik aankleden, koude handjes, uitzweten bij koorts: 10 hardnekkige mythes over babyslaap en TOG getoetst aan de richtlijnen. Zo kies je veilig, niet op gevoel.',
+  keywords: 'tog mythes, babyslaap feiten, oververhitting baby, koude handjes baby, wiegendood voorkomen, slaapzak richtlijnen',
+  alternates: { canonical: '/kennisbank/tog-mythes-en-feiten/' },
+}
 
 function Mythe({ mythe, feit }) {
   return (

@@ -1,6 +1,12 @@
-'use client'
 import Layout from '../../components/Layout'
 import { ShieldCheck, AlertTriangle, Info, CheckCircle, Thermometer, Baby, Heart, Eye } from 'lucide-react'
+
+export const metadata = {
+  title: 'Veiligheidscontrole babyslaap: checklist tegen oververhitting | TOGWaarde.nl',
+  description: 'Checklist voor veilige babyslaap: controleer nek, ademhaling en houding, voorkom oververhitting en onderkoeling en pas de TOG-waarde aan op de kamertemperatuur.',
+  keywords: 'veiligheidscontrole baby, veilig slapen baby, oververhitting baby, babyslaap checklist, kamertemperatuur baby, tog waarde veilig, wiegendood voorkomen',
+  alternates: { canonical: '/veiligheidscontrole/' },
+}
 
 export default function VeiligheidscontrolePage() {
   return (

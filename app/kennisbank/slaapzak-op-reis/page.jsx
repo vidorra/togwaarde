@@ -1,8 +1,14 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 import { Plane, ChevronRight, Activity, CheckCircle, AlertTriangle, Snowflake } from 'lucide-react'
+
+export const metadata = {
+  title: 'Slaapzak op Reis: Welke TOG-waarde op Vakantie? | TOGWaarde.nl',
+  description: 'Warm land, koude bergnachten of buiten slapen in de kinderwagen: zo pas je de TOG-waarde onderweg aan. Met paklijst en tips voor veilig slapen op vakantie.',
+  keywords: 'slaapzak op reis, tog waarde vakantie, baby slapen vakantie, slaapzak warm land, buiten slapen kinderwagen, reisslaapzak baby',
+  alternates: { canonical: '/kennisbank/slaapzak-op-reis/' },
+}
 
 export default function SlaapzakOpReisPage() {
   return (

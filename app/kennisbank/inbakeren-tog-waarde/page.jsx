@@ -1,8 +1,14 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Baby, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle, Check, X } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Inbakeren en TOG-waarde: veilig aanpassen | TOGWaarde.nl',
+  description: 'Veilig inbakeren met de juiste TOG-waarde. Trek 0.5 tot 1.0 TOG af voor de inbakerdoek, houd totaal onder 4.0, en lees de veiligheidsregels plus transitie naar de slaapzak.',
+  keywords: 'inbakeren tog waarde, inbakeren baby, inbakerslaapzak, swaddling tog, veilig inbakeren, tog aanpassen inbakeren',
+  alternates: { canonical: '/kennisbank/inbakeren-tog-waarde/' },
+}
 
 export default function InbakerenTOGWaardePage() {
   return (

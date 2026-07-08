@@ -1,8 +1,14 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 import { BedDouble, ChevronRight, Activity, CheckCircle, AlertTriangle } from 'lucide-react'
+
+export const metadata = {
+  title: 'Van Slaapzak naar Dekbed: Tot Welke Leeftijd? | TOGWaarde.nl',
+  description: 'Wanneer stap je over van slaapzak naar dekbed? Slaapzak minimaal tot 12 maanden, dekbed pas vanaf 2 jaar. Plus tips voor de peuter die uit de slaapzak klimt.',
+  keywords: 'van slaapzak naar dekbed, tot welke leeftijd slaapzak, slaapzak of dekbed, peuter dekbed, overstappen slaapzak, peuter klimt uit slaapzak',
+  alternates: { canonical: '/kennisbank/van-slaapzak-naar-dekbed/' },
+}
 
 export default function VanSlaapzakNaarDekbedPage() {
   return (

@@ -1,7 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Thermometer, ChevronRight, Activity, CheckCircle, AlertTriangle, Phone } from 'lucide-react'
+
+export const metadata = {
+  title: 'Baby met koorts in een slaapzak? Welke TOG kiezen | TOGWaarde.nl',
+  description: 'Een baby met koorts mag in een slaapzak, maar kies een lichtere TOG. Zo voorkom je oververhitting, wanneer je de huisarts belt en hoe je terugkeert na de koorts.',
+  keywords: 'baby koorts slaapzak, koorts baby TOG, baby koorts aankleden, slaapzak bij koorts, oververhitting koorts, baby koorts huisarts',
+  alternates: { canonical: '/kennisbank/baby-koorts-slaapzak/' },
+}
 
 export default function BabyKoortsSlaapzakPage() {
   return (

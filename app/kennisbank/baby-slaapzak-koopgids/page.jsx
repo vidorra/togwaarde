@@ -1,8 +1,14 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 import { ShoppingCart, ArrowRight, ChevronRight, Activity, Star, Info, CheckCircle, ShoppingBag } from 'lucide-react'
+
+export const metadata = {
+  title: 'Baby Slaapzak Koopgids: TOG, maat en merken | TOGWaarde.nl',
+  description: 'Baby slaapzak kopen? Complete koopgids per TOG-waarde (0.5, 1.0, 2.5, 3.5), met maten per leeftijd, merkvergelijking, prijzen en kwaliteitskenmerken voor een veilige keuze.',
+  keywords: 'baby slaapzak kopen, slaapzak koopgids, tog waarde slaapzak, slaapzak maten, babyslaapzak merken, slaapzak kwaliteit',
+  alternates: { canonical: '/kennisbank/baby-slaapzak-koopgids/' },
+}
 
 export default function BabySlaapzakKoopgidsPage() {
   return (

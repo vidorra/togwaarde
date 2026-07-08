@@ -1,7 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Baby, ChevronRight, Activity, CheckCircle, AlertTriangle, Moon } from 'lucide-react'
+
+export const metadata = {
+  title: 'Baby slaapt slecht? Check temperatuur en voeding | TOGWaarde.nl',
+  description: 'Slaapt je baby slecht? Naast de juiste TOG en kamertemperatuur van 16 tot 20 graden verstoort ook honger de nacht. Zo check je in twee stappen temperatuur en voeding.',
+  keywords: 'baby slaapt slecht, baby onrustig slapen, baby wakker honger, slaaptemperatuur baby, baby voeding en slapen, TOG en slapen',
+  alternates: { canonical: '/kennisbank/slaapt-baby-slecht-check-voeding/' },
+}
 
 export default function SlaaptBabySlechtCheckVoedingPage() {
   return (

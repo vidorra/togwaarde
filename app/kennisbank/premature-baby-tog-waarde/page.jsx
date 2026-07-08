@@ -1,8 +1,14 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Heart, ArrowRight, ChevronRight, Activity, AlertCircle, Info, CheckCircle, AlertTriangle } from 'lucide-react'
 import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
+
+export const metadata = {
+  title: 'Premature Baby TOG-waarde: Veilige Slaapzak Keuze | TOGWaarde.nl',
+  description: 'Aangepaste TOG-waardes voor premature baby\'s: van couveuse naar thuis, gecorrigeerde leeftijd, extra temperatuurcontrole en speciale slaapzakken. Praktisch en veilig.',
+  keywords: 'premature baby tog waarde, prematuur slaapzak, couveuse naar thuis, gecorrigeerde leeftijd, te vroeg geboren baby, veilige babyslaap',
+  alternates: { canonical: '/kennisbank/premature-baby-tog-waarde/' },
+}
 
 export default function PrematureBabyTOGWaardePage() {
   return (

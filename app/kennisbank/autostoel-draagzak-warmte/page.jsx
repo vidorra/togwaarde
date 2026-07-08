@@ -1,7 +1,13 @@
-'use client'
 import Layout from '../../../components/Layout'
 import Link from 'next/link'
 import { Car, ChevronRight, Activity, CheckCircle, AlertTriangle } from 'lucide-react'
+
+export const metadata = {
+  title: 'Dikke jas in de autostoel? Veilig en warm onderweg | TOGWaarde.nl',
+  description: 'Waarom een dikke jas gevaarlijk is in de autostoel en hoe je je baby veilig en warm vervoert. Plus kledingadvies voor de draagzak en de overstap naar bed.',
+  keywords: 'dikke jas autostoel, baby autostoel warmte, baby draagzak kleding, veilig vervoeren baby, autostoel voetenzak, baby warm onderweg',
+  alternates: { canonical: '/kennisbank/autostoel-draagzak-warmte/' },
+}
 
 export default function AutostoelDraagzakWarmtePage() {
   return (
