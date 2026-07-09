@@ -314,11 +314,13 @@ export default function AffiliateProductWidget({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {displayProducts.map((product, index) => (
           <div key={product.id} className="relative flex">
-            {/* Product tag (Budget, Aanbevolen, etc.) */}
-            {product.tag && (
+            {/* Product tag - toon alleen het eerste deel (de TOG-tag), niet de
+                categorie die er in het tag-veld achter komt (bijv.
+                "0.5 TOG, slaapzak" -> "0.5 TOG"). */}
+            {product.tag && String(product.tag).split(',')[0].trim() && (
               <div className="absolute top-2 left-2 z-10">
                 <span className="bg-primary text-white text-xs px-2 py-1 rounded-full font-medium">
-                  {product.tag}
+                  {String(product.tag).split(',')[0].trim()}
                 </span>
               </div>
             )}
@@ -331,6 +333,20 @@ export default function AffiliateProductWidget({
                 </span>
               </div>
             )}
+
+            {/* Platform-badge (bol.com / Amazon), afgeleid van het snippet-type.
+                Staat onder de teller als die zichtbaar is. */}
+            <div className={`absolute right-2 z-10 ${!hideIndex ? 'top-10' : 'top-2'}`}>
+              {String(product.type || '').includes('amazon') ? (
+                <span className="bg-[#232F3E] text-white text-[10px] leading-none px-2 py-1 rounded font-bold tracking-tight">
+                  amazon
+                </span>
+              ) : (
+                <span className="bg-[#0050c8] text-white text-[10px] leading-none px-2 py-1 rounded font-bold tracking-tight">
+                  bol&nbsp;<span className="text-[#ffd200]">.com</span>
+                </span>
+              )}
+            </div>
 
             {/* Bol.com Iframe Widget */}
             {product.type === 'bol_iframe' && (
