@@ -334,18 +334,14 @@ export default function AffiliateProductWidget({
               </div>
             )}
 
-            {/* Platform-badge (bol.com / Amazon), afgeleid van het snippet-type.
+            {/* Platform-logo (bol.com / Amazon), afgeleid van het snippet-type.
                 Staat onder de teller als die zichtbaar is. */}
             <div className={`absolute right-2 z-10 ${!hideIndex ? 'top-10' : 'top-2'}`}>
-              {String(product.type || '').includes('amazon') ? (
-                <span className="bg-[#232F3E] text-white text-[10px] leading-none px-2 py-1 rounded font-bold tracking-tight">
-                  amazon
-                </span>
-              ) : (
-                <span className="bg-[#0050c8] text-white text-[10px] leading-none px-2 py-1 rounded font-bold tracking-tight">
-                  bol&nbsp;<span className="text-[#ffd200]">.com</span>
-                </span>
-              )}
+              <img
+                src={String(product.type || '').includes('amazon') ? '/amazon.png' : '/bol.jpg'}
+                alt={String(product.type || '').includes('amazon') ? 'Amazon' : 'bol.com'}
+                className="h-5 w-auto max-w-[56px] object-contain rounded bg-white p-0.5 shadow-sm"
+              />
             </div>
 
             {/* Bol.com Iframe Widget */}
