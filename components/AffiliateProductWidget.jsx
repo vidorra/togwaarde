@@ -340,7 +340,7 @@ export default function AffiliateProductWidget({
               <img
                 src={String(product.type || '').includes('amazon') ? '/amazon.png' : '/bol.jpg'}
                 alt={String(product.type || '').includes('amazon') ? 'Amazon' : 'bol.com'}
-                className="h-5 w-auto max-w-[56px] object-contain rounded bg-white p-0.5 shadow-sm"
+                className="h-8 w-auto max-w-[90px] object-contain rounded bg-white p-1 shadow-sm"
               />
             </div>
 
