@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { db } from '../../../../../lib/db/connection.js'
-import { snippets, pageSnippets } from '../../../../../lib/db/schema.js'
+import { snippets, pageSnippets, pages } from '../../../../../lib/db/schema.js'
 import { eq, and } from 'drizzle-orm'
 
 // Force dynamic route - prevent caching issues
@@ -40,6 +40,23 @@ export async function GET(request, { params }) {
     // CRITICAL: Detect website from hostname to filter results
     const website = detectWebsiteFromHostname(request)
 
+    // Inherit-resolutie: standaard toont een pagina de website-Default
+    // (pageId 'default'). Heeft de pagina expliciet inherit_default=false, dan
+    // toont hij z'n eigen toewijzingen. Ontbrekende rij => inherit (true).
+    // Zo erft bv. 'reverse-slaapzakken' de aan "Standaard" gekoppelde snippets.
+    let inheritDefault = true
+    if (pageId !== 'default') {
+      const pageRow = await db
+        .select({ inheritDefault: pages.inheritDefault })
+        .from(pages)
+        .where(and(eq(pages.id, pageId), eq(pages.website, website)))
+        .limit(1)
+      if (pageRow.length > 0) {
+        inheritDefault = pageRow[0].inheritDefault
+      }
+    }
+    const effectivePageId = inheritDefault ? 'default' : pageId
+
     // Load from database - filtered by website
     const pageSnippetsList = await db
       .select({
@@ -53,8 +70,8 @@ export async function GET(request, { params }) {
       })
       .from(pageSnippets)
       .leftJoin(snippets, eq(pageSnippets.snippetId, snippets.id))
-      // CRITICAL: Filter by both pageId and website
-      .where(and(eq(pageSnippets.pageId, pageId), eq(pageSnippets.website, website)))
+      // CRITICAL: Filter by both effective pageId and website
+      .where(and(eq(pageSnippets.pageId, effectivePageId), eq(pageSnippets.website, website)))
       .orderBy(pageSnippets.order)
 
     // Filter out orphaned references and inactive snippets
