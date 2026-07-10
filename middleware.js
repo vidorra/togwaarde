@@ -25,7 +25,10 @@ const getCSPHeader = (nonce) => {
       ...(isDev
         ? ["'unsafe-eval'", "'unsafe-inline'"]
         : ["'strict-dynamic'"]),
-      // Third-party scripts
+      // Third-party scripts. NB: de Google/GTM/Clarity-entries hieronder zijn
+      // alleen in gebruik als COOKIE_TRACKERS_ENABLED=true in app/layout.jsx
+      // (staat uit; we meten cookieless via Umami). Bewust laten staan zodat
+      // het terugzetten van die vlag niet stukloopt op de CSP.
       'https://www.googletagmanager.com',
       'https://*.googletagmanager.com',
       'https://www.google-analytics.com',
