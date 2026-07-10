@@ -74,6 +74,7 @@ export default function Footer() {
                 <Link href="/kennisbank/wat-is-tog" className="block hover:text-primary transition-colors">Wat is TOG?</Link>
                 <Link href="/kennisbank" className="block hover:text-primary transition-colors">Kennisbank</Link>
                 <Link href="/over-ons" className="block hover:text-primary transition-colors">Over Ons</Link>
+                <Link href="/affiliate-disclaimer" className="block hover:text-primary transition-colors">Affiliate-disclaimer</Link>
                 <Link href="/privacy-beleid" className="block hover:text-primary transition-colors">Privacy beleid</Link>
                 <button
                   onClick={() => window.dispatchEvent(new Event('open-cookie-consent'))}

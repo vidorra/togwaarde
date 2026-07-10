@@ -328,7 +328,7 @@ export default function AffiliateProductWidget({
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-primary">{title}</h3>
         <div className="flex items-center space-x-2 text-xs text-gray-500">
-          <span>Gesponsorde links</span>
+          <a href="/affiliate-disclaimer" className="hover:text-primary underline decoration-dotted underline-offset-2">Gesponsorde links</a>
         </div>
       </div>
       
@@ -478,7 +478,7 @@ export default function AffiliateProductWidget({
       
       <div className="mt-4 pt-4 border-t border-gray-200">
         <p className="text-xs text-gray-500">
-          Als partner van bol.com en Amazon verdienen we mogelijk een commissie bij aankopen via deze links.
+          Als partner van bol.com en Amazon verdienen we mogelijk een commissie bij aankopen via deze links. Prijzen kunnen afwijken; zie onze <a href="/affiliate-disclaimer" className="underline hover:text-primary">affiliate-disclaimer</a>.
           Dit heeft geen invloed op de prijs voor u.
         </p>
       </div>
