@@ -4,6 +4,20 @@ import { getProductsByCategory, getProductsByIds } from './affiliate-products.js
 import { trackEvent } from '../lib/analytics'
 import '../styles/bol-widget.css'
 
+// Affiliate-klik loggen: analytics-event (GA4/Umami) + anonieme beacon naar
+// de gedeelde click_events tabel zodat /admin/stats kliks per snippet toont.
+function trackAffiliateClick(snippetId) {
+  trackEvent('affiliate_click', { snippet_id: snippetId, widget: 'affiliate_widget' })
+  try {
+    const body = JSON.stringify({ snippetId, widget: 'affiliate_widget' })
+    if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+      navigator.sendBeacon('/api/track-click', body)
+    } else {
+      fetch('/api/track-click', { method: 'POST', body, keepalive: true }).catch(() => {})
+    }
+  } catch { /* tracking mag nooit de klik blokkeren */ }
+}
+
 /**
  * Component that properly executes Bol.com scripts
  * React's dangerouslySetInnerHTML doesn't execute <script> tags by default,
@@ -28,7 +42,7 @@ function BolScriptWidget({ product }) {
       const now = Date.now()
       if (now - lastClickRef.current < 1500) return
       lastClickRef.current = now
-      trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })
+      trackAffiliateClick(product.id)
     }
     const onClick = (e) => { if (e.target.closest?.('a')) fire() }
     const onEnter = () => { pointerInside = true }
@@ -352,7 +366,7 @@ export default function AffiliateProductWidget({
                     href={product.data.productUrl}
                     target="_blank"
                     rel="nofollow noopener"
-                    onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })}
+                    onClick={() => trackAffiliateClick(product.id)}
                     className="block hover:opacity-90 transition-opacity"
                   >
                     <div className="mb-3">
@@ -410,7 +424,7 @@ export default function AffiliateProductWidget({
                     href={product.data.url}
                     target="_blank"
                     rel="nofollow noopener"
-                    onClick={() => trackEvent('affiliate_click', { snippet_id: product.id, widget: 'affiliate_widget' })}
+                    onClick={() => trackAffiliateClick(product.id)}
                     className="block hover:opacity-90 transition-opacity flex flex-col flex-grow"
                   >
                     <div className="mb-3">
