@@ -112,7 +112,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
         : t < 22 ? '20-22°C' : t < 24 ? '22-24°C' : '24°C+'
       const payload = JSON.stringify({
         ageCategory: babyLeeftijd,
-        data: { roomTempBucket, togValue: Number(totaleTOG.toFixed(1)), sleepMode, status: status.status }
+        data: { calculator: 'tog', roomTempBucket, togValue: Number(totaleTOG.toFixed(1)), sleepMode, status: status.status }
       })
       try {
         const blob = new Blob([payload], { type: 'application/json' })

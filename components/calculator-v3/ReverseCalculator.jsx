@@ -79,6 +79,26 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
         kamer_temp: kamerTemp,
         advies_slaapzak_tog: adviesNu.geenSlaapzak ? 'geen' : adviesNu.slaapzakTOG,
       })
+
+      // Anonieme server-side event (gedeelde DB) zodat /admin/stats laat zien
+      // welke temperaturen en adviezen togwaarde-bezoekers krijgen. Grove
+      // bucket, geen persoonsgegevens.
+      const t = kamerTemp
+      const roomTempBucket = t < 16 ? '<16°C' : t < 18 ? '16-18°C' : t < 20 ? '18-20°C'
+        : t < 22 ? '20-22°C' : t < 24 ? '22-24°C' : '24°C+'
+      const payload = JSON.stringify({
+        data: {
+          calculator: 'reverse',
+          roomTempBucket,
+          adviesTog: adviesNu.geenSlaapzak ? 'geen' : String(adviesNu.slaapzakTOG)
+        }
+      })
+      try {
+        const blob = new Blob([payload], { type: 'application/json' })
+        if (!(typeof navigator !== 'undefined' && navigator.sendBeacon && navigator.sendBeacon('/api/track-calculation', blob))) {
+          fetch('/api/track-calculation', { method: 'POST', body: payload, headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(() => {})
+        }
+      } catch { /* tracking mag nooit de pagina breken */ }
     }, 1200)
     return () => clearTimeout(timer)
   }, [kamerTemp])

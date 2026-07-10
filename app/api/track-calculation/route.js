@@ -18,6 +18,10 @@ function sanitizeData(raw) {
   if (Number.isFinite(raw.togValue)) out.togValue = Math.max(0, Math.min(10, Math.round(raw.togValue * 2) / 2))
   if (typeof raw.sleepMode === 'string' && raw.sleepMode.length <= 16) out.sleepMode = raw.sleepMode
   if (typeof raw.status === 'string' && raw.status.length <= 24) out.status = raw.status
+  // Welke tool: 'reverse' (homepage kledingadvies) of 'tog' (/calculator)
+  if (typeof raw.calculator === 'string' && raw.calculator.length <= 16) out.calculator = raw.calculator
+  // Geadviseerde slaapzak-TOG van de reverse calculator ('0.5'...'3.5' of 'geen')
+  if (typeof raw.adviesTog === 'string' && raw.adviesTog.length <= 8) out.adviesTog = raw.adviesTog
   return out
 }
 
