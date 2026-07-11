@@ -121,7 +121,7 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
           Wat trekt mijn baby aan?
         </TitleComponent>
         <p className="text-sm text-text-secondary">
-          Stel de kamertemperatuur in — wij vertellen je meteen welke slaapzak en kleding veilig zijn.
+          Stel de kamertemperatuur in, wij vertellen je meteen welke slaapzak en kleding veilig zijn.
         </p>
       </div>
 
@@ -232,14 +232,14 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
         <div className="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-start gap-2 text-sm text-blue-800">
           <Info className="w-4 h-4 mt-0.5 flex-shrink-0" />
           <span>
-            Voel in het nekje of aan de rug: lauwwarm en droog betekent goed. Te warm is gevaarlijker dan te koud — kies bij twijfel een laagje minder.
+            Voel in het nekje of aan de rug: lauwwarm en droog betekent goed. Te warm is gevaarlijker dan te koud. Kies bij twijfel een laagje minder.
           </span>
         </div>
 
         {advies.geenSlaapzak && (
           <div className="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200 flex items-start gap-2 text-sm text-amber-800">
             <AlertTriangle className="w-4 h-4 mt-0.5 flex-shrink-0" />
-            <span>Te warm voor een slaapzak. Alleen een luier is genoeg — eventueel een dun hydrofiel laken. Zorg voor frisse lucht en controleer je baby extra.</span>
+            <span>Te warm voor een slaapzak. Alleen een luier is genoeg, eventueel met een dun hydrofiel laken. Zorg voor frisse lucht en controleer je baby extra.</span>
           </div>
         )}
         {isWarm && !advies.geenSlaapzak && (

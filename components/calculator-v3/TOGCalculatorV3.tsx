@@ -166,7 +166,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
             TOG Calculator
           </TitleComponent>
           <p className="text-sm text-text-secondary">
-            Vul in wat van toepassing is — alle delen zijn optioneel.
+            Vul in wat van toepassing is, alle delen zijn optioneel.
           </p>
         </div>
 
@@ -244,7 +244,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
           )}
           {kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP && (
             <InlineAlert tone="warn" icon={<AlertTriangle className="w-4 h-4" />}>
-              Boven 24°C: risico op oververhitting — gebruik maximaal 0.5 TOG.
+              Boven 24°C is er risico op oververhitting: gebruik maximaal 0.5 TOG.
             </InlineAlert>
           )}
         </Section>
@@ -339,12 +339,12 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
 
               {gekozenDekens.length > 0 && (
                 <InlineAlert tone="warn" icon={<AlertTriangle className="w-4 h-4" />}>
-                  Vouw dekens NOOIT dubbel — dit verdubbelt de TOG en verhoogt het risico op oververhitting.
+                  Vouw dekens NOOIT dubbel: dit verdubbelt de TOG en verhoogt het risico op oververhitting.
                 </InlineAlert>
               )}
               {isBabyUnder12Months && (
                 <InlineAlert tone="info" icon={<Info className="w-4 h-4" />}>
-                  Losse dekens zijn niet veilig onder 12 maanden — alleen ingestopte dekens worden getoond.
+                  Losse dekens zijn niet veilig onder 12 maanden: alleen ingestopte dekens worden getoond.
                 </InlineAlert>
               )}
             </div>
@@ -361,7 +361,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
         <Section
           icon={<Shirt className="w-5 h-5" />}
           title="Wat draagt je baby?"
-          subtitle="Tik alles aan wat van toepassing is — laat leeg als je baby bloot slaapt"
+          subtitle="Tik alles aan wat van toepassing is. Laat leeg als je baby bloot slaapt"
         >
           <div className="grid grid-cols-2 gap-2">
             {Object.entries(KLEDING_WAARDEN).map(([item, info]) => {
@@ -393,7 +393,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
 
           <p className="mt-4 text-xs text-text-secondary flex items-start gap-1.5">
             <Info className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
-            TOG-waarden voor losse kleding zijn schattingen — alleen slaapzakken hebben een officiële rating.
+            TOG-waarden voor losse kleding zijn schattingen: alleen slaapzakken hebben een officiële rating.
           </p>
         </Section>
 
