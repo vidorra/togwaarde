@@ -8,7 +8,11 @@
 import pg from 'pg'
 const { Pool } = pg
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://flesvoedingcalculator-db:b3f1911f7b58306f@srv-captain--flesvoedingcalculator-db:5432/flesvoedingcalculator?connection_limit=5&pool_timeout=30'
+const DATABASE_URL = process.env.DATABASE_URL
+if (!DATABASE_URL) {
+  console.error('DATABASE_URL ontbreekt. Zet de env var voordat je de migratie draait.')
+  process.exit(1)
+}
 
 console.log('🚀 Starting database migration...')
 console.log('📍 Database:', DATABASE_URL.replace(/:[^:@]+@/, ':***@'))
