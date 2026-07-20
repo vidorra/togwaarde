@@ -228,7 +228,7 @@ export default function SimpleAdminDashboard() {
       setLoadError(null)
       
       // Load snippets
-      console.log('Loading snippets from /api/admin-snippets/')
+      console.log('Loading snippets from /api/admin/snippets/')
       try {
         const snippetsResponse = await fetch(`/api/admin/snippets/?t=${Date.now()}`, {
           method: 'GET',
@@ -2107,7 +2107,7 @@ export default function SimpleAdminDashboard() {
                 <p>• <strong>Current URL:</strong> {typeof window !== 'undefined' ? window.location.href : 'Server-side'}</p>
                 <p>• <strong>API Endpoints:</strong></p>
                 <div className="ml-4 text-xs">
-                  <p>- Snippets: <code>/api/admin-snippets/</code></p>
+                  <p>- Snippets: <code>/api/admin/snippets/</code></p>
                   <p>- Pages: <code>/api/admin-pages/</code></p>
                 </div>
                 {loadError && (
