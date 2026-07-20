@@ -5,6 +5,7 @@ import { db } from '../../../lib/db/connection.js'
 import { clickEvents } from '../../../lib/db/schema.js'
 import { ensureClickEventsTable } from '../../../lib/db/ensure-events.js'
 import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
+import { checkTrackRate, bodyTooLarge } from '../../../lib/track-guard.js'
 
 export const dynamic = 'force-dynamic'
 
@@ -19,6 +20,17 @@ const WIDGET_PATTERN = /^[A-Za-z0-9_-]{1,64}$/
 // can report across both websites.
 export async function POST(request) {
   try {
+    if (bodyTooLarge(request)) {
+      return NextResponse.json({ success: false, error: 'Body too large' }, { status: 413 })
+    }
+    const rate = checkTrackRate(request)
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests' },
+        { status: 429, headers: { 'Retry-After': String(rate.retryAfter) } }
+      )
+    }
+
     const body = await request.json()
     const { snippetId, widget } = body
 

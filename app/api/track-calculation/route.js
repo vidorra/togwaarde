@@ -3,6 +3,7 @@ import { randomUUID } from 'crypto'
 import { db } from '../../../lib/db/connection.js'
 import { calculatorEvents } from '../../../lib/db/schema.js'
 import { ensureCalculatorEventsTable } from '../../../lib/db/ensure-events.js'
+import { checkTrackRate, bodyTooLarge } from '../../../lib/track-guard.js'
 
 export const dynamic = 'force-dynamic'
 
@@ -27,6 +28,17 @@ function sanitizeData(raw) {
 
 export async function POST(request) {
   try {
+    if (bodyTooLarge(request)) {
+      return NextResponse.json({ success: false, error: 'Body too large' }, { status: 413 })
+    }
+    const rate = checkTrackRate(request)
+    if (!rate.allowed) {
+      return NextResponse.json(
+        { success: false, error: 'Too many requests' },
+        { status: 429, headers: { 'Retry-After': String(rate.retryAfter) } }
+      )
+    }
+
     const body = await request.json().catch(() => null)
     if (!body) {
       return NextResponse.json({ success: false, error: 'Invalid body' }, { status: 400 })
