@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Homepage: kledingadvies per temperatuur -->
   <url>
-    <loc>https://togwaarde.nl</loc>
+    <loc>https://togwaarde.nl/</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -10,13 +10,13 @@
 
   <!-- Tools -->
   <url>
-    <loc>https://togwaarde.nl/calculator</loc>
+    <loc>https://togwaarde.nl/calculator/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/veiligheidscontrole</loc>
+    <loc>https://togwaarde.nl/veiligheidscontrole/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -24,25 +24,25 @@
 
   <!-- Informatiepagina's -->
   <url>
-    <loc>https://togwaarde.nl/wat-is-tog-waarde</loc>
+    <loc>https://togwaarde.nl/wat-is-tog-waarde/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/tog-waarde-gids</loc>
+    <loc>https://togwaarde.nl/tog-waarde-gids/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/producten</loc>
+    <loc>https://togwaarde.nl/producten/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/faq</loc>
+    <loc>https://togwaarde.nl/faq/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,175 +50,175 @@
 
   <!-- Kennisbank -->
   <url>
-    <loc>https://togwaarde.nl/kennisbank</loc>
+    <loc>https://togwaarde.nl/kennisbank/</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/wat-is-tog</loc>
+    <loc>https://togwaarde.nl/kennisbank/wat-is-tog/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/wat-is-tog-waarde</loc>
+    <loc>https://togwaarde.nl/kennisbank/wat-is-tog-waarde/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-schaal-overzicht</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-schaal-overzicht/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-waarde-berekenen</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-waarde-berekenen/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-waarde-babykleding-tabel</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-waarde-babykleding-tabel/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/kleding-onder-slaapzak</loc>
+    <loc>https://togwaarde.nl/kennisbank/kleding-onder-slaapzak/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-waarde-per-seizoen</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-waarde-per-seizoen/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-waarde-winter</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-waarde-winter/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/baby-slapen-zomer</loc>
+    <loc>https://togwaarde.nl/kennisbank/baby-slapen-zomer/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/baby-slaapzak-koopgids</loc>
+    <loc>https://togwaarde.nl/kennisbank/baby-slaapzak-koopgids/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/nederlandse-merken-vergelijking</loc>
+    <loc>https://togwaarde.nl/kennisbank/nederlandse-merken-vergelijking/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/veilige-slaaptemperatuur</loc>
+    <loc>https://togwaarde.nl/kennisbank/veilige-slaaptemperatuur/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/babykamer-temperatuur</loc>
+    <loc>https://togwaarde.nl/kennisbank/babykamer-temperatuur/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/baby-temperatuur-controleren</loc>
+    <loc>https://togwaarde.nl/kennisbank/baby-temperatuur-controleren/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/oververhitting-herkennen</loc>
+    <loc>https://togwaarde.nl/kennisbank/oververhitting-herkennen/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/warmtestuwing-baby</loc>
+    <loc>https://togwaarde.nl/kennisbank/warmtestuwing-baby/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/wiegendood-preventie</loc>
+    <loc>https://togwaarde.nl/kennisbank/wiegendood-preventie/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/wiegendood-voorkomen-tog</loc>
+    <loc>https://togwaarde.nl/kennisbank/wiegendood-voorkomen-tog/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/premature-baby-tog-waarde</loc>
+    <loc>https://togwaarde.nl/kennisbank/premature-baby-tog-waarde/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/inbakeren-tog-waarde</loc>
+    <loc>https://togwaarde.nl/kennisbank/inbakeren-tog-waarde/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/slaapt-baby-slecht-check-voeding</loc>
+    <loc>https://togwaarde.nl/kennisbank/slaapt-baby-slecht-check-voeding/</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/autostoel-draagzak-warmte</loc>
+    <loc>https://togwaarde.nl/kennisbank/autostoel-draagzak-warmte/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/van-slaapzak-naar-dekbed</loc>
+    <loc>https://togwaarde.nl/kennisbank/van-slaapzak-naar-dekbed/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/baby-koorts-slaapzak</loc>
+    <loc>https://togwaarde.nl/kennisbank/baby-koorts-slaapzak/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/slaapzak-op-reis</loc>
+    <loc>https://togwaarde.nl/kennisbank/slaapzak-op-reis/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-mythes-en-feiten</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-mythes-en-feiten/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-waarde-per-leeftijd</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-waarde-per-leeftijd/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/kennisbank/tog-waarde-kinderopvang</loc>
+    <loc>https://togwaarde.nl/kennisbank/tog-waarde-kinderopvang/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -226,19 +226,19 @@
 
   <!-- Over & contact -->
   <url>
-    <loc>https://togwaarde.nl/over-ons</loc>
+    <loc>https://togwaarde.nl/over-ons/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/partners</loc>
+    <loc>https://togwaarde.nl/partners/</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/contact</loc>
+    <loc>https://togwaarde.nl/contact/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -246,25 +246,25 @@
 
   <!-- Juridisch -->
   <url>
-    <loc>https://togwaarde.nl/privacy-beleid</loc>
+    <loc>https://togwaarde.nl/privacy-beleid/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/gebruiksvoorwaarden</loc>
+    <loc>https://togwaarde.nl/gebruiksvoorwaarden/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/medische-disclaimer</loc>
+    <loc>https://togwaarde.nl/medische-disclaimer/</loc>
     <lastmod>2025-11-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://togwaarde.nl/affiliate-disclaimer</loc>
+    <loc>https://togwaarde.nl/affiliate-disclaimer/</loc>
     <lastmod>2026-07-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
