@@ -2,6 +2,7 @@ import './globals.css'
 import Script from 'next/script'
 import ConsentBanner from '../components/ConsentBanner'
 import UmamiScript from '../components/UmamiScript'
+import ViewBeacon from '../components/ViewBeacon'
 import { initWebVitals } from '../lib/analytics'
 
 /**
@@ -206,6 +207,8 @@ export default function RootLayout({ children }) {
         
         {/* Umami: cookieless analytics, geen consent nodig */}
         <UmamiScript />
+        {/* Eigen anonieme bezoek-teller (voor de admin-statistieken) */}
+        <ViewBeacon />
 
         {children}
 
