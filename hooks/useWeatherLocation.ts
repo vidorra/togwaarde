@@ -304,11 +304,21 @@ function getCoordinatesFromTimezone(timezone: string): LocationCoords {
  * }
  */
 export function useWeatherLocation(): WeatherLocationResult {
-  const [buitenTemp, setBuitenTemp] = useState<number>(getGeschatteBuitenTemp())
+  // Vaste beginwaarden: de pagina wordt gebouwd op een server in UTC en op een
+  // andere datum dan het bezoek. Rekenden we hier al met tijdzone en maand,
+  // dan week de server-HTML af van de eerste render in de browser en gooide
+  // React de hele server-render weg (hydratiefout #418/#425, 16-11-2026).
+  // De schatting voor vandaag volgt direct na het laden, in de effect hieronder.
+  const [buitenTemp, setBuitenTemp] = useState<number>(10)
   const [locationCity, setLocationCity] = useState<string>('')
-  const [seizoen, setSeizoen] = useState<Seizoen>(getHuidigSeizoen())
+  const [seizoen, setSeizoen] = useState<Seizoen>('herfst')
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setSeizoen(getHuidigSeizoen())
+    setBuitenTemp(getGeschatteBuitenTemp())
+  }, [])
 
   useEffect(() => {
     const fetchNightTemp = async (): Promise<void> => {

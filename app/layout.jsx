@@ -168,43 +168,6 @@ export default function RootLayout({ children }) {
           </>
         )}
 
-        {/* Web Vitals Monitoring */}
-        <Script id="web-vitals-init" strategy="afterInteractive">
-          {`
-            (async () => {
-              try {
-                const { onCLS, onFCP, onLCP, onTTFB } = await import('web-vitals');
-                
-                function sendToAnalytics(metric) {
-                  if (typeof window !== 'undefined' && window.gtag) {
-                    window.gtag('event', metric.name, {
-                      event_category: 'Web Vitals',
-                      event_label: metric.id,
-                      value: Math.round(metric.name === 'CLS' ? metric.delta * 1000 : metric.delta),
-                      non_interaction: true,
-                    });
-                  }
-                  
-                  if (typeof console !== 'undefined' && console.log) {
-                    console.log('[Web Vitals]', metric.name, ':', {
-                      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-                      delta: Math.round(metric.name === 'CLS' ? metric.delta * 1000 : metric.delta),
-                      id: metric.id,
-                    });
-                  }
-                }
-                
-                onCLS(sendToAnalytics);
-                onFCP(sendToAnalytics);
-                onLCP(sendToAnalytics);
-                onTTFB(sendToAnalytics);
-              } catch (error) {
-                console.error('Failed to load web vitals:', error);
-              }
-            })();
-          `}
-        </Script>
-        
         {/* Umami: cookieless analytics, geen consent nodig */}
         <UmamiScript />
         {/* Eigen anonieme bezoek-teller (voor de admin-statistieken) */}

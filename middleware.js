@@ -58,6 +58,10 @@ const getCSPHeader = (nonce) => {
       'https://www.bol.com',
       'https://*.bol.com',
       'https://partner.bol.com',
+      // Productfoto's van Amazon-snippets
+      'https://m.media-amazon.com',
+      'https://*.media-amazon.com',
+      'https://images-na.ssl-images-amazon.com',
     ],
     'font-src': [
       "'self'",
