@@ -65,7 +65,7 @@ pagina 1. Lukt dat niet, dan zijn links van andere sites de volgende hefboom.
       "wat is tog waarde". In alle andere gevallen geldt het besluit hieronder.
       Stand 16-11: gemiddelde positie 73,5 bevestigd; welke pagina Google
       toont is nog niet nagekeken. Tot die tijd geldt het besluit hieronder.
-- [ ] www naar niet-www is nu twee keer een 302 (eerst naar http). In CapRover
+- [x] (Gecontroleerd 16-11: één 301 naar https zonder www.) www naar niet-www was twee keer een 302 (eerst naar http). In CapRover
       via "Edit Default Nginx Configurations" beide `return 302` naar `301`
       zetten en de doorstuurregel naar `https://togwaarde.nl$request_uri`.
 
@@ -108,7 +108,8 @@ al een canonical en de meeste inhoud. De homepage blijft de tool en houdt
 - [x] **Sitemap.** In `public/sitemap.xml` de drie URL's verwijderen en de
       `lastmod` van de gids bijwerken.
 - [ ] In Search Console de gids opnieuw laten indexeren (Jens).
-- [ ] **Controle na deploy.** `curl -sIL` op de drie oude URL's, met en zonder
+- [x] **Controle na deploy.** (Live 16-11: met slash één 308, zonder slash
+      twee stappen, alle zes eindigen op de gids met 200.) `curl -sIL` op de drie oude URL's, met en zonder
       slash aan het eind: één stap, status 308, eindigt op de gids. (Next geeft
       308 bij `permanent: true`; Google behandelt dat als 301.)
       Lokaal getest 16-11: met slash één stap; zonder slash twee stappen,
