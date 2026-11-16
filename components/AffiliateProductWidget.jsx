@@ -1,8 +1,7 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getProductsByCategory, getProductsByIds } from './affiliate-products.js'
 import { trackEvent } from '../lib/analytics'
-import '../styles/bol-widget.css'
 
 // Affiliate-klik loggen: analytics-event (GA4/Umami) + anonieme beacon naar
 // de gedeelde click_events tabel zodat /admin/stats kliks per snippet toont.
@@ -25,253 +24,132 @@ function fmtPrice(price) {
   return s.includes('€') ? s : `€ ${s}`
 }
 
-/**
- * Component that properly executes Bol.com scripts
- * React's dangerouslySetInnerHTML doesn't execute <script> tags by default,
- * so we need to manually inject and execute them
- */
-function BolScriptWidget({ product }) {
-  const containerRef = useRef(null)
-  const lastClickRef = useRef(0)
+const PLACEHOLDER_IMG = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04MCA4MEgxMjBWMTIwSDgwVjgwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNOTYgMTA0TDEwNCAxMTJMMTIwIDk2IiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
 
-  // GA4 affiliate_click for this embedded widget. The clickable link is usually
-  // inside the injected bol.com script/iframe, so a React onClick on our own
-  // button would miss those clicks. We delegate on the whole card: any click on
-  // an <a> (injected or our fallback button), plus an iframe-intent fallback
-  // (window blur while the pointer is over the card = the bol iframe was clicked
-  // and opened a new tab). Debounced so one user action never double-counts.
-  useEffect(() => {
-    const el = containerRef.current
-    if (!el) return
-
-    let pointerInside = false
-    const fire = () => {
-      const now = Date.now()
-      if (now - lastClickRef.current < 1500) return
-      lastClickRef.current = now
-      trackAffiliateClick(product.id)
-    }
-    const onClick = (e) => { if (e.target.closest?.('a')) fire() }
-    const onEnter = () => { pointerInside = true }
-    const onLeave = () => { pointerInside = false }
-    const onBlur = () => { if (pointerInside) fire() }
-
-    el.addEventListener('click', onClick)
-    el.addEventListener('mouseenter', onEnter)
-    el.addEventListener('mouseleave', onLeave)
-    window.addEventListener('blur', onBlur)
-    return () => {
-      el.removeEventListener('click', onClick)
-      el.removeEventListener('mouseenter', onEnter)
-      el.removeEventListener('mouseleave', onLeave)
-      window.removeEventListener('blur', onBlur)
-    }
-  }, [product.id])
-
-  useEffect(() => {
-    if (!containerRef.current || !product.generatedHtml) return
-
-    // Extract and execute scripts from HTML
-    const scriptContainer = containerRef.current.querySelector('.bol-widget-content')
-    if (!scriptContainer) return
-
-    const tempDiv = document.createElement('div')
-    tempDiv.innerHTML = product.generatedHtml
-
-    // Find all script tags
-    const scripts = tempDiv.querySelectorAll('script')
-
-    scripts.forEach((oldScript) => {
-      const newScript = document.createElement('script')
-
-      // Copy attributes
-      Array.from(oldScript.attributes).forEach(attr => {
-        newScript.setAttribute(attr.name, attr.value)
-      })
-
-      // Copy inline script content or src
-      if (oldScript.src) {
-        newScript.src = oldScript.src
-      } else {
-        newScript.textContent = oldScript.textContent
-      }
-
-      // Append to container to execute
-      scriptContainer.appendChild(newScript)
-    })
-
-    console.log(`✅ Bol.com scripts executed for product: ${product.id}`)
-  }, [product.generatedHtml, product.id])
+// Eén kaart voor bol en Amazon: foto, naam, prijs uit onze eigen database en
+// een link via het partnerprogramma. Geen script van bol, dus elke klik loopt
+// via onze eigen <a> en wordt meegeteld (ook op mobiel).
+function ProductCard({ product }) {
+  const isAmazon = String(product.type || '').includes('amazon')
+  const shop = isAmazon ? 'Amazon' : 'bol.com'
+  const href = (isAmazon ? product.data?.url : product.data?.productUrl) || product.url || '#'
+  const image = product.data?.imageUrl || product.data?.fallbackImage || PLACEHOLDER_IMG
+  const name = product.name || product.data?.title || product.data?.alt || ''
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col w-full" ref={containerRef}>
-      <div className="text-center space-y-4 flex flex-col flex-grow" data-product-id={product.id}>
-        {/* 1. Product Image (from backend) */}
+    <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col w-full">
+      <a
+        href={href}
+        target="_blank"
+        rel="nofollow sponsored noopener"
+        onClick={() => trackAffiliateClick(product.id)}
+        className="text-center flex flex-col flex-grow hover:opacity-90 transition-opacity"
+      >
         <div className="mb-3">
           <img
-            src={product.data?.fallbackImage || 'https://media.s-bol.com/NKX9XZWN3RGL/0RNmv15/550x707.jpg'}
-            alt={product.name || product.data?.title}
+            src={image}
+            alt={name}
+            loading="lazy"
             className="mx-auto rounded-lg max-w-full h-auto"
             style={{ maxHeight: '200px' }}
-            onError={(e) => {
-              e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04MCA4MEgxMjBWMTIwSDgwVjgwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNOTYgMTA0TDEwNCAxMTJMMTIwIDk2IiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
-              e.target.style.display = 'block'
-            }}
+            onError={(e) => { e.currentTarget.src = PLACEHOLDER_IMG }}
           />
         </div>
-
-        {/* 2. Product Title */}
-        <h4 className="font-medium text-primary text-sm">
-          {product.name || product.data?.title}
+        <h4 className="font-medium text-primary text-sm mb-2 line-clamp-2 min-h-[40px] flex items-center justify-center">
+          {name}
         </h4>
-
-        {/* 3. Bol.com Script Execution Container */}
-        <div className="bol-widget-content">
-          {/* Scripts will be injected here by useEffect */}
-        </div>
-
-        {/* 4. Button */}
+        {product.price && (
+          <div className="mb-2">
+            <span className="text-lg font-bold text-gray-900">{fmtPrice(product.price)}</span>
+            {product.originalPrice && product.originalPrice !== product.price && (
+              <span className="ml-2 text-sm text-gray-500 line-through">{fmtPrice(product.originalPrice)}</span>
+            )}
+            {product.priceLastUpdated && (
+              <div className="text-[10px] text-gray-400 mt-0.5">
+                Prijs van {new Date(product.priceLastUpdated).toLocaleDateString('nl-NL')}, actuele prijs op {shop}
+              </div>
+            )}
+          </div>
+        )}
         <div className="mt-auto">
-          <a
-            href={product.url || product.data?.productUrl || '#'}
-            target="_blank"
-            rel="nofollow noopener"
-            className="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors inline-block"
+          <span
+            className={`text-white px-3 py-2 rounded-lg text-sm font-medium inline-block ${isAmazon ? '' : 'bg-primary'}`}
+            style={isAmazon ? { backgroundColor: '#FF9900' } : undefined}
           >
-            Bekijk op bol.com →
-          </a>
+            Bekijk op {shop} →
+          </span>
         </div>
-      </div>
+      </a>
     </div>
   )
 }
 
 /**
- * Renders real Bol.com widgets and Amazon affiliate links
- * @param {Object} props
- * @param {string} props.pageId - Page ID to load admin-managed snippets (preferred)
- * @param {string} props.category - Product category (sterilisatoren, babyflessen, etc.) - fallback
- * @param {Array<string>} props.productIds - Specific product IDs to show - fallback
- * @param {string} props.title - Section title
- * @param {number} props.maxProducts - Maximum number of products to show (only for static fallback)
+ * Affiliate-producten (bol.com en Amazon) als eigen kaarten.
+ * @param {string} props.pageId - pagina-id voor snippets uit de admin (voorkeur)
+ * @param {string} props.category - categorie voor de statische terugval
+ * @param {Array<string>} props.productIds - specifieke producten voor de statische terugval
+ * @param {string} props.title - kop van de sectie
+ * @param {number} props.maxProducts - maximum (alleen bij statische terugval)
+ * @param {string} props.filterTag - TOG-waarde om op te filteren, bv. "2.5"
+ * @param {boolean} props.hideIndex - nummering verbergen
  */
 export default function AffiliateProductWidget({
   pageId = null,
   category = null,
   productIds = null,
-  title = "Aanbevolen Producten",
+  title = 'Aanbevolen producten',
   maxProducts = null,
   filterTag = null,
   hideIndex = false
 }) {
-  const containerRef = useRef(null)
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
 
-  // Load products from admin system or fallback to static data
   useEffect(() => {
+    let cancelled = false
     async function loadProducts() {
       setLoading(true)
-      
+
       if (pageId) {
-        // Load from admin system with timeout
         try {
-          console.log(`🔍 AffiliateProductWidget: Loading admin data for pageId: ${pageId}`)
-          
-          // Create very long timeout (15 seconds) for production reliability
-          const timeoutPromise = new Promise((_, reject) => 
+          const timeout = new Promise((_, reject) =>
             setTimeout(() => reject(new Error('API timeout')), 15000)
           )
-          
-          // Add cache-busting for production deployment propagation
-          const timestamp = Date.now()
-          const apiUrl = `/api/affiliates/page/${pageId}/?v=${timestamp}`
-          console.log(`🔍 AffiliateProductWidget: Fetching from: ${apiUrl}`)
-          const fetchPromise = fetch(apiUrl)
-          
-          const response = await Promise.race([fetchPromise, timeoutPromise])
-          console.log(`🔍 AffiliateProductWidget: API response status: ${response.status} for ${apiUrl}`)
-          
+          const response = await Promise.race([
+            fetch(`/api/affiliates/page/${pageId}/?v=${Date.now()}`),
+            timeout
+          ])
           if (response.ok) {
             const data = await response.json()
-            console.log(`🔍 AffiliateProductWidget: API response data:`, data)
-            
-            if (data.success && data.snippets && data.snippets.length > 0) {
-              console.log(`✅ AffiliateProductWidget: Successfully loaded ${data.snippets.length} admin snippets`)
-              console.log(`🔍 All loaded products:`, data.snippets.map(p => `${p.id} (${p.name}) - ${p.type} - active: ${p.active}`))
-              
-              // CRITICAL: Force load success even if response seems delayed
-              console.log(`🚀 PRODUCTION DEBUG: Setting products array and loading=false immediately`)
-              setProducts(data.snippets)
-              setLoading(false)
-              
-              // Additional debug for production
-              if (typeof window !== 'undefined') {
-                window.AFFILIATE_DEBUG = {
-                  pageId,
-                  apiUrl,
-                  loadedSnippets: data.snippets.length,
-                  timestamp: new Date().toISOString()
-                }
-                console.log(`🔧 PRODUCTION DEBUG: Set window.AFFILIATE_DEBUG`, window.AFFILIATE_DEBUG)
+            if (data.success && data.snippets?.length > 0) {
+              if (!cancelled) {
+                setProducts(data.snippets)
+                setLoading(false)
               }
               return
-            } else {
-              console.warn(`⚠️ AffiliateProductWidget: Admin API returned no snippets. Data:`, data)
-              console.warn(`⚠️ PRODUCTION DEBUG: Falling back to static data due to API response structure`)
             }
-          } else {
-            console.warn(`⚠️ AffiliateProductWidget: API request failed with status: ${response.status}`)
-            console.warn(`⚠️ PRODUCTION DEBUG: HTTP error - falling back to static data`)
           }
         } catch (error) {
-          console.error('❌ AffiliateProductWidget: Failed to load admin snippets, falling back to static data:', error.message)
-          console.error('❌ PRODUCTION DEBUG: Error details:', {
-            errorMessage: error.message,
-            errorType: error.constructor.name,
-            pageId,
-            apiUrl: `/api/affiliates/page/${pageId}/?v=${Date.now()}`,
-            timestamp: new Date().toISOString()
-          })
-          
-          // Set debug info on error too
-          if (typeof window !== 'undefined') {
-            window.AFFILIATE_ERROR = {
-              pageId,
-              error: error.message,
-              timestamp: new Date().toISOString()
-            }
-          }
+          console.warn('AffiliateProductWidget: admin-snippets niet geladen', error.message)
         }
       }
-      
-      // Fallback to static data
-      console.log(`📦 AffiliateProductWidget: Falling back to static data. Category: ${category}, ProductIds: ${productIds}`)
-      const staticProducts = productIds 
+
+      const staticProducts = productIds
         ? getProductsByIds(productIds)
         : getProductsByCategory(category)
-      
-      console.log(`📦 AffiliateProductWidget: Static products loaded: ${staticProducts.length}`)
-      console.log(`📦 AffiliateProductWidget: Static product details:`, staticProducts.map(s => ({id: s.id, name: s.name, type: s.type})))
-      setProducts(staticProducts)
-      setLoading(false)
-      console.log(`🏁 AffiliateProductWidget: Component loading complete. Final state - Loading: false, Products: ${staticProducts.length}`)
+      if (!cancelled) {
+        setProducts(staticProducts)
+        setLoading(false)
+      }
     }
-    
-    loadProducts()
-  }, [pageId, category, productIds])
-  
-  // Debug log for deployment verification - v7 admin system integration
-  useEffect(() => {
-    if (typeof window !== 'undefined' && products.length > 0 && !loading) {
-      const source = pageId ? `page "${pageId}"` : `category "${category}"`
-      console.log(`🛍️ AffiliateProductWidget loaded ${products.length} products from ${source} - admin integration v5`)
-    }
-  }, [products, loading, pageId, category])
 
-  // Optionally filter by a TOG tag (e.g. "2.5"). Matches the recommended TOG
-  // against the snippet's tag. If nothing matches, fall back to all products so
-  // the section is never empty.
+    loadProducts()
+    return () => { cancelled = true }
+  }, [pageId, category, productIds])
+
+  // Optioneel filteren op TOG-tag (bv. "2.5"). Matcht niets, dan alle
+  // producten tonen zodat de sectie nooit leeg is.
   const matchesTag = (p) => {
     if (!filterTag) return true
     const m = String(p.tag || '').replace(',', '.').match(/\d+(\.\d+)?/)
@@ -280,206 +158,68 @@ export default function AffiliateProductWidget({
   }
   const tagFiltered = filterTag ? products.filter(matchesTag) : products
   const base = (filterTag && tagFiltered.length === 0) ? products : tagFiltered
-
-  // For admin-managed pages, show all products. For static fallback, limit if specified
   const displayProducts = pageId ? base : (maxProducts ? base.slice(0, maxProducts) : base)
-  
-  // Debug: Log the transition from products to displayProducts
-  if (products.length !== displayProducts.length) {
-    console.log(`⚠️ Product count changed: ${products.length} → ${displayProducts.length}`)
-    console.log(`📦 Original products:`, products.map(p => p.id))
-    console.log(`📋 Display products:`, displayProducts.map(p => p.id))
-  }
-
-  // Simplified widget setup - no complex hide/show logic needed
-  useEffect(() => {
-    console.log(`🔍 AffiliateProductWidget: Rendering ${displayProducts.length} products with simplified structure`)
-  }, [displayProducts])
 
   if (loading) {
     return (
       <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
         <h3 className="text-lg font-semibold text-primary mb-4">{title}</h3>
         <div className="text-center py-8">
-          <p className="text-gray-600">Laden van productaanbevelingen...</p>
+          <p className="text-gray-600">Productaanbevelingen laden...</p>
         </div>
       </div>
     )
   }
-  
-  if (displayProducts.length === 0) {
-    return (
-      <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
-        <h3 className="text-lg font-semibold text-primary mb-4">{title}</h3>
-        <div className="text-center py-8">
-          <p className="text-gray-600">Geen productaanbevelingen beschikbaar</p>
-          {pageId && (
-            <p className="text-gray-500 text-sm mt-2">
-              Voeg producten toe via het admin paneel
-            </p>
-          )}
-        </div>
-      </div>
-    )
-  }
+
+  // Geen producten: niets tonen (geen lege doos of admin-melding voor bezoekers)
+  if (displayProducts.length === 0) return null
 
   return (
-    <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6" ref={containerRef}>
+    <div className="bg-white/80 backdrop-blur rounded-2xl border border-gray-200 p-6">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-primary">{title}</h3>
-        <div className="flex items-center space-x-2 text-xs text-gray-500">
-          <a href="/affiliate-disclaimer" className="hover:text-primary underline decoration-dotted underline-offset-2">Gesponsorde links</a>
-        </div>
+        <a href="/affiliate-disclaimer" className="text-xs text-gray-500 hover:text-primary underline decoration-dotted underline-offset-2">Gesponsorde links</a>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {displayProducts.map((product, index) => (
-          <div key={product.id} className="relative flex">
-            {/* Product tag - toon alleen het eerste deel (de TOG-tag), niet de
-                categorie die er in het tag-veld achter komt (bijv.
-                "0.5 TOG, slaapzak" -> "0.5 TOG"). */}
-            {product.tag && String(product.tag).split(',')[0].trim() && (
-              <div className="absolute top-2 left-2 z-10">
-                <span className="bg-primary text-white text-xs px-2 py-1 rounded-full font-medium">
-                  {String(product.tag).split(',')[0].trim()}
-                </span>
-              </div>
-            )}
-            
-            {/* Product counter */}
-            {!hideIndex && (
-              <div className="absolute top-2 right-2 z-10">
-                <span className="bg-gray-800 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">
-                  {index + 1}
-                </span>
-              </div>
-            )}
+        {displayProducts.map((product, index) => {
+          const isAmazon = String(product.type || '').includes('amazon')
+          // Alleen het eerste deel van de tag tonen ("0.5 TOG, slaapzak" -> "0.5 TOG")
+          const tag = product.tag ? String(product.tag).split(',')[0].trim() : ''
+          return (
+            <div key={product.id} className="relative flex">
+              {tag && (
+                <div className="absolute top-2 left-2 z-10">
+                  <span className="bg-primary text-white text-xs px-2 py-1 rounded-full font-medium">{tag}</span>
+                </div>
+              )}
 
-            {/* Platform-logo (bol.com / Amazon), afgeleid van het snippet-type.
-                Staat onder de teller als die zichtbaar is. */}
-            <div className={`absolute right-2 z-10 ${!hideIndex ? 'top-10' : 'top-2'}`}>
-              <img
-                src={String(product.type || '').includes('amazon') ? '/amazon.png' : '/bol.jpg'}
-                alt={String(product.type || '').includes('amazon') ? 'Amazon' : 'bol.com'}
-                className="h-8 w-auto max-w-[90px] object-contain rounded bg-white p-1 shadow-sm"
-              />
+              {!hideIndex && (
+                <div className="absolute top-2 right-2 z-10">
+                  <span className="bg-gray-800 text-white text-xs w-6 h-6 rounded-full flex items-center justify-center font-bold">
+                    {index + 1}
+                  </span>
+                </div>
+              )}
+
+              <div className={`absolute right-2 z-10 ${!hideIndex ? 'top-10' : 'top-2'}`}>
+                <img
+                  src={isAmazon ? '/amazon.png' : '/bol.jpg'}
+                  alt={isAmazon ? 'Amazon' : 'bol.com'}
+                  className="h-8 w-auto max-w-[90px] object-contain rounded bg-white p-1 shadow-sm"
+                />
+              </div>
+
+              <ProductCard product={product} />
             </div>
-
-            {/* Bol.com Iframe Widget */}
-            {product.type === 'bol_iframe' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col w-full">
-                <div className="text-center flex flex-col flex-grow">
-                  <a
-                    href={product.data.productUrl}
-                    target="_blank"
-                    rel="nofollow noopener"
-                    onClick={() => trackAffiliateClick(product.id)}
-                    className="block hover:opacity-90 transition-opacity"
-                  >
-                    <div className="mb-3">
-                      <img
-                        src={product.data.fallbackImage}
-                        alt={product.data.title}
-                        className="mx-auto rounded-lg max-w-full h-auto"
-                        style={{ maxHeight: '200px' }}
-                        onError={(e) => {
-                          e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04MCA4MEgxMjBWMTIwSDgwVjgwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNOTYgMTA0TDEwNCAxMTJMMTIwIDk2IiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
-                          e.target.style.display = 'block'
-                        }}
-                      />
-                    </div>
-                    <h4 className="font-medium text-primary text-sm mb-2 line-clamp-2 min-h-[40px] flex items-center justify-center">
-                      {product.data.title}
-                    </h4>
-                    {/* Prijs uit eigen database (nachtelijke sync), geen third-party script */}
-                    {product.price && (
-                      <div className="mb-2">
-                        <span className="text-lg font-bold text-gray-900">{fmtPrice(product.price)}</span>
-                        {product.originalPrice && product.originalPrice !== product.price && (
-                          <span className="ml-2 text-sm text-gray-500 line-through">{fmtPrice(product.originalPrice)}</span>
-                        )}
-                        {product.priceLastUpdated && (
-                          <div className="text-[10px] text-gray-400 mt-0.5">
-                            Prijs van {new Date(product.priceLastUpdated).toLocaleDateString('nl-NL')}, actuele prijs op bol.com
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    <div className="mt-auto">
-                      <div className="bg-primary text-white px-3 py-2 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors inline-block">
-                        Bekijk op bol.com →
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            )}
-            
-            {/* Bol.com Script Widget - With Script Execution */}
-            {(product.type === 'bol_snippet' || product.type === 'bol_script') && (
-              <BolScriptWidget
-                product={product}
-                key={product.id}
-              />
-            )}
-            
-            {/* Amazon Affiliate Image */}
-            {product.type === 'amazon_image' && (
-              <div className="bg-white rounded-xl border border-gray-200 p-4 flex flex-col w-full">
-                <div className="text-center flex flex-col flex-grow">
-                  <a
-                    href={product.data.url}
-                    target="_blank"
-                    rel="nofollow noopener"
-                    onClick={() => trackAffiliateClick(product.id)}
-                    className="block hover:opacity-90 transition-opacity flex flex-col flex-grow"
-                  >
-                    <div className="mb-3">
-                      <img
-                        src={product.data.imageUrl}
-                        alt={product.data.alt}
-                        className="mx-auto rounded-lg max-w-full h-auto"
-                        style={{ maxHeight: '200px' }}
-                        onError={(e) => {
-                          e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04MCA4MEgxMjBWMTIwSDgwVjgwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNOTYgMTA0TDEwNCAxMTJMMTIwIDk2IiBzdHJva2U9IiM2QjczODAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
-                          e.target.style.display = 'block'
-                        }}
-                      />
-                    </div>
-                    <h4 className="font-medium text-primary text-sm mb-2 line-clamp-2 min-h-[40px] flex items-center justify-center">
-                      {product.name}
-                    </h4>
-                    {/* Prijs: handmatig beheerd via de admin (niet gescraped) */}
-                    {product.price && (
-                      <div className="mb-2">
-                        <span className="text-lg font-bold text-gray-900">{fmtPrice(product.price)}</span>
-                        {product.originalPrice && product.originalPrice !== product.price && (
-                          <span className="ml-2 text-sm text-gray-500 line-through">{fmtPrice(product.originalPrice)}</span>
-                        )}
-                        {product.priceLastUpdated && (
-                          <div className="text-[10px] text-gray-400 mt-0.5">
-                            Prijs van {new Date(product.priceLastUpdated).toLocaleDateString('nl-NL')}, actuele prijs op Amazon
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    <div className="mt-auto">
-                      <div className="text-white px-3 py-2 rounded-lg text-sm font-medium transition-colors inline-block" style={{ backgroundColor: '#FF9900' }}>
-                        Bekijk op Amazon →
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+          )
+        })}
       </div>
-      
+
       <div className="mt-4 pt-4 border-t border-gray-200">
         <p className="text-xs text-gray-500">
           Als partner van bol.com en Amazon verdienen we mogelijk een commissie bij aankopen via deze links. Prijzen kunnen afwijken; zie onze <a href="/affiliate-disclaimer" className="underline hover:text-primary">affiliate-disclaimer</a>.
-          Dit heeft geen invloed op de prijs voor u.
+          Dit heeft geen invloed op de prijs voor jou.
         </p>
       </div>
     </div>

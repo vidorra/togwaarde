@@ -146,7 +146,10 @@ de eigen knop "Bekijk op bol.com" telt zeker mee.
 - [x] In de admin nakijken of er op togwaarde bol-snippets gekoppeld zijn.
       Antwoord Jens 16-11: alleen Amazon. Bol 0 is dus echt 0; eerst
       bol-producten toevoegen.
-- [ ] Bol-producten tonen als eigen kaart (foto, naam, prijs, link), zoals de
+- [x] Bol-producten tonen als eigen kaart (foto, naam, prijs, link), zoals de
+      Gedaan 16-11: bol en Amazon delen één kaart (ProductCard), geen bol-script
+      meer, link via partner.bol.com (anders opgebouwd uit productId + siteId),
+      geen lege doos of admin-melding als een pagina geen producten heeft.
       homepage van flesvoedingcalculator al doet. Dan telt elke klik mee en
       laadt er geen script van bol meer: dat stond al als stap 7 in
       [cookieless-analytics-plan.md](cookieless-analytics-plan.md).

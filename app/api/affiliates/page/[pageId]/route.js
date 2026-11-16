@@ -101,10 +101,9 @@ export async function GET(request, { params }) {
             width: 300
           }
         }
-      } else if (snippet.type === 'bol' || snippet.type === 'bol_snippet') {
-        // For Bol.com products - separate imageHtml and bolScript
-        // generatedHtml should ONLY contain bolScript (not imageHtml to avoid duplicate images)
-
+      } else if (String(snippet.type || '').startsWith('bol')) {
+        // Bol als eigen kaart (foto, naam, prijs, link): geen script van bol,
+        // zodat elke klik via onze eigen link loopt en meegeteld wordt.
         return {
           id: snippet.id,
           name: snippet.name,
@@ -114,15 +113,13 @@ export async function GET(request, { params }) {
           originalPrice: snippet.originalPrice,
           currency: snippet.currency,
           priceLastUpdated: snippet.priceLastUpdated,
-          type: 'bol_snippet', // Changed to show JavaScript code widget
-          generatedHtml: snippet.bolScript || snippet.generatedHtml || '', // ONLY the Bol.com script
-          imageHtml: snippet.imageHtml,
-          bolScript: snippet.bolScript,
-          url: snippet.url, // Add URL for affiliate link button
+          type: 'bol_card',
           data: {
             title: snippet.name,
-            fallbackImage: snippet.imageUrl || getFallbackImageForProduct(snippet.id),
-            productUrl: snippet.url || '#'
+            imageUrl: snippet.imageUrl
+              || extractImgSrc(snippet.imageHtml || '')
+              || extractImgSrc(snippet.generatedHtml || ''),
+            productUrl: bolPartnerUrl(snippet)
           }
         }
       }
@@ -156,17 +153,34 @@ function extractImageUrl(html) {
   return match ? match[1] : null
 }
 
-// Helper function to get fallback images for specific products
-function getFallbackImageForProduct(productId) {
-  const productImages = {
-    'philips-avent-sterilisator': 'https://media.s-bol.com/NKX9XZWN3RGL/0RNmv15/550x707.jpg',
-    'mam-sterilisator': 'https://media.s-bol.com/N7353O6nX5Bm/pgx9EzV/550x698.jpg',
-    'chicco-sterilisator': 'https://media.s-bol.com/g4ZkAnyvBWwG/BgPjL0N/550x645.jpg',
-    'microwave-sterilizer-bags': 'https://media.s-bol.com/W6W9N8Q9m1J1/PDNnlLr/550x550.jpg',
-    'sterilizing-tablets': 'https://media.s-bol.com/LKjnL0mAOJNp/1200x1200.jpg',
-    'bottle-brush': 'https://media.s-bol.com/71Jx52yE3r6E/550x550.jpg',
-    'premium-sterilizer-dryer': 'https://media.s-bol.com/mq9vPQNZ01Jr/YP6Qo8r/550x593.jpg'
-  }
-  
-  return productImages[productId] || 'https://media.s-bol.com/NKX9XZWN3RGL/0RNmv15/550x707.jpg'
+// src van de eerste <img> (niet van een <script>)
+function extractImgSrc(html) {
+  const match = String(html).match(/<img[^>]+src=["']([^"']+)["']/i)
+  return match ? match[1] : null
+}
+
+// Bol-partnerlink voor de kaart. Staat er al een partner.bol.com-link in de
+// snippet, dan die. Anders bouwen we hem uit siteId + productId in het
+// opgeslagen bol-script, zodat de klik altijd via het partnerprogramma loopt.
+const BOL_SITE_ID = '1472968'
+function bolPartnerUrl(snippet) {
+  const url = snippet.url || ''
+  if (url.includes('partner.bol.com')) return url
+
+  const script = `${snippet.bolScript || ''}\n${snippet.generatedHtml || ''}`
+  const siteId = script.match(/"siteId"\s*:\s*"(\d+)"/)?.[1] || BOL_SITE_ID
+  const productId = script.match(/"productId"\s*:\s*"(\d+)"/)?.[1]
+    || url.match(/\/p\/[^/]*\/(\d{8,})/)?.[1]
+  const linkName = script.match(/"linkName"\s*:\s*"([^"]*)"/)?.[1]
+
+  const target = /bol\.com\/nl\/[a-z]{2}\/p\//.test(url)
+    ? url
+    : productId ? `https://www.bol.com/nl/nl/p/-/${productId}/` : null
+  if (!target) return url || '#'
+
+  const params = new URLSearchParams({ p: '2', t: 'url', s: siteId, f: 'TXL', url: target })
+  let name = snippet.name || ''
+  if (linkName) { try { name = decodeURIComponent(linkName) } catch { /* rauwe naam */ } }
+  if (name) params.set('name', name)
+  return `https://partner.bol.com/click/click?${params.toString()}`
 }
