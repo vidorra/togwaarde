@@ -1,5 +1,6 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 import Layout from '../components/Layout'
 import ReverseCalculator from '../components/calculator-v3/ReverseCalculator'
 import {
@@ -111,6 +112,9 @@ export default function ReversePage() {
       <section id="reverse-calculator" className="py-4">
         <div className="container mx-auto px-3 sm:px-4">
           <ReverseCalculator titleTag="h2" />
+          <p className="max-w-2xl mx-auto text-center text-sm text-text-secondary mt-4">
+            Liever alles op een rij? <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">Bekijk de TOG-tabel per kamertemperatuur</Link>
+          </p>
         </div>
       </section>
 

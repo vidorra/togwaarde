@@ -45,6 +45,10 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // TOG-uitleg stond op drie losse pagina's; samengevoegd in de gids (nov 2026)
+      { source: '/wat-is-tog-waarde', destination: '/tog-waarde-gids/', permanent: true },
+      { source: '/kennisbank/wat-is-tog', destination: '/tog-waarde-gids/', permanent: true },
+      { source: '/kennisbank/wat-is-tog-waarde', destination: '/tog-waarde-gids/', permanent: true },
       // Forward calculator briefly lived at /old and /v2/v3 during redesign
       {
         source: '/old',

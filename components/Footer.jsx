@@ -71,7 +71,7 @@ export default function Footer() {
             <div>
               <h3 className="font-medium text-gray-500 mb-3">Informatie</h3>
               <div className="space-y-2 text-sm text-gray-600">
-                <Link href="/kennisbank/wat-is-tog" className="block hover:text-primary transition-colors">Wat is TOG?</Link>
+                <Link href="/tog-waarde-gids/" className="block hover:text-primary transition-colors">Wat is TOG?</Link>
                 <Link href="/kennisbank" className="block hover:text-primary transition-colors">Kennisbank</Link>
                 <Link href="/over-ons" className="block hover:text-primary transition-colors">Over Ons</Link>
                 <Link href="/affiliate-disclaimer" className="block hover:text-primary transition-colors">Affiliate-disclaimer</Link>

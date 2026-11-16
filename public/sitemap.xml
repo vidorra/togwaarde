@@ -24,14 +24,8 @@
 
   <!-- Informatiepagina's -->
   <url>
-    <loc>https://togwaarde.nl/wat-is-tog-waarde/</loc>
-    <lastmod>2025-11-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://togwaarde.nl/tog-waarde-gids/</loc>
-    <lastmod>2026-07-08</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,18 +48,6 @@
     <lastmod>2026-07-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://togwaarde.nl/kennisbank/wat-is-tog/</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://togwaarde.nl/kennisbank/wat-is-tog-waarde/</loc>
-    <lastmod>2026-07-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://togwaarde.nl/kennisbank/tog-schaal-overzicht/</loc>

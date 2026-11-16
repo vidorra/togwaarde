@@ -24,16 +24,9 @@ export default function KennisbankPage() {
       articles: [
         {
           title: 'Wat is TOG?',
-          slug: 'wat-is-tog',
-          description: 'Complete uitleg TOG-schaal en praktisch gebruik',
-          icon: BookOpen,
-          readTime: '12 min',
-          difficulty: 'Beginner'
-        },
-        {
-          title: 'Wat is TOG-waarde?',
-          slug: 'wat-is-tog-waarde',
-          description: 'Betekenis, geschiedenis en wetenschappelijke basis',
+          slug: 'tog-waarde-gids',
+          href: '/tog-waarde-gids/',
+          description: 'Uitleg van de TOG-waarde met tabel per kamertemperatuur',
           icon: BookOpen,
           readTime: '8 min',
           difficulty: 'Beginner'
@@ -369,7 +362,7 @@ export default function KennisbankPage() {
                   return (
                     <Link
                       key={article.slug}
-                      href={`/kennisbank/${article.slug}`}
+                      href={article.href || `/kennisbank/${article.slug}`}
                       className="group bg-white hover:bg-gradient-to-br hover:from-primary/5 hover:to-secondary/5 rounded-2xl p-6 border border-gray-100 hover:border-primary transition-all"
                     >
                       <div className="flex items-start mb-4">

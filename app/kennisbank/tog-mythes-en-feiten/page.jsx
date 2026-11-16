@@ -115,7 +115,7 @@ export default function TogMythesEnFeitenPage() {
               of reken je eigen combinatie na met de{' '}
               <Link href="/calculator" className="text-primary hover:underline font-medium">TOG calculator</Link>.
               Meer achtergrond over de basis lees je in{' '}
-              <Link href="/kennisbank/wat-is-tog" className="text-primary hover:underline font-medium">wat is TOG</Link>.
+              <Link href="/tog-waarde-gids/" className="text-primary hover:underline font-medium">wat is TOG</Link>.
             </p>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function TogMythesEnFeitenPage() {
           <h3 className="font-semibold text-gray-900 mb-4">Gerelateerde Artikelen</h3>
           <div className="grid md:grid-cols-3 gap-4">
             <Link
-              href="/kennisbank/wat-is-tog"
+              href="/tog-waarde-gids/"
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
               <div className="font-medium text-gray-900 mb-1">Wat is TOG?</div>

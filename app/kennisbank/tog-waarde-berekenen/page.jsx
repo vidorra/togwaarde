@@ -152,7 +152,7 @@ export default function TOGWaardeBerekenenPage() {
         {/* Article Navigation */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link
-            href="/kennisbank/wat-is-tog-waarde"
+            href="/tog-waarde-gids/"
             className="flex items-center p-6 bg-white rounded-xl border border-gray-100 hover:border-primary transition-all group"
           >
             <div className="flex-1">

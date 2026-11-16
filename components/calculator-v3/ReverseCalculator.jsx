@@ -16,9 +16,9 @@ import { useWeatherLocation } from '../../hooks/useWeatherLocation'
 import {
   TEMP_SLIDER_CONFIG,
   SAFETY_LIMITS,
-  KLEDING_WAARDEN,
-  TOG_RECOMMENDATIONS
+  KLEDING_WAARDEN
 } from '../../lib/tog-constants'
+import { getRange, getReverseAdvies } from '../../lib/tog-advies'
 import AffiliateProductWidget from '../AffiliateProductWidget'
 import { trackCalculatorUsage } from '../../lib/analytics'
 
@@ -32,28 +32,8 @@ function SeasonIcon({ seizoen }) {
   }
 }
 
-// Recommended total TOG range for a room temperature (same bands as the calculator)
-function getRange(temp) {
-  for (const rec of TOG_RECOMMENDATIONS) {
-    if (temp >= rec.minTemp) return rec.range
-  }
-  return TOG_RECOMMENDATIONS[TOG_RECOMMENDATIONS.length - 1].range
-}
-
-// Reverse advice: given a temperature, what to actually put on the baby.
-// Aligned with NHS / VeiligheidNL bands and Dutch consumer guidance.
-function getReverseAdvies(temp) {
-  // Slaapzak + kleding (incl. luier 0.1) blijft binnen het aanbevolen bereik
-  // en altijd ruim onder de 4.0 TOG veiligheidsgrens. Totalen ter controle:
-  // 27+ →0.1 · 24-26 →0.6 · 22-23 →0.8 · 20-21 →1.3 · 18-19 →2.8 · 16-17 →3.4 · <16 →3.6
-  if (temp >= 27) return { slaapzakTOG: 0, kleding: ['luier'], geenSlaapzak: true }
-  if (temp >= 24) return { slaapzakTOG: 0.5, kleding: ['luier'] }
-  if (temp >= 22) return { slaapzakTOG: 0.5, kleding: ['korte_romper'] }
-  if (temp >= 20) return { slaapzakTOG: 1.0, kleding: ['korte_romper'] }
-  if (temp >= 18) return { slaapzakTOG: 2.5, kleding: ['korte_romper'] }
-  if (temp >= 16) return { slaapzakTOG: 2.5, kleding: ['lange_romper'] }
-  return { slaapzakTOG: 3.5, kleding: ['luier'] }
-}
+// getRange en getReverseAdvies staan in lib/tog-advies.ts, gedeeld met de
+// tabel op /tog-waarde-gids/.
 
 export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = 'reverse-slaapzakken' }) {
   const TitleComponent = titleTag === 'h1' ? 'h1' : 'h2'
