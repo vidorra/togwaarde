@@ -17,14 +17,13 @@ const getCSPHeader = (nonce) => {
     'default-src': ["'self'"],
     'script-src': [
       "'self'",
-      // Allow inline scripts with nonce for Next.js
-      `'nonce-${nonce}'`,
-      // In dev: Next.js react-refresh uses eval(); 'strict-dynamic' also
-      // blocks host-allowlisted scripts and unhashed inline scripts that
-      // the dev runtime emits — so we relax in dev only.
-      ...(isDev
-        ? ["'unsafe-eval'", "'unsafe-inline'"]
-        : ["'strict-dynamic'"]),
+      // Geen nonce + 'strict-dynamic': de pagina's zijn statisch gebouwd en
+      // uit de cache geserveerd, dus hun <script>-tags dragen nooit de nonce
+      // van dit verzoek. Met 'strict-dynamic' blokkeerde de browser daardoor
+      // elk script (16-11-2026: calculator en productblokken dood). Next zet
+      // inline-scripts voor de hydratie, vandaar 'unsafe-inline'.
+      "'unsafe-inline'",
+      ...(isDev ? ["'unsafe-eval'"] : []),
       // Third-party scripts. NB: de Google/GTM/Clarity-entries hieronder zijn
       // alleen in gebruik als COOKIE_TRACKERS_ENABLED=true in app/layout.jsx
       // (staat uit; we meten cookieless via Umami). Bewust laten staan zodat
