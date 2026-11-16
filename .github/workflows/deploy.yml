@@ -1,74 +1,129 @@
 name: Build & Deploy
 
+# Het image wordt hier gebouwd en naar GHCR gepusht; CapRover haalt het alleen
+# op. Tot november 2026 bouwde CapRover het image op de VPS zelf, maar die
+# (4 GB, geen swap) haalt `npm ci` + `next build` niet meer: code 137 (OOM),
+# deploy mislukt en de oude versie blijft draaien.
 on:
   push:
-    branches: [ "main" ]
-
-  pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    concurrency:
+      group: deploy-main
+      cancel-in-progress: false
+    # De VPS is arm64: native bouwen op een arm64-runner, geen emulatie.
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      contents: read
+      packages: write
 
-    strategy:
-      matrix:
-        node-version: [20.x]
+    env:
+      IMAGE: ghcr.io/${{ github.repository }}
+      APP_URL: https://togwaarde.nl
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm ci
-      - name: Create placeholder environment file for build
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # Alleen publieke NEXT_PUBLIC_*-waarden gaan het image in (ze staan toch
+      # in de JS-bundel). Geheimen zet CapRover bij het starten als env.
+      - name: Build & push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          platforms: linux/arm64
+          tags: |
+            ${{ env.IMAGE }}:${{ github.sha }}
+            ${{ env.IMAGE }}:latest
+          build-args: |
+            GIT_SHA=${{ github.sha }}
+            NEXT_PUBLIC_SITE_URL=https://togwaarde.nl
+            NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=QDm5pXMjr-KdAaSbQ
+            NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_zge4lpj
+            NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_tliffxj
+          cache-from: type=registry,ref=${{ env.IMAGE }}:buildcache
+          cache-to: type=registry,ref=${{ env.IMAGE }}:buildcache,mode=min
+          provenance: false
+
+      # Het image eerst op de runner starten (zelfde architectuur als de VPS).
+      # Faalt dit, dan blijft de oude versie gewoon live.
+      - name: Smoke test the image
         run: |
-          echo "NEXT_PUBLIC_SITE_URL=https://flesvoedingcalculator.nl" >> .env.local
-          echo "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=placeholder" >> .env.local
-          echo "NEXT_PUBLIC_EMAILJS_SERVICE_ID=placeholder" >> .env.local
-          echo "NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=placeholder" >> .env.local
-          echo "NEXT_PUBLIC_RECAPTCHA_SITE_KEY=placeholder" >> .env.local
-          echo "EMAILJS_PRIVATE_KEY=placeholder" >> .env.local
-          echo "RECAPTCHA_SECRET_KEY=placeholder" >> .env.local
-          echo "BOL_API_CLIENT_ID=placeholder" >> .env.local
-          echo "BOL_API_CLIENT_SECRET=placeholder" >> .env.local
-          echo "BOL_PRODUCT_FEED_USERNAME=placeholder" >> .env.local
-          echo "BOL_PRODUCT_FEED_PASSWORD=placeholder" >> .env.local
-          echo "ADMIN_PASSWORD=placeholder" >> .env.local
-      - run: npm run build --if-present
-      - run: npm run test --if-present
+          set -euo pipefail
+          docker run -d --name smoke -p 3000:3000 "${IMAGE}:${GITHUB_SHA}"
+          for i in $(seq 1 60); do
+            if curl -fsSL http://127.0.0.1:3000/api/ping/ -o /tmp/ping.json; then break; fi
+            sleep 2
+          done
+          cat /tmp/ping.json; echo
+          grep -q "${GITHUB_SHA}" /tmp/ping.json
+          for path in / /tog-waarde-gids/; do
+            code=$(curl -sSL -o /dev/null -w '%{http_code}' "http://127.0.0.1:3000${path}")
+            echo "${path}: ${code}"; test "$code" -lt 500
+          done
+          echo "smoke test passed"
 
-      - uses: a7ul/tar-action@v1.1.0
-        with:
-          command: c
-          cwd: "./"
-          files: |
-            .next
-            captain-definition
-            Dockerfile
-            start.sh
-            package.json
-            package-lock.json
-            next.config.js
-            app
-            components
-            lib
-            hooks
-            public
-            scripts
-            migrations
-            data
-            styles
-            tailwind.config.js
-            postcss.config.js
-          outPath: deploy.tar
+      - name: Logs of the smoke test
+        if: failure()
+        run: docker logs smoke 2>&1 | tail -80 || true
 
-      - name: Deploy App to CapRover
-        uses: caprover/deploy-from-github@v1.0.1
-        with:
-          server: '${{ secrets.CAPROVER_SERVER }}'
-          app: '${{ secrets.APP_NAME }}'
-          token: '${{ secrets.APP_TOKEN }}'
+      # Zelfde API als de CapRover-CLI met `--imageName`.
+      - name: Deploy to CapRover
+        env:
+          CAPROVER_SERVER: ${{ secrets.CAPROVER_SERVER }}
+          APP_NAME: ${{ secrets.APP_NAME }}
+          APP_TOKEN: ${{ secrets.APP_TOKEN }}
+          GIT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          host="${CAPROVER_SERVER#https://}"; host="${host#http://}"; host="${host%/}"
+          case "$host" in captain.*) ;; *) host="captain.$host" ;; esac
+          base="https://$host/api/v2/user/apps/appData/$APP_NAME"
+
+          echo "Asking $host to deploy ${IMAGE}:${GIT_SHA} ..."
+          definition=$(jq -cn --arg image "${IMAGE}:${GIT_SHA}" '{schemaVersion: 2, imageName: $image}')
+          resp=$(curl -sS -X POST "$base?detached=1" \
+            -H "x-namespace: captain" -H "x-captain-app-token: $APP_TOKEN" \
+            -H "Content-Type: application/json" \
+            --data "$(jq -n --arg def "$definition" --arg sha "$GIT_SHA" \
+                      '{captainDefinitionContent: $def, gitHash: $sha}')")
+          # 100 = OK, 101 = "Deploy is started" (antwoord op detached).
+          status=$(echo "$resp" | jq -r '.status // empty')
+          if [ "$status" != "100" ] && [ "$status" != "101" ]; then
+            echo "::error::Deploy rejected: $(echo "$resp" | jq -r '.description // .')"
+            exit 1
+          fi
+          echo "Accepted, CapRover is pulling the image."
+
+      # Geaccepteerd is nog niet live: de draaiende app moet deze commit melden.
+      - name: Verify this commit is actually serving
+        run: |
+          set -euo pipefail
+          echo "Waiting for $APP_URL/api/ping/ to report ${GITHUB_SHA} ..."
+          for i in $(seq 1 40); do
+            sleep 15
+            live=$(curl -sL -m 15 "$APP_URL/api/ping/" | jq -r '.sha // empty' 2>/dev/null || true)
+            if [ "$live" = "$GITHUB_SHA" ]; then
+              echo "Deployment confirmed after ~$((i * 15))s"
+              exit 0
+            fi
+            echo "  still serving ${live:-the old build} ($((i * 15))s)"
+          done
+          echo "::error::CapRover accepted the deploy but the app never served this commit."
+          echo "A pull error (403/denied) means CapRover has no GHCR login:"
+          echo "Cluster → Docker Registry Configuration."
+          exit 1
