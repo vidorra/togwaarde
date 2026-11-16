@@ -33,6 +33,10 @@ export default function BabyKoortsSlaapzakPage() {
           <p className="text-lg text-gray-600">
             Ja, maar kies een lichtere TOG dan normaal. Een baby met koorts moet warmte kwijt kunnen, niet vasthouden.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Nieuw met TOG? Lees eerst{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">wat TOG-waarde is</Link>, met een tabel per kamertemperatuur.
+          </p>
         </header>
 
         {/* Main Content */}

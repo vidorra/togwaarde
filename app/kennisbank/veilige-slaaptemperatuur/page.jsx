@@ -25,6 +25,10 @@ export default function VeiligeSlaaptemperatuurPage() {
           <p className="text-lg text-gray-600">
             De ideale kamertemperatuur voor een veilige en comfortabele babyslaap
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Alles over de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-waarde</Link>{" "}van slaapzakken en kleding staat in onze gids.
+          </p>
         </header>
 
         {/* Main Content - Single White Frame */}

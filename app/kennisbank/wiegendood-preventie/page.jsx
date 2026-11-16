@@ -33,6 +33,10 @@ export default function WiegendoodPreventie() {
           <p className="text-lg text-gray-600">
             Nederlandse gezondheidsinstanties zoals het RIVM, VeiligheidNL en de Jeugdgezondheidszorg (JGZ) zijn glashelder over het verband tussen temperatuur en wiegendood. Warmtestress is een onafhankelijke risicofactor voor Sudden Infant Death Syndrome (SIDS), in Nederland bekend als wiegendood. Het correct kiezen van een TOG-waarde en het voorkomen van oververhitting zijn essentieel voor veilige babyslaap.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Nieuw met TOG? Lees eerst{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">wat TOG-waarde is</Link>, met een tabel per kamertemperatuur.
+          </p>
         </header>
 
         {/* Main Content - Single White Frame */}

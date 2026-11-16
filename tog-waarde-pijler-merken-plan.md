@@ -101,9 +101,9 @@ al een canonical en de meeste inhoud. De homepage blijft de tool en houdt
       items `wat-is-tog` en `wat-is-tog-waarde` in
       `app/kennisbank/KennisbankClient.jsx` (worden één item naar de gids), en
       de links in `tog-waarde-berekenen` en `tog-mythes-en-feiten`.
-- [ ] **Nieuwe links naar de gids.** Op de homepage onder de calculator, op
-      `/calculator/` (beide gedaan 16-11), en in elk kennisbankartikel één link
-      in de lopende tekst (nog te doen).
+- [x] **Nieuwe links naar de gids.** Op de homepage onder de calculator, op
+      `/calculator/` en in alle 24 kennisbankartikelen één link direct onder de
+      intro (16-11), drie linkteksten verdeeld over 8 artikelen elk.
       Wissel de linktekst af: "TOG-waarde", "wat is TOG-waarde", "TOG-tabel".
 - [x] **Sitemap.** In `public/sitemap.xml` de drie URL's verwijderen en de
       `lastmod` van de gids bijwerken.

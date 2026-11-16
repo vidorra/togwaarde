@@ -24,6 +24,10 @@ export default function NederlandseMerkenVergelijking() {
           <p className="text-lg text-gray-600">
             De Nederlandse babyslaapzakkenmarkt biedt uitstekende lokale opties die perfect zijn afgestemd op ons klimaat en voldoen aan strenge Europese veiligheidsnormen. Van premium Puckababy tot budgetvriendelijke HEMA - deze complete gids helpt je de juiste keuze maken voor jouw baby en budget.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Alles over de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-waarde</Link>{" "}van slaapzakken en kleding staat in onze gids.
+          </p>
         </header>
 
         {/* Main Content - FRAMED */}

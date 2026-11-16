@@ -34,6 +34,10 @@ export default function PrematureBabyTOGWaardePage() {
           <p className="text-lg text-gray-600">
             Speciale aandachtspunten voor te vroeg geboren baby's: aangepaste TOG-waardes en extra veiligheidsmaatregelen.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Nieuw met TOG? Lees eerst{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">wat TOG-waarde is</Link>, met een tabel per kamertemperatuur.
+          </p>
         </header>
 
         {/* Main Content */}

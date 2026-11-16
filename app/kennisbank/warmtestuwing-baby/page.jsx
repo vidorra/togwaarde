@@ -33,6 +33,10 @@ export default function WarmtestuwingBabyPage() {
           <p className="text-lg text-gray-600">
             Complete gids om warmtestuwing te herkennen, voorkomen en behandelen. Inclusief de rol van TOG-waarde.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Welke slaapzak past bij jouw kamertemperatuur? Zie de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-tabel per kamertemperatuur</Link>.
+          </p>
         </header>
 
         {/* Main Content */}

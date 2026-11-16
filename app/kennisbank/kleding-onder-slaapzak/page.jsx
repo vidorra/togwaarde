@@ -33,6 +33,10 @@ export default function KledingOnderSlaapzak() {
           <p className="text-lg text-gray-600">
             De kunst van het kleden onder een slaapzak ligt in het vinden van de juiste balans. Nederlandse kraamzorg en consultatiebureaus hanteren de "plus één laag" regel: kleed je baby in één laag meer dan een volwassene comfortabel zou dragen bij die temperatuur. Deze complete gids geeft exact aan wat je baby moet dragen onder verschillende TOG-waardes en temperaturen.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Nieuw met TOG? Lees eerst{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">wat TOG-waarde is</Link>, met een tabel per kamertemperatuur.
+          </p>
         </header>
 
         {/* Main Content - FRAMED */}

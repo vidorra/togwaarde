@@ -56,6 +56,10 @@ export default function TOGWaardeKinderopvangPage() {
           <p className="text-lg text-gray-600">
             Welke slaapzak neem je mee naar de opvang, en hoe geef je de leidster duidelijk advies?
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Welke slaapzak past bij jouw kamertemperatuur? Zie de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-tabel per kamertemperatuur</Link>.
+          </p>
         </header>
 
         {/* Main Content - Single White Frame */}

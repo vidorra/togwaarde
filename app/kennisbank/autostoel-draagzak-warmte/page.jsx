@@ -33,6 +33,10 @@ export default function AutostoelDraagzakWarmtePage() {
           <p className="text-lg text-gray-600">
             Nee, en dat heeft twee redenen: gordelveiligheid en warmte. Zo houd je je baby onderweg veilig en op temperatuur.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Welke slaapzak past bij jouw kamertemperatuur? Zie de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-tabel per kamertemperatuur</Link>.
+          </p>
         </header>
 
         {/* Main Content */}

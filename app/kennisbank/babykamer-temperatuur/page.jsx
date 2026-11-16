@@ -33,6 +33,10 @@ export default function BabykamerTemperatuurPage() {
           <p className="text-lg text-gray-600">
             16, 18 of 20 graden? De wetenschap achter de richtlijnen en hoe je de perfecte slaaptemperatuur bereikt.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Alles over de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-waarde</Link>{" "}van slaapzakken en kleding staat in onze gids.
+          </p>
         </header>
 
         {/* Main Content */}

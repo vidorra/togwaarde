@@ -34,6 +34,10 @@ export default function BabySlapenZomerPage() {
           <p className="text-lg text-gray-600">
             TOG-waarde bij warm weer en complete hitteplan voor veilig slapen tijdens tropische nachten.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Welke slaapzak past bij jouw kamertemperatuur? Zie de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-tabel per kamertemperatuur</Link>.
+          </p>
         </header>
 
         {/* Main Content */}

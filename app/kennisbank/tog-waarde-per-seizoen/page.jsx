@@ -33,6 +33,10 @@ export default function TOGWaardePerSeizoen() {
           <p className="text-lg text-gray-600">
             Het gematigde Nederlandse klimaat vraagt om een pragmatische aanpak van TOG-waardes door de seizoenen heen. De buitentemperatuur is minder relevant dan de temperatuur in de babykamer, meet die altijd met een betrouwbare thermometer. Deze complete gids helpt je de juiste TOG-waarde te kiezen voor elke maand van het jaar, met specifieke tips voor het Nederlandse klimaat en centrale verwarming.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Alles over de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-waarde</Link>{" "}van slaapzakken en kleding staat in onze gids.
+          </p>
         </header>
 
         {/* Main Content - FRAMED */}

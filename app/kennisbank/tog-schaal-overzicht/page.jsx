@@ -33,6 +33,10 @@ export default function TOGSchaalOverzicht() {
           <p className="text-lg text-gray-600">
             De TOG-schaal voor babyslaapzakken loopt in de praktijk van ongeveer 0.5 tot 3.5, waarbij nog dikkere slaapzakken bestaan maar kinderartsen waarschuwen dat die al snel te warm zijn en oververhittingsrisico's met zich meebrengen. Voor het Nederlandse klimaat zijn deze waardes het meest relevant: 0.5, 1.0, 2.5 en 3.5, met 2.0 als optionele tussenwaarde. In deze complete gids leggen we elke TOG-waarde uit met exacte temperatuurbereiken, kledingadvies en praktische toepassingen.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Nieuw met TOG? Lees eerst{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">wat TOG-waarde is</Link>, met een tabel per kamertemperatuur.
+          </p>
         </header>
 
         {/* Main Content - Single White Frame */}

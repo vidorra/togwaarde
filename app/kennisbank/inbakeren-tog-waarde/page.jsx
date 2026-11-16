@@ -34,6 +34,10 @@ export default function InbakerenTOGWaardePage() {
           <p className="text-lg text-gray-600">
             Veilig inbakeren met de juiste TOG-waarde aanpassing: complete gids met wat wel en niet te doen.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Welke slaapzak past bij jouw kamertemperatuur? Zie de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-tabel per kamertemperatuur</Link>.
+          </p>
         </header>
 
         {/* Main Content */}

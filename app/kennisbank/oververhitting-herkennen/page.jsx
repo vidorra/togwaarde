@@ -33,6 +33,10 @@ export default function OververhittingHerkennen() {
           <p className="text-lg text-gray-600">
             Het Nederlandse consultatiebureau leert ouders de juiste controle: voel het nekje, de borst of de rug. Deze centrale lichaamsgebieden geven de échte lichaamstemperatuur weer. Handen en voetjes zijn vaak koeler door de nog onvolgroeide circulatie en zijn dus onbetrouwbare indicatoren. Deze complete gids helpt je de signalen van oververhitting tijdig te herkennen.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Welke slaapzak past bij jouw kamertemperatuur? Zie de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-tabel per kamertemperatuur</Link>.
+          </p>
         </header>
 
         {/* Main Content - FRAMED */}

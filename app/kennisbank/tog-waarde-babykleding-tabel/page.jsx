@@ -33,6 +33,10 @@ export default function TOGWaardeBabykledingTabelPage() {
           <p className="text-lg text-gray-600">
             Complete referentietabel met TOG-waardes van alle babykledingstukken voor het samenstellen van de perfecte outfit.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Alles over de{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">TOG-waarde</Link>{" "}van slaapzakken en kleding staat in onze gids.
+          </p>
         </header>
 
         {/* Main Content */}

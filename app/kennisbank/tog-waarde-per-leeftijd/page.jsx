@@ -56,6 +56,10 @@ export default function TOGWaardePerLeeftijdPage() {
           <p className="text-lg text-gray-600">
             De belangrijkste vuistregel vooraf: de TOG-waarde wordt bepaald door de kamertemperatuur, niet door de leeftijd. De leeftijd bepaalt vooral de maat van de slaapzak en een paar aandachtspunten per fase.
           </p>
+          <p className="mt-3 text-sm text-gray-600">
+            Nieuw met TOG? Lees eerst{" "}
+            <Link href="/tog-waarde-gids/" className="text-primary font-medium hover:underline">wat TOG-waarde is</Link>, met een tabel per kamertemperatuur.
+          </p>
         </header>
 
         {/* Main Content - Single White Frame */}
