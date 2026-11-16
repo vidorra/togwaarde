@@ -128,10 +128,12 @@ De homepage toont al slaapzakken met de berekende TOG. De artikelen hieronder
 krijgen verkeer en hebben een productblok in de code. Welke producten er nu in
 staan is vanuit de code niet te zien: dat staat in de database.
 
-- [ ] In de admin bij `tog-waarde-kinderopvang`, `warmtestuwing-baby`,
-      `kleding-onder-slaapzak`, `tog-waarde-winter` en
-      `nederlandse-merken-vergelijking` nakijken wat er staat en de
-      slaapzakken met TOG 2.5 en 3.5 bovenaan zetten.
+- [x] Slaapzakken met TOG 2.5 en 3.5 bovenaan: automatisch sinds 16-11-2026.
+      De API sorteert op de TOG uit de tag van het product
+      ([lib/togVolgorde.js](lib/togVolgorde.js)): nov-mrt 2.5-3.5, jun-aug
+      0.5-1.0, rest 1.0-2.5; `tog-waarde-winter` altijd winter,
+      `baby-slapen-zomer` altijd zomer. Bij gelijke afstand geldt de
+      admin-volgorde, producten zonder TOG in de tag gaan achteraan.
 - [ ] `baby-koorts-slaapzak` (616 vertoningen, positie 5,6) heeft geen
       productblok. Bij koorts geen slaapzakken aanprijzen: hooguit een
       kamerthermometer, of bewust leeg laten. Keuze aan Jens.

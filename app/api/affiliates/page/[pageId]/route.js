@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { db } from '../../../../../lib/db/connection.js'
 import { snippets, pageSnippets, pages } from '../../../../../lib/db/schema.js'
 import { eq, and } from 'drizzle-orm'
+import { sorteerOpTog } from '../../../../../lib/togVolgorde.js'
 
 // Force dynamic route - prevent caching issues
 export const dynamic = 'force-dynamic'
@@ -74,10 +75,14 @@ export async function GET(request, { params }) {
       .where(and(eq(pageSnippets.pageId, effectivePageId), eq(pageSnippets.website, website)))
       .orderBy(pageSnippets.order)
 
-    // Filter out orphaned references and inactive snippets
-    const activeSnippets = pageSnippetsList
-      .filter(ps => ps.snippet && ps.snippet.active && ps.active)
-      .map(ps => ps.snippet)
+    // Filter out orphaned references and inactive snippets, daarna op TOG:
+    // wat bij het seizoen (of het vaste seizoen van de pagina) past bovenaan.
+    const activeSnippets = sorteerOpTog(
+      pageSnippetsList
+        .filter(ps => ps.snippet && ps.snippet.active && ps.active)
+        .map(ps => ps.snippet),
+      pageId
+    )
     
     // Convert admin format to frontend format
     const frontendSnippets = activeSnippets.map(snippet => {
