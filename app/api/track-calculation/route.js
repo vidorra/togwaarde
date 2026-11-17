@@ -3,7 +3,7 @@ import { randomUUID } from 'crypto'
 import { db } from '../../../lib/db/connection.js'
 import { calculatorEvents } from '../../../lib/db/schema.js'
 import { ensureCalculatorEventsTable } from '../../../lib/db/ensure-events.js'
-import { checkTrackRate, bodyTooLarge } from '../../../lib/track-guard.js'
+import { checkTrackRate, bodyTooLarge, readTrackBody } from '../../../lib/track-guard.js'
 
 export const dynamic = 'force-dynamic'
 
@@ -39,7 +39,10 @@ export async function POST(request) {
       )
     }
 
-    const body = await request.json().catch(() => null)
+    const { tooLarge, data: body } = await readTrackBody(request)
+    if (tooLarge) {
+      return NextResponse.json({ success: false, error: 'Body too large' }, { status: 413 })
+    }
     if (!body) {
       return NextResponse.json({ success: false, error: 'Invalid body' }, { status: 400 })
     }

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
 import { syncPricesForWebsite } from '../../../../lib/price-sync.js'
+import { safeEqual } from '../../../../lib/safe-compare.js'
 
 // Force dynamic route; sync kan minuten duren bij veel producten
 export const dynamic = 'force-dynamic'
@@ -18,7 +19,8 @@ function isAuthorized(request) {
   if (!secret) return null // niet geconfigureerd
   const auth = request.headers.get('authorization') || ''
   const headerSecret = request.headers.get('x-cron-secret') || ''
-  return auth === `Bearer ${secret}` || headerSecret === secret
+  const bearer = auth.startsWith('Bearer ') ? auth.slice(7) : ''
+  return (bearer !== '' && safeEqual(bearer, secret)) || (headerSecret !== '' && safeEqual(headerSecret, secret))
 }
 
 export async function POST(request) {

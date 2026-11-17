@@ -1,7 +1,9 @@
 import { NextResponse } from 'next/server'
 import * as jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import { rateLimitMiddleware } from '../../../../lib/rate-limiter'
+import { rateLimitMiddleware, checkRateLimit, RATE_LIMIT_CONFIGS } from '../../../../lib/rate-limiter'
+import { safeEqual } from '../../../../lib/safe-compare.js'
+import { readJsonCapped } from '../../../../lib/read-body.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
@@ -19,13 +21,14 @@ function getRequiredEnvVar(name) {
 // falls back to plaintext ADMIN_PASSWORD only if no hash is configured, so an
 // existing deploy keeps working until the hash env var is set.
 async function verifyPassword(password) {
+  if (typeof password !== 'string' || password.length === 0) return false
   const hash = process.env.ADMIN_PASSWORD_HASH
   if (hash) {
     return bcrypt.compare(password, hash)
   }
   const plain = process.env.ADMIN_PASSWORD
   if (plain) {
-    return password === plain
+    return safeEqual(password, plain)
   }
   throw new Error('Missing ADMIN_PASSWORD_HASH (or ADMIN_PASSWORD)')
 }
@@ -45,6 +48,21 @@ export async function POST(request) {
       )
     }
 
+    // Rem over alle IP's samen, tegen raden vanaf veel adressen tegelijk
+    const global = await checkRateLimit('all', 'adminLoginGlobal')
+    if (!global.allowed) {
+      return NextResponse.json(
+        { error: 'Te veel inlogpogingen. Probeer het later opnieuw.', retryAfter: global.resetAt },
+        {
+          status: 429,
+          headers: {
+            'X-RateLimit-Limit': String(RATE_LIMIT_CONFIGS.adminLoginGlobal.maxAttempts),
+            'Retry-After': String(Math.ceil(RATE_LIMIT_CONFIGS.adminLoginGlobal.windowMs / 1000))
+          }
+        }
+      )
+    }
+
     // Validate environment variables are configured
     let JWT_SECRET
     try {
@@ -57,7 +75,11 @@ export async function POST(request) {
       )
     }
 
-    const { password } = await request.json()
+    const { tooLarge, data } = await readJsonCapped(request, 4096)
+    if (tooLarge) {
+      return NextResponse.json({ message: 'Request too large' }, { status: 413 })
+    }
+    const password = data?.password
 
     let passwordValid
     try {
