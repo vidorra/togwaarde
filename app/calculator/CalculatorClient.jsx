@@ -60,8 +60,8 @@ export default function HomePage() {
           {/* Centre: tagline + trust + CTAs */}
           <div className="flex-1 max-w-3xl flex flex-col items-center justify-start px-4 pb-16 lg:pb-24 self-start pt-6">
             <p className="text-base lg:text-lg text-text-secondary text-center mb-6 max-w-2xl">
-              Weet je al wat je baby aanheeft? Tel slaapzak, kleding en dekens op
-              en check of de combinatie veilig is. Gebaseerd op NHS, Lullaby Trust en VeiligheidNL.
+              Weet je al wat je baby aanheeft? Vul de slaapzak en kleding in
+              en check of ze passen bij de kamertemperatuur. Gebaseerd op NHS, Lullaby Trust en VeiligheidNL.
             </p>
 
             {/* Trust badges */}
@@ -259,9 +259,9 @@ export default function HomePage() {
                   2
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Bepaal de maximale TOG-waarde</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Kies de slaapzak</h3>
                   <p className="text-gray-700">
-                    Kijk in de tabel hierboven wat de aanbevolen maximale TOG-waarde is voor de gemeten temperatuur.
+                    Kijk welke slaapzak-TOG bij de gemeten temperatuur past. Fabrikanten rekenen die TOG al met gewone nachtkleding eronder.
                   </p>
                 </div>
               </div>
@@ -271,12 +271,12 @@ export default function HomePage() {
                   3
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Kies de kleding en beddengoed</h3>
-                  <p className="text-gray-700 mb-2">Tel de TOG-waardes van alle lagen bij elkaar op:</p>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Kies de kleding eronder</h3>
+                  <p className="text-gray-700 mb-2">De kleding volgt de temperatuur, bijvoorbeeld:</p>
                   <ul className="list-disc list-inside space-y-1 text-gray-700 ml-4">
-                    <li>Alle kledingstukken die je baby aanheeft</li>
-                    <li>Het slaapzakje of de dekentjes</li>
-                    <li>Eventuele extra laagjes</li>
+                    <li>Warm: alleen een romper met korte mouw, of zelfs alleen een luier</li>
+                    <li>Gemiddeld: een romper met lange mouw</li>
+                    <li>Koel: een romper met lange mouw en een dun pakje</li>
                   </ul>
                 </div>
               </div>
@@ -286,9 +286,9 @@ export default function HomePage() {
                   4
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Blijf onder de maximum waarde</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Stapel niet te veel lagen</h3>
                   <p className="text-gray-700">
-                    Zorg dat je totaal onder of gelijk aan de aanbevolen maximale TOG-waarde blijft. Liever iets onder dan erboven.
+                    Een warme slaapzak met een dikke pyjama en een vestje is snel te warm. Twijfel je, pas dan eerst de slaapzak aan en daarna de kleding. Liever iets te koel dan te warm.
                   </p>
                 </div>
               </div>

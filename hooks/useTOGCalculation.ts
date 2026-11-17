@@ -11,6 +11,15 @@ import type {
   TOGWarning,
   TOGCalculationResult
 } from '../lib/tog-types'
+import { getReverseAdvies, kledingNamen } from '../lib/tog-advies'
+
+// Kleding mag zoveel TOG (geschat) van het advies afwijken zonder dat het
+// oordeel verschuift: een romper met lange mouw meer of minder is prima.
+const KLEDING_SPELING = 0.6
+
+function kledingZonderLuier(keys: readonly string[]): number {
+  return keys.filter((k) => k !== 'luier').reduce((som, k) => som + (KLEDING_WAARDEN[k]?.TOG || 0), 0)
+}
 
 /**
  * Parameters for the useTOGCalculation hook
@@ -101,120 +110,73 @@ export function useTOGCalculation({
   }, [gekozenDekens])
 
   /**
-   * Calculate total TOG value combining all clothing and blanket/sleeping bag TOG
-   * Formula:
-   * - With sleeping bag: slaapzakTOG + kledingTOG + dekenTOG (dekens would be 0)
-   * - With blankets: kledingTOG + dekenTOG (slaapzakTOG would be 0)
-   * Uses memoization to prevent recalculation when dependencies haven't changed
+   * Totaal van alle lagen. Alleen nog voor de anonieme statistiek: het oordeel
+   * hieronder telt kleding niet meer op bij de slaapzak.
    */
   const totaleTOG = useMemo((): number => {
     const basisTOG = kledingTOG + dekenTOG
     return gebruikDekens ? basisTOG : slaapzakTOG + basisTOG
   }, [kledingTOG, dekenTOG, slaapzakTOG, gebruikDekens])
 
-  /**
-   * Determine the comfort and safety status based on total TOG vs recommended range
-   *
-   * Status logic:
-   * - totaleTOG < min - 0.5: "te_koud" (too cold) - RED
-   * - totaleTOG < min: "iets_te_koud" (slightly cold) - ORANGE
-   * - min <= totaleTOG <= max: "perfect" - GREEN
-   * - totaleTOG > max: "iets_te_warm" (slightly warm) - ORANGE
-   * - totaleTOG > max + 0.5: "te_warm" (too warm) - RED
-   *
-   * Also provides user-friendly messages with actionable advice.
-   * Uses memoization to prevent recalculation when TOG values haven't changed
-   */
+  // Fabrikantenmanier (17-11-2026): de TOG van een slaapzak geldt mét gewone
+  // nachtkleding eronder. We vergelijken dus de slaapzak (of deken) met het
+  // bereik voor de kamertemperatuur, en de kleding met de kleding uit het
+  // advies (lib/tog-advies.ts). Wijkt de kleding meer dan KLEDING_SPELING af,
+  // dan schuift dat het oordeel op. De luier telt aan beide kanten niet mee.
+  const advies = useMemo(() => getReverseAdvies(kamerTemp), [kamerTemp])
+  const jouwTOG = gebruikDekens ? dekenTOG : slaapzakTOG
+
+  const effectieveTOG = useMemo((): number => {
+    const afwijking = kledingZonderLuier(gekozenKleding) - kledingZonderLuier(advies.kleding)
+    const correctie = Math.abs(afwijking) <= KLEDING_SPELING
+      ? 0
+      : afwijking - Math.sign(afwijking) * KLEDING_SPELING
+    return jouwTOG + correctie
+  }, [gekozenKleding, advies, jouwTOG])
+
   const status = useMemo((): CalculatorStatus => {
     const { min, max } = aanbevolenTOGRange
     // Uniform message tail for every alert; the component bolds this clause.
     const bijTekst = `voor een kamertemperatuur van ${Math.round(kamerTemp)}°C!`
+    const bereik = min === max ? min.toFixed(1) : `${min.toFixed(1)} tot ${max.toFixed(1)}`
+    const adviesTekst = advies.geenSlaapzak
+      ? 'Advies: geen slaapzak, alleen een luier.'
+      : `Advies: slaapzak ${bereik} TOG met ${kledingNamen(advies).toLowerCase()} eronder.`
+    const laag = gebruikDekens ? 'slaapzak of deken' : 'slaapzak'
 
-    if (totaleTOG < min) {
-      const verschil = min - totaleTOG
-      if (verschil > 0.5) {
-        return {
-          status: 'te_koud',
-          kleur: 'red',
-          titel: 'Aanpassing nodig',
-          tekst: kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
-            ? `Te koud ${bijTekst} Verhoog de kamertemperatuur naar minimaal 16°C en voeg warmere lagen toe.`
-            : `Te koud ${bijTekst} Voeg warmere lagen toe voor comfort.`
-        }
+    if (effectieveTOG < min) {
+      const actie = jouwTOG < min ? `Kies een warmere ${laag}.` : 'Trek je baby iets warmer aan.'
+      const kamer = kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP ? ' Of verwarm de kamer naar minimaal 16°C.' : ''
+      if (min - effectieveTOG > 0.5) {
+        return { status: 'te_koud', kleur: 'red', titel: 'Aanpassing nodig', tekst: `Te koud ${bijTekst} ${actie}${kamer} ${adviesTekst}` }
       }
-      return {
-        status: 'iets_te_koud',
-        kleur: 'orange',
-        titel: 'Let op',
-        tekst: kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
-          ? `Iets te koud ${bijTekst} Verhoog naar minimaal 16°C en overweeg een extra laagje.`
-          : `Iets te koud ${bijTekst} Overweeg een extra laagje.`
-      }
+      return { status: 'iets_te_koud', kleur: 'orange', titel: 'Let op', tekst: `Iets te koud ${bijTekst} ${actie}${kamer} ${adviesTekst}` }
     }
 
-    if (totaleTOG > max) {
-      const verschil = totaleTOG - max
-      if (verschil > 0.5) {
-        return {
-          status: 'te_warm',
-          kleur: 'red',
-          titel: 'Aanpassing nodig',
-          tekst: `Te warm ${bijTekst} Verwijder lagen om oververhitting te voorkomen.`
-        }
+    if (effectieveTOG > max) {
+      const actie = jouwTOG > max ? `Kies een dunnere ${laag}.` : 'Trek je baby een laagje minder aan.'
+      if (effectieveTOG - max > 0.5) {
+        return { status: 'te_warm', kleur: 'red', titel: 'Aanpassing nodig', tekst: `Te warm ${bijTekst} ${actie} ${adviesTekst}` }
       }
-      return {
-        status: 'iets_te_warm',
-        kleur: 'orange',
-        titel: 'Let op',
-        tekst: `Iets te warm ${bijTekst} Overweeg een lichtere slaapzak of minder lagen.`
-      }
+      return { status: 'iets_te_warm', kleur: 'orange', titel: 'Let op', tekst: `Iets te warm ${bijTekst} ${actie} ${adviesTekst}` }
     }
 
     return {
       status: 'perfect',
       kleur: 'green',
       titel: 'Perfect!',
-      tekst: `Perfect ${bijTekst} Ideale warmte voor je baby.`
+      tekst: `Perfect ${bijTekst} Slaapzak en kleding passen bij de kamer.`
     }
-  }, [totaleTOG, aanbevolenTOGRange, kamerTemp])
+  }, [effectieveTOG, jouwTOG, aanbevolenTOGRange, kamerTemp, advies, gebruikDekens])
 
-  /**
-   * Generate safety warnings based on SIDS (Sudden Infant Death Syndrome) and NHS guidelines
-   *
-   * Warning types:
-   * - critical: Total TOG exceeds maximum safe limit (4.0 TOG) - risk of overheating
-   * - warning: High TOG values (3.5+ for Dutch conditions) or unsafe room temperatures
-   * - info: Low room temperature or other informational warnings
-   *
-   * Uses SAFETY_LIMITS constants from tog-constants.ts which align with:
-   * - VeiligheidNL (Dutch safety guidelines)
-   * - NHS (UK National Health Service)
-   * - Lullaby Trust (SIDS prevention)
-   *
-   * Uses memoization to prevent recalculation when dependencies haven't changed
-   */
   const warnings = useMemo((): TOGWarning[] => {
     const result: TOGWarning[] = []
-
-    if (totaleTOG > SAFETY_LIMITS.MAX_SAFE_TOG) {
-      result.push({
-        type: 'critical',
-        titel: 'Totale TOG boven veilige limiet!',
-        tekst: 'Maximum veilig: 4.0 TOG. Verwijder een laag om oververhitting en wiegendood risico te verminderen.'
-      })
-    } else if (totaleTOG >= SAFETY_LIMITS.HIGH_TOG_WARNING) {
-      result.push({
-        type: 'warning',
-        titel: 'Zeer hoge TOG-waarde!',
-        tekst: 'Dit is te warm voor Nederlandse omstandigheden (ideaal: 2.5-3.0 TOG bij 18-20°C). Verwijder een laag om oververhitting te voorkomen.'
-      })
-    }
 
     if (kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP) {
       result.push({
         type: 'info',
         titel: 'Lage kamertemperatuur',
-        tekst: 'Kamertemperatuur is lager dan aanbevolen (16-20°C). Gebruik 3.5 TOG slaapzak met warme kleding.'
+        tekst: 'Kouder dan de aanbevolen 16 tot 20°C. Verwarm liefst de kamer. Gebruik anders een 3.5 TOG slaapzak met een romper met lange mouw en een slaappakje eronder.'
       })
     }
 
@@ -233,10 +195,13 @@ export function useTOGCalculation({
     }
 
     return result
-  }, [totaleTOG, kamerTemp])
+  }, [kamerTemp])
 
   return {
     aanbevolenTOGRange,
+    jouwTOG,
+    advies,
+    adviesKleding: kledingNamen(advies),
     kledingTOG,
     dekenTOG,
     totaleTOG,

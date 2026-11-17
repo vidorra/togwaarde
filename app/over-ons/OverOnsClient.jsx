@@ -106,11 +106,11 @@ export default function OverOnsClient() {
             </div>
 
             <div className="bg-green-50 rounded-xl p-4">
-              <h3 className="font-medium text-green-800 mb-2">Alles Telt Mee</h3>
+              <h3 className="font-medium text-green-800 mb-2">Slaapzak en Kleding Samen</h3>
               <p className="text-sm text-green-700">
-                We tellen slaapzak, kleding en eventuele dekens bij elkaar op tot een totale
-                TOG-waarde en bewaken daarbij de veiligheidsgrens van 4.0 TOG, omdat te warm
-                slapen gevaarlijker is dan iets te koud.
+                We kijken welke slaapzak-TOG fabrikanten bij de kamertemperatuur aanraden en
+                welke kleding eronder past. Twijfel je, kies dan liever iets lichter, omdat te
+                warm slapen gevaarlijker is dan iets te koud.
               </p>
             </div>
 

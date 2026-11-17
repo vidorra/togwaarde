@@ -89,6 +89,12 @@ export interface TOGWarning {
 // TOG calculation result
 export interface TOGCalculationResult {
   aanbevolenTOGRange: TOGRange
+  /** TOG van de gekozen slaapzak (of dekens), zonder kleding */
+  jouwTOG?: number
+  /** Advies voor de kamertemperatuur (lib/tog-advies.ts) */
+  advies?: { slaapzakTOG: number; kleding: string[]; geenSlaapzak?: boolean }
+  /** Leesbare kleding uit het advies, bv. "Lange mouw romper" */
+  adviesKleding?: string
   kledingTOG: number
   dekenTOG: number
   totaleTOG: number

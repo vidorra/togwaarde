@@ -141,9 +141,9 @@ export default function TOGWaardeKinderopvangPage() {
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-secondary/20 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-secondary-dark mt-6">
               <Info className="w-6 h-6 text-secondary-dark mt-0.5 flex-shrink-0" />
               <div className="flex-1">
-                <p className="text-base font-semibold text-gray-900 mb-4">Let op de totale warmte:</p>
+                <p className="text-base font-semibold text-gray-900 mb-4">Let op het aantal lagen:</p>
                 <div className="text-base text-gray-700">
-                  De ideale kamertemperatuur voor veilig slapen is 16-18°C. Ga nooit boven 4.0 TOG in totaal (kleding plus slaapzak samen), om oververhitting te voorkomen. Lees meer over{' '}
+                  De ideale kamertemperatuur voor veilig slapen is 16-18°C. Een warme slaapzak met een dikke pyjama en een vestje is snel te warm, dus voel in het nekje of het klopt. Lees meer over{' '}
                   <Link href="/kennisbank/babykamer-temperatuur" className="text-primary hover:underline font-medium">de ideale babykamer temperatuur</Link>.
                 </div>
               </div>

@@ -32,7 +32,7 @@ const webAppSchema = {
   featureList: [
     'Kledingadvies per kamertemperatuur (omgekeerde TOG-calculator)',
     'Gebaseerd op NHS, Lullaby Trust en VeiligheidNL richtlijnen',
-    'Veilige TOG-grens van 4.0 bewaakt',
+    'Slaapzak-TOG volgens het advies van fabrikanten, met passende kleding eronder',
     'Actueel nachttemperatuur-advies per locatie'
   ]
 }

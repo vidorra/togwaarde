@@ -5,7 +5,7 @@ import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
   title: 'Inbakeren en TOG-waarde: veilig aanpassen | TOGWaarde.nl',
-  description: 'Veilig inbakeren met de juiste TOG-waarde. Trek 0.5 tot 1.0 TOG af voor de inbakerdoek, houd totaal onder 4.0, en lees de veiligheidsregels plus transitie naar de slaapzak.',
+  description: 'Veilig inbakeren met de juiste TOG-waarde. Kies een lichtere slaapzak als je inbakert, en lees de veiligheidsregels plus de overstap naar de slaapzak.',
   keywords: 'inbakeren tog waarde, inbakeren baby, inbakerslaapzak, swaddling tog, veilig inbakeren, tog aanpassen inbakeren',
   alternates: { canonical: '/kennisbank/inbakeren-tog-waarde/' },
 }
@@ -82,23 +82,23 @@ export default function InbakerenTOGWaardePage() {
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">TOG-waarde aanpassen bij inbakeren</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Een inbakerdoek of inbakerslaapzak voegt ongeveer 0.5-1.0 TOG toe, afhankelijk van
-              het materiaal. Je moet dit compenseren door minder kleding te gebruiken of een dunnere
-              slaapzak te kiezen.
+              Een inbakerdoek is een extra laag, afhankelijk van het materiaal ongeveer 0.5 tot 1.0 TOG
+              (ter indicatie). Kies daarom een lichtere slaapzak of minder kleding. Een inbakerslaapzak
+              heeft zelf een TOG-waarde: die kies je net als een gewone slaapzak op de kamertemperatuur.
             </p>
 
-            <h3 className="text-xl font-semibold text-gray-900 mb-4">Rekenregel</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">Zo pas je het aan</h3>
             <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6 mb-8">
               <p className="text-gray-700 mb-4">
-                <strong>Standaard situatie zonder inbakeren:</strong><br/>
-                Romper (0.2) + Slaapzak 2.5 TOG = 2.7 TOG totaal
+                <strong>Zonder inbakeren (18°C):</strong><br/>
+                Slaapzak 2.5 TOG met een romper eronder
               </p>
               <p className="text-gray-700 mb-4">
-                <strong>Met inbakeren:</strong><br/>
-                Romper (0.2) + Inbakerdoek (0.5) + Slaapzak 1.0 TOG = 1.7 TOG totaal
+                <strong>Met een inbakerdoek:</strong><br/>
+                Een lichtere slaapzak, bijvoorbeeld 1.0 TOG, met een romper en de inbakerdoek
               </p>
               <p className="text-sm text-gray-600 italic">
-                Of: alleen romper + inbakerslaapzak 2.0 TOG = 2.2 TOG totaal
+                Of: een inbakerslaapzak van 2.0 TOG met alleen een romper eronder
               </p>
             </div>
 

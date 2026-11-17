@@ -77,7 +77,9 @@ export const REGION_FALLBACK_COORDS: Record<string, LocationCoords> = {
   'default': { lat: 52.37, lon: 4.89, city: 'Nederland' }
 }
 
-// TOG aanbevelingen per temperatuur (NHS/Lullaby Trust richtlijnen)
+// Slaapzak-TOG per kamertemperatuur, volgens de fabrikantentabellen (o.a.
+// Love to Dream: 3.5 onder 16°C, 2.5 bij 16-20°C, 1.0 bij 20-24°C). Dit is de
+// TOG van de slaapzak zelf, met gewone nachtkleding eronder: niet optellen.
 export const TOG_RECOMMENDATIONS: readonly TOGRecommendation[] = [
   { minTemp: 27, range: { min: 0, ideal: 0.1, max: 0.2 } },
   { minTemp: 24, range: { min: 0.2, ideal: 0.5, max: 0.5 } },

@@ -296,13 +296,13 @@ export default function TOGSchaalOverzicht() {
             <div className="relative bg-primary/5 p-6 rounded-lg overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-primary">
               <h3 className="text-xl font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 <Info className="w-6 h-6 text-primary" />
-                Belangrijk principe: TOG-waardes optellen als vuistregel
+                Belangrijk principe: de slaapzak-TOG gaat uit van gewone nachtkleding
               </h3>
               <p className="text-gray-700 leading-relaxed mb-3">
-                Optellen is een vuistregel, geen exacte wetenschap: strikt genomen tel je TOG-waardes niet zomaar bij elkaar op. Toch werkt het als benadering goed, want elke laag kleding voegt ongeveer 0.5 TOG warmte toe aan het totaal. Gebruik het dus als richtlijn, niet als exacte formule.
+                Fabrikanten bepalen de TOG van een slaapzak met normale nachtkleding eronder. Je telt de kleding er dus niet bij op. Kies eerst de slaapzak die bij de kamertemperatuur past en laat de kleding eronder meebewegen met de temperatuur.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                <strong>Bijvoorbeeld:</strong> Een baby in een TOG 2.5 slaapzak met een romper (≈0.5 TOG) en pyjama (≈0.5 TOG) heeft effectief ongeveer TOG 3.5 totale isolatie. Gebruik dit als grove schatting en verifieer altijd door het nekje te voelen.
+                <strong>Bijvoorbeeld:</strong> Bij 18 graden past een TOG 2.5 slaapzak met een romper met lange mouw. Wordt het kouder, dan komt er een dun pakje bij. Een warme slaapzak met een dikke pyjama en een vestje is snel te warm. Voel altijd even in het nekje.
               </p>
             </div>
           </section>

@@ -13,7 +13,7 @@ export interface ReverseAdvies {
   geenSlaapzak?: boolean
 }
 
-// Aanbevolen totale TOG-bereik voor een kamertemperatuur
+// Aanbevolen slaapzak-TOG-bereik voor een kamertemperatuur
 export function getRange(temp: number) {
   for (const rec of TOG_RECOMMENDATIONS) {
     if (temp >= rec.minTemp) return rec.range

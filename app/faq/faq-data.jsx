@@ -15,7 +15,7 @@ export const faqCategories = {
     {
       id: 3,
       question: 'Welke TOG-waarde heeft mijn baby nodig?',
-      answer: 'Dat hangt af van de kamertemperatuur: rond 0.5 TOG bij 24 graden of warmer, 1.0 TOG bij 20 tot 24 graden, 2.5 TOG bij 16 tot 20 graden en 3.5 TOG onder de 16 graden. Tel slaapzak en kleding altijd bij elkaar op.'
+      answer: 'Dat hangt af van de kamertemperatuur: rond 0.5 TOG bij 24 graden of warmer, 1.0 TOG bij 20 tot 24 graden, 2.5 TOG bij 16 tot 20 graden en 3.5 TOG onder de 16 graden. Die TOG geldt voor de slaapzak met gewone nachtkleding eronder, dus kleding tel je er niet bij op.'
     },
     {
       id: 4,
@@ -30,7 +30,7 @@ export const faqCategories = {
     {
       id: 10,
       question: 'Mijn slaapzak heeft een tussenwaarde zoals 2.0 TOG, wat nu?',
-      answer: 'Geen probleem: behandel een 2.0 TOG als een iets lichtere variant van de 2.5-band. Bij 18 tot 20 graden werkt hij prima met een romper eronder. Kijk naar het totaal van slaapzak plus kleding en voel in het nekje of het klopt.'
+      answer: 'Geen probleem: behandel een 2.0 TOG als een iets lichtere variant van de 2.5-band. Bij 18 tot 20 graden werkt hij prima met een romper eronder. Kies de kleding eronder iets warmer of lichter en voel in het nekje of het klopt.'
     },
     {
       id: 11,

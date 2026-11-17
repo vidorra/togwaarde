@@ -298,7 +298,7 @@ export default function KledingOnderSlaapzak() {
             </div>
 
             <p className="text-gray-700 leading-relaxed mb-6">
-              Voor TOG 3.0-3.5 onder 16°C laag je zwaarder: lange mouw romper, plus een extra boxpakje of romper, plus warme pyjama, allemaal onder de dikke slaapzak. Let hier extra op oververhitting, deze setup is de maximale isolatie en veel baby's hebben het hier te warm. Controleer elk uur het nekje in de eerste nachten met een nieuwe combinatie.
+              Onder 16°C kies je een 3.5 TOG slaapzak met een lange mouw romper en een slaappakje eronder. Zo rekenen de fabrikanten: de TOG van de slaapzak geldt met gewone nachtkleding eronder. Is het nog kouder, dan adviseert de Lullaby Trust één laag extra. Verwarm liefst de kamer en voel in de eerste nachten met een nieuwe combinatie regelmatig in het nekje.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mb-6">
@@ -307,8 +307,8 @@ export default function KledingOnderSlaapzak() {
                   <CheckCircle className="w-5 h-5 text-secondary-dark" />
                   <h3 className="font-semibold text-gray-900 text-sm">15-16°C</h3>
                 </div>
-                <p className="text-gray-700 text-sm mb-2"><strong>Romper + warme pyjama</strong></p>
-                <p className="text-xs text-gray-600">Lange mouw romper + flanellen pyjama</p>
+                <p className="text-gray-700 text-sm mb-2"><strong>Romper + slaappakje</strong></p>
+                <p className="text-xs text-gray-600">Lange mouw romper + slaappakje, onder 3.5 TOG</p>
               </div>
 
               <div className="bg-white border-2 border-secondary/20 rounded-xl p-5">
@@ -316,8 +316,8 @@ export default function KledingOnderSlaapzak() {
                   <CheckCircle className="w-5 h-5 text-secondary-dark" />
                   <h3 className="font-semibold text-gray-900 text-sm">14-15°C</h3>
                 </div>
-                <p className="text-gray-700 text-sm mb-2"><strong>Romper + boxpakje + pyjama</strong></p>
-                <p className="text-xs text-gray-600">Drie lagen onder slaapzak</p>
+                <p className="text-gray-700 text-sm mb-2"><strong>Romper + slaappakje + vestje</strong></p>
+                <p className="text-xs text-gray-600">Eén laag extra, voel in het nekje</p>
               </div>
 
               <div className="bg-white border-2 border-accent/20 rounded-xl p-5">

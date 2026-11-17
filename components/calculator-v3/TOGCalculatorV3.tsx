@@ -61,7 +61,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
 
   const [kamerTemp, setKamerTemp] = useState<number>(TEMP_SLIDER_CONFIG.default)
   const [sleepMode, setSleepMode] = useState<SleepMode>('slaapzak')
-  const [slaapzakTOG, setSlaapzakTOG] = useState<number>(1.0)
+  const [slaapzakTOG, setSlaapzakTOG] = useState<number>(2.5)
   const [gekozenKleding, setGekozenKleding] = useState<string[]>(['luier', 'lange_romper'])
   const [gekozenDekens, setGekozenDekens] = useState<string[]>([])
   const [babyLeeftijd, setBabyLeeftijd] = useState<BabyLeeftijd>('12+')
@@ -69,8 +69,9 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
   // Map sleepMode → flags used by the existing hook
   const gebruikDekens = sleepMode !== 'slaapzak'
   const effectiveSlaapzakTOG = sleepMode === 'slaapzak' ? slaapzakTOG : 0
+  const jouwLabel = sleepMode === 'dekens' ? 'Jouw dekens' : 'Jouw slaapzak'
 
-  const { aanbevolenTOGRange, totaleTOG, status, warnings } = useTOGCalculation({
+  const { aanbevolenTOGRange, totaleTOG, jouwTOG = 0, adviesKleding, status, warnings } = useTOGCalculation({
     kamerTemp,
     slaapzakTOG: effectiveSlaapzakTOG,
     gekozenKleding,
@@ -239,7 +240,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
 
           {kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP && (
             <InlineAlert tone="info" icon={<Snowflake className="w-4 h-4" />}>
-              Onder 16°C: verhoog kamertemperatuur of gebruik 3.5 TOG slaapzak met warme kleding.
+              Onder 16°C: verwarm liefst de kamer, of gebruik een 3.5 TOG slaapzak met een romper met lange mouw en een slaappakje eronder.
             </InlineAlert>
           )}
           {kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP && (
@@ -442,18 +443,23 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
               <p className="text-xs text-text-secondary mb-5">{renderStatusTekst(status.tekst)}</p>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] uppercase tracking-wide text-text-secondary">Jouw TOG</div>
-                  <div className="text-3xl font-bold text-text-primary leading-none">{totaleTOG.toFixed(1)}</div>
+                  <div className="text-[10px] uppercase tracking-wide text-text-secondary">{jouwLabel}</div>
+                  <div className="text-3xl font-bold text-text-primary leading-none">{jouwTOG.toFixed(1)}</div>
                 </div>
                 <div className="h-px bg-border" />
                 <div className="flex items-center justify-between">
-                  <div className="text-[10px] uppercase tracking-wide text-text-secondary">Advies</div>
+                  <div className="text-[10px] uppercase tracking-wide text-text-secondary">Advies slaapzak</div>
                   <div className="text-3xl font-bold text-primary leading-none">
                     {aanbevolenTOGRange.min === aanbevolenTOGRange.max
                       ? aanbevolenTOGRange.ideal.toFixed(1)
                       : `${aanbevolenTOGRange.min.toFixed(1)}–${aanbevolenTOGRange.max.toFixed(1)}`}
                   </div>
                 </div>
+                {adviesKleding && (
+                  <p className="text-xs text-text-secondary">
+                    Eronder: {adviesKleding.toLowerCase()}. De TOG van een slaapzak geldt met gewone nachtkleding eronder, zo rekenen de fabrikanten ook.
+                  </p>
+                )}
               </div>
             </div>
           </div>
@@ -480,7 +486,7 @@ export default function TOGCalculatorV3({ titleTag = 'h2' }: { titleTag?: 'h1' |
               <div className="flex items-center gap-4 flex-shrink-0">
                 <div className="text-center">
                   <div className="text-[10px] uppercase tracking-wide text-text-secondary">Jouw</div>
-                  <div className="text-xl font-bold text-text-primary leading-none">{totaleTOG.toFixed(1)}</div>
+                  <div className="text-xl font-bold text-text-primary leading-none">{jouwTOG.toFixed(1)}</div>
                 </div>
                 <div className="w-px h-8 bg-border" />
                 <div className="text-center">

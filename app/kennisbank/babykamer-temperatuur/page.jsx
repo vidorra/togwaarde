@@ -130,8 +130,8 @@ export default function BabykamerTemperatuurPage() {
               extreme TOG-waarden te kiezen.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Blijf per kind onder de 4.0 TOG totaal (slaapzak plus kleding samen), ook als één kindje het net wat warmer lijkt te
-              hebben.
+              Stapel per kind niet te veel lagen: een warme slaapzak met een dikke pyjama en een vestje is snel te warm, ook als
+              één kindje het net wat kouder lijkt te hebben.
             </p>
 
             <div className="relative p-6 lg:p-8 rounded-2xl flex items-start gap-4 bg-accent/5 overflow-hidden before:content-[''] before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-accent my-8">

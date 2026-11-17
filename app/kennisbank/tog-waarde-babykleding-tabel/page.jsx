@@ -5,7 +5,7 @@ import AffiliateProductWidget from '../../../components/AffiliateProductWidget'
 
 export const metadata = {
   title: 'TOG-waarde Babykleding Tabel: Complete Referentie | TOGWaarde.nl',
-  description: 'Complete referentietabel met TOG-waardes van alle babykledingstukken. Van rompertje tot pyjama - weet exact hoeveel isolatie elk kledingstuk biedt.',
+  description: 'Complete referentietabel met TOG-waardes van alle babykledingstukken. Van rompertje tot pyjama, met per kamertemperatuur welke kleding onder de slaapzak past.',
   keywords: 'TOG waarde babykleding, kleding TOG tabel, romper TOG waarde, pyjama TOG waarde, babykleding isolatie'
 }
 
@@ -31,7 +31,7 @@ export default function TOGWaardeBabykledingTabelPage() {
             TOG-waarde Babykleding Tabel
           </h1>
           <p className="text-lg text-gray-600">
-            Complete referentietabel met TOG-waardes van alle babykledingstukken voor het samenstellen van de perfecte outfit.
+            Referentietabel met TOG-waardes van babykleding, ter indicatie, en welke kleding onder de slaapzak past.
           </p>
           <p className="mt-3 text-sm text-gray-600">
             Alles over de{" "}
@@ -44,21 +44,20 @@ export default function TOGWaardeBabykledingTabelPage() {
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4">Hoe gebruik je deze tabel?</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Deze overzichtelijke tabel helpt je bij het combineren van kledinglagen onder de slaapzak.
-              Tel de TOG-waardes van de kledingstukken op bij de TOG-waarde van de slaapzak om de
-              totale isolatie te berekenen.
+              Deze tabel geeft per kledingstuk een TOG-waarde ter indicatie, zodat je ziet welk stuk warmer is dan
+              het andere. Je telt ze niet op bij de slaapzak: fabrikanten bepalen de TOG van een slaapzak al met
+              gewone nachtkleding eronder. Kies eerst de slaapzak bij de kamertemperatuur en laat de kleding daarop volgen.
             </p>
 
             <div className="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Rekenvoorbeeld</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Voorbeeld</h3>
               <p className="text-gray-700 leading-relaxed mb-2">
                 <strong>Situatie:</strong> Babykamer is 18°C
               </p>
               <ul className="list-disc pl-6 space-y-1 text-gray-700">
-                <li>Rompertje korte mouw (0.2 TOG)</li>
-                <li>+ Lange pyjama (0.5 TOG)</li>
-                <li>+ Slaapzak 2.5 TOG</li>
-                <li>= Totaal 3.2 TOG (perfect voor 18°C)</li>
+                <li>Slaapzak 2.5 TOG</li>
+                <li>Eronder een romper met lange mouw</li>
+                <li>Wordt het kouder dan 18°C, doe dan een dun pakje over de romper</li>
               </ul>
             </div>
 
@@ -144,15 +143,15 @@ export default function TOGWaardeBabykledingTabelPage() {
                   <div>
                     <p className="text-sm text-gray-900 font-semibold mb-1">Let op: Gevoerde Pyjama's</p>
                     <p className="text-sm text-gray-700">
-                      Een gevoerde pyjama (1.5 TOG) met een TOG 2.5 slaapzak geeft 4.0+ totaal TOG. Dit kan te warm zijn voor de meeste baby's.
-                      Gebruik een gevoerde pyjama alleen bij extreem koude kamers (onder 16°C: verwarm liever de kamer) of kies voor een lagere TOG slaapzak.
+                      Een warme slaapzak met een gevoerde pyjama is snel te warm. Onder een slaapzak volstaat een romper, met bij koude
+                      kamers een dun pakje erover. Is de kamer echt koud (onder 16°C), kies dan een 3.5 TOG slaapzak of verwarm de kamer iets, in plaats van dikkere kleding.
                     </p>
                   </div>
                 </div>
               </div>
               <div className="bg-primary/5 border border-primary/20 rounded-xl p-4 mt-4">
                 <p className="text-sm text-gray-700">
-                  Dekens en lakens tellen niet mee in deze TOG-optelling en horen in de zomer niet in bed; gebruik ze niet los bij een baby.
+                  Dekens en lakens staan niet in deze tabel. Gebruik ze niet los bij een baby; een slaapzak is veiliger.
                 </p>
               </div>
             </div>
@@ -200,49 +199,45 @@ export default function TOGWaardeBabykledingTabelPage() {
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
                 <li>TOG-waardes zijn geschatte gemiddelden en kunnen per merk verschillen</li>
                 <li>Let op het materiaal: natuurlijke vezels ademen beter dan synthetisch</li>
-                <li>Bij twijfel: voeg geen extra laag toe maar verhoog de TOG van de slaapzak</li>
+                <li>Bij twijfel: pas eerst de slaapzak aan, dan pas de kleding</li>
                 <li>Controleer altijd de nektemperatuur na 30 minuten slapen</li>
               </ul>
             </div>
 
             <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 mb-4 mt-8">Praktische Combinaties</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Deze combinaties werken goed in verschillende temperatuurzones:
+              Zo ziet het advies eruit per kamertemperatuur:
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-8">
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="font-semibold text-gray-900 mb-2">Zomer (24°C+)</div>
+                <div className="font-semibold text-gray-900 mb-2">Warm (24 tot 26°C)</div>
                 <div className="text-sm text-gray-700">
-                  • Body korte mouw (0.1)<br/>
-                  • + Slaapzak 0.5 TOG<br/>
-                  • = Totaal 0.6 TOG
+                  • Slaapzak 0.5 TOG<br/>
+                  • Eronder alleen een luier<br/>
+                  • Vanaf 27°C: geen slaapzak, alleen een luier
                 </div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="font-semibold text-gray-900 mb-2">Tussenseizoen (20°C)</div>
+                <div className="font-semibold text-gray-900 mb-2">Tussenseizoen (20 tot 21°C)</div>
                 <div className="text-sm text-gray-700">
-                  • Romper lange mouw (0.3)<br/>
-                  • + Slaapzak 1.0 TOG<br/>
-                  • = Totaal 1.3 TOG
+                  • Slaapzak 1.0 TOG<br/>
+                  • Eronder een romper met korte mouw
                 </div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="font-semibold text-gray-900 mb-2">Winter (18°C)</div>
+                <div className="font-semibold text-gray-900 mb-2">Winter (18 tot 19°C)</div>
                 <div className="text-sm text-gray-700">
-                  • Romper korte mouw (0.2)<br/>
-                  • + Lange pyjama (0.5)<br/>
-                  • + Slaapzak 2.5 TOG<br/>
-                  • = Totaal 3.2 TOG
+                  • Slaapzak 2.5 TOG<br/>
+                  • Eronder een romper met lange mouw
                 </div>
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-4">
-                <div className="font-semibold text-gray-900 mb-2">Zeer Koud (15°C)</div>
+                <div className="font-semibold text-gray-900 mb-2">Koud (onder 16°C)</div>
                 <div className="text-sm text-gray-700">
-                  • Body lange mouw (0.2)<br/>
-                  • + Lange pyjama (0.5)<br/>
-                  • + Slaapzak 3.5 TOG<br/>
-                  • = Totaal 4.2 TOG
+                  • Slaapzak 3.5 TOG<br/>
+                  • Eronder een romper met lange mouw<br/>
+                  • Plus een dun pakje
                 </div>
               </div>
             </div>
@@ -261,7 +256,7 @@ export default function TOGWaardeBabykledingTabelPage() {
             Laat de Calculator het Werk Doen
           </h3>
           <p className="text-gray-600 mb-6">
-            Geen zin om te rekenen? Onze calculator vertelt je precies wat je baby moet dragen.
+            Stel de kamertemperatuur in en zie welke slaapzak en welke kleding erbij passen.
           </p>
           <Link
             href="/"
@@ -295,7 +290,7 @@ export default function TOGWaardeBabykledingTabelPage() {
               className="p-4 rounded-lg border border-gray-200 hover:border-primary transition-colors"
             >
               <div className="font-medium text-gray-900 mb-1">TOG-waarde Berekenen</div>
-              <div className="text-sm text-gray-600">Totale TOG berekenen</div>
+              <div className="text-sm text-gray-600">De juiste slaapzak kiezen</div>
             </Link>
           </div>
         </div>

@@ -97,7 +97,7 @@ export default function TogMythesEnFeitenPage() {
             />
             <Mythe
               mythe="Bij 2.0 TOG kun je de calculator niet gebruiken"
-              feit="Tussenwaardes bestaan gewoon. Behandel 2.0 TOG als een iets lichtere 2.5 en tel de kleding erbij op. De totale combinatie telt, niet het losse label."
+              feit="Tussenwaardes bestaan gewoon. Behandel 2.0 TOG als een iets lichtere 2.5 en kies de kleding eronder iets warmer als het kouder wordt. Voel in het nekje of het klopt."
             />
             <Mythe
               mythe="Vroeger sliepen baby's op hun buik, dat mag best"

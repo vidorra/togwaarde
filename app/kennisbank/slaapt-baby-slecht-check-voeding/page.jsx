@@ -89,7 +89,7 @@ export default function SlaaptBabySlechtCheckVoedingPage() {
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-green-700 flex-shrink-0 mt-0.5" />
-                <span>Totale TOG-waarde past bij de temperatuur</span>
+                <span>Slaapzak en kleding passen bij de temperatuur</span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-green-700 flex-shrink-0 mt-0.5" />

@@ -145,7 +145,7 @@ export default function TOGWaardePerLeeftijdPage() {
               <div className="flex-1">
                 <p className="text-base font-semibold text-gray-900 mb-4">Onthoud:</p>
                 <div className="text-base text-gray-700">
-                  De ideale kamertemperatuur voor babyslaap ligt tussen 16 en 18°C. De totale isolatie (slaapzak plus kleding) blijft bij voorkeur onder de 4.0 TOG om oververhitting te voorkomen. Meet de temperatuur met een thermometer en laat de TOG daarop volgen, niet op de leeftijd.
+                  De ideale kamertemperatuur voor babyslaap ligt tussen 16 en 18°C. Stapel niet te veel lagen: een warme slaapzak met een dikke pyjama en een vestje is snel te warm. Meet de temperatuur met een thermometer en laat de TOG daarop volgen, niet op de leeftijd.
                 </div>
               </div>
             </div>

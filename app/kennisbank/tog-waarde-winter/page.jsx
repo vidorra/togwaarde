@@ -76,7 +76,7 @@ export default function TOGWaardeWinterPage() {
               </div>
               <div className="bg-secondary/10 border border-secondary/20 rounded-xl p-6">
                 <h4 className="font-semibold text-gray-900 mb-2">Onder 15°C - Zeer Koud</h4>
-                <p className="text-sm text-gray-700">TOG 3.5 slaapzak + dikke pyjama + rompertje (of verhoog eerst de kamertemperatuur)</p>
+                <p className="text-sm text-gray-700">TOG 3.5 slaapzak + slaappakje + rompertje (of verhoog eerst de kamertemperatuur)</p>
               </div>
               <div className="bg-accent/10 border border-accent/20 rounded-xl p-4">
                 <div className="flex items-start gap-2">
