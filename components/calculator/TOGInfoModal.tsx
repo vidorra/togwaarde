@@ -1,6 +1,7 @@
 'use client'
 
 import { memo, useEffect, useRef } from 'react'
+import type { JSX } from 'react'
 import type { TOGInfoModalProps } from '../../lib/tog-types'
 
 /**

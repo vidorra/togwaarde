@@ -1,5 +1,6 @@
 'use client'
 import { memo } from 'react'
+import type { JSX } from 'react'
 import { Check, AlertTriangle, Info, Layers, HelpCircle } from 'lucide-react'
 import InfoTooltip from '../InfoTooltip'
 import {

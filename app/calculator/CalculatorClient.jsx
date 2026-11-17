@@ -82,13 +82,13 @@ export default function HomePage() {
 
             {/* CTAs, same banner as the home page (reverse ↔ forward switch) */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary border-2 border-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-primary/5 transition-colors"
               >
                 <Calculator className="w-5 h-5" />
                 <span>Bekijk het kledingadvies</span>
-              </a>
+              </Link>
               <button
                 onClick={scrollToCalc}
                 className="inline-flex items-center gap-2 sm:gap-3 bg-primary hover:bg-primary-hover text-white font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full transition-colors"

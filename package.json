@@ -28,20 +28,20 @@
     "jsdom": "^27.0.0",
     "jsonwebtoken": "^9.0.2",
     "jspdf": "^4.2.1",
-    "lucide-react": "^0.309.0",
-    "next": "^14.0.0",
+    "lucide-react": "^1.74.0",
+    "next": "^15.5.29",
     "pg": "^8.16.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.4.17",
     "eslint": "^8.0.0",
-    "eslint-config-next": "^14.0.0",
+    "eslint-config-next": "^15.5.29",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.0.0"
@@ -56,5 +56,10 @@
     "nederland"
   ],
   "author": "TOGWaarde.nl",
-  "license": "MIT"
+  "license": "MIT",
+  "overrides": {
+    "next": {
+      "postcss": "^8.5.33"
+    }
+  }
 }

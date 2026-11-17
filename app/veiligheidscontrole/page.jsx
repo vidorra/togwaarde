@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Layout from '../../components/Layout'
 import { ShieldCheck, AlertTriangle, Info, CheckCircle, Thermometer, Baby, Heart, Eye } from 'lucide-react'
 
@@ -233,12 +234,12 @@ export default function VeiligheidscontrolePage() {
             <p className="text-base lg:text-lg opacity-90 mb-6">
               Gebruik onze calculator om de perfecte slaapzak en kleding voor je baby te bepalen
             </p>
-            <a
+            <Link
               href="/"
               className="inline-flex items-center gap-2 sm:gap-3 bg-white text-primary font-medium px-6 sm:px-8 py-3 text-sm sm:text-base rounded-full hover:bg-gray-100 transition-colors"
             >
               <span>Naar TOG Calculator</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

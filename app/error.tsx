@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import type { JSX } from 'react'
 import Layout from '../components/Layout'
 import Link from 'next/link'
 import { AlertTriangle, RefreshCcw, Home, RotateCcw } from 'lucide-react'

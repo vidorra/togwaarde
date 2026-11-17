@@ -18,7 +18,7 @@ export async function GET(request, { params }) {
     }
 
     const { website } = verifyAdminAndGetWebsite(request)
-    const pageId = params.pageId
+    const { pageId } = await params
 
     // CRITICAL: First verify that the page belongs to the current website
     const page = await db
@@ -80,7 +80,7 @@ export async function POST(request, { params }) {
 
     const { website } = verifyAdminAndGetWebsite(request)
 
-    const pageId = params.pageId
+    const { pageId } = await params
     const body = await request.json()
     const { snippetId, order } = body
 
@@ -186,7 +186,7 @@ export async function DELETE(request, { params }) {
 
     const { website } = verifyAdminAndGetWebsite(request)
 
-    const pageId = params.pageId
+    const { pageId } = await params
     const { searchParams } = new URL(request.url)
     const snippetId = searchParams.get('snippetId')
 

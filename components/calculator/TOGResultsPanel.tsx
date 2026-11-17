@@ -1,5 +1,6 @@
 'use client'
 import { memo } from 'react'
+import type { JSX } from 'react'
 import { Check, AlertTriangle, Info } from 'lucide-react'
 import { KLEDING_WAARDEN, DEKEN_WAARDEN } from '../../lib/tog-constants'
 import type { TOGResultsPanelProps, TOGWarning, StatusKleur } from '../../lib/tog-types'

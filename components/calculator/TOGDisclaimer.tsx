@@ -1,6 +1,7 @@
 'use client'
 
 import { memo } from 'react'
+import type { JSX } from 'react'
 
 /**
  * TOGDisclaimer - Footer disclaimer voor de calculator

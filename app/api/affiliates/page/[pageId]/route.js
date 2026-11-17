@@ -37,7 +37,7 @@ export async function GET(request, { params }) {
   }
 
   try {
-    const pageId = params.pageId
+    const { pageId } = await params
     // CRITICAL: Detect website from hostname to filter results
     const website = detectWebsiteFromHostname(request)
 
