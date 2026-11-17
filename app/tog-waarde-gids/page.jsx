@@ -4,11 +4,11 @@ import AffiliateProductWidget from '../../components/AffiliateProductWidget'
 import { BookOpen, Book, ThermometerSun, Snowflake, Sun, AlertCircle, Activity, Info, ArrowRight, ChevronRight, Shirt } from 'lucide-react'
 import { generateFAQSchema, generateBreadcrumbSchema } from '../../lib/structured-data'
 import { KLEDING_WAARDEN, SLAAPZAK_TOG_OPTIES } from '../../lib/tog-constants'
-import { TEMP_BANDEN, getReverseAdvies, kledingNamen, totaalTOG, tempBereikVoorSlaapzak } from '../../lib/tog-advies'
+import { TEMP_BANDEN, getReverseAdvies, kledingNamen, tempBereikVoorSlaapzak } from '../../lib/tog-advies'
 
 export const metadata = {
   title: 'TOG-waarde: uitleg en tabel per temperatuur | TOGWaarde.nl',
-  description: 'Wat is de TOG-waarde en welke slaapzak past bij jouw babykamer? Tabel per kamertemperatuur met slaapzak, kleding eronder en totale TOG.',
+  description: 'Wat is de TOG-waarde en welke slaapzak past bij jouw babykamer? Tabel per kamertemperatuur met slaapzak en kleding eronder.',
   keywords: 'tog waarde, wat is tog, tog betekenis, tog tabel, tog waarde slaapzak, tog per temperatuur, tog waarde baby',
   alternates: { canonical: '/tog-waarde-gids/' },
 }
@@ -24,7 +24,6 @@ const rijen = TEMP_BANDEN.map((band) => {
     label: band.label,
     slaapzak: advies.geenSlaapzak ? 'Geen slaapzak' : `${advies.slaapzakTOG.toFixed(1)} TOG`,
     kleding: kledingNamen(advies),
-    totaal: totaalTOG(advies),
   }
 })
 
@@ -46,11 +45,11 @@ const faqs = [
   },
   {
     question: 'Welke TOG-waarde bij 18 graden?',
-    answer: `Bij een slaapkamer van 18 tot 19°C past een slaapzak van ${advies18.slaapzakTOG} TOG met een ${kledingNamen(advies18).toLowerCase()} eronder. Samen is dat ongeveer ${totaalTOG(advies18)} TOG.`,
+    answer: `Bij een slaapkamer van 18 tot 19°C past een slaapzak van ${advies18.slaapzakTOG} TOG met een ${kledingNamen(advies18).toLowerCase()} eronder.`,
   },
   {
     question: 'Welke TOG-waarde bij 16 graden?',
-    answer: `Bij 16 tot 17°C past een slaapzak van ${advies16.slaapzakTOG} TOG met een ${kledingNamen(advies16).toLowerCase()} eronder, samen ongeveer ${totaalTOG(advies16)} TOG. Is het kouder dan 16°C, verwarm dan liever de kamer iets dan dat je meer lagen aantrekt.`,
+    answer: `Bij 16 tot 17°C past een slaapzak van ${advies16.slaapzakTOG} TOG met een ${kledingNamen(advies16).toLowerCase()} eronder. Is het kouder dan 16°C, verwarm dan liever de kamer iets dan dat je meer lagen aantrekt.`,
   },
   {
     question: 'Is TOG hetzelfde bij alle merken?',
@@ -127,7 +126,7 @@ export default function TOGWaardeGidsPage() {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">TOG-tabel per kamertemperatuur</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               Meet de temperatuur in de slaapkamer, niet in de woonkamer, en zoek de rij die erbij past.
-              Het totaal is slaapzak plus kleding plus luier.
+              De TOG-waarde van een slaapzak geldt met gewone nachtkleding eronder, zo rekenen de fabrikanten ook.
             </p>
 
             <div className="overflow-x-auto">
@@ -137,7 +136,6 @@ export default function TOGWaardeGidsPage() {
                     <th className="p-4 text-left font-semibold">Kamertemperatuur</th>
                     <th className="p-4 text-left font-semibold">Slaapzak</th>
                     <th className="p-4 text-left font-semibold">Kleding eronder</th>
-                    <th className="p-4 text-left font-semibold">Totaal</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -146,7 +144,6 @@ export default function TOGWaardeGidsPage() {
                       <td className="p-4 font-medium">{rij.label}</td>
                       <td className="p-4">{rij.slaapzak}</td>
                       <td className="p-4 text-gray-700">{rij.kleding}</td>
-                      <td className="p-4 text-gray-700">{rij.totaal.toFixed(1)} TOG</td>
                     </tr>
                   ))}
                 </tbody>
@@ -157,7 +154,7 @@ export default function TOGWaardeGidsPage() {
               <p className="text-gray-800">
                 <Info className="w-5 h-5 inline mr-2 text-primary" />
                 Dit is een richtlijn. Voel na een half uur in het nekje of aan de rug: lauwwarm en droog is goed,
-                zweterig is te warm. Houd het totaal altijd onder de 4.0 TOG.
+                zweterig is te warm. Kies bij twijfel een laagje minder.
               </p>
             </div>
 
@@ -227,8 +224,8 @@ export default function TOGWaardeGidsPage() {
           <section id="kleding" className="mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Kleding onder de slaapzak</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              Kleding telt mee in het totaal. Deze waarden zijn schattingen op basis van stof en dikte:
-              fabrikanten geven voor losse kleding geen TOG-waarde op.
+              Fabrikanten rekenen de TOG van een slaapzak met gewone nachtkleding eronder, zoals een romper en een slaappakje.
+              Ter indicatie hoe warm losse kleding is (schattingen op basis van stof en dikte, fabrikanten geven hier geen TOG-waarde voor op):
             </p>
             <ul className="space-y-3 max-w-xl">
               {Object.values(KLEDING_WAARDEN).map((k) => (
@@ -328,7 +325,7 @@ export default function TOGWaardeGidsPage() {
             <ul className="space-y-4">
               <li>
                 <h3 className="font-semibold text-gray-900">Te veel lagen</h3>
-                <p className="text-gray-700">Een warme slaapzak én een pyjama én een vestje tellen snel op tot boven de 4.0 TOG. Pas eerst de slaapzak aan, dan pas de kleding.</p>
+                <p className="text-gray-700">Een warme slaapzak én een pyjama én een vestje is snel te warm. Pas eerst de slaapzak aan, dan pas de kleding.</p>
               </li>
               <li>
                 <h3 className="font-semibold text-gray-900">De temperatuur schatten</h3>

@@ -18,7 +18,7 @@ import {
   SAFETY_LIMITS,
   KLEDING_WAARDEN
 } from '../../lib/tog-constants'
-import { getRange, getReverseAdvies } from '../../lib/tog-advies'
+import { getReverseAdvies } from '../../lib/tog-advies'
 import AffiliateProductWidget from '../AffiliateProductWidget'
 import { trackCalculatorUsage } from '../../lib/analytics'
 
@@ -84,7 +84,6 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
   }, [kamerTemp])
 
   const advies = getReverseAdvies(kamerTemp)
-  const range = getRange(kamerTemp)
   const isWarm = kamerTemp > SAFETY_LIMITS.MAX_ROOM_TEMP
   const isKoud = kamerTemp < SAFETY_LIMITS.MIN_ROOM_TEMP
   const tempLabel = kamerTemp >= TEMP_SLIDER_CONFIG.max ? `${kamerTemp}°C+` : `${kamerTemp}°C`
@@ -205,7 +204,7 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
         </div>
 
         <p className="text-xs text-text-secondary text-center mt-4">
-          Aanbevolen totaal {range.min.toFixed(1)}–{range.max.toFixed(1)} TOG · veilig tot 4.0 TOG (NHS / VeiligheidNL)
+          De TOG van een slaapzak geldt met gewone nachtkleding eronder, zo rekenen de fabrikanten ook.
         </p>
 
         {/* Safety note */}
@@ -231,7 +230,7 @@ export default function ReverseCalculator({ titleTag = 'h2', affiliatePageId = '
         {isKoud && (
           <div className="mt-3 p-3 rounded-xl bg-blue-50 border border-blue-200 flex items-start gap-2 text-sm text-blue-800">
             <Snowflake className="w-4 h-4 mt-0.5 flex-shrink-0" />
-            <span>Onder 16°C: verhoog liefst de kamertemperatuur. Gebruik anders een 3.5 TOG slaapzak met warme kleding eronder.</span>
+            <span>Onder 16°C: verhoog liefst de kamertemperatuur. Gebruik anders een 3.5 TOG slaapzak met een romper met lange mouw en een slaappakje eronder.</span>
           </div>
         )}
       </div>

@@ -21,17 +21,21 @@ export function getRange(temp: number) {
   return TOG_RECOMMENDATIONS[TOG_RECOMMENDATIONS.length - 1].range
 }
 
-// Slaapzak + kleding (incl. luier 0.1) blijft binnen het aanbevolen bereik
-// en altijd ruim onder de 4.0 TOG veiligheidsgrens. Totalen ter controle:
-// 27+ →0.1 · 24-26 →0.6 · 22-23 →0.8 · 20-21 →1.3 · 18-19 →2.8 · 16-17 →3.4 · <16 →3.6
+// Slaapzak-TOG per kamertemperatuur volgens de fabrikantentabellen
+// (Love to Dream: 2.5 TOG bij 16-20°C, 3.5 TOG onder 16°C; 1.0 bij 20-24°C).
+// De TOG van een slaapzak geldt mét gewone nachtkleding eronder: de tabellen
+// zetten onder een 3.5 TOG een romper met lange mouw plus een slaappakje,
+// onder een 2.5 TOG een romper met lange mouw (koelere kant: plus slaappakje).
+// We tellen kleding dus niet op tot een "totaal": dat gaf onder 16°C het
+// onzinnige advies "3.5 TOG met alleen een luier" (gecorrigeerd 17-11-2026).
 export function getReverseAdvies(temp: number): ReverseAdvies {
   if (temp >= 27) return { slaapzakTOG: 0, kleding: ['luier'], geenSlaapzak: true }
   if (temp >= 24) return { slaapzakTOG: 0.5, kleding: ['luier'] }
   if (temp >= 22) return { slaapzakTOG: 0.5, kleding: ['korte_romper'] }
   if (temp >= 20) return { slaapzakTOG: 1.0, kleding: ['korte_romper'] }
-  if (temp >= 18) return { slaapzakTOG: 2.5, kleding: ['korte_romper'] }
-  if (temp >= 16) return { slaapzakTOG: 2.5, kleding: ['lange_romper'] }
-  return { slaapzakTOG: 3.5, kleding: ['luier'] }
+  if (temp >= 18) return { slaapzakTOG: 2.5, kleding: ['lange_romper'] }
+  if (temp >= 16) return { slaapzakTOG: 2.5, kleding: ['lange_romper', 'dun_slaappak'] }
+  return { slaapzakTOG: 3.5, kleding: ['lange_romper', 'dun_slaappak'] }
 }
 
 // De temperatuurbanden waarop het advies wisselt, voor tabellen
@@ -68,11 +72,4 @@ export function kledingNamen(advies: ReverseAdvies): string {
   if (advies.kleding.length === 1 && advies.kleding[0] === 'luier') return 'Alleen een luier'
   // De luier zit altijd onder de kleding; alleen de kleding zelf noemen
   return advies.kleding.map((k) => KLEDING_WAARDEN[k]?.naam || k).join(' + ')
-}
-
-// Totale TOG inclusief luier (0.1), afgerond op één decimaal
-export function totaalTOG(advies: ReverseAdvies): number {
-  const kleding = advies.kleding.reduce((som, k) => som + (KLEDING_WAARDEN[k]?.TOG || 0), 0)
-  const luier = advies.kleding.includes('luier') ? 0 : KLEDING_WAARDEN.luier.TOG
-  return Math.round((advies.slaapzakTOG + kleding + luier) * 10) / 10
 }

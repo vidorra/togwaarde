@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { getProductsByCategory, getProductsByIds } from './affiliate-products.js'
 import { trackEvent } from '../lib/analytics'
+import { filterOpTog } from '../lib/togVolgorde.js'
 
 // Affiliate-klik loggen: analytics-event (GA4/Umami) + anonieme beacon naar
 // de gedeelde click_events tabel zodat /admin/stats kliks per snippet toont.
@@ -148,16 +149,11 @@ export default function AffiliateProductWidget({
     return () => { cancelled = true }
   }, [pageId, category, productIds])
 
-  // Optioneel filteren op TOG-tag (bv. "2.5"). Matcht niets, dan alle
-  // producten tonen zodat de sectie nooit leeg is.
-  const matchesTag = (p) => {
-    if (!filterTag) return true
-    const m = String(p.tag || '').replace(',', '.').match(/\d+(\.\d+)?/)
-    if (!m) return false
-    return Math.abs(parseFloat(m[0]) - parseFloat(filterTag)) < 0.01
-  }
-  const tagFiltered = filterTag ? products.filter(matchesTag) : products
-  const base = (filterTag && tagFiltered.length === 0) ? products : tagFiltered
+  // Optioneel filteren op TOG (bv. "3.5"). Leest de tag als bereik, dus
+  // "TOG 2.5 tot 3.5" telt mee bij 2.5 én 3.5. Past er niets, dan alles
+  // met de dichtstbijzijnde TOG eerst, zodat de sectie nooit leeg is.
+  const filterTog = filterTag ? parseFloat(String(filterTag).replace(',', '.')) : NaN
+  const base = Number.isFinite(filterTog) ? filterOpTog(products, filterTog) : products
   const displayProducts = pageId ? base : (maxProducts ? base.slice(0, maxProducts) : base)
 
   if (loading) {
