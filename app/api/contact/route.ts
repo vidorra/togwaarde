@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
-import { headers } from 'next/headers'
 import { rateLimitMiddleware, getClientIP } from '../../../lib/rate-limiter'
+import { readJsonCapped } from '../../../lib/read-body.js'
 import { verifyRecaptcha, validateContactInput, getEmailJSConfig } from '../../../lib/api-validation'
 import type { NextRequest } from 'next/server'
 
@@ -118,16 +118,35 @@ export async function POST(request: NextRequest) {
     }
 
     // Get client info for logging
-    const headersList = headers()
     const ip = getClientIP(request)
-    const userAgent = headersList.get('user-agent') || 'unknown'
+    const userAgent = request.headers.get('user-agent') || 'unknown'
 
-    // Parse request body
-    const body = (await request.json()) as Record<string, unknown>
+    // Parse request body (bericht max 5000 tekens, 32 KB is ruim)
+    const { tooLarge, data } = await readJsonCapped(request, 32 * 1024)
+    if (tooLarge) {
+      return NextResponse.json(
+        { error: 'Bericht is te groot' },
+        { status: 413, headers: rateLimit.headers }
+      )
+    }
+    if (!data || typeof data !== 'object' || Array.isArray(data)) {
+      return NextResponse.json(
+        { error: 'Ongeldig verzoek' },
+        { status: 400, headers: rateLimit.headers }
+      )
+    }
+    const body = data as Record<string, unknown>
 
-    // Verify reCAPTCHA if token provided
-    if (body.recaptchaToken) {
-      const recaptchaResult = await verifyRecaptcha(body.recaptchaToken as string)
+    // reCAPTCHA is verplicht zodra RECAPTCHA_SECRET_KEY gezet is; zonder token
+    // werd de controle eerder gewoon overgeslagen.
+    if (process.env.RECAPTCHA_SECRET_KEY || body.recaptchaToken) {
+      if (typeof body.recaptchaToken !== 'string' || !body.recaptchaToken) {
+        return NextResponse.json(
+          { error: 'Beveiligingsvalidatie mislukt' },
+          { status: 400, headers: rateLimit.headers }
+        )
+      }
+      const recaptchaResult = await verifyRecaptcha(body.recaptchaToken)
 
       if (!recaptchaResult.success) {
         console.log('reCAPTCHA verification failed:', recaptchaResult)

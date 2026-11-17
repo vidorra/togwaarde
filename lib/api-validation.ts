@@ -46,7 +46,7 @@ export async function verifyRecaptcha(token: string): Promise<RecaptchaResult> {
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      body: `secret=${secretKey}&response=${token}`,
+      body: new URLSearchParams({ secret: secretKey, response: token }).toString(),
     })
 
     const data = await response.json() as RecaptchaResult
