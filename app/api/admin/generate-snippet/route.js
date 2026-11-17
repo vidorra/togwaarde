@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { fetchPrice, generatePriceHtml } from '../../../../lib/price-fetcher.js'
 import { verifyAdminAndGetWebsite } from '../../../../lib/jwt-utils.js'
+import { assertPubliekeUrl, veiligFetch } from '../../../../lib/safe-fetch.js'
 
 // Force dynamic route
 export const dynamic = 'force-dynamic'
@@ -35,33 +36,31 @@ function extractAmazonASIN(url) {
   return null
 }
 
-// Follow redirects to get final URL
+// Follow redirects to get final URL. Elke hop gaat eerst langs
+// assertPubliekeUrl; een intern adres breekt af met een fout.
 async function followRedirects(shortUrl, maxRedirects = 5) {
-  let currentUrl = shortUrl
+  let currentUrl = String(await assertPubliekeUrl(shortUrl))
   let redirectCount = 0
-  
+
   while (redirectCount < maxRedirects) {
+    let locationHeader = null
     try {
-      const response = await fetch(currentUrl, { 
-        method: 'HEAD', 
-        redirect: 'manual' 
+      const response = await fetch(currentUrl, {
+        method: 'HEAD',
+        redirect: 'manual'
       })
-      
       if (response.status >= 300 && response.status < 400) {
-        const locationHeader = response.headers.get('location')
-        if (locationHeader) {
-          currentUrl = locationHeader
-          redirectCount++
-          continue
-        }
+        locationHeader = response.headers.get('location')
       }
-      
-      break
-    } catch (error) {
+    } catch {
       break
     }
+    if (!locationHeader) break
+
+    currentUrl = String(await assertPubliekeUrl(new URL(locationHeader, currentUrl)))
+    redirectCount++
   }
-  
+
   return currentUrl
 }
 
@@ -71,7 +70,7 @@ async function fetchAmazonProductDetails(asin, finalUrl) {
     console.log('Fetching Amazon product details for ASIN:', asin)
     
     // Try to fetch the Amazon page
-    const response = await fetch(finalUrl, {
+    const response = await veiligFetch(finalUrl, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
         'Accept-Language': 'en-US,en;q=0.9,nl;q=0.8'
@@ -210,7 +209,13 @@ export async function POST(request) {
         { status: 400 }
       )
     }
-    
+
+    try {
+      await assertPubliekeUrl(url)
+    } catch (error) {
+      return NextResponse.json({ message: error.message }, { status: 400 })
+    }
+
     if (type === 'amazon') {
       try {
         // Follow redirects to get the final Amazon URL
@@ -311,7 +316,7 @@ export async function POST(request) {
         
         // Try to fetch the page to extract title and image
         try {
-          const response = await fetch(url, {
+          const response = await veiligFetch(url, {
             headers: {
               'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             }
