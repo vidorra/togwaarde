@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server'
 import { randomUUID } from 'crypto'
 import { sql } from 'drizzle-orm'
 import { db } from '../../../lib/db/connection.js'
-import { clickEvents } from '../../../lib/db/schema.js'
-import { ensureClickEventsTable } from '../../../lib/db/ensure-events.js'
+import { ensureClickEventsTable, ensureClickPageColumn } from '../../../lib/db/ensure-events.js'
 import { verifyAdminAndGetWebsite } from '../../../lib/jwt-utils.js'
 import { checkTrackRate, bodyTooLarge, readTrackBody } from '../../../lib/track-guard.js'
 
@@ -14,8 +13,15 @@ const WEBSITE = 'togwaarde'
 // Bound input so a bot can't pollute stats.
 const SNIPPET_ID_PATTERN = /^[A-Za-z0-9_-]{1,128}$/
 const WIDGET_PATTERN = /^[A-Za-z0-9_-]{1,64}$/
+// Alleen een pad, geen querystring of andere bezoekersdata.
+const PAGE_PATTERN = /^\/[A-Za-z0-9_\-./%]{0,200}$/
 
-// POST - record an affiliate click (anonymous: snippet + widget + timestamp,
+function safePage(v) {
+  if (typeof v !== 'string' || !PAGE_PATTERN.test(v)) return null
+  return v.endsWith('/') ? v : `${v}/`
+}
+
+// POST - record an affiliate click (anonymous: snippet + widget + page path + timestamp,
 // no IP/session). Stored in the shared click_events table so /admin/stats
 // can report across both websites.
 export async function POST(request) {
@@ -42,13 +48,12 @@ export async function POST(request) {
     }
     const safeWidget = (typeof widget === 'string' && WIDGET_PATTERN.test(widget)) ? widget : null
 
-    await ensureClickEventsTable()
-    await db.insert(clickEvents).values({
-      id: randomUUID(),
-      website: WEBSITE,
-      snippetId,
-      widget: safeWidget
-    })
+    const page = safePage(body.page)
+
+    await ensureClickPageColumn()
+    await db.execute(sql`
+      INSERT INTO click_events (id, website, snippet_id, widget, page)
+      VALUES (${randomUUID()}, ${WEBSITE}, ${snippetId}, ${safeWidget}, ${page})`)
 
     return NextResponse.json({ success: true })
   } catch (error) {

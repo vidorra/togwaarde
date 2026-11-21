@@ -9,7 +9,7 @@ import { filterOpTog } from '../lib/togVolgorde.js'
 function trackAffiliateClick(snippetId) {
   trackEvent('affiliate_click', { snippet_id: snippetId, widget: 'affiliate_widget' })
   try {
-    const body = JSON.stringify({ snippetId, widget: 'affiliate_widget' })
+    const body = JSON.stringify({ snippetId, widget: 'affiliate_widget', page: location.pathname })
     if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
       navigator.sendBeacon('/api/track-click', body)
     } else {
