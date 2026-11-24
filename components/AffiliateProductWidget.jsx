@@ -18,6 +18,21 @@ function trackAffiliateClick(snippetId) {
   } catch { /* tracking mag nooit de klik blokkeren */ }
 }
 
+// SubId op de bol-link bij het klikken: `tg_<pagina>`, max 40 tekens. Bol meldt
+// hem terug in de rapportage, zodat de admin van flesvoedingcalculator per
+// pagina ziet wat er verkocht is. Bij het klikken en niet bij het renderen,
+// anders wijkt de server-HTML af van de browser.
+function tagBolLink(anchor) {
+  try {
+    if (!anchor?.href?.includes('partner.bol.com')) return
+    let page = location.pathname.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'home'
+    if (page.length > 37) page = page.slice(page.length - 37).replace(/^-+/, '')
+    const url = new URL(anchor.href)
+    url.searchParams.set('subid', `tg_${page}`)
+    anchor.href = url.toString()
+  } catch { /* link blijft zoals hij was */ }
+}
+
 // Prijsweergave: DB-prijzen zijn soms "24.99" en soms "€ 24,99"; toon altijd
 // met euroteken zonder dubbel teken.
 function fmtPrice(price) {
@@ -43,7 +58,9 @@ function ProductCard({ product }) {
         href={href}
         target="_blank"
         rel="nofollow sponsored noopener"
-        onClick={() => trackAffiliateClick(product.id)}
+        onClick={(e) => { tagBolLink(e.currentTarget); trackAffiliateClick(product.id) }}
+        onAuxClick={(e) => tagBolLink(e.currentTarget)}
+        onContextMenu={(e) => tagBolLink(e.currentTarget)}
         className="text-center flex flex-col flex-grow hover:opacity-90 transition-opacity"
       >
         <div className="mb-3">
