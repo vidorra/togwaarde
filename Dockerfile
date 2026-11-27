@@ -1,5 +1,5 @@
 # ---- Builder: installeert alles + bouwt (wordt weggegooid) ----
-FROM node:20-alpine AS builder
+FROM node:22-alpine AS builder
 RUN apk add --no-cache tzdata
 RUN apk add --upgrade --no-cache vips-dev build-base --repository https://alpine.global.ssl.fastly.net/alpine/v3.10/community/
 
@@ -34,7 +34,7 @@ RUN npm run build
 RUN npm prune --omit=dev && rm -rf .next/cache
 
 # ---- Runner: schone image zonder compilers ----
-FROM node:20-alpine AS runner
+FROM node:22-alpine AS runner
 RUN apk add --no-cache tzdata
 
 ENV TZ=Europe/Amsterdam
