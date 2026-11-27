@@ -29,8 +29,8 @@ ENV NEXT_PUBLIC_RECAPTCHA_SITE_KEY=$NEXT_PUBLIC_RECAPTCHA_SITE_KEY
 
 RUN npm run build
 
-# DevDependencies + build-cache weggooien: houdt prod-deps (incl. drizzle-kit
-# voor de migratie bij start) over, gooit typescript/eslint/tailwind/postcss weg.
+# DevDependencies + build-cache weggooien: houdt prod-deps over (de migratie bij
+# start draait via drizzle-orm), gooit drizzle-kit/typescript/eslint/tailwind weg.
 RUN npm prune --omit=dev && rm -rf .next/cache
 
 # ---- Runner: schone image zonder compilers ----
